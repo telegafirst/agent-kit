@@ -2,6 +2,18 @@
 
 ## Agent-facing changes
 
+### 1.0.5 — 2026-09-24
+
+- `FIX-260923-3` Onboarding's service-account step now brings every bot into the tenant's supergroups even when the service account has never met that bot, so advancing `SERVICE_ACCOUNT_INVITED` completes instead of ending in a transient "peer not found" error.
+
+### 1.0.4 — not released
+
+The `v1.0.4` source tag exists, but the release stopped while building and signing images, before the manifest, the GitHub Release or this package was published; its change ships in 1.0.5.
+
+### 1.0.3 — not released
+
+The `v1.0.3` source tag exists, but the release stopped at the image scan before anything was published; its change ships in 1.0.5.
+
 ### 1.0.2 — 2026-09-23
 
 - `FIX-260923-2` A refused Hub or MCP call now names its recovery: REST errors carry `hint{reason, recovery, example?, see?}`, and MCP tool errors add one channel-neutral recovery line, so an agent can correct its call instead of guessing.
