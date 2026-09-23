@@ -2,6 +2,10 @@
 
 ## Agent-facing changes
 
+### 1.0.1 — 2026-09-23
+
+- `FIX-260923-1` Skill archive links in `skills-index.json` now point at the MCP host the platform actually announces (`mcp.telegafirst.ru` until the `.com` zone is live), so agents can download both skills from the index.
+
 ### 1.0.0 — 2026-09-20
 
 - `NEW-260920-1` First public agent-kit release: the `telegafirst-admin` and `telegafirst-onboarding-site-in-a-minute` skills, host connection guides, and release-ready package structure.

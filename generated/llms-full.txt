@@ -1,9 +1,9 @@
-Generated: 2026-09-23T05:24:59.421Z
+Generated: 2026-09-23T09:17:09.339Z
 
 ## Connect TelegaFirst MCP
-1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
+1. URL MCP: https://mcp.telegafirst.ru/api/v1/mcp
 2. Add it as a connector; OAuth runs when it is added.
-3. Full reference: https://mcp.telegafirst.com/llms-full.txt
+3. Full reference: https://mcp.telegafirst.ru/llms-full.txt
 4. Task: tell the connected agent what to set up or operate.
 Connection guides:
 - https://github.com/telegafirst/agent-kit/blob/main/docs/connect/claude-ai.md
