@@ -407,6 +407,31 @@
           "code"
         ]
       },
+      "ErrorHint": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "recovery": {
+            "type": "string",
+            "minLength": 1
+          },
+          "example": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "see": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "recovery"
+        ],
+        "additionalProperties": false
+      },
       "ProblemDetails": {
         "type": "object",
         "properties": {
@@ -450,7 +475,10 @@
               }
             ]
           },
-          "details": {}
+          "details": {},
+          "hint": {
+            "$ref": "#/components/schemas/ErrorHint"
+          }
         },
         "required": [
           "type",
