@@ -1,0 +1,6 @@
+{
+  "telegafirst": {
+    "type": "http",
+    "url": "https://mcp.telegafirst.com/api/v1/mcp"
+  }
+}

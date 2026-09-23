@@ -1,0 +1,87 @@
+Generated: 2026-09-23T05:24:59.421Z
+
+## Connect TelegaFirst MCP
+1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
+2. Add it as a connector; OAuth runs when it is added.
+3. Full reference: https://mcp.telegafirst.com/llms-full.txt
+4. Task: tell the connected agent what to set up or operate.
+Connection guides:
+- https://github.com/telegafirst/agent-kit/blob/main/docs/connect/claude-ai.md
+- https://github.com/telegafirst/agent-kit/blob/main/docs/connect/claude-code.md
+- https://github.com/telegafirst/agent-kit/blob/main/docs/connect/chatgpt.md
+- https://github.com/telegafirst/agent-kit/blob/main/docs/connect/gemini-spark.md
+- https://github.com/telegafirst/agent-kit/blob/main/docs/connect/cursor.md
+- https://github.com/telegafirst/agent-kit/blob/main/docs/connect/codex.md
+- https://github.com/telegafirst/agent-kit/blob/main/docs/connect/antigravity.md
+
+# TelegaFirst Hub API — LLM Reference
+
+## Overview
+The Hub API exposes TelegaFirst commerce, auth, and catalog data to external applications and MCP agents. All endpoints are versioned under `/api/v1`. Discovery endpoints (`/guide`, `/me`, `/openapi.json`) remain accessible to introspect the currently authenticated app.
+
+## Authentication
+- `X-Api-Key: tgf_api_<secret>` — server-to-server API key.
+- `Authorization: Bearer <jwt>` — user-scoped JWT (from `/sessions/exchange`).
+- `tgf_test_` prefix selects sandbox mode.
+
+## Endpoints
+### /api/v1/sessions
+- `POST /api/v1/sessions` _(scopes: sessions)_ — Create an approval session (LOGIN/LINK/PAY_PRODUCT/...).
+- `GET /api/v1/sessions/:id` _(scopes: sessions)_ — Poll an approval session state.
+- `POST /api/v1/sessions/exchange` _(scopes: sessions)_ — Exchange an approval_code for a JWT access/refresh pair.
+- `POST /api/v1/sessions/refresh` _(scopes: sessions)_ — Rotate the refresh token.
+
+### /api/v1/orders
+- `POST /api/v1/orders` _(scopes: orders)_ — Create an order (anonymous or linked to a known user).
+- `POST /api/v1/orders/:id/link-user` _(scopes: orders)_ — Link an anonymous order to a user via external_user_id.
+
+### /api/v1/catalog
+- `GET /api/v1/catalog` _(scopes: catalog:read)_ — List catalog items and groups.
+- `GET /api/v1/catalog/:id` _(scopes: catalog:read)_ — Fetch a single catalog entry.
+- `PATCH /api/v1/catalog/:id` _(scopes: catalog:write)_ — Update catalog editable fields.
+
+### /api/v1/entitlements
+- `GET /api/v1/entitlements` _(scopes: entitlements)_ — Read current user entitlements + active addons.
+
+### /api/v1/notifications
+- `POST /api/v1/notifications` _(scopes: push)_ — Send a Telegram push notification to a user.
+
+### /api/v1/exports
+- `POST /api/v1/exports` _(scopes: exports)_ — Request an async export (CSV/JSON).
+- `GET /api/v1/exports/:id` _(scopes: exports)_ — Poll export job state and download URL.
+
+## Events
+Domain events are delivered via webhook (HMAC-SHA256 signed) and SSE.
+- `order.created` — Order was created (paid or pending).
+- `order.updated` — Order status transitioned.
+- `order.linked` — Anonymous order linked to a user.
+- `order.expired` — Order expired without payment.
+- `payment.succeeded` — Payment reached succeeded state.
+- `payment.failed` — Payment moved to failed.
+- `payment.refunded` — Payment refunded (full or partial).
+- `subscription.updated` — Subscription state changed.
+- `subscription.canceled` — Subscription canceled by user or provider.
+- `subscription.renewed` — Subscription auto-renewed.
+- `subscription.expired` — Subscription expired.
+- `catalog.created` — Catalog entry created.
+- `catalog.updated` — Catalog entry updated (any field).
+- `catalog.deleted` — Catalog entry deleted. Includes soft-delete (is_deleted=true) — the item stops being purchasable, which is what a subscriber cares about.
+- `user.created` — User registered.
+- `user.session.approved` — Approval session approved by user in Telegram.
+- `user.session.denied` — Approval session denied.
+- `user.session.expired` — Approval session expired.
+- `button.clicked` — Interactive button clicked inside Telegram.
+- `webhook.auto_disabled` — App webhook auto-disabled after consecutive failures.
+- `support.escalated` — Support session escalated to human operator.
+
+## Rate limits
+Rate limits are per API key. Tiers: free (60 rpm), starter (300), pro (600), enterprise (1200+). Headers `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` and `Retry-After` indicate current state.
+
+## Error codes
+- `VALIDATION_ERROR` (400) — Zod validation failure.
+- `UNAUTHENTICATED` (401) — missing or invalid credentials.
+- `FORBIDDEN` (403) — scope or zone mismatch.
+- `NOT_FOUND` (404) — resource unknown.
+- `CONFLICT` (409) — state transition or idempotency conflict.
+- `RATE_LIMITED` (429) — per-key or per-IP rate limit exceeded.
+- `INTERNAL` (500) — unexpected server error.
