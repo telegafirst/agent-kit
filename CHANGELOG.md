@@ -2,7 +2,13 @@
 
 ## Agent-facing changes
 
+### 1.0.8 — 2026-09-24
+
+- No agent-facing change of its own. It carries `FIX-260924-2` to the platform: the 1.0.7 package was published, but its platform rollout stopped at image prefetch before any role was updated.
+
 ### 1.0.7 — 2026-09-24
+
+The package and its GitHub Release were published; the platform rollout stopped at image prefetch (Server A ran out of its 600 s download budget), so production kept 1.0.6 and the fix below went live with 1.0.8.
 
 - `FIX-260924-2` Advancing `SERVICE_ACCOUNT_INVITED` now also gives the platform's pooled service bots the right to manage topics in all three supergroups, and widens a pooled bot the service account had promoted with fewer rights. Operator topics can then be renamed and closed, instead of every such call failing with `CHAT_ADMIN_REQUIRED`.
 
