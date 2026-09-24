@@ -2,6 +2,10 @@
 
 ## Agent-facing changes
 
+### 1.0.10 — 2026-09-25
+
+- No agent-facing change. The platform release itself gets faster (ADR-308, queue 1): Trivy scans no longer hold build slots and run three at a time, signatures and health checks are verified in parallel, the gateway image is prefetched on Server B for migrations, and the Hub image's Agent Kit pack is checked from its label instead of pulling the image.
+
 ### 1.0.9 — 2026-09-24
 
 - No agent-facing change of its own. It carries `FIX-260924-2` to the platform: the 1.0.8 package was published, but its platform rollout was rolled back when the worker roles took longer to boot than the rollout allowed, so production kept 1.0.6.
