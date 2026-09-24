@@ -2,6 +2,10 @@
 
 ## Agent-facing changes
 
+### 1.0.7 — 2026-09-24
+
+- `FIX-260924-2` Advancing `SERVICE_ACCOUNT_INVITED` now also gives the platform's pooled service bots the right to manage topics in all three supergroups, and widens a pooled bot the service account had promoted with fewer rights. Operator topics can then be renamed and closed, instead of every such call failing with `CHAT_ADMIN_REQUIRED`.
+
 ### 1.0.6 — 2026-09-24
 
 - `FIX-260924-1` Advancing `SERVICE_ACCOUNT_INVITED` no longer stops on the tenant's own bot when the owner promoted it himself: a bot that is already an admin with the needed rights is left as it is, and one that is short of rights makes the step return a manual-action result that names the rights to switch on, instead of a transient MTProto error.

@@ -1,4 +1,4 @@
-Generated: 2026-09-24T01:44:41.113Z
+Generated: 2026-09-24T14:52:51.671Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.ru/api/v1/mcp
