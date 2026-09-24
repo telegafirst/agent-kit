@@ -2,6 +2,10 @@
 
 ## Agent-facing changes
 
+### 1.0.6 — 2026-09-24
+
+- `FIX-260924-1` Advancing `SERVICE_ACCOUNT_INVITED` no longer stops on the tenant's own bot when the owner promoted it himself: a bot that is already an admin with the needed rights is left as it is, and one that is short of rights makes the step return a manual-action result that names the rights to switch on, instead of a transient MTProto error.
+
 ### 1.0.5 — 2026-09-24
 
 - `FIX-260923-3` Onboarding's service-account step now brings every bot into the tenant's supergroups even when the service account has never met that bot, so advancing `SERVICE_ACCOUNT_INVITED` completes instead of ending in a transient "peer not found" error.
