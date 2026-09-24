@@ -2,7 +2,13 @@
 
 ## Agent-facing changes
 
+### 1.0.9 — 2026-09-24
+
+- No agent-facing change of its own. It carries `FIX-260924-2` to the platform: the 1.0.8 package was published, but its platform rollout was rolled back when the worker roles took longer to boot than the rollout allowed, so production kept 1.0.6.
+
 ### 1.0.8 — 2026-09-24
+
+The package and its GitHub Release were published; the platform rollout was rolled back (worker boot exceeded the 120 s budget), so production kept 1.0.6 and the fix below went live with 1.0.9.
 
 - No agent-facing change of its own. It carries `FIX-260924-2` to the platform: the 1.0.7 package was published, but its platform rollout stopped at image prefetch before any role was updated.
 
