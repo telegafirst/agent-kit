@@ -2,6 +2,10 @@
 
 ## Agent-facing changes
 
+### 1.0.13 — 2026-09-25
+
+- No agent-facing change. Operator cards in the payments and operations supergroups (payment cards, the manager-session card, order notifications, the order task card) now link a MAX or VK buyer to that buyer's own channel profile instead of a `tg://user` link that pointed at an unrelated Telegram account; Telegram buyers keep the same link as before.
+
 ### 1.0.12 — 2026-09-25
 
 - No agent-facing change. The platform release builds every Node app from one shared Dockerfile (ADR-308, queue 2): one prebuild compiles all of them once, each app gets a dependency layer that stays the same while its dependencies do, the release builder keeps its working cache under disk pressure, and Server B clones only the release tag.
