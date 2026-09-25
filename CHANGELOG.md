@@ -2,6 +2,10 @@
 
 ## Agent-facing changes
 
+### 1.0.12 — 2026-09-25
+
+- No agent-facing change. The platform release builds every Node app from one shared Dockerfile (ADR-308, queue 2): one prebuild compiles all of them once, each app gets a dependency layer that stays the same while its dependencies do, the release builder keeps its working cache under disk pressure, and Server B clones only the release tag.
+
 ### 1.0.11 — 2026-09-25
 
 - No agent-facing change. The platform release's live message in the admin supergroup becomes a phone-readable image with a remaining-time estimate from past releases, and the release runner no longer blocks its own clock during migrations and smoke checks.
