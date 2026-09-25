@@ -2,6 +2,10 @@
 
 ## Agent-facing changes
 
+### 1.0.11 — 2026-09-25
+
+- No agent-facing change. The platform release's live message in the admin supergroup becomes a phone-readable image with a remaining-time estimate from past releases, and the release runner no longer blocks its own clock during migrations and smoke checks.
+
 ### 1.0.10 — 2026-09-25
 
 - No agent-facing change. The platform release itself gets faster (ADR-308, queue 1): Trivy scans no longer hold build slots and run three at a time, signatures and health checks are verified in parallel, the gateway image is prefetched on Server B for migrations, and the Hub image's Agent Kit pack is checked from its label instead of pulling the image.
