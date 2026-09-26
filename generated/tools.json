@@ -11,6 +11,12 @@
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
           "description": "Value for pack sha."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -22,7 +28,7 @@
     "scope": "platform:read",
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "analyze_business_performance",
@@ -48,7 +54,7 @@
     "scope": "analytics:read",
     "risk": "read",
     "domain": "analytics",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "bind_supergroup",
@@ -71,6 +77,12 @@
           "type": "string",
           "pattern": "^-?\\d{5,20}$",
           "description": "Value for chat id."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -82,7 +94,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_cancel",
@@ -111,6 +123,12 @@
             }
           ],
           "description": "Value for reason."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -122,7 +140,7 @@
     "scope": "booking:write",
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_create",
@@ -195,6 +213,12 @@
             "open_inquiry"
           ],
           "description": "Value for selection mode."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -209,7 +233,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_create_resource",
@@ -285,6 +309,12 @@
           "minLength": 1,
           "maxLength": 128,
           "description": "Value for idempotency key."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -297,7 +327,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_create_resource_schedule",
@@ -406,6 +436,12 @@
           "minLength": 1,
           "maxLength": 128,
           "description": "Value for idempotency key."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -421,7 +457,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_delete_resource_schedule",
@@ -447,6 +483,12 @@
           "minLength": 1,
           "maxLength": 128,
           "description": "Value for idempotency key."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -460,7 +502,7 @@
     "scope": "booking:write",
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_execute_attendance",
@@ -480,6 +522,12 @@
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
           "description": "Value for payload hash."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -492,7 +540,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_execute_confirm",
@@ -512,6 +560,12 @@
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
           "description": "Value for payload hash."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -524,7 +578,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_get_resource",
@@ -550,7 +604,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_get_resource_schedule",
@@ -576,7 +630,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_get_user_list",
@@ -602,7 +656,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_list_pending",
@@ -634,7 +688,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_list_resource_schedules",
@@ -672,7 +726,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_list_resources",
@@ -688,7 +742,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_prepare_attendance",
@@ -707,6 +761,12 @@
         "did_attend": {
           "type": "boolean",
           "description": "Value for did attend."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -719,7 +779,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_prepare_confirm",
@@ -734,6 +794,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for booking seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -745,7 +811,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_search_availability",
@@ -798,7 +864,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_update_resource",
@@ -885,6 +951,12 @@
             }
           ],
           "description": "Value for max advance days."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -898,7 +970,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "booking_update_resource_schedule",
@@ -1018,6 +1090,12 @@
         "is_unavailable": {
           "type": "boolean",
           "description": "Value for is unavailable."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -1031,7 +1109,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "cancel_event_registration",
@@ -1052,6 +1130,12 @@
           "minLength": 1,
           "maxLength": 200,
           "description": "Value for idempotency key."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -1064,7 +1148,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "check_approval",
@@ -1090,7 +1174,7 @@
     "scope": "credentials:read",
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "check_in_event_registration",
@@ -1111,6 +1195,12 @@
           "minLength": 1,
           "maxLength": 200,
           "description": "Value for idempotency key."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -1123,7 +1213,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "check_setup_status",
@@ -1213,7 +1303,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "configure_ai_persona",
@@ -1233,6 +1323,12 @@
           "type": "string",
           "maxLength": 64,
           "description": "Value for tone."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -1244,7 +1340,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "configure_broadcasts",
@@ -1258,6 +1354,12 @@
           "type": "string",
           "maxLength": 1000,
           "description": "Value for note."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -1266,7 +1368,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "configure_chains",
@@ -1280,6 +1382,12 @@
           "type": "string",
           "maxLength": 1000,
           "description": "Value for note."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -1288,7 +1396,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "configure_integration",
@@ -1413,6 +1521,12 @@
         "is_active": {
           "type": "boolean",
           "description": "Value for is active."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -1424,7 +1538,7 @@
     "scope": "integrations:write",
     "risk": "write",
     "domain": "integrations",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "configure_kb",
@@ -1438,6 +1552,12 @@
           "type": "string",
           "maxLength": 1000,
           "description": "Value for note."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -1446,7 +1566,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "configure_marketing_links",
@@ -1460,6 +1580,12 @@
           "type": "string",
           "maxLength": 1000,
           "description": "Value for note."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -1468,7 +1594,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "configure_payment_credentials",
@@ -1776,6 +1902,12 @@
           "minLength": 1,
           "maxLength": 16,
           "description": "Value for default currency."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -1787,7 +1919,7 @@
     "scope": "payments:config",
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "configure_payment_provider",
@@ -1811,6 +1943,12 @@
             "prodamus"
           ],
           "description": "Value for provider."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -1822,7 +1960,7 @@
     "scope": "payments:config",
     "risk": "write",
     "domain": "payments",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "configure_qualifier",
@@ -1836,6 +1974,12 @@
           "type": "string",
           "maxLength": 1000,
           "description": "Value for note."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -1844,7 +1988,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "configure_statuses",
@@ -1858,6 +2002,12 @@
           "type": "string",
           "maxLength": 1000,
           "description": "Value for note."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -1866,7 +2016,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "confirm_free_test_completed",
@@ -1875,14 +2025,21 @@
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
-      "properties": {},
+      "properties": {
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
       "additionalProperties": false
     },
     "outputSchema": null,
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_broadcast",
@@ -2544,6 +2701,12 @@
         "is_awaiting_reply": {
           "type": "boolean",
           "description": "Value for is awaiting reply."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -2555,7 +2718,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_chain_step",
@@ -2590,6 +2753,12 @@
           "minimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for delay minutes."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -2601,7 +2770,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_event",
@@ -2666,6 +2835,12 @@
         "is_online": {
           "type": "boolean",
           "description": "Value for is online."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -2677,7 +2852,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_event_registration",
@@ -2710,6 +2885,12 @@
           "minLength": 1,
           "maxLength": 200,
           "description": "Value for idempotency key."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -2723,7 +2904,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_export",
@@ -2766,6 +2947,12 @@
             "description": "Value for include item."
           },
           "description": "Value for include."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -2778,7 +2965,7 @@
     "scope": "export",
     "risk": "write",
     "domain": "export",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_forum_topic",
@@ -2802,6 +2989,12 @@
           "minLength": 1,
           "maxLength": 128,
           "description": "Value for title."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -2814,7 +3007,7 @@
     "scope": "topics:write",
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_knowledge",
@@ -2854,6 +3047,12 @@
             "description": "Value for tags item."
           },
           "description": "Value for tags."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -2867,7 +3066,7 @@
     "scope": "kb:write",
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_marketing_campaign",
@@ -3189,6 +3388,12 @@
         "is_active": {
           "type": "boolean",
           "description": "Value for is active."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3202,7 +3407,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_marketing_link",
@@ -3256,6 +3461,12 @@
         "is_active": {
           "type": "boolean",
           "description": "Value for is active."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3269,7 +3480,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_message_chain",
@@ -3284,6 +3495,12 @@
           "minLength": 1,
           "maxLength": 200,
           "description": "Value for title."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3295,7 +3512,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_order",
@@ -3542,6 +3759,12 @@
           "minLength": 1,
           "maxLength": 255,
           "description": "Value for idempotency key."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3556,7 +3779,7 @@
     "scope": "orders",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_order_status",
@@ -3724,6 +3947,12 @@
             }
           ],
           "description": "Value for button target."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3736,7 +3965,7 @@
     "scope": "statuses:write",
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_quick_reply",
@@ -3767,6 +3996,12 @@
         "is_active": {
           "type": "boolean",
           "description": "Value for is active."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3779,7 +4014,7 @@
     "scope": "quick-replies:write",
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "create_session",
@@ -3829,6 +4064,12 @@
           },
           "additionalProperties": {},
           "description": "Value for metadata."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3840,7 +4081,7 @@
     "scope": "sessions",
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_broadcast",
@@ -3855,6 +4096,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3866,7 +4113,7 @@
     "scope": "broadcasts:write",
     "risk": "destructive",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_chain_step",
@@ -3887,6 +4134,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for step seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3899,7 +4152,7 @@
     "scope": "chains:write",
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_event",
@@ -3914,6 +4167,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3925,7 +4184,7 @@
     "scope": "events:write",
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_forum_topic_message",
@@ -3945,6 +4204,12 @@
           "type": "string",
           "pattern": "^[1-9]\\d*$",
           "description": "Value for message id."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3957,7 +4222,7 @@
     "scope": "topics:write",
     "risk": "destructive",
     "domain": "topics",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_integration",
@@ -3974,6 +4239,12 @@
             "getcourse"
           ],
           "description": "Value for crm type."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -3985,7 +4256,7 @@
     "scope": "integrations:write",
     "risk": "destructive",
     "domain": "integrations",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_knowledge",
@@ -4008,6 +4279,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4020,7 +4297,7 @@
     "scope": "kb:write",
     "risk": "destructive",
     "domain": "kb",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_marketing_campaign",
@@ -4035,6 +4312,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4046,7 +4329,7 @@
     "scope": "marketing:write",
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_marketing_link",
@@ -4061,6 +4344,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4072,7 +4361,7 @@
     "scope": "marketing:write",
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_message_chain",
@@ -4087,6 +4376,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4098,7 +4393,7 @@
     "scope": "chains:write",
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_order_status",
@@ -4113,6 +4408,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4124,7 +4425,7 @@
     "scope": "statuses:write",
     "risk": "destructive",
     "domain": "statuses",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "delete_quick_reply",
@@ -4139,6 +4440,12 @@
           "minLength": 1,
           "maxLength": 32,
           "description": "Value for id."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4150,7 +4457,7 @@
     "scope": "quick-replies:write",
     "risk": "destructive",
     "domain": "quick-replies",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "describe_segment_axes",
@@ -4166,7 +4473,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "describe_tool",
@@ -4232,7 +4539,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "disable_payment_provider",
@@ -4256,6 +4563,12 @@
             "prodamus"
           ],
           "description": "Value for provider."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4267,7 +4580,7 @@
     "scope": "payments:config",
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "domain_add_request",
@@ -4296,6 +4609,12 @@
           "type": "string",
           "pattern": "^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$",
           "description": "Value for storefront Label."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4308,7 +4627,7 @@
     "scope": "domain:write",
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "domain_execute_unlink",
@@ -4328,6 +4647,12 @@
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
           "description": "Value for payload hash."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4340,7 +4665,7 @@
     "scope": "domain:write",
     "risk": "destructive",
     "domain": "domain",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "domain_prepare_unlink",
@@ -4357,6 +4682,12 @@
             "com"
           ],
           "description": "Value for zone."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4368,7 +4699,7 @@
     "scope": "domain:write",
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "domain_status",
@@ -4393,7 +4724,7 @@
     "scope": "domain:read",
     "risk": "read",
     "domain": "domain",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "domain_verify",
@@ -4410,6 +4741,12 @@
             "com"
           ],
           "description": "Value for zone."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4421,7 +4758,7 @@
     "scope": "domain:write",
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "edit_forum_topic_message",
@@ -4525,6 +4862,12 @@
             "description": "Value for buttons item."
           },
           "description": "Value for buttons."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4537,7 +4880,7 @@
     "scope": "topics:write",
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "enable_payment_provider",
@@ -4561,6 +4904,12 @@
             "prodamus"
           ],
           "description": "Value for provider."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4572,7 +4921,7 @@
     "scope": "payments:config",
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "exchange_session_approval_code",
@@ -4586,6 +4935,12 @@
           "type": "string",
           "minLength": 1,
           "description": "Value for approval code."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4597,7 +4952,7 @@
     "scope": "sessions",
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "execute_admin_read",
@@ -4635,7 +4990,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "execute_admin_write",
@@ -4673,7 +5028,7 @@
     "scope": "platform:read",
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "execute_broadcast_launch",
@@ -4693,6 +5048,12 @@
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
           "description": "Value for payload hash."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4705,7 +5066,7 @@
     "scope": "broadcasts:write",
     "risk": "money",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "execute_chain_batch_entry",
@@ -4725,6 +5086,12 @@
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
           "description": "Value for payload hash."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4737,7 +5104,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "execute_manual_sale",
@@ -4757,6 +5124,12 @@
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
           "description": "Value for payload hash."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4769,7 +5142,7 @@
     "scope": "orders:write",
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "execute_order_status_change",
@@ -4789,6 +5162,12 @@
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
           "description": "Value for payload hash."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4801,7 +5180,7 @@
     "scope": "orders:status",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "execute_send_invoice",
@@ -4821,6 +5200,12 @@
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
           "description": "Value for payload hash."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4833,7 +5218,7 @@
     "scope": "orders:write",
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "export_form_submissions_normalized",
@@ -4868,6 +5253,12 @@
           "format": "date-time",
           "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$",
           "description": "Value for to date."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -4879,7 +5270,7 @@
     "scope": "pull:form_submissions",
     "risk": "write",
     "domain": "pull",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "finalize_phase_1a",
@@ -4888,14 +5279,21 @@
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
-      "properties": {},
+      "properties": {
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
       "additionalProperties": false
     },
     "outputSchema": null,
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "finalize_tour",
@@ -4904,14 +5302,21 @@
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
-      "properties": {},
+      "properties": {
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
       "additionalProperties": false
     },
     "outputSchema": null,
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_active_bot",
@@ -4927,7 +5332,7 @@
     "scope": "identity:read",
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_agent_config",
@@ -4943,7 +5348,7 @@
     "scope": "agents:read",
     "risk": "read",
     "domain": "agents",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_broadcast_status",
@@ -4969,7 +5374,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_catalog",
@@ -5314,7 +5719,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_catalog_group",
@@ -5340,7 +5745,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_catalog_item",
@@ -5374,7 +5779,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_catalog_topic_link",
@@ -5390,7 +5795,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_client_config",
@@ -5484,7 +5889,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_content_draft",
@@ -5767,7 +6172,7 @@
     "scope": "content:read",
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_conversation",
@@ -5793,7 +6198,7 @@
     "scope": "dialogs:read",
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_customer",
@@ -5819,7 +6224,7 @@
     "scope": "orders",
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_data_dictionary",
@@ -5835,7 +6240,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_doc",
@@ -5871,7 +6276,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_entitlements",
@@ -5896,7 +6301,7 @@
     "scope": "entitlements",
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_event_registration",
@@ -5922,7 +6327,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_form_submission",
@@ -5955,7 +6360,7 @@
     "scope": "pull:form_submissions",
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_knowledge",
@@ -5990,7 +6395,7 @@
     "scope": "kb:read",
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_legal_profile",
@@ -6006,7 +6411,7 @@
     "scope": "legal:read",
     "risk": "read",
     "domain": "legal",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_message_stats",
@@ -6022,7 +6427,7 @@
     "scope": "dialogs:read",
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_onboarding_state",
@@ -6101,7 +6506,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_payment_config",
@@ -6117,7 +6522,7 @@
     "scope": "payments:config",
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_plan_checkout_link",
@@ -6133,7 +6538,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_session_status",
@@ -6204,7 +6609,7 @@
     "scope": "sessions",
     "risk": "read",
     "domain": "sessions",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_skill",
@@ -6236,7 +6641,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_storefront",
@@ -6252,7 +6657,7 @@
     "scope": "storefront:read",
     "risk": "read",
     "domain": "storefront",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_subscription_status",
@@ -6277,7 +6682,7 @@
     "scope": "entitlements",
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_token_billing",
@@ -6293,7 +6698,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "get_token_topup_link",
@@ -6309,7 +6714,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "init_managed_bot",
@@ -6330,6 +6735,12 @@
           "minLength": 1,
           "maxLength": 64,
           "description": "Value for suggested name."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -6342,7 +6753,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "invite_team_member",
@@ -6419,6 +6830,12 @@
           },
           "additionalProperties": false,
           "description": "Value for permissions."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -6427,7 +6844,7 @@
     "scope": "team:write",
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "issue_api_key",
@@ -6511,6 +6928,12 @@
             "description": "Value for scopes item."
           },
           "description": "Value for scopes."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -6522,7 +6945,7 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "link_anonymous_order",
@@ -6543,6 +6966,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -6555,7 +6984,7 @@
     "scope": "orders",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_accessible_bots",
@@ -6571,7 +7000,7 @@
     "scope": "identity:read",
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_broadcasts",
@@ -6587,7 +7016,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_catalog_groups",
@@ -6603,7 +7032,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_chain_runs",
@@ -6632,7 +7061,7 @@
     "scope": "chains:read",
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_chain_steps",
@@ -6658,7 +7087,7 @@
     "scope": "chains:read",
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_connections",
@@ -6695,7 +7124,14 @@
                 ]
               },
               "active_bot_title": {
-                "type": "string"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
               "skills_fresh": {
                 "type": "boolean"
@@ -6723,7 +7159,7 @@
     "scope": "credentials:read",
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_customers",
@@ -6752,7 +7188,7 @@
     "scope": "orders",
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_event_registrations",
@@ -6786,7 +7222,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_events",
@@ -6802,7 +7238,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_forum_topics",
@@ -6818,7 +7254,7 @@
     "scope": "topics:read",
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_integrations",
@@ -6834,7 +7270,7 @@
     "scope": "integrations:read",
     "risk": "read",
     "domain": "integrations",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_knowledge",
@@ -6850,7 +7286,7 @@
     "scope": "kb:read",
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_marketing_campaigns",
@@ -6866,7 +7302,7 @@
     "scope": "marketing:read",
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_marketing_links",
@@ -6882,7 +7318,7 @@
     "scope": "marketing:read",
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_message_chains",
@@ -6898,7 +7334,7 @@
     "scope": "chains:read",
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_order_statuses",
@@ -6914,7 +7350,7 @@
     "scope": "statuses:read",
     "risk": "read",
     "domain": "statuses",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_payment_rows",
@@ -6943,7 +7379,7 @@
     "scope": "payments",
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_quick_replies",
@@ -6959,7 +7395,7 @@
     "scope": "quick-replies:read",
     "risk": "read",
     "domain": "quick-replies",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_segment_targets",
@@ -7013,7 +7449,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_team_members",
@@ -7029,7 +7465,7 @@
     "scope": "team:read",
     "risk": "read",
     "domain": "team",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "list_unanswered",
@@ -7103,7 +7539,7 @@
     "scope": "dialogs:read",
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "load_domain",
@@ -7185,7 +7621,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "manage_message",
@@ -7955,7 +8391,7 @@
     "scope": "dialogs:write",
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "manage_pricing_rules",
@@ -9696,7 +10132,7 @@
     "scope": "pricing:write",
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "mark_form_submission_handled",
@@ -9711,6 +10147,12 @@
           "minLength": 16,
           "maxLength": 16,
           "description": "Value for submission code."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -9722,7 +10164,7 @@
     "scope": "push:form_submissions",
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "mark_paid",
@@ -9763,6 +10205,12 @@
           "minLength": 1,
           "maxLength": 200,
           "description": "Value for idempotency key."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -9777,7 +10225,7 @@
     "scope": "orders:write",
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "media_finalize",
@@ -9792,6 +10240,12 @@
           "minLength": 1,
           "maxLength": 128,
           "description": "The `uploadId` returned by media_request_upload."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -9803,7 +10257,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "media_get_status",
@@ -9829,7 +10283,7 @@
     "scope": "content:read",
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "media_import_files",
@@ -9884,6 +10338,12 @@
             "description": "Value for files item."
           },
           "description": "Value for files."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -10066,7 +10526,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "media_request_upload",
@@ -10110,6 +10570,12 @@
             "description": "Value for files item."
           },
           "description": "Value for files."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -10122,7 +10588,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "partner_get_balance",
@@ -10138,7 +10604,7 @@
     "scope": "partner:read",
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "partner_get_invite_links",
@@ -10154,7 +10620,7 @@
     "scope": "partner:read",
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "partner_request_payout",
@@ -10163,14 +10629,21 @@
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
-      "properties": {},
+      "properties": {
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
       "additionalProperties": false
     },
     "outputSchema": null,
     "scope": "partner:payout",
     "risk": "money",
     "domain": "partner",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "prepare_broadcast_launch",
@@ -10185,6 +10658,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -10196,7 +10675,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "prepare_chain_batch_entry",
@@ -10238,6 +10717,12 @@
             "deliver"
           ],
           "description": "Value for on active."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -10251,7 +10736,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "prepare_manual_sale",
@@ -10400,7 +10885,7 @@
     "scope": "orders:write",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "prepare_order_status_change",
@@ -10427,6 +10912,12 @@
           "minLength": 1,
           "maxLength": 1000,
           "description": "Value for comment."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -10439,7 +10930,7 @@
     "scope": "orders:status",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "prepare_send_invoice",
@@ -10454,6 +10945,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for order seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -10465,7 +10962,7 @@
     "scope": "orders:write",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "preview_segment_reach",
@@ -10493,7 +10990,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "publish_entity",
@@ -12339,6 +12836,12 @@
             "description": "Value for items item."
           },
           "description": "Value for items."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -12406,7 +12909,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "pull_form_submissions",
@@ -12467,7 +12970,7 @@
     "scope": "pull:form_submissions",
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "query_form_submission_segment",
@@ -12541,7 +13044,7 @@
     "scope": "pull:form_submissions",
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "quote_order",
@@ -12770,7 +13273,7 @@
     "scope": "orders",
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "refresh_payment_urls",
@@ -12799,6 +13302,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for seq num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -12810,7 +13319,7 @@
     "scope": "orders",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "register_catalog_item",
@@ -12835,6 +13344,12 @@
           "type": "number",
           "minimum": 0,
           "description": "Value for price."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -12846,7 +13361,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "register_existing_bot",
@@ -12855,14 +13370,21 @@
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
-      "properties": {},
+      "properties": {
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
       "additionalProperties": false
     },
     "outputSchema": null,
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "register_mini_app_origin",
@@ -12884,6 +13406,12 @@
           "type": "string",
           "format": "uri",
           "description": "Value for origin."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -12896,7 +13424,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "release_chat",
@@ -12911,6 +13439,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for user Seq Num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -12922,7 +13456,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "request_access_link",
@@ -13012,6 +13546,12 @@
             "description": "One owner-mintable MCP capability requested by the desktop client."
           },
           "description": "Owner-mintable MCP capabilities requested by the desktop client."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -13024,7 +13564,7 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "revoke_connection",
@@ -13039,6 +13579,12 @@
           "minLength": 1,
           "maxLength": 12,
           "description": "Display prefix of the connection token to revoke."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -13064,7 +13610,7 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "revoke_team_member",
@@ -13079,6 +13625,12 @@
           "minLength": 1,
           "maxLength": 32,
           "description": "Value for id."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -13090,7 +13642,7 @@
     "scope": "team:write",
     "risk": "destructive",
     "domain": "team",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "sample_segment_audience",
@@ -13126,7 +13678,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "scope_change",
@@ -13216,6 +13768,12 @@
             "description": "Value for scopes item."
           },
           "description": "Value for scopes."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -13228,7 +13786,7 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "search_admin_tools",
@@ -13332,7 +13890,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "search_docs",
@@ -13376,7 +13934,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "secret_delete",
@@ -13398,6 +13956,12 @@
           "format": "uuid",
           "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
           "description": "Value for action id."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -13409,7 +13973,7 @@
     "scope": "site:write",
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "secret_list",
@@ -13425,7 +13989,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "secret_put",
@@ -13453,6 +14017,12 @@
           "format": "uuid",
           "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
           "description": "Value for action id."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -13465,7 +14035,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "secret_rotate",
@@ -13493,6 +14063,12 @@
           "format": "uuid",
           "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
           "description": "Value for action id."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -13505,7 +14081,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "send_card",
@@ -13984,6 +14560,12 @@
             "description": "Value for items item."
           },
           "description": "Value for items."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -13995,7 +14577,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "send_entity_card",
@@ -14143,6 +14725,12 @@
             "restart"
           ],
           "description": "Value for on Active."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -14156,7 +14744,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "send_notification",
@@ -14295,6 +14883,12 @@
           "type": "string",
           "maxLength": 255,
           "description": "Value for idempotency key."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -14307,7 +14901,7 @@
     "scope": "push",
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "send_to_forum_topic",
@@ -14439,6 +15033,12 @@
             "description": "Value for buttons item."
           },
           "description": "Value for buttons."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -14450,7 +15050,7 @@
     "scope": "topics:write",
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "site_checkout_key",
@@ -14459,14 +15059,21 @@
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
-      "properties": {},
+      "properties": {
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
       "additionalProperties": false
     },
     "outputSchema": null,
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "site_execute_delete",
@@ -14486,6 +15093,12 @@
           "type": "string",
           "pattern": "^[a-f0-9]{64}$",
           "description": "Value for payload hash."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -14498,7 +15111,7 @@
     "scope": "site:write",
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "site_fetch_file",
@@ -14532,7 +15145,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "site_form_declare",
@@ -14728,6 +15341,12 @@
         "enabled": {
           "type": "boolean",
           "description": "Value for enabled."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -14740,7 +15359,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "site_get_analytics",
@@ -14769,7 +15388,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "site_get_manifest",
@@ -14796,7 +15415,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "site_prepare_delete",
@@ -14812,6 +15431,12 @@
           "maxLength": 253,
           "pattern": "^(?=.{4,253}$)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+\\.?$",
           "description": "Value for host."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -14823,7 +15448,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "site_publish",
@@ -14845,6 +15470,12 @@
           "format": "uuid",
           "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
           "description": "Value for upload Id."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -14857,7 +15488,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "site_request_upload",
@@ -14918,6 +15549,12 @@
             "description": "Value for files item."
           },
           "description": "Value for files."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -14930,7 +15567,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "submit_form_submission",
@@ -14948,6 +15585,12 @@
         },
         "payload": {
           "description": "Value for payload."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -14960,7 +15603,7 @@
     "scope": "push:form_submissions",
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "support_ticket_create",
@@ -15067,7 +15710,7 @@
     "scope": "support:write",
     "risk": "write",
     "domain": "support",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "support_ticket_list",
@@ -15101,12 +15744,12 @@
     "scope": "support:read",
     "risk": "read",
     "domain": "support",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "switch_active_bot",
     "title": "Switch Active Bot",
-    "description": "Switch the active bot to slug (must be one of list_accessible_bots), then re-read tools/list. Requires an owner session.",
+    "description": "Switch your active bot to slug (one of list_accessible_bots), then re-read tools/list. Moves every connection of yours and the bot you see in the platform bot chat.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -15116,6 +15759,12 @@
           "minLength": 1,
           "maxLength": 128,
           "description": "Value for slug."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -15127,7 +15776,7 @@
     "scope": "identity:write",
     "risk": "write",
     "domain": "identity",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "take_chat",
@@ -15142,6 +15791,12 @@
           "exclusiveMinimum": 0,
           "maximum": 9007199254740991,
           "description": "Value for user Seq Num."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -15153,7 +15808,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "test_funnel_pipeline",
@@ -15190,7 +15845,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "test_purchase_cycle",
@@ -15206,7 +15861,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_agent_config",
@@ -15599,6 +16254,12 @@
           },
           "additionalProperties": false,
           "description": "Value for coach."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -15607,7 +16268,7 @@
     "scope": "agents:write",
     "risk": "write",
     "domain": "agents",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_broadcast",
@@ -16001,6 +16662,12 @@
             }
           ],
           "description": "Value for button target."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -16012,7 +16679,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_catalog_item",
@@ -16686,6 +17353,12 @@
           },
           "additionalProperties": false,
           "description": "Value for patch."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -16700,7 +17373,7 @@
     "scope": "catalog:write",
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_chain_step",
@@ -17001,6 +17674,12 @@
         "delete_prev_if_unengaged": {
           "type": "boolean",
           "description": "Value for delete prev if unengaged."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -17013,7 +17692,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_client_config",
@@ -17092,6 +17771,12 @@
             }
           ],
           "description": "Value for tokens 5h limit per user."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -17100,7 +17785,7 @@
     "scope": "client-config:write",
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_event",
@@ -17412,6 +18097,12 @@
             }
           ],
           "description": "Value for reminder 24h chain step seq."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -17423,7 +18114,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_knowledge",
@@ -17476,6 +18167,12 @@
           },
           "additionalProperties": false,
           "description": "Value for patch."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -17489,7 +18186,7 @@
     "scope": "kb:write",
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_legal_profile",
@@ -17781,6 +18478,12 @@
             }
           ],
           "description": "Value for world default price includes tax."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -17789,7 +18492,7 @@
     "scope": "legal:write",
     "risk": "write",
     "domain": "legal",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_marketing_campaign",
@@ -18085,6 +18788,12 @@
         "is_active": {
           "type": "boolean",
           "description": "Value for is active."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -18096,7 +18805,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_marketing_link",
@@ -18135,6 +18844,12 @@
         "is_active": {
           "type": "boolean",
           "description": "Value for is active."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -18146,7 +18861,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_message_chain",
@@ -18167,6 +18882,12 @@
           "minLength": 1,
           "maxLength": 200,
           "description": "Value for title."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -18178,7 +18899,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_order_status",
@@ -18379,6 +19100,12 @@
             }
           ],
           "description": "Value for button target."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -18390,7 +19117,7 @@
     "scope": "statuses:write",
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_quick_reply",
@@ -18427,6 +19154,12 @@
         "is_active": {
           "type": "boolean",
           "description": "Value for is active."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -18438,12 +19171,12 @@
     "scope": "quick-replies:write",
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_storefront",
     "title": "Update Storefront",
-    "description": "Update the tenant storefront display settings (partial patch — send only the fields you change; pass null to clear the slug/title/subtitle). Toggle `enabled` to publish/unpublish the site. The slug must be 3–63 lowercase letters/digits/hyphens, is globally unique, and may not be one of the platform infrastructure labels — either case errors CONFLICT. WARN THE OWNER BEFORE CHANGING THE SLUG: it is the tenant subdomain, so changing it breaks every address already published from it — the storefront URL, the bio page, printed QR codes, and any `<form action>` embedded on a site outside this platform. There is no redirect from the old slug. Idempotent. Returns the full updated storefront.",
+    "description": "Update the tenant storefront display settings (partial patch — send only the fields you change; pass null to clear the title/subtitle). Toggle `enabled` to publish/unpublish the site. The slug is chosen once at onboarding and cannot change: a slug equal to the current one is ignored, any other value errors SLUG_IMMUTABLE. Idempotent. Returns the full updated storefront.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -18453,17 +19186,7 @@
           "description": "Value for enabled."
         },
         "slug": {
-          "anyOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-z0-9](?:[a-z0-9-]{1,61}[a-z0-9])$",
-              "description": "Value for slug option."
-            },
-            {
-              "type": "null",
-              "description": "Value for slug option."
-            }
-          ],
+          "type": "string",
           "description": "Value for slug."
         },
         "title": {
@@ -18493,6 +19216,12 @@
             }
           ],
           "description": "Value for subtitle."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -18501,7 +19230,7 @@
     "scope": "storefront:write",
     "risk": "write",
     "domain": "storefront",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "update_team_member",
@@ -18580,6 +19309,12 @@
           },
           "additionalProperties": false,
           "description": "Value for permissions."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -18591,7 +19326,7 @@
     "scope": "team:write",
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   },
   {
     "name": "upload_legal_doc",
@@ -18645,6 +19380,12 @@
           "type": "string",
           "maxLength": 64,
           "description": "Value for contact phone."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "required": [
@@ -18656,6 +19397,6 @@
     "scope": "legal:write",
     "risk": "write",
     "domain": "legal",
-    "platform_version": "1.0.15"
+    "platform_version": "1.0.31"
   }
 ]
