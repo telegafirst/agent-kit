@@ -2,6 +2,10 @@
 
 ## Agent-facing changes
 
+### 1.0.14 — 2026-09-27
+
+- `FIX-260927-1` The admin skill now directs agents to the available `get_onboarding_state` tool and its next action when setup is incomplete or a bot is silent.
+
 ### 1.0.13 — 2026-09-25
 
 - No agent-facing change. Operator cards in the payments and operations supergroups (payment cards, the manager-session card, order notifications, the order task card) now link a MAX or VK buyer to that buyer's own channel profile instead of a `tg://user` link that pointed at an unrelated Telegram account; Telegram buyers keep the same link as before.

@@ -4,7 +4,7 @@ Use this playbook to resolve an account problem before escalating it.
 
 ## Diagnose first
 
-- Setup looks incomplete or the bot is silent: call `get_onboarding_state`, then `check_setup_status`.
+- Setup looks incomplete or the bot is silent: call `get_onboarding_state` and follow its next action.
 - Payments do not arrive: call `get_payment_config`; it is secret-free.
 - A custom domain or site does not resolve: call `domain_status` and repeat its failure reason accurately.
 - Customers say nobody answered: call `list_unanswered`.

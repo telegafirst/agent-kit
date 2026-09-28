@@ -21,7 +21,7 @@ Connect the TelegaFirst MCP server before acting. Use the connection prompt in t
 1. Keep the build order coherent: Event → Catalog Item → Marketing Campaign → Message Chain. Do not create a campaign before its offer, or a chain before its campaign.
 2. Before setting any price, read the payment configuration and use its default currency. A mismatched currency is a money bug.
 3. Respect the customer's timezone when scheduling. Keep messages useful, concise, and non-spammy.
-4. If `check_setup_status` reports a problem, give a concrete next step instead of abandoning the task.
+4. If `get_onboarding_state` reports a problem, follow its next action and give a concrete next step instead of abandoning the task.
 5. Do not mutate money or orders merely to experiment. Explain the proposed action and use the platform's prepared confirmation flow where the tool requires it.
 
 ## Choose the work reference

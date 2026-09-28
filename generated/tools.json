@@ -28,7 +28,7 @@
     "scope": "platform:read",
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "analyze_business_performance",
@@ -54,47 +54,7 @@
     "scope": "analytics:read",
     "risk": "read",
     "domain": "analytics",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "bind_supergroup",
-    "title": "Bind Supergroup",
-    "description": "Link one of the tenant's three operator supergroups to their account: `ol` (Open Lines / client chats), `settings` (configuration), `ops` (operations). Pass `chat_id` of the EXISTING supergroup (e.g. \"-1001234567890\") — ADR-076: supergroups are created by the owner in Telegram, this only binds one. Idempotent; an occupied slot is reported, never overwritten; a supergroup already used by another tenant is refused by name. Omit `chat_id` to instead wait for the bot to be added to the group. This is the step `SUPERGROUPS_CREATED` verifies.",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "enum": [
-            "ol",
-            "settings",
-            "ops"
-          ],
-          "description": "Value for kind."
-        },
-        "chat_id": {
-          "type": "string",
-          "pattern": "^-?\\d{5,20}$",
-          "description": "Value for chat id."
-        },
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "required": [
-        "kind"
-      ],
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:write",
-    "risk": "write",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_cancel",
@@ -140,7 +100,7 @@
     "scope": "booking:write",
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_create",
@@ -233,7 +193,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_create_resource",
@@ -327,7 +287,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_create_resource_schedule",
@@ -457,7 +417,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_delete_resource_schedule",
@@ -502,7 +462,7 @@
     "scope": "booking:write",
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_execute_attendance",
@@ -540,7 +500,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_execute_confirm",
@@ -578,7 +538,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_get_resource",
@@ -604,7 +564,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_get_resource_schedule",
@@ -630,7 +590,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_get_user_list",
@@ -656,7 +616,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_list_pending",
@@ -688,7 +648,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_list_resource_schedules",
@@ -726,7 +686,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_list_resources",
@@ -742,7 +702,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_prepare_attendance",
@@ -779,7 +739,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_prepare_confirm",
@@ -811,7 +771,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_search_availability",
@@ -864,7 +824,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_update_resource",
@@ -970,7 +930,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "booking_update_resource_schedule",
@@ -1109,7 +1069,340 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
+  },
+  {
+    "name": "cancel_auto_renew",
+    "title": "Cancel Auto Renew",
+    "description": "Cancel automatic renewal while keeping access through the paid period.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "active_slug": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bot_username": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "slug",
+            "bot_username"
+          ],
+          "additionalProperties": false
+        },
+        "owner_onboardings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "supergroups_create",
+                  "supergroups_admin",
+                  "supergroups_confirm",
+                  "infrastructure",
+                  "infrastructure_ready",
+                  "quest_1",
+                  "quest_2",
+                  "warmup",
+                  "tariff",
+                  "paid",
+                  "free"
+                ]
+              }
+            },
+            "required": [
+              "slug",
+              "stage"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "address",
+            "site",
+            "bot",
+            "supergroups_create",
+            "supergroups_admin",
+            "supergroups_confirm",
+            "infrastructure",
+            "infrastructure_ready",
+            "quest_1",
+            "quest_2",
+            "warmup",
+            "tariff",
+            "paid",
+            "free"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "todo",
+            "in_progress",
+            "waiting_owner",
+            "blocked",
+            "done"
+          ]
+        },
+        "billing": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        },
+        "next_action": {
+          "type": "object",
+          "properties": {
+            "goal": {
+              "type": "string",
+              "enum": [
+                "address",
+                "site",
+                "site_fallback_form",
+                "bot",
+                "supergroups_create",
+                "supergroups_admin",
+                "supergroups_confirm",
+                "infrastructure",
+                "infrastructure_blocked",
+                "infrastructure_ready",
+                "quest_product_pending",
+                "quest_product_ready",
+                "quest_product_failed",
+                "payment_provider_alive",
+                "payment_provider_failed",
+                "tariff",
+                "paid",
+                "free",
+                "address_new_business",
+                "infrastructure_ready_nth_bot"
+              ]
+            },
+            "say_to_user": {
+              "type": "string"
+            },
+            "collect": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "hint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "hint"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "wait_for": {
+              "type": "object",
+              "properties": {
+                "event": {
+                  "type": "string"
+                },
+                "retry_after_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "event"
+              ],
+              "additionalProperties": false
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "video",
+                    "image_steps"
+                  ]
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "switch_to": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "goal",
+            "say_to_user",
+            "collect"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "active_slug",
+        "tenant",
+        "owner_onboardings",
+        "stage",
+        "status",
+        "next_action",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "scope": "onboarding:write",
+    "risk": "write",
+    "domain": "onboarding",
+    "platform_version": "1.0.40"
   },
   {
     "name": "cancel_event_registration",
@@ -1148,7 +1441,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "check_approval",
@@ -1174,7 +1467,23 @@
     "scope": "credentials:read",
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
+  },
+  {
+    "name": "check_free_conditions",
+    "title": "Check Free Conditions",
+    "description": "Check the current conditions for keeping your business site on the free plan.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "onboarding:read",
+    "risk": "read",
+    "domain": "onboarding",
+    "platform_version": "1.0.40"
   },
   {
     "name": "check_in_event_registration",
@@ -1213,116 +1522,39 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
-    "name": "check_setup_status",
-    "title": "Check Setup Status",
-    "description": "Itemize what infrastructure is still missing (bot live, supergroups created, service account admin, webhook, …) as an ok/missing/partial checklist plus the single next action to fix. ADR-076: this does NOT create anything — supergroups/bot are created by the owner by hand; this tells them exactly what remains.",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {},
-      "additionalProperties": false
-    },
-    "outputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "clientId": {
-          "type": "string"
-        },
-        "checklist": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "key": {
-                "type": "string"
-              },
-              "label": {
-                "type": "string"
-              },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "ok",
-                  "missing",
-                  "partial"
-                ]
-              },
-              "detail": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "key",
-              "label",
-              "status"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "nextAction": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "humanText": {
-                  "type": "string"
-                },
-                "deeplink": {
-                  "type": "string"
-                },
-                "clip": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "humanText"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "allOk": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "clientId",
-        "checklist",
-        "nextAction",
-        "allOk"
-      ],
-      "additionalProperties": false
-    },
-    "scope": "onboarding:read",
-    "risk": "read",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "configure_ai_persona",
-    "title": "Configure Ai Persona",
-    "description": "Advance AI_MANAGER_CONFIGURED with the AI manager persona (voice/tone) for the tenant. The deep persona write is owned by the agents domain; this records the onboarding step once the manager is configured.",
+    "name": "claim_slug",
+    "title": "Claim Slug",
+    "description": "Choose the public address and language of your business.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "persona": {
+        "slug": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 4000,
-          "description": "Value for persona."
+          "maxLength": 63,
+          "description": "Public business subdomain."
         },
-        "tone": {
+        "language": {
+          "type": "string",
+          "enum": [
+            "ru",
+            "en"
+          ],
+          "description": "Language of this business."
+        },
+        "new_business": {
+          "description": "Create another business for this owner.",
+          "type": "boolean"
+        },
+        "src": {
+          "description": "Source label from the onboarding invitation.",
           "type": "string",
           "maxLength": 64,
-          "description": "Value for tone."
+          "pattern": "^[a-z0-9_-]+$"
         },
         "bot": {
           "type": "string",
@@ -1332,7 +1564,8 @@
         }
       },
       "required": [
-        "persona"
+        "slug",
+        "language"
       ],
       "additionalProperties": false
     },
@@ -1340,63 +1573,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "configure_broadcasts",
-    "title": "Configure Broadcasts",
-    "description": "Mark the guided-tour step \"Broadcasts\" as completed for the tenant (advances TOUR_STEP_COMPLETED with tour_step=broadcasts).",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "note": {
-          "type": "string",
-          "maxLength": 1000,
-          "description": "Value for note."
-        },
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:write",
-    "risk": "write",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "configure_chains",
-    "title": "Configure Chains",
-    "description": "Mark the guided-tour step \"Message chains\" as completed for the tenant (advances TOUR_STEP_COMPLETED with tour_step=chains).",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "note": {
-          "type": "string",
-          "maxLength": 1000,
-          "description": "Value for note."
-        },
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:write",
-    "risk": "write",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "configure_integration",
@@ -1538,63 +1715,7 @@
     "scope": "integrations:write",
     "risk": "write",
     "domain": "integrations",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "configure_kb",
-    "title": "Configure Kb",
-    "description": "Mark the guided-tour step \"Knowledge Base\" as completed for the tenant (advances TOUR_STEP_COMPLETED with tour_step=kb).",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "note": {
-          "type": "string",
-          "maxLength": 1000,
-          "description": "Value for note."
-        },
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:write",
-    "risk": "write",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "configure_marketing_links",
-    "title": "Configure Marketing Links",
-    "description": "Mark the guided-tour step \"Marketing links\" as completed for the tenant (advances TOUR_STEP_COMPLETED with tour_step=marketing).",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "note": {
-          "type": "string",
-          "maxLength": 1000,
-          "description": "Value for note."
-        },
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:write",
-    "risk": "write",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "configure_payment_credentials",
@@ -1915,34 +2036,366 @@
       ],
       "additionalProperties": false
     },
-    "outputSchema": null,
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "active_slug": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bot_username": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "slug",
+            "bot_username"
+          ],
+          "additionalProperties": false
+        },
+        "owner_onboardings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "supergroups_create",
+                  "supergroups_admin",
+                  "supergroups_confirm",
+                  "infrastructure",
+                  "infrastructure_ready",
+                  "quest_1",
+                  "quest_2",
+                  "warmup",
+                  "tariff",
+                  "paid",
+                  "free"
+                ]
+              }
+            },
+            "required": [
+              "slug",
+              "stage"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "address",
+            "site",
+            "bot",
+            "supergroups_create",
+            "supergroups_admin",
+            "supergroups_confirm",
+            "infrastructure",
+            "infrastructure_ready",
+            "quest_1",
+            "quest_2",
+            "warmup",
+            "tariff",
+            "paid",
+            "free"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "todo",
+            "in_progress",
+            "waiting_owner",
+            "blocked",
+            "done"
+          ]
+        },
+        "billing": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        },
+        "next_action": {
+          "type": "object",
+          "properties": {
+            "goal": {
+              "type": "string",
+              "enum": [
+                "address",
+                "site",
+                "site_fallback_form",
+                "bot",
+                "supergroups_create",
+                "supergroups_admin",
+                "supergroups_confirm",
+                "infrastructure",
+                "infrastructure_blocked",
+                "infrastructure_ready",
+                "quest_product_pending",
+                "quest_product_ready",
+                "quest_product_failed",
+                "payment_provider_alive",
+                "payment_provider_failed",
+                "tariff",
+                "paid",
+                "free",
+                "address_new_business",
+                "infrastructure_ready_nth_bot"
+              ]
+            },
+            "say_to_user": {
+              "type": "string"
+            },
+            "collect": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "hint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "hint"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "wait_for": {
+              "type": "object",
+              "properties": {
+                "event": {
+                  "type": "string"
+                },
+                "retry_after_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "event"
+              ],
+              "additionalProperties": false
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "video",
+                    "image_steps"
+                  ]
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "switch_to": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "goal",
+            "say_to_user",
+            "collect"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "enum": [
+                "robokassa",
+                "yookassa",
+                "stars",
+                "cryptobot",
+                "stripe",
+                "paypal",
+                "paddle",
+                "tinkoff",
+                "prodamus"
+              ]
+            },
+            "alive": {
+              "type": "boolean"
+            },
+            "test_mode": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "webhook_url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "provider",
+            "alive",
+            "test_mode",
+            "webhook_url"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "active_slug",
+        "tenant",
+        "owner_onboardings",
+        "stage",
+        "status",
+        "next_action",
+        "body"
+      ],
+      "additionalProperties": false
+    },
     "scope": "payments:config",
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
-    "name": "configure_payment_provider",
-    "title": "Configure Payment Provider",
-    "description": "Advance PAYMENT_PROVIDER_CONNECTED for a supported payment provider. Requires the `payments:config` scope. The credential write is owned by the payments-config domain; this records the onboarding step (validator checks the provider credentials).",
+    "name": "confirm_supergroups",
+    "title": "Confirm Supergroups",
+    "description": "Confirm three discovered groups by candidate number and fingerprint. If discovery is stale, follow next_action to refresh it.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "provider": {
+        "fingerprint": {
           "type": "string",
-          "enum": [
-            "robokassa",
-            "yookassa",
-            "stars",
-            "cryptobot",
-            "stripe",
-            "paypal",
-            "paddle",
-            "tinkoff",
-            "prodamus"
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "Fingerprint returned by discovery."
+        },
+        "roles": {
+          "type": "object",
+          "properties": {
+            "settings": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
+              "description": "Value for settings."
+            },
+            "operations": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
+              "description": "Value for operations."
+            },
+            "open_lines": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
+              "description": "Value for open lines."
+            }
+          },
+          "required": [
+            "settings",
+            "operations",
+            "open_lines"
           ],
-          "description": "Value for provider."
+          "additionalProperties": false,
+          "description": "Candidate numbers assigned to the three operator roles."
         },
         "bot": {
           "type": "string",
@@ -1952,94 +2405,16 @@
         }
       },
       "required": [
-        "provider"
+        "fingerprint",
+        "roles"
       ],
       "additionalProperties": false
     },
     "outputSchema": null,
-    "scope": "payments:config",
-    "risk": "write",
-    "domain": "payments",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "configure_qualifier",
-    "title": "Configure Qualifier",
-    "description": "Mark the guided-tour step \"AI Qualifier\" as completed for the tenant (advances TOUR_STEP_COMPLETED with tour_step=qualifier).",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "note": {
-          "type": "string",
-          "maxLength": 1000,
-          "description": "Value for note."
-        },
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "additionalProperties": false
-    },
-    "outputSchema": null,
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "configure_statuses",
-    "title": "Configure Statuses",
-    "description": "Mark the guided-tour step \"Order statuses\" as completed for the tenant (advances TOUR_STEP_COMPLETED with tour_step=statuses).",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "note": {
-          "type": "string",
-          "maxLength": 1000,
-          "description": "Value for note."
-        },
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:write",
-    "risk": "write",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "confirm_free_test_completed",
-    "title": "Confirm Free Test Completed",
-    "description": "Confirm the FREE full-cycle test purchase is complete (order → delivery). Advances FREE_TEST_COMPLETED; the validator checks a completed free-product cycle exists.",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:write",
-    "risk": "write",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_broadcast",
@@ -2718,7 +3093,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_chain_step",
@@ -2770,7 +3145,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_event",
@@ -2852,7 +3227,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_event_registration",
@@ -2904,7 +3279,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_export",
@@ -2965,7 +3340,7 @@
     "scope": "export",
     "risk": "write",
     "domain": "export",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_forum_topic",
@@ -3007,7 +3382,7 @@
     "scope": "topics:write",
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_knowledge",
@@ -3066,7 +3441,7 @@
     "scope": "kb:write",
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_marketing_campaign",
@@ -3407,7 +3782,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_marketing_link",
@@ -3480,7 +3855,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_message_chain",
@@ -3512,7 +3887,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_order",
@@ -3779,7 +4154,7 @@
     "scope": "orders",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_order_status",
@@ -3965,7 +4340,332 @@
     "scope": "statuses:write",
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
+  },
+  {
+    "name": "create_quest_product",
+    "title": "Create Quest Product",
+    "description": "Create a free quest product with delivery content for your trial business. Completion is recorded after the actual purchase and delivery.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Value for title."
+        },
+        "delivery_text": {
+          "type": "string",
+          "description": "Value for delivery text."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
+      "required": [
+        "title",
+        "delivery_text"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "active_slug": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bot_username": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "slug",
+            "bot_username"
+          ],
+          "additionalProperties": false
+        },
+        "owner_onboardings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "supergroups_create",
+                  "supergroups_admin",
+                  "supergroups_confirm",
+                  "infrastructure",
+                  "infrastructure_ready",
+                  "quest_1",
+                  "quest_2",
+                  "warmup",
+                  "tariff",
+                  "paid",
+                  "free"
+                ]
+              }
+            },
+            "required": [
+              "slug",
+              "stage"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "address",
+            "site",
+            "bot",
+            "supergroups_create",
+            "supergroups_admin",
+            "supergroups_confirm",
+            "infrastructure",
+            "infrastructure_ready",
+            "quest_1",
+            "quest_2",
+            "warmup",
+            "tariff",
+            "paid",
+            "free"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "todo",
+            "in_progress",
+            "waiting_owner",
+            "blocked",
+            "done"
+          ]
+        },
+        "billing": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        },
+        "next_action": {
+          "type": "object",
+          "properties": {
+            "goal": {
+              "type": "string",
+              "enum": [
+                "address",
+                "site",
+                "site_fallback_form",
+                "bot",
+                "supergroups_create",
+                "supergroups_admin",
+                "supergroups_confirm",
+                "infrastructure",
+                "infrastructure_blocked",
+                "infrastructure_ready",
+                "quest_product_pending",
+                "quest_product_ready",
+                "quest_product_failed",
+                "payment_provider_alive",
+                "payment_provider_failed",
+                "tariff",
+                "paid",
+                "free",
+                "address_new_business",
+                "infrastructure_ready_nth_bot"
+              ]
+            },
+            "say_to_user": {
+              "type": "string"
+            },
+            "collect": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "hint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "hint"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "wait_for": {
+              "type": "object",
+              "properties": {
+                "event": {
+                  "type": "string"
+                },
+                "retry_after_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "event"
+              ],
+              "additionalProperties": false
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "video",
+                    "image_steps"
+                  ]
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "switch_to": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "goal",
+            "say_to_user",
+            "collect"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "product_seq_num": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "title": {
+              "type": "string"
+            },
+            "delivery_state": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "ready",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "product_seq_num",
+            "title",
+            "delivery_state"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "active_slug",
+        "tenant",
+        "owner_onboardings",
+        "stage",
+        "status",
+        "next_action",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "scope": "onboarding:write",
+    "risk": "write",
+    "domain": "onboarding",
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_quick_reply",
@@ -4014,7 +4714,94 @@
     "scope": "quick-replies:write",
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
+  },
+  {
+    "name": "create_quick_site",
+    "title": "Create Quick Site",
+    "description": "Publish a business site from a description or structured fields.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "Describe the business in free text.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "fields": {
+          "description": "Structured business information when text parsing is unavailable.",
+          "type": "object",
+          "properties": {
+            "business_name": {
+              "type": "string",
+              "description": "Business name"
+            },
+            "tagline": {
+              "description": "Short business description",
+              "type": "string"
+            },
+            "offer": {
+              "type": "string",
+              "description": "What the business offers"
+            },
+            "contacts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "phone",
+                      "email",
+                      "telegram",
+                      "url"
+                    ],
+                    "description": "Contact method"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "Contact value"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "value"
+                ],
+                "additionalProperties": false,
+                "description": "Value for contacts item."
+              },
+              "description": "Business contact methods"
+            },
+            "avatar_media_ref": {
+              "description": "Durable public HTTPS business image URL; opaque references and signed expiring URLs are not accepted",
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "business_name",
+            "offer",
+            "contacts"
+          ],
+          "additionalProperties": false
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "onboarding:write",
+    "risk": "write",
+    "domain": "onboarding",
+    "platform_version": "1.0.40"
   },
   {
     "name": "create_session",
@@ -4081,7 +4868,7 @@
     "scope": "sessions",
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_broadcast",
@@ -4113,7 +4900,7 @@
     "scope": "broadcasts:write",
     "risk": "destructive",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_chain_step",
@@ -4152,7 +4939,7 @@
     "scope": "chains:write",
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_event",
@@ -4184,7 +4971,7 @@
     "scope": "events:write",
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_forum_topic_message",
@@ -4222,7 +5009,7 @@
     "scope": "topics:write",
     "risk": "destructive",
     "domain": "topics",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_integration",
@@ -4256,7 +5043,7 @@
     "scope": "integrations:write",
     "risk": "destructive",
     "domain": "integrations",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_knowledge",
@@ -4297,7 +5084,7 @@
     "scope": "kb:write",
     "risk": "destructive",
     "domain": "kb",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_marketing_campaign",
@@ -4329,7 +5116,7 @@
     "scope": "marketing:write",
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_marketing_link",
@@ -4361,7 +5148,7 @@
     "scope": "marketing:write",
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_message_chain",
@@ -4393,7 +5180,7 @@
     "scope": "chains:write",
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_order_status",
@@ -4425,7 +5212,7 @@
     "scope": "statuses:write",
     "risk": "destructive",
     "domain": "statuses",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "delete_quick_reply",
@@ -4457,7 +5244,7 @@
     "scope": "quick-replies:write",
     "risk": "destructive",
     "domain": "quick-replies",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "describe_segment_axes",
@@ -4473,7 +5260,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "describe_tool",
@@ -4539,7 +5326,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "disable_payment_provider",
@@ -4580,7 +5367,28 @@
     "scope": "payments:config",
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
+  },
+  {
+    "name": "discover_supergroups",
+    "title": "Discover Supergroups",
+    "description": "Discover existing operator supergroups after an owner action. Read get_onboarding_state for the next action.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "refresh": {
+          "description": "Refresh the candidate groups after an owner action.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "onboarding:read",
+    "risk": "read",
+    "domain": "onboarding",
+    "platform_version": "1.0.40"
   },
   {
     "name": "domain_add_request",
@@ -4627,7 +5435,7 @@
     "scope": "domain:write",
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "domain_execute_unlink",
@@ -4665,7 +5473,7 @@
     "scope": "domain:write",
     "risk": "destructive",
     "domain": "domain",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "domain_prepare_unlink",
@@ -4699,7 +5507,7 @@
     "scope": "domain:write",
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "domain_status",
@@ -4724,7 +5532,7 @@
     "scope": "domain:read",
     "risk": "read",
     "domain": "domain",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "domain_verify",
@@ -4758,7 +5566,7 @@
     "scope": "domain:write",
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "edit_forum_topic_message",
@@ -4880,7 +5688,7 @@
     "scope": "topics:write",
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "enable_payment_provider",
@@ -4921,7 +5729,7 @@
     "scope": "payments:config",
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "exchange_session_approval_code",
@@ -4952,7 +5760,7 @@
     "scope": "sessions",
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "execute_admin_read",
@@ -4990,7 +5798,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "execute_admin_write",
@@ -5028,7 +5836,7 @@
     "scope": "platform:read",
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "execute_broadcast_launch",
@@ -5066,7 +5874,7 @@
     "scope": "broadcasts:write",
     "risk": "money",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "execute_chain_batch_entry",
@@ -5104,7 +5912,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "execute_manual_sale",
@@ -5142,7 +5950,7 @@
     "scope": "orders:write",
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "execute_order_status_change",
@@ -5180,7 +5988,7 @@
     "scope": "orders:status",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "execute_send_invoice",
@@ -5218,7 +6026,7 @@
     "scope": "orders:write",
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "export_form_submissions_normalized",
@@ -5270,53 +6078,7 @@
     "scope": "pull:form_submissions",
     "risk": "write",
     "domain": "pull",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "finalize_phase_1a",
-    "title": "Finalize Phase 1a",
-    "description": "Finalize Phase 1A — mark the tenant infrastructure as built (bot + supergroups + service account). Gated by the infra verification: returns validation_failed with the missing items if anything is not ready (call check_setup_status first).",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:write",
-    "risk": "write",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "finalize_tour",
-    "title": "Finalize Tour",
-    "description": "Finalize the guided tour — mark TOUR_FULLY_COMPLETED for the tenant. Call once every tour beat is configured.",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:write",
-    "risk": "write",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_active_bot",
@@ -5332,7 +6094,7 @@
     "scope": "identity:read",
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_agent_config",
@@ -5348,7 +6110,333 @@
     "scope": "agents:read",
     "risk": "read",
     "domain": "agents",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
+  },
+  {
+    "name": "get_billing_state",
+    "title": "Get Billing State",
+    "description": "Read the current plan, paid period and automatic renewal state.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "active_slug": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bot_username": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "slug",
+            "bot_username"
+          ],
+          "additionalProperties": false
+        },
+        "owner_onboardings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "supergroups_create",
+                  "supergroups_admin",
+                  "supergroups_confirm",
+                  "infrastructure",
+                  "infrastructure_ready",
+                  "quest_1",
+                  "quest_2",
+                  "warmup",
+                  "tariff",
+                  "paid",
+                  "free"
+                ]
+              }
+            },
+            "required": [
+              "slug",
+              "stage"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "address",
+            "site",
+            "bot",
+            "supergroups_create",
+            "supergroups_admin",
+            "supergroups_confirm",
+            "infrastructure",
+            "infrastructure_ready",
+            "quest_1",
+            "quest_2",
+            "warmup",
+            "tariff",
+            "paid",
+            "free"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "todo",
+            "in_progress",
+            "waiting_owner",
+            "blocked",
+            "done"
+          ]
+        },
+        "billing": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        },
+        "next_action": {
+          "type": "object",
+          "properties": {
+            "goal": {
+              "type": "string",
+              "enum": [
+                "address",
+                "site",
+                "site_fallback_form",
+                "bot",
+                "supergroups_create",
+                "supergroups_admin",
+                "supergroups_confirm",
+                "infrastructure",
+                "infrastructure_blocked",
+                "infrastructure_ready",
+                "quest_product_pending",
+                "quest_product_ready",
+                "quest_product_failed",
+                "payment_provider_alive",
+                "payment_provider_failed",
+                "tariff",
+                "paid",
+                "free",
+                "address_new_business",
+                "infrastructure_ready_nth_bot"
+              ]
+            },
+            "say_to_user": {
+              "type": "string"
+            },
+            "collect": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "hint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "hint"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "wait_for": {
+              "type": "object",
+              "properties": {
+                "event": {
+                  "type": "string"
+                },
+                "retry_after_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "event"
+              ],
+              "additionalProperties": false
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "video",
+                    "image_steps"
+                  ]
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "switch_to": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "goal",
+            "say_to_user",
+            "collect"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "active_slug",
+        "tenant",
+        "owner_onboardings",
+        "stage",
+        "status",
+        "next_action",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "scope": "onboarding:read",
+    "risk": "read",
+    "domain": "onboarding",
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_broadcast_status",
@@ -5374,7 +6462,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_catalog",
@@ -5719,7 +6807,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_catalog_group",
@@ -5745,7 +6833,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_catalog_item",
@@ -5779,7 +6867,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_catalog_topic_link",
@@ -5795,7 +6883,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_client_config",
@@ -5889,7 +6977,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_content_draft",
@@ -6172,7 +7260,7 @@
     "scope": "content:read",
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_conversation",
@@ -6198,7 +7286,7 @@
     "scope": "dialogs:read",
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_customer",
@@ -6224,7 +7312,7 @@
     "scope": "orders",
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_data_dictionary",
@@ -6240,7 +7328,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_doc",
@@ -6276,7 +7364,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_entitlements",
@@ -6301,7 +7389,7 @@
     "scope": "entitlements",
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_event_registration",
@@ -6327,7 +7415,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_form_submission",
@@ -6360,7 +7448,7 @@
     "scope": "pull:form_submissions",
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_knowledge",
@@ -6395,7 +7483,7 @@
     "scope": "kb:read",
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_legal_profile",
@@ -6411,7 +7499,7 @@
     "scope": "legal:read",
     "risk": "read",
     "domain": "legal",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_message_stats",
@@ -6427,86 +7515,944 @@
     "scope": "dialogs:read",
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_onboarding_state",
     "title": "Get Onboarding State",
-    "description": "Read the current onboarding state machine for your tenant: current status, completed steps (with timestamps), the next available steps, and the WRITE tools unlocked at the current phase. 0-cost read — call it first to decide what to do next.",
+    "description": "Read onboarding progress and the next action for the current business.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
-      "properties": {},
+      "properties": {
+        "src": {
+          "description": "Source label from the onboarding invitation.",
+          "type": "string",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9_-]+$"
+        }
+      },
       "additionalProperties": false
     },
     "outputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "clientId": {
-          "type": "string"
+        "active_slug": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
-        "currentStatus": {
-          "type": "string"
+        "tenant": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bot_username": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "slug",
+            "bot_username"
+          ],
+          "additionalProperties": false
         },
-        "completedSteps": {
+        "owner_onboardings": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "step": {
+              "slug": {
                 "type": "string"
               },
-              "completedAt": {
-                "type": "string"
+              "stage": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "supergroups_create",
+                  "supergroups_admin",
+                  "supergroups_confirm",
+                  "infrastructure",
+                  "infrastructure_ready",
+                  "quest_1",
+                  "quest_2",
+                  "warmup",
+                  "tariff",
+                  "paid",
+                  "free"
+                ]
               }
             },
             "required": [
-              "step",
-              "completedAt"
+              "slug",
+              "stage"
             ],
             "additionalProperties": false
           }
         },
-        "nextSteps": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "step": {
-                "type": "string"
-              },
-              "parallel": {
-                "type": "boolean"
+        "stage": {
+          "type": "string",
+          "enum": [
+            "address",
+            "site",
+            "bot",
+            "supergroups_create",
+            "supergroups_admin",
+            "supergroups_confirm",
+            "infrastructure",
+            "infrastructure_ready",
+            "quest_1",
+            "quest_2",
+            "warmup",
+            "tariff",
+            "paid",
+            "free"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "todo",
+            "in_progress",
+            "waiting_owner",
+            "blocked",
+            "done"
+          ]
+        },
+        "billing": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        },
+        "next_action": {
+          "type": "object",
+          "properties": {
+            "goal": {
+              "type": "string",
+              "enum": [
+                "address",
+                "site",
+                "site_fallback_form",
+                "bot",
+                "supergroups_create",
+                "supergroups_admin",
+                "supergroups_confirm",
+                "infrastructure",
+                "infrastructure_blocked",
+                "infrastructure_ready",
+                "quest_product_pending",
+                "quest_product_ready",
+                "quest_product_failed",
+                "payment_provider_alive",
+                "payment_provider_failed",
+                "tariff",
+                "paid",
+                "free",
+                "address_new_business",
+                "infrastructure_ready_nth_bot"
+              ]
+            },
+            "say_to_user": {
+              "type": "string"
+            },
+            "collect": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "hint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "hint"
+                ],
+                "additionalProperties": false
               }
             },
-            "required": [
-              "step",
-              "parallel"
-            ],
-            "additionalProperties": false
-          }
+            "wait_for": {
+              "type": "object",
+              "properties": {
+                "event": {
+                  "type": "string"
+                },
+                "retry_after_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "event"
+              ],
+              "additionalProperties": false
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "video",
+                    "image_steps"
+                  ]
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "switch_to": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "goal",
+            "say_to_user",
+            "collect"
+          ],
+          "additionalProperties": false
         },
-        "availableWriteTools": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "body": {
+          "type": "object",
+          "properties": {
+            "links": {
+              "type": "object",
+              "properties": {
+                "catalog": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "tariffs": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "catalog",
+                "tariffs"
+              ],
+              "additionalProperties": false
+            },
+            "language": {
+              "type": "string",
+              "enum": [
+                "ru",
+                "en"
+              ]
+            },
+            "completedSteps": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "discovery": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "fingerprint": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "candidates": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "ordinal": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "issues": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "SG_NOT_FORUM",
+                                "SA_NOT_MEMBER",
+                                "SA_NOT_ADMIN",
+                                "SA_RIGHTS_MISSING",
+                                "SA_ANONYMOUS"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "ordinal",
+                          "title",
+                          "issues"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "fingerprint",
+                    "candidates"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "infrastructure": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "AWAITING_OWNER",
+                        "QUEUED",
+                        "RUNNING",
+                        "BLOCKED",
+                        "COMPLETE",
+                        "FAILED"
+                      ]
+                    },
+                    "sa_report": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "titles_done": {
+                              "type": "object",
+                              "properties": {
+                                "SETTINGS": {
+                                  "type": "boolean"
+                                },
+                                "OPERATIONS": {
+                                  "type": "boolean"
+                                },
+                                "OPEN_LINES": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "SETTINGS",
+                                "OPERATIONS",
+                                "OPEN_LINES"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "per_sg": {
+                              "type": "object",
+                              "properties": {
+                                "SETTINGS": {
+                                  "type": "object",
+                                  "properties": {
+                                    "member": {
+                                      "type": "boolean"
+                                    },
+                                    "admin": {
+                                      "type": "boolean"
+                                    },
+                                    "rights_ok": {
+                                      "type": "boolean"
+                                    },
+                                    "anonymous": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "member",
+                                    "admin",
+                                    "rights_ok",
+                                    "anonymous"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "OPERATIONS": {
+                                  "type": "object",
+                                  "properties": {
+                                    "member": {
+                                      "type": "boolean"
+                                    },
+                                    "admin": {
+                                      "type": "boolean"
+                                    },
+                                    "rights_ok": {
+                                      "type": "boolean"
+                                    },
+                                    "anonymous": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "member",
+                                    "admin",
+                                    "rights_ok",
+                                    "anonymous"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "OPEN_LINES": {
+                                  "type": "object",
+                                  "properties": {
+                                    "member": {
+                                      "type": "boolean"
+                                    },
+                                    "admin": {
+                                      "type": "boolean"
+                                    },
+                                    "rights_ok": {
+                                      "type": "boolean"
+                                    },
+                                    "anonymous": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "member",
+                                    "admin",
+                                    "rights_ok",
+                                    "anonymous"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "required": [
+                                "SETTINGS",
+                                "OPERATIONS",
+                                "OPEN_LINES"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "titles_done",
+                            "per_sg"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "bots_report": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "target": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 9007199254740991
+                            },
+                            "observed_cap": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 9007199254740991
+                            },
+                            "per_sg": {
+                              "type": "object",
+                              "properties": {
+                                "SETTINGS": {
+                                  "type": "object",
+                                  "properties": {
+                                    "client_bot": {
+                                      "type": "string",
+                                      "enum": [
+                                        "admin_ok",
+                                        "missing",
+                                        "rights_missing"
+                                      ]
+                                    },
+                                    "pool_admin_ok": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "pool_missing": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "cap_reached": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "client_bot",
+                                    "pool_admin_ok",
+                                    "pool_missing",
+                                    "cap_reached"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "OPERATIONS": {
+                                  "type": "object",
+                                  "properties": {
+                                    "client_bot": {
+                                      "type": "string",
+                                      "enum": [
+                                        "admin_ok",
+                                        "missing",
+                                        "rights_missing"
+                                      ]
+                                    },
+                                    "pool_admin_ok": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "pool_missing": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "cap_reached": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "client_bot",
+                                    "pool_admin_ok",
+                                    "pool_missing",
+                                    "cap_reached"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "OPEN_LINES": {
+                                  "type": "object",
+                                  "properties": {
+                                    "client_bot": {
+                                      "type": "string",
+                                      "enum": [
+                                        "admin_ok",
+                                        "missing",
+                                        "rights_missing"
+                                      ]
+                                    },
+                                    "pool_admin_ok": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "pool_missing": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "cap_reached": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "client_bot",
+                                    "pool_admin_ok",
+                                    "pool_missing",
+                                    "cap_reached"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "required": [
+                                "SETTINGS",
+                                "OPERATIONS",
+                                "OPEN_LINES"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "target",
+                            "per_sg"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "topics_report": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "per_sg": {
+                              "type": "object",
+                              "properties": {
+                                "SETTINGS": {
+                                  "type": "object",
+                                  "properties": {
+                                    "expected": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "created": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "adopted_by_registry": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "adopted_by_alias": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "missing": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "expected",
+                                    "created",
+                                    "adopted_by_registry",
+                                    "adopted_by_alias",
+                                    "missing"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "OPERATIONS": {
+                                  "type": "object",
+                                  "properties": {
+                                    "expected": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "created": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "adopted_by_registry": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "adopted_by_alias": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "missing": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "expected",
+                                    "created",
+                                    "adopted_by_registry",
+                                    "adopted_by_alias",
+                                    "missing"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "OPEN_LINES": {
+                                  "type": "object",
+                                  "properties": {
+                                    "expected": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "created": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "adopted_by_registry": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "adopted_by_alias": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "missing": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "expected",
+                                    "created",
+                                    "adopted_by_registry",
+                                    "adopted_by_alias",
+                                    "missing"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "required": [
+                                "SETTINGS",
+                                "OPERATIONS",
+                                "OPEN_LINES"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "per_sg"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "pins_report": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "per_sg": {
+                              "type": "object",
+                              "properties": {
+                                "SETTINGS": {
+                                  "type": "object",
+                                  "properties": {
+                                    "pinned": {
+                                      "type": "boolean"
+                                    },
+                                    "skipped_reason": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "pinned"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "OPERATIONS": {
+                                  "type": "object",
+                                  "properties": {
+                                    "pinned": {
+                                      "type": "boolean"
+                                    },
+                                    "skipped_reason": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "pinned"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "OPEN_LINES": {
+                                  "type": "object",
+                                  "properties": {
+                                    "pinned": {
+                                      "type": "boolean"
+                                    },
+                                    "skipped_reason": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "pinned"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "required": [
+                                "SETTINGS",
+                                "OPERATIONS",
+                                "OPEN_LINES"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "per_sg"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "blocked_reason": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "SG_NOT_FORUM",
+                            "SA_NOT_MEMBER",
+                            "SA_NOT_ADMIN",
+                            "SA_RIGHTS_MISSING",
+                            "SA_ANONYMOUS",
+                            "SG_BOT_CAP_REACHED",
+                            "CLIENT_BOT_RIGHTS_MISSING",
+                            "terminal_capability"
+                          ]
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "next_attempt_at": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "format": "date-time",
+                          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "sa_report",
+                    "bots_report",
+                    "topics_report",
+                    "pins_report",
+                    "blocked_reason",
+                    "next_attempt_at"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "language",
+            "completedSteps",
+            "discovery",
+            "infrastructure"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "clientId",
-        "currentStatus",
-        "completedSteps",
-        "nextSteps",
-        "availableWriteTools"
+        "active_slug",
+        "tenant",
+        "owner_onboardings",
+        "stage",
+        "status",
+        "next_action",
+        "body"
       ],
       "additionalProperties": false
     },
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_payment_config",
@@ -6522,7 +8468,7 @@
     "scope": "payments:config",
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_plan_checkout_link",
@@ -6538,7 +8484,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_session_status",
@@ -6609,7 +8555,7 @@
     "scope": "sessions",
     "risk": "read",
     "domain": "sessions",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_skill",
@@ -6641,7 +8587,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_storefront",
@@ -6657,7 +8603,7 @@
     "scope": "storefront:read",
     "risk": "read",
     "domain": "storefront",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_subscription_status",
@@ -6682,7 +8628,7 @@
     "scope": "entitlements",
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_token_billing",
@@ -6698,7 +8644,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "get_token_topup_link",
@@ -6714,28 +8660,16 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "init_managed_bot",
     "title": "Init Managed Bot",
-    "description": "Start primary onboarding, then get a 2-tap Telegram deeplink to create a NEW managed bot for the tenant (Bot API 9.6 managed bots). Returns ONLY the `t.me/newbot/…` link + instructions — ADR-076: the backend never creates a bot via MTProto; the owner taps the link, and the new bot is picked up automatically. Hosting a site alone does not start onboarding. Provide a suggested @username and display name.",
+    "description": "Get a two-tap Telegram deeplink to connect a new managed bot. The server derives its name from the published business site and its username from the claimed address.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "suggested_username": {
-          "type": "string",
-          "minLength": 5,
-          "maxLength": 32,
-          "description": "Value for suggested username."
-        },
-        "suggested_name": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 64,
-          "description": "Value for suggested name."
-        },
         "bot": {
           "type": "string",
           "minLength": 1,
@@ -6743,17 +8677,13 @@
           "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
-      "required": [
-        "suggested_username",
-        "suggested_name"
-      ],
       "additionalProperties": false
     },
     "outputSchema": null,
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "invite_team_member",
@@ -6844,7 +8774,7 @@
     "scope": "team:write",
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "issue_api_key",
@@ -6945,7 +8875,7 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "link_anonymous_order",
@@ -6984,7 +8914,7 @@
     "scope": "orders",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_accessible_bots",
@@ -7000,7 +8930,7 @@
     "scope": "identity:read",
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_broadcasts",
@@ -7016,7 +8946,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_catalog_groups",
@@ -7032,7 +8962,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_chain_runs",
@@ -7061,7 +8991,7 @@
     "scope": "chains:read",
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_chain_steps",
@@ -7087,7 +9017,7 @@
     "scope": "chains:read",
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_connections",
@@ -7159,7 +9089,7 @@
     "scope": "credentials:read",
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_customers",
@@ -7188,7 +9118,7 @@
     "scope": "orders",
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_event_registrations",
@@ -7222,7 +9152,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_events",
@@ -7238,7 +9168,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_forum_topics",
@@ -7254,7 +9184,7 @@
     "scope": "topics:read",
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_integrations",
@@ -7270,7 +9200,7 @@
     "scope": "integrations:read",
     "risk": "read",
     "domain": "integrations",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_knowledge",
@@ -7286,7 +9216,7 @@
     "scope": "kb:read",
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_marketing_campaigns",
@@ -7302,7 +9232,7 @@
     "scope": "marketing:read",
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_marketing_links",
@@ -7318,7 +9248,7 @@
     "scope": "marketing:read",
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_message_chains",
@@ -7334,7 +9264,7 @@
     "scope": "chains:read",
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_order_statuses",
@@ -7350,7 +9280,7 @@
     "scope": "statuses:read",
     "risk": "read",
     "domain": "statuses",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_payment_rows",
@@ -7379,7 +9309,7 @@
     "scope": "payments",
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_quick_replies",
@@ -7395,7 +9325,7 @@
     "scope": "quick-replies:read",
     "risk": "read",
     "domain": "quick-replies",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_segment_targets",
@@ -7449,7 +9379,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_team_members",
@@ -7465,7 +9395,7 @@
     "scope": "team:read",
     "risk": "read",
     "domain": "team",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "list_unanswered",
@@ -7539,7 +9469,7 @@
     "scope": "dialogs:read",
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "load_domain",
@@ -7621,7 +9551,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "manage_message",
@@ -8391,7 +10321,7 @@
     "scope": "dialogs:write",
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "manage_pricing_rules",
@@ -10132,7 +12062,7 @@
     "scope": "pricing:write",
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "mark_form_submission_handled",
@@ -10164,7 +12094,7 @@
     "scope": "push:form_submissions",
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "mark_paid",
@@ -10225,7 +12155,7 @@
     "scope": "orders:write",
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "media_finalize",
@@ -10257,7 +12187,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "media_get_status",
@@ -10283,7 +12213,7 @@
     "scope": "content:read",
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "media_import_files",
@@ -10526,7 +12456,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "media_request_upload",
@@ -10588,7 +12518,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "partner_get_balance",
@@ -10604,7 +12534,7 @@
     "scope": "partner:read",
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "partner_get_invite_links",
@@ -10620,7 +12550,7 @@
     "scope": "partner:read",
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "partner_request_payout",
@@ -10643,7 +12573,7 @@
     "scope": "partner:payout",
     "risk": "money",
     "domain": "partner",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "prepare_broadcast_launch",
@@ -10675,7 +12605,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "prepare_chain_batch_entry",
@@ -10736,7 +12666,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "prepare_manual_sale",
@@ -10885,7 +12815,7 @@
     "scope": "orders:write",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "prepare_order_status_change",
@@ -10930,7 +12860,7 @@
     "scope": "orders:status",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "prepare_send_invoice",
@@ -10962,7 +12892,7 @@
     "scope": "orders:write",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "preview_segment_reach",
@@ -10990,7 +12920,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "publish_entity",
@@ -12909,7 +14839,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "pull_form_submissions",
@@ -12970,7 +14900,7 @@
     "scope": "pull:form_submissions",
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "query_form_submission_segment",
@@ -13044,7 +14974,7 @@
     "scope": "pull:form_submissions",
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "quote_order",
@@ -13273,7 +15203,7 @@
     "scope": "orders",
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "refresh_payment_urls",
@@ -13319,49 +15249,7 @@
     "scope": "orders",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "register_catalog_item",
-    "title": "Register Catalog Item",
-    "description": "Advance FIRST_PRODUCT_ADDED once the tenant catalog has its first product. Use the dedicated catalog tools to actually create the product; this marks the onboarding step (validator checks the catalog).",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 256,
-          "description": "Value for title."
-        },
-        "description": {
-          "type": "string",
-          "maxLength": 4000,
-          "description": "Value for description."
-        },
-        "price": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Value for price."
-        },
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "required": [
-        "title"
-      ],
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:write",
-    "risk": "write",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "register_existing_bot",
@@ -13384,7 +15272,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "register_mini_app_origin",
@@ -13424,7 +15312,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "release_chat",
@@ -13456,7 +15344,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "request_access_link",
@@ -13564,7 +15452,7 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "revoke_connection",
@@ -13610,7 +15498,7 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "revoke_team_member",
@@ -13642,7 +15530,7 @@
     "scope": "team:write",
     "risk": "destructive",
     "domain": "team",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "sample_segment_audience",
@@ -13678,7 +15566,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "scope_change",
@@ -13786,7 +15674,7 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "search_admin_tools",
@@ -13890,7 +15778,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "search_docs",
@@ -13934,7 +15822,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "secret_delete",
@@ -13973,7 +15861,7 @@
     "scope": "site:write",
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "secret_list",
@@ -13989,7 +15877,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "secret_put",
@@ -14035,7 +15923,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "secret_rotate",
@@ -14081,7 +15969,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "send_card",
@@ -14577,7 +16465,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "send_entity_card",
@@ -14744,7 +16632,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "send_notification",
@@ -14901,7 +16789,7 @@
     "scope": "push",
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "send_to_forum_topic",
@@ -15050,7 +16938,407 @@
     "scope": "topics:write",
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
+  },
+  {
+    "name": "set_tax_profile",
+    "title": "Set Tax Profile",
+    "description": "Set the business tax profile for payment setup. Returns onboarding progress and the next action.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "jurisdiction": {
+              "type": "string",
+              "const": "ru",
+              "description": "Value for jurisdiction."
+            },
+            "business_type": {
+              "type": "string",
+              "const": "ip",
+              "description": "Value for business type."
+            },
+            "taxation_system": {
+              "type": "string",
+              "enum": [
+                "osn",
+                "usn_income",
+                "usn_income_outcome",
+                "esn",
+                "patent"
+              ],
+              "description": "Value for taxation system."
+            }
+          },
+          "required": [
+            "jurisdiction",
+            "business_type",
+            "taxation_system"
+          ],
+          "additionalProperties": false,
+          "description": "Value for input option."
+        },
+        {
+          "type": "object",
+          "properties": {
+            "jurisdiction": {
+              "type": "string",
+              "const": "ru",
+              "description": "Value for jurisdiction."
+            },
+            "business_type": {
+              "type": "string",
+              "const": "ooo",
+              "description": "Value for business type."
+            },
+            "taxation_system": {
+              "type": "string",
+              "enum": [
+                "osn",
+                "usn_income",
+                "usn_income_outcome",
+                "esn",
+                "patent"
+              ],
+              "description": "Value for taxation system."
+            }
+          },
+          "required": [
+            "jurisdiction",
+            "business_type",
+            "taxation_system"
+          ],
+          "additionalProperties": false,
+          "description": "Value for input option."
+        },
+        {
+          "type": "object",
+          "properties": {
+            "jurisdiction": {
+              "type": "string",
+              "const": "ru",
+              "description": "Value for jurisdiction."
+            },
+            "business_type": {
+              "type": "string",
+              "const": "self_employed",
+              "description": "Value for business type."
+            }
+          },
+          "required": [
+            "jurisdiction",
+            "business_type"
+          ],
+          "additionalProperties": false,
+          "description": "Value for input option."
+        }
+      ]
+    },
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "active_slug": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bot_username": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "slug",
+            "bot_username"
+          ],
+          "additionalProperties": false
+        },
+        "owner_onboardings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "supergroups_create",
+                  "supergroups_admin",
+                  "supergroups_confirm",
+                  "infrastructure",
+                  "infrastructure_ready",
+                  "quest_1",
+                  "quest_2",
+                  "warmup",
+                  "tariff",
+                  "paid",
+                  "free"
+                ]
+              }
+            },
+            "required": [
+              "slug",
+              "stage"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "address",
+            "site",
+            "bot",
+            "supergroups_create",
+            "supergroups_admin",
+            "supergroups_confirm",
+            "infrastructure",
+            "infrastructure_ready",
+            "quest_1",
+            "quest_2",
+            "warmup",
+            "tariff",
+            "paid",
+            "free"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "todo",
+            "in_progress",
+            "waiting_owner",
+            "blocked",
+            "done"
+          ]
+        },
+        "billing": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        },
+        "next_action": {
+          "type": "object",
+          "properties": {
+            "goal": {
+              "type": "string",
+              "enum": [
+                "address",
+                "site",
+                "site_fallback_form",
+                "bot",
+                "supergroups_create",
+                "supergroups_admin",
+                "supergroups_confirm",
+                "infrastructure",
+                "infrastructure_blocked",
+                "infrastructure_ready",
+                "quest_product_pending",
+                "quest_product_ready",
+                "quest_product_failed",
+                "payment_provider_alive",
+                "payment_provider_failed",
+                "tariff",
+                "paid",
+                "free",
+                "address_new_business",
+                "infrastructure_ready_nth_bot"
+              ]
+            },
+            "say_to_user": {
+              "type": "string"
+            },
+            "collect": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "hint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "hint"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "wait_for": {
+              "type": "object",
+              "properties": {
+                "event": {
+                  "type": "string"
+                },
+                "retry_after_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "event"
+              ],
+              "additionalProperties": false
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "video",
+                    "image_steps"
+                  ]
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "switch_to": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "goal",
+            "say_to_user",
+            "collect"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "business_type": {
+              "type": "string",
+              "enum": [
+                "ip",
+                "ooo",
+                "self_employed"
+              ]
+            },
+            "taxation_system": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "osn",
+                    "usn_income",
+                    "usn_income_outcome",
+                    "esn",
+                    "patent"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "business_type",
+            "taxation_system"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "active_slug",
+        "tenant",
+        "owner_onboardings",
+        "stage",
+        "status",
+        "next_action",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "scope": "onboarding:write",
+    "risk": "write",
+    "domain": "onboarding",
+    "platform_version": "1.0.40"
   },
   {
     "name": "site_checkout_key",
@@ -15073,7 +17361,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "site_execute_delete",
@@ -15111,7 +17399,7 @@
     "scope": "site:write",
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "site_fetch_file",
@@ -15145,7 +17433,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "site_form_declare",
@@ -15359,7 +17647,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "site_get_analytics",
@@ -15388,7 +17676,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "site_get_manifest",
@@ -15415,7 +17703,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "site_prepare_delete",
@@ -15448,7 +17736,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "site_publish",
@@ -15488,7 +17776,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "site_request_upload",
@@ -15567,7 +17855,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "submit_form_submission",
@@ -15603,7 +17891,7 @@
     "scope": "push:form_submissions",
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "support_ticket_create",
@@ -15710,7 +17998,7 @@
     "scope": "support:write",
     "risk": "write",
     "domain": "support",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "support_ticket_list",
@@ -15744,7 +18032,7 @@
     "scope": "support:read",
     "risk": "read",
     "domain": "support",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "switch_active_bot",
@@ -15776,7 +18064,7 @@
     "scope": "identity:write",
     "risk": "write",
     "domain": "identity",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "take_chat",
@@ -15808,7 +18096,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "test_funnel_pipeline",
@@ -15845,23 +18133,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "test_purchase_cycle",
-    "title": "Test Purchase Cycle",
-    "description": "Get guidance (+ catalog deeplink) to run a FREE full-cycle test purchase (order → delivery) in your bot. After completing it in Telegram, call `confirm_free_test_completed`. This does not place an order itself — it points you to the flow.",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {},
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "onboarding:read",
-    "risk": "read",
-    "domain": "onboarding",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_agent_config",
@@ -16268,7 +18540,7 @@
     "scope": "agents:write",
     "risk": "write",
     "domain": "agents",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_broadcast",
@@ -16679,7 +18951,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_catalog_item",
@@ -17373,7 +19645,7 @@
     "scope": "catalog:write",
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_chain_step",
@@ -17692,7 +19964,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_client_config",
@@ -17785,7 +20057,7 @@
     "scope": "client-config:write",
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_event",
@@ -18114,7 +20386,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_knowledge",
@@ -18186,7 +20458,7 @@
     "scope": "kb:write",
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_legal_profile",
@@ -18492,7 +20764,7 @@
     "scope": "legal:write",
     "risk": "write",
     "domain": "legal",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_marketing_campaign",
@@ -18805,7 +21077,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_marketing_link",
@@ -18861,7 +21133,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_message_chain",
@@ -18899,7 +21171,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_order_status",
@@ -19117,7 +21389,7 @@
     "scope": "statuses:write",
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_quick_reply",
@@ -19171,7 +21443,7 @@
     "scope": "quick-replies:write",
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_storefront",
@@ -19230,7 +21502,7 @@
     "scope": "storefront:write",
     "risk": "write",
     "domain": "storefront",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   },
   {
     "name": "update_team_member",
@@ -19326,77 +21598,6 @@
     "scope": "team:write",
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.31"
-  },
-  {
-    "name": "upload_legal_doc",
-    "title": "Upload Legal Doc",
-    "description": "Record the tenant legal profile for a jurisdiction (`ru` or `world`). Supplying the tax id (RU INN / world tax_id) ACTIVATES that payment zone. Persists to the client legal profile (real upsert). Single-jurisdiction per call — the two zones are independent.",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "jurisdiction": {
-          "type": "string",
-          "enum": [
-            "ru",
-            "world"
-          ],
-          "description": "Value for jurisdiction."
-        },
-        "business_type": {
-          "type": "string",
-          "maxLength": 64,
-          "description": "Value for business type."
-        },
-        "legal_name": {
-          "type": "string",
-          "maxLength": 256,
-          "description": "Value for legal name."
-        },
-        "tax_id": {
-          "type": "string",
-          "maxLength": 64,
-          "description": "Value for tax id."
-        },
-        "registration_id": {
-          "type": "string",
-          "maxLength": 64,
-          "description": "Value for registration id."
-        },
-        "legal_address": {
-          "type": "string",
-          "maxLength": 512,
-          "description": "Value for legal address."
-        },
-        "contact_email": {
-          "type": "string",
-          "maxLength": 256,
-          "format": "email",
-          "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
-          "description": "Value for contact email."
-        },
-        "contact_phone": {
-          "type": "string",
-          "maxLength": 64,
-          "description": "Value for contact phone."
-        },
-        "bot": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128,
-          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
-        }
-      },
-      "required": [
-        "jurisdiction"
-      ],
-      "additionalProperties": false
-    },
-    "outputSchema": null,
-    "scope": "legal:write",
-    "risk": "write",
-    "domain": "legal",
-    "platform_version": "1.0.31"
+    "platform_version": "1.0.40"
   }
 ]
