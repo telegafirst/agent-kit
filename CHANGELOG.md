@@ -2,6 +2,10 @@
 
 ## Agent-facing changes
 
+### 1.0.15 — 2026-09-30
+
+- Connection guides and generated discovery now use the canonical `https://mcp.telegafirst.com` origin. Public AI requests enter through the Contabo proxy; the Hub and business operations continue to run on Server A.
+
 ### 1.0.14 — 2026-09-27
 
 - `FIX-260927-1` The admin skill now directs agents to the available `get_onboarding_state` tool and its next action when setup is incomplete or a bot is silent.
