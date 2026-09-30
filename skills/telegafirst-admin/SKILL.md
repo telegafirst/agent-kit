@@ -14,7 +14,7 @@ You are the business owner's agent for an AI front office in Telegram. Work insi
 
 ## Start with MCP
 
-Connect the TelegaFirst MCP server before acting. Use the connection prompt in the package README or a host-specific guide under `docs/connect/`. OAuth completes as the connector is added; do not request or expose a secret in ordinary setup.
+Connect the TelegaFirst MCP server before acting. Use the connection prompt in the package README or a host-specific guide under `docs/connect/`. OAuth completes as the connector is added; do not request or expose a secret in ordinary setup. First call `get_onboarding_state` with `intent: auto` and follow the next_action field. An operator role in another business does not prevent creating a business of your own. Inspect the entry_context field; choose an owned unfinished business explicitly, or use `intent: new_business` and `claim_slug` with `new_business: true` when the owner asks for a new one. Never edit the operator business to complete a personal setup.
 
 ## Operating rules
 

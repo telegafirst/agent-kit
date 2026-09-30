@@ -2,6 +2,11 @@
 
 ## Agent-facing changes
 
+### 1.0.16 — 2026-09-30
+
+- Agents start with personal onboarding state and its next action, distinguish owner and operator businesses, and can explicitly create their own business without borrowing another tenant’s permissions.
+- Site setup preserves the storefront root and `/bio`, and waits for domain admission before presenting DNS verification records.
+
 ### 1.0.15 — 2026-09-30
 
 - Connection guides and generated discovery now use the canonical `https://mcp.telegafirst.com` origin. Public AI requests enter through the Contabo proxy; the Hub and business operations continue to run on Server A.

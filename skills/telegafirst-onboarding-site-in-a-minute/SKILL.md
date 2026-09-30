@@ -10,10 +10,14 @@ metadata:
 
 Use this skill for a small business site that introduces the offer and directs visitors to the business's TelegaFirst bot. Work with the owner’s domain and publish a complete bundle, not a partial patch.
 
+## Check the business first
+
+Connect MCP using the package connection guide. Call `get_onboarding_state` with `intent: auto`, follow the next_action field, and finish technical onboarding before publishing. An operator role in another business does not block creating your own: use explicit `new_business: true` only when that is the owner’s intent. Do not request bot tokens in ordinary chat. Keep the storefront at the business root and the standalone about page at `/bio`.
+
 ## Start with the domain
 
 1. Call `domain_add_request` for the selected `ru` or `com` zone.
-2. Give the owner the returned DNS record exactly as supplied.
+2. Give the owner admitted DNS records exactly as supplied. Screening, review or blocked responses are not ready DNS instructions; explain the next action and wait for admission. Preserve unrelated MX and TXT records.
 3. Call `domain_verify` after the record is published, then use `domain_status` until the domain is active. DNS propagation can take time; report the returned reason rather than guessing.
 
 ## Build and publish

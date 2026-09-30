@@ -8082,6 +8082,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -8157,6 +8159,90 @@
                     "body": {
                       "type": "object",
                       "properties": {
+                        "entry_context": {
+                          "type": "object",
+                          "properties": {
+                            "intent": {
+                              "type": "string",
+                              "enum": [
+                                "auto",
+                                "new_business"
+                              ]
+                            },
+                            "active_business": {
+                              "type": [
+                                "object",
+                                "null"
+                              ],
+                              "properties": {
+                                "slug": {
+                                  "type": "string"
+                                },
+                                "role": {
+                                  "type": "string",
+                                  "enum": [
+                                    "owner",
+                                    "operator"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "slug",
+                                "role"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "owned_businesses": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "slug": {
+                                    "type": "string"
+                                  },
+                                  "role": {
+                                    "type": "string",
+                                    "enum": [
+                                      "owner"
+                                    ]
+                                  },
+                                  "onboarding_complete": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "required": [
+                                  "slug",
+                                  "role",
+                                  "onboarding_complete"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "recommended_business_slug": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "action": {
+                              "type": "string",
+                              "enum": [
+                                "continue",
+                                "choose_business",
+                                "work_or_create",
+                                "create_business"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "intent",
+                            "active_business",
+                            "owned_businesses",
+                            "recommended_business_slug",
+                            "action"
+                          ],
+                          "additionalProperties": false
+                        },
                         "site_operation": {
                           "type": [
                             "object",
@@ -9211,6 +9297,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -9553,6 +9641,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -9896,6 +9986,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -9971,6 +10063,90 @@
                     "body": {
                       "type": "object",
                       "properties": {
+                        "entry_context": {
+                          "type": "object",
+                          "properties": {
+                            "intent": {
+                              "type": "string",
+                              "enum": [
+                                "auto",
+                                "new_business"
+                              ]
+                            },
+                            "active_business": {
+                              "type": [
+                                "object",
+                                "null"
+                              ],
+                              "properties": {
+                                "slug": {
+                                  "type": "string"
+                                },
+                                "role": {
+                                  "type": "string",
+                                  "enum": [
+                                    "owner",
+                                    "operator"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "slug",
+                                "role"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "owned_businesses": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "slug": {
+                                    "type": "string"
+                                  },
+                                  "role": {
+                                    "type": "string",
+                                    "enum": [
+                                      "owner"
+                                    ]
+                                  },
+                                  "onboarding_complete": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "required": [
+                                  "slug",
+                                  "role",
+                                  "onboarding_complete"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "recommended_business_slug": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "action": {
+                              "type": "string",
+                              "enum": [
+                                "continue",
+                                "choose_business",
+                                "work_or_create",
+                                "create_business"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "intent",
+                            "active_business",
+                            "owned_businesses",
+                            "recommended_business_slug",
+                            "action"
+                          ],
+                          "additionalProperties": false
+                        },
                         "site_operation": {
                           "type": [
                             "object",
@@ -11034,6 +11210,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -11401,6 +11579,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -11759,6 +11939,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -12123,6 +12305,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -12498,6 +12682,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -12830,6 +13016,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -12905,6 +13093,90 @@
                     "body": {
                       "type": "object",
                       "properties": {
+                        "entry_context": {
+                          "type": "object",
+                          "properties": {
+                            "intent": {
+                              "type": "string",
+                              "enum": [
+                                "auto",
+                                "new_business"
+                              ]
+                            },
+                            "active_business": {
+                              "type": [
+                                "object",
+                                "null"
+                              ],
+                              "properties": {
+                                "slug": {
+                                  "type": "string"
+                                },
+                                "role": {
+                                  "type": "string",
+                                  "enum": [
+                                    "owner",
+                                    "operator"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "slug",
+                                "role"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "owned_businesses": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "slug": {
+                                    "type": "string"
+                                  },
+                                  "role": {
+                                    "type": "string",
+                                    "enum": [
+                                      "owner"
+                                    ]
+                                  },
+                                  "onboarding_complete": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "required": [
+                                  "slug",
+                                  "role",
+                                  "onboarding_complete"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "recommended_business_slug": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "action": {
+                              "type": "string",
+                              "enum": [
+                                "continue",
+                                "choose_business",
+                                "work_or_create",
+                                "create_business"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "intent",
+                            "active_business",
+                            "owned_businesses",
+                            "recommended_business_slug",
+                            "action"
+                          ],
+                          "additionalProperties": false
+                        },
                         "site_operation": {
                           "type": [
                             "object",
@@ -13881,6 +14153,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -14218,6 +14492,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -14572,6 +14848,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -15119,6 +15397,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
@@ -15447,6 +15727,8 @@
                             "paid",
                             "free",
                             "address_new_business",
+                            "entry_choose_business",
+                            "entry_work_or_create",
                             "infrastructure_ready_nth_bot"
                           ]
                         },
