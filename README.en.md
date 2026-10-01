@@ -17,3 +17,5 @@ Skills for a TelegaFirst business owner's agent: operate a Telegram AI front off
 Use the URL above as a remote MCP connector. A client that can send only HTTP headers may use its issued API key beginning with `tgf_api_`; never put keys in documents, prompts, or repositories.
 
 For host-specific steps, open the corresponding file in `docs/connect/`.
+
+After connecting, the agent first calls `get_onboarding_state` with `intent: auto` and follows the current server instruction. Read about [files and direct credentials](docs/connect/media.en.md). The same confirmed progress is available in the web interface, Mini App and your AI; finishing requires the owner's separate confirmation.

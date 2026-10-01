@@ -12,7 +12,7 @@ Use this skill for a small business site that introduces the offer and directs v
 
 ## Check the business first
 
-Connect MCP using the package connection guide. Call `get_onboarding_state` with `intent: auto`, follow the next_action field, and finish technical onboarding before publishing. An operator role in another business does not block creating your own: use explicit `new_business: true` only when that is the owner’s intent. Do not request bot tokens in ordinary chat. Keep the storefront at the business root and the standalone about page at `/bio`.
+Connect MCP using the package connection guide. Call `get_onboarding_state` with `intent: auto`, follow the next_action field, and finish technical onboarding before publishing. An operator role in another business does not block creating your own: use explicit `new_business: true` only when that is the owner’s intent. When the owner supplies a bot token or provider credentials, pass them only to the authorized typed tool for the selected business; never echo them or put them in site files. Keep the storefront at the business root and the standalone about page at `/bio`.
 
 ## Start with the domain
 

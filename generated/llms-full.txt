@@ -1,4 +1,4 @@
-Generated: 2026-10-01T13:48:55.615Z
+Generated: 2026-10-01T23:41:14.794Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -121,6 +121,9 @@ The Hub API exposes TelegaFirst commerce, auth, and catalog data to external app
 - `GET /api/v1/tools/onboarding/slug-availability` _(scopes: onboarding:read)_ — checkSlugAvailability
 - `GET /api/v1/tools/onboarding/supergroups/discovery` _(scopes: onboarding:read)_ — discoverSupergroups
 - `GET /api/v1/tools/onboarding/billing` _(scopes: onboarding:read)_ — getBillingState
+- `GET /api/v1/tools/onboarding/existing-bot/instructions` _(scopes: onboarding:read)_ — getExistingBotInstructions
+- `GET /api/v1/tools/onboarding/quest-product/check` _(scopes: onboarding:read)_ — checkTestProduct
+- `GET /api/v1/tools/onboarding/quest-purchase/check` _(scopes: onboarding:read)_ — checkTestPurchase
 - `POST /api/v1/tools/onboarding/site/retry` _(scopes: onboarding:write)_ — retryOnboardingSite
 - `POST /api/v1/tools/onboarding/tax-profile` _(scopes: onboarding:write)_ — setTaxProfile
 - `POST /api/v1/tools/onboarding/payment-provider/probe` _(scopes: payments:config)_ — probePaymentProvider
@@ -131,6 +134,17 @@ The Hub API exposes TelegaFirst commerce, auth, and catalog data to external app
 - `POST /api/v1/tools/onboarding/managed-bot` _(scopes: onboarding:write)_ — initManagedBot
 - `POST /api/v1/tools/onboarding/existing-bot` _(scopes: onboarding:write)_ — registerExistingBot
 - `POST /api/v1/tools/onboarding/bot-connection/resume` _(scopes: onboarding:write)_ — resumeBotConnection
+- `POST /api/v1/tools/onboarding/payment-provider/connect` _(scopes: payments:config)_ — connectPaymentProvider
+- `POST /api/v1/tools/onboarding/payment-provider/webhook/confirm` _(scopes: payments:config)_ — confirmPaymentWebhook
+- `POST /api/v1/tools/onboarding/payment-provider/check` _(scopes: payments:config)_ — checkPaymentProvider
+- `POST /api/v1/tools/onboarding/first-payment/defer` _(scopes: onboarding:write)_ — deferFirstPayment
+- `POST /api/v1/tools/onboarding/billing/checkout-card` _(scopes: onboarding:write)_ — sendTariffCheckoutCard
+- `POST /api/v1/tools/onboarding/billing/defer` _(scopes: onboarding:write)_ — deferTariff
+- `POST /api/v1/tools/onboarding/ai-preferences` _(scopes: onboarding:write)_ — saveAiPreferences
+- `POST /api/v1/tools/onboarding/complete` _(scopes: onboarding:write)_ — completeOnboarding
+- `POST /api/v1/tools/onboarding/channel/connect` _(scopes: client-config:write)_ — connectChannel
+- `POST /api/v1/tools/onboarding/first-payment/prepare` _(scopes: catalog:write, payments:config)_ — prepareFirstPayment
+- `POST /api/v1/tools/onboarding/first-payment/execute` _(scopes: catalog:write, payments:config)_ — executeFirstPayment
 - `POST /api/v1/tools/onboarding/slug` _(scopes: onboarding:write)_ — claimSlug
 - `POST /api/v1/tools/onboarding/quick-site` _(scopes: onboarding:write)_ — createQuickSite
 - `POST /api/v1/tools/onboarding/free-conditions/check` _(scopes: onboarding:read)_ — checkFreeConditions

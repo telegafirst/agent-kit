@@ -2,12 +2,23 @@
 
 ## Agent-facing changes
 
+### 1.0.20 — 2026-10-02
+
+- Руководства подключения используют точный путь `next_action.execution.continue_with`. Безопасное возобновление принятого товара и уже одобренной первой оплаты выполняется агентом по явному инструменту; чтение состояния остаётся без побочных действий.
+
+### 1.0.19 — 2026-10-01
+
+- Обновлены контракты и справочники единого онбординга: полный текущий шаг, проверки товара и доставки, платёжного подключения, анкета ИИ и явное завершение. Сохранены прямые credentials, медиасообщения и выбранный бизнес.
+- В руководствах подключения указаны полные пути полей ответа. Контрактные примеры и локальные прогоны отделены от проверки реального хоста.
+
 ### 1.0.18 — 2026-10-01
 
 - `NEW-261001-3` RU-руководство Google Spark исправлено: оно описывает подключение пользовательского MCP-сервера в веб-версии и ограничения доступности. Проверка подключения на реальном хосте не заявлена.
 
 ### 1.0.17 — 2026-10-01
 
+- `NEW-260930-1` Agents follow executable onboarding instructions, accept direct bot/provider credentials through typed tools, preserve whole product and delivery messages, and stop setup guidance after explicit server completion. File guides explain host import, byte upload and recovery without claiming unavailable host capabilities.
+- The first live payment uses the scoped preparation/confirmation/execution pair, an explicit PayPal environment and the actual product card. Platform setup, warmup, reminder and follow-up messages also appear in the platform user's Open Lines topic.
 - `NEW-261001-1` Полные RU-руководства подключения для Antigravity, ChatGPT, Claude web/Desktop, Claude Code, Codex, Cursor и Gemini Spark теперь входят в версионируемый Kit как копии канонических руководств. Они описывают настройку, авторизацию, проверку tools и бизнес-операций; существующие EN-руководства сохранены. Статус проверки конкретного хоста указан в руководстве и не означает подтверждённый live-запуск.
 - `NEW-261001-2` Справочники REST и MCP раскрывают фактические поля запросов и ответов, ошибки, scopes и заголовки, чтобы агент мог исправить вызов по контракту. Агенту, использующему отдельный `@telegafirst/hub-sdk`, доступен opt-in conditional JSON: ответ с телом и ETag, ответ 304 без тела и структурированная ошибка. SDK не включён в Kit.
 
