@@ -1,4 +1,4 @@
-Generated: 2026-09-30T15:01:31.214Z
+Generated: 2026-10-01T13:48:55.615Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -25,30 +25,203 @@ The Hub API exposes TelegaFirst commerce, auth, and catalog data to external app
 - `tgf_test_` prefix selects sandbox mode.
 
 ## Endpoints
+### /api/v1/users
+- `GET /api/v1/users` _(scopes: pull:users)_ — List tenant users by their local sequence
+- `GET /api/v1/users/{seq_id}` _(scopes: pull:users)_ — Read a tenant user and permitted relation projections
+
+### /api/v1/payments
+- `GET /api/v1/payments` _(scopes: pull:payments)_ — List tenant payments using safe related sequences
+- `GET /api/v1/payments/{seq_id}` _(scopes: pull:payments)_ — Read a tenant payment by its local sequence
+
+### /api/v1/tools
+- `POST /api/v1/tools/sales/manual-sales` _(scopes: orders:write)_ — Create a manual sale from either buyer/catalogue sequences or one registration sequence. REST retains catalogue pricing; it does not accept MCP price overrides. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
+- `GET /api/v1/tools/external-content-publish/{draftHandle}` _(scopes: content:read)_ — Read the full draft lifecycle and finalized media
+- `DELETE /api/v1/tools/external-content-publish/{draftHandle}` _(scopes: content:write)_ — Cancel a pending content draft
+- `GET /api/v1/tools/statuses` _(scopes: statuses:read)_ — List the tenant order-status set
+- `POST /api/v1/tools/statuses` _(scopes: statuses:write)_ — Create an order status
+- `PATCH /api/v1/tools/statuses` _(scopes: statuses:write)_ — Update an order status by tenant sequence
+- `POST /api/v1/tools/statuses/delete` _(scopes: statuses:write)_ — Soft-delete an order status by tenant sequence
+- `GET /api/v1/tools/quick-replies` _(scopes: quick-replies:read)_ — List the tenant’s operator quick replies
+- `POST /api/v1/tools/quick-replies` _(scopes: quick-replies:write)_ — Create an operator quick reply
+- `PATCH /api/v1/tools/quick-replies` _(scopes: quick-replies:write)_ — Update an operator quick reply by tenant sequence
+- `POST /api/v1/tools/quick-replies/delete` _(scopes: quick-replies:write)_ — Delete an operator quick reply by tenant sequence
+- `GET /api/v1/tools/team` _(scopes: team:read)_ — List tenant team members
+- `POST /api/v1/tools/team` _(scopes: team:write)_ — Invite a tenant team member
+- `PATCH /api/v1/tools/team` _(scopes: team:write)_ — Update tenant team member status or permissions
+- `POST /api/v1/tools/team/revoke` _(scopes: team:write)_ — Revoke a tenant team member
+- `GET /api/v1/tools/legal` _(scopes: legal:read)_ — Read tenant legal settings
+- `PATCH /api/v1/tools/legal` _(scopes: legal:write)_ — Update tenant legal settings
+- `GET /api/v1/tools/marketing` _(scopes: marketing:read)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `POST /api/v1/tools/marketing` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `PATCH /api/v1/tools/marketing` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `POST /api/v1/tools/marketing/delete` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `GET /api/v1/tools/marketing/links` _(scopes: marketing:read)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `POST /api/v1/tools/marketing/links` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `PATCH /api/v1/tools/marketing/links` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `POST /api/v1/tools/marketing/links/delete` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `GET /api/v1/tools/chains` _(scopes: chains:read)_ — List message chain shells
+- `POST /api/v1/tools/chains` _(scopes: chains:write)_ — Create a message chain shell
+- `PATCH /api/v1/tools/chains` _(scopes: chains:write)_ — Update a chain shell by tenant sequence
+- `POST /api/v1/tools/chains/delete` _(scopes: chains:write)_ — Soft-delete a chain shell by tenant sequence
+- `GET /api/v1/tools/events` _(scopes: events:read)_ — listEvents
+- `POST /api/v1/tools/events` _(scopes: events:write)_ — createEvent
+- `PATCH /api/v1/tools/events` _(scopes: events:write)_ — updateEvent
+- `POST /api/v1/tools/events/delete` _(scopes: events:write)_ — deleteEvent
+- `GET /api/v1/tools/broadcasts` _(scopes: broadcasts:read)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `POST /api/v1/tools/broadcasts` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `PATCH /api/v1/tools/broadcasts` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `POST /api/v1/tools/broadcasts/delete` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `POST /api/v1/tools/broadcasts/prepare-launch` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `POST /api/v1/tools/broadcasts/execute-launch` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `POST /api/v1/tools/broadcasts/status` _(scopes: broadcasts:read)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `GET /api/v1/tools/segments/axes` _(scopes: broadcasts:read)_ — Describe the broadcast audience taxonomy
+- `POST /api/v1/tools/segments/targets` _(scopes: broadcasts:read)_ — List a segmentation kind’s targets
+- `POST /api/v1/tools/segments/reach` _(scopes: broadcasts:read)_ — Preview audience reach without sending
+- `POST /api/v1/tools/segments/sample` _(scopes: dialogs:read)_ — Sample a valid audience by tenant user sequence
+- `GET /api/v1/tools/segments/saved` _(scopes: broadcasts:read)_ — List saved audience filters
+- `POST /api/v1/tools/segments/saved` _(scopes: broadcasts:write)_ — Create a saved audience filter
+- `GET /api/v1/tools/segments/saved/{seqNum}` _(scopes: broadcasts:read)_ — Read a saved audience filter
+- `PATCH /api/v1/tools/segments/saved/{seqNum}` _(scopes: broadcasts:write)_ — Update a saved filter with optimistic version
+- `DELETE /api/v1/tools/segments/saved/{seqNum}` _(scopes: broadcasts:write)_ — Delete an unreferenced saved filter with optimistic version
+- `GET /api/v1/tools/agents` _(scopes: agents:read)_ — Read the tenant AI agent configuration
+- `PATCH /api/v1/tools/agents` _(scopes: agents:write)_ — Update the tenant AI agent configuration
+- `GET /api/v1/tools/kb` _(scopes: kb:read)_ — List tenant knowledge across both boards
+- `POST /api/v1/tools/kb` _(scopes: kb:write)_ — Create tenant knowledge and enqueue indexing
+- `POST /api/v1/tools/kb/get` _(scopes: kb:read)_ — Read knowledge by board and tenant sequence
+- `GET /api/v1/tools/integrations` _(scopes: integrations:read)_ — List tenant CRM connectors
+- `POST /api/v1/tools/integrations` _(scopes: integrations:write)_ — Configure tenant CRM connector
+- `POST /api/v1/tools/integrations/delete` _(scopes: integrations:write)_ — Disconnect tenant CRM connector
+- `GET /api/v1/tools/client-config` _(scopes: client-config:read)_ — Read tenant client configuration
+- `PATCH /api/v1/tools/client-config` _(scopes: client-config:write)_ — Update tenant client configuration
+- `GET /api/v1/tools/payments` _(scopes: payments:config)_ — Read tenant payment-provider configuration without secrets
+- `POST /api/v1/tools/payments` _(scopes: payments:config)_ — Configure one credentialed payment provider
+- `POST /api/v1/tools/payments/disable` _(scopes: payments:config)_ — Disable a provider while retaining its credentials
+- `POST /api/v1/tools/payments/enable` _(scopes: payments:config)_ — Enable a provider without resending credentials
+- `GET /api/v1/tools/domain` _(scopes: domain:read)_ — Read tenant custom-domain status
+- `POST /api/v1/tools/domain` _(scopes: domain:write)_ — Request a custom-domain connection
+- `POST /api/v1/tools/domain/verify` _(scopes: domain:write)_ — Check the tenant zone ownership TXT record
+- `DELETE /api/v1/tools/domain/{zone}` _(scopes: domain:write)_ — Disconnect a tenant custom domain
+- `POST /api/v1/tools/site/forms` _(scopes: site:write)_ — Declare or redeclare a site form
+- `POST /api/v1/tools/site/request-upload` _(scopes: site:write)_ — Request staged bundle upload URLs
+- `POST /api/v1/tools/site/publish` _(scopes: site:write)_ — Publish a staged site bundle
+- `POST /api/v1/tools/site/checkout-key` _(scopes: site:write)_ — Issue or rotate a browser checkout key
+- `GET /api/v1/tools/site/secrets` _(scopes: site:read)_ — List stored secret names
+- `POST /api/v1/tools/site/secrets` _(scopes: site:write)_ — Request approval or store a new secret
+- `PUT /api/v1/tools/site/secrets/{name}` _(scopes: site:write)_ — Request approval or rotate a stored secret
+- `DELETE /api/v1/tools/site/secrets/{name}` _(scopes: site:write)_ — Request approval or delete a stored secret
+- `GET /api/v1/tools/storefront` _(scopes: storefront:read)_ — Read tenant storefront settings
+- `PATCH /api/v1/tools/storefront` _(scopes: storefront:write)_ — Update tenant storefront settings
+- `GET /api/v1/tools/event-registrations` _(scopes: events:read)_ — listEventRegistrations
+- `POST /api/v1/tools/event-registrations` _(scopes: events:write)_ — createEventRegistration
+- `GET /api/v1/tools/event-registrations/{seqNum}` _(scopes: events:read)_ — getEventRegistration
+- `POST /api/v1/tools/event-registrations/{seqNum}/cancel` _(scopes: events:write)_ — cancelEventRegistration
+- `POST /api/v1/tools/event-registrations/{seqNum}/check-in` _(scopes: events:write)_ — checkInEventRegistration
+- `GET /api/v1/tools/onboarding/catalog-topic-link` _(scopes: onboarding:read)_ — getCatalogTopicLink
+- `GET /api/v1/tools/onboarding/state` _(scopes: onboarding:read)_ — getOnboardingState
+- `GET /api/v1/tools/onboarding/slug-availability` _(scopes: onboarding:read)_ — checkSlugAvailability
+- `GET /api/v1/tools/onboarding/supergroups/discovery` _(scopes: onboarding:read)_ — discoverSupergroups
+- `GET /api/v1/tools/onboarding/billing` _(scopes: onboarding:read)_ — getBillingState
+- `POST /api/v1/tools/onboarding/site/retry` _(scopes: onboarding:write)_ — retryOnboardingSite
+- `POST /api/v1/tools/onboarding/tax-profile` _(scopes: onboarding:write)_ — setTaxProfile
+- `POST /api/v1/tools/onboarding/payment-provider/probe` _(scopes: payments:config)_ — probePaymentProvider
+- `POST /api/v1/tools/onboarding/billing/cancel-auto-renew` _(scopes: onboarding:write)_ — cancelAutoRenew
+- `POST /api/v1/tools/onboarding/quest-product` _(scopes: onboarding:write)_ — createQuestProduct
+- `POST /api/v1/tools/onboarding/supergroups/confirm` _(scopes: onboarding:write)_ — confirmSupergroups
+- `POST /api/v1/tools/onboarding/infrastructure/resume` _(scopes: onboarding:write)_ — resumeInfrastructure
+- `POST /api/v1/tools/onboarding/managed-bot` _(scopes: onboarding:write)_ — initManagedBot
+- `POST /api/v1/tools/onboarding/existing-bot` _(scopes: onboarding:write)_ — registerExistingBot
+- `POST /api/v1/tools/onboarding/bot-connection/resume` _(scopes: onboarding:write)_ — resumeBotConnection
+- `POST /api/v1/tools/onboarding/slug` _(scopes: onboarding:write)_ — claimSlug
+- `POST /api/v1/tools/onboarding/quick-site` _(scopes: onboarding:write)_ — createQuickSite
+- `POST /api/v1/tools/onboarding/free-conditions/check` _(scopes: onboarding:read)_ — checkFreeConditions
+- `POST /api/v1/tools/onboarding/mini-app-origin` _(scopes: onboarding:write)_ — registerMiniAppOrigin
+
+### /api/v1/sales
+- `POST /api/v1/sales/orders/{orderSeqNum}/invoice` _(scopes: orders:write)_ — Queue the transaction-bound invoice dispatch plan for a tenant-local order. queued acknowledges the durable plan; buyer delivery is outbox-owned. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
+- `POST /api/v1/sales/orders/{orderSeqNum}/mark-paid` _(scopes: orders:write)_ — Record an actual cash, bank transfer or transfer settlement after an explicit switch to manual payment. paymentSeqNum is null when no new payment was recorded. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
+
+### /api/v1/content
+- `POST /api/v1/content/publish` _(scopes: content:write)_ — Write a pack of content cards into Settings topics
+- `GET /api/v1/content/publish/{draftHandle}` _(scopes: content:read)_ — Poll the unified content write outcome
+
+### /api/v1/storefront
+- `POST /api/v1/storefront/checkout` _(scopes: orders)_ — Start anonymous checkout for an admitted public form
+
 ### /api/v1/sessions
-- `POST /api/v1/sessions` _(scopes: sessions)_ — Create an approval session (LOGIN/LINK/PAY_PRODUCT/...).
-- `GET /api/v1/sessions/:id` _(scopes: sessions)_ — Poll an approval session state.
-- `POST /api/v1/sessions/exchange` _(scopes: sessions)_ — Exchange an approval_code for a JWT access/refresh pair.
-- `POST /api/v1/sessions/refresh` _(scopes: sessions)_ — Rotate the refresh token.
+- `POST /api/v1/sessions` _(scopes: sessions)_ — createSession
+- `GET /api/v1/sessions/{id}` — getSession
+- `POST /api/v1/sessions/exchange` — exchangeSession
+- `POST /api/v1/sessions/refresh` — refreshSession
 
 ### /api/v1/orders
-- `POST /api/v1/orders` _(scopes: orders)_ — Create an order (anonymous or linked to a known user).
-- `POST /api/v1/orders/:id/link-user` _(scopes: orders)_ — Link an anonymous order to a user via external_user_id.
+- `POST /api/v1/orders/quote` _(scopes: orders)_ — quoteOrder
+- `GET /api/v1/orders` _(scopes: pull:orders)_ — listOrders
+- `POST /api/v1/orders` _(scopes: orders)_ — createOrder
+- `GET /api/v1/orders/{id}` _(scopes: pull:orders)_ — getOrder
+- `POST /api/v1/orders/{id}/refresh-payment-urls` _(scopes: orders)_ — refreshPaymentUrls
+- `POST /api/v1/orders/{id}/link-user` _(scopes: orders)_ — linkOrderUser
+
+### /api/v1/carts
+- `POST /api/v1/carts` _(scopes: orders)_ — createCart
+- `GET /api/v1/carts/{code}` _(scopes: orders)_ — getCart
+- `POST /api/v1/carts/{code}/items` _(scopes: orders)_ — addCartItem
+- `PATCH /api/v1/carts/{code}/items/{line_no}` _(scopes: orders)_ — patchCartItem
+- `DELETE /api/v1/carts/{code}/items/{line_no}` _(scopes: orders)_ — deleteCartItem
+- `POST /api/v1/carts/{code}/checkout` _(scopes: orders:write)_ — checkoutCart
 
 ### /api/v1/catalog
-- `GET /api/v1/catalog` _(scopes: catalog:read)_ — List catalog items and groups.
-- `GET /api/v1/catalog/:id` _(scopes: catalog:read)_ — Fetch a single catalog entry.
-- `PATCH /api/v1/catalog/:id` _(scopes: catalog:write)_ — Update catalog editable fields.
+- `GET /api/v1/catalog` _(scopes: catalog:read)_ — listCatalog
+- `GET /api/v1/catalog/{seq_id}` _(scopes: catalog:read)_ — getCatalogItem
+- `PATCH /api/v1/catalog/{seq_id}` _(scopes: catalog:write)_ — Requires an API key credential, supplied in X-Api-Key or Authorization: Bearer tgf_*. Surface-session JWT credentials are not accepted for this operation.
+
+### /api/v1/booking
+- `GET /api/v1/booking/resources` _(scopes: booking:read)_ — listBookingResources
+- `POST /api/v1/booking/resources` _(scopes: booking:write)_ — createBookingResource
+- `GET /api/v1/booking/resources/{seqNum}` _(scopes: booking:read)_ — getBookingResource
+- `PATCH /api/v1/booking/resources/{seqNum}` _(scopes: booking:write)_ — updateBookingResource
+- `GET /api/v1/booking/resource-schedules` _(scopes: booking:read)_ — listBookingResourceSchedules
+- `POST /api/v1/booking/resource-schedules` _(scopes: booking:write)_ — createBookingResourceSchedule
+- `GET /api/v1/booking/resource-schedules/{seqNum}` _(scopes: booking:read)_ — getBookingResourceSchedule
+- `PATCH /api/v1/booking/resource-schedules/{seqNum}` _(scopes: booking:write)_ — updateBookingResourceSchedule
+- `DELETE /api/v1/booking/resource-schedules/{seqNum}` _(scopes: booking:write)_ — deleteBookingResourceSchedule
+- `GET /api/v1/booking/availability` _(scopes: booking:read)_ — searchBookingAvailability
+- `POST /api/v1/booking/bookings` _(scopes: booking:write)_ — createBooking
+- `POST /api/v1/booking/bookings/{seqNum}/cancel` _(scopes: booking:write)_ — cancelBooking
+- `POST /api/v1/booking/bookings/{seqNum}/attendance` _(scopes: booking:write)_ — markBookingAttendance
 
 ### /api/v1/entitlements
-- `GET /api/v1/entitlements` _(scopes: entitlements)_ — Read current user entitlements + active addons.
+- `GET /api/v1/entitlements` _(scopes: entitlements)_ — getEntitlements
+
+### /api/v1/form-submissions
+- `POST /api/v1/form-submissions` _(scopes: push:form_submissions)_ — submitFormSubmission
+
+### /api/v1/media
+- `POST /api/v1/media/import` _(scopes: content:write)_ — importMediaFiles
+- `POST /api/v1/media/uploads` _(scopes: content:write)_ — requestMediaUpload
+- `POST /api/v1/media/uploads/{uploadId}/finalize` _(scopes: content:write)_ — finalizeMediaUpload
+- `GET /api/v1/media/uploads/{uploadId}` _(scopes: content:read)_ — getMediaUploadStatus
 
 ### /api/v1/notifications
-- `POST /api/v1/notifications` _(scopes: push)_ — Send a Telegram push notification to a user.
+- `POST /api/v1/notifications` _(scopes: push)_ — sendNotification
 
 ### /api/v1/exports
-- `POST /api/v1/exports` _(scopes: exports)_ — Request an async export (CSV/JSON).
-- `GET /api/v1/exports/:id` _(scopes: exports)_ — Poll export job state and download URL.
+- `POST /api/v1/exports` _(scopes: export)_ — createExport
+- `GET /api/v1/exports/{id}` _(scopes: export)_ — getExport
+
+### /api/v1/me
+- `GET /api/v1/me` — getMe
+
+### /api/v1/guide
+- `GET /api/v1/guide` — getGuide
+
+### /api/v1/external
+- `GET /api/v1/external/skills/{name}.zip` — downloadAgentSkillArchive
+
+### /.well-known/mcp/server-card.json
+- `GET /.well-known/mcp/server-card.json` — getMcpServerCard
+
+### /.well-known/mcp
+- `GET /.well-known/mcp` — getMcpServerJson
 
 ## Events
 Domain events are delivered via webhook (HMAC-SHA256 signed) and SSE.

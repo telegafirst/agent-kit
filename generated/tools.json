@@ -28,7 +28,7 @@
     "scope": "platform:read",
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "analyze_business_performance",
@@ -54,7 +54,7 @@
     "scope": "analytics:read",
     "risk": "read",
     "domain": "analytics",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_cancel",
@@ -100,7 +100,7 @@
     "scope": "booking:write",
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_create",
@@ -131,11 +131,11 @@
           ],
           "description": "Value for resource seq num."
         },
-        "user_id": {
-          "type": "string",
-          "maxLength": 20,
-          "pattern": "^\\d+$",
-          "description": "Value for user id."
+        "user_seq_num": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 2147483647,
+          "description": "Value for user seq num."
         },
         "start_at": {
           "anyOf": [
@@ -184,7 +184,7 @@
       "required": [
         "catalog_item_seq_num",
         "resource_seq_num",
-        "user_id",
+        "user_seq_num",
         "start_at"
       ],
       "additionalProperties": false
@@ -193,7 +193,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_create_resource",
@@ -287,7 +287,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_create_resource_schedule",
@@ -417,7 +417,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_delete_resource_schedule",
@@ -462,7 +462,7 @@
     "scope": "booking:write",
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_execute_attendance",
@@ -500,7 +500,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_execute_confirm",
@@ -538,7 +538,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_get_resource",
@@ -564,7 +564,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_get_resource_schedule",
@@ -590,25 +590,25 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_get_user_list",
     "title": "Booking Get User List",
-    "description": "List one end user's bookings for this tenant, newest first — status, the service and resource, the time span, the multiplier, and `didAttend` (null = the operator has not marked the visit yet, which is a THIRD value and not a «no»). `user_id` is the INTERNAL user id. 0-cost read.",
+    "description": "List one end user's bookings for this tenant, newest first — status, the service and resource, the time span, the multiplier, and `didAttend` (null = the operator has not marked the visit yet, which is a THIRD value and not a «no»). `user_seq_num` is the tenant-local User sequence. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "user_id": {
-          "type": "string",
-          "maxLength": 20,
-          "pattern": "^\\d+$",
-          "description": "Value for user id."
+        "user_seq_num": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 2147483647,
+          "description": "Value for user seq num."
         }
       },
       "required": [
-        "user_id"
+        "user_seq_num"
       ],
       "additionalProperties": false
     },
@@ -616,7 +616,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_list_pending",
@@ -648,7 +648,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_list_resource_schedules",
@@ -686,7 +686,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_list_resources",
@@ -702,7 +702,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_prepare_attendance",
@@ -739,7 +739,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_prepare_confirm",
@@ -771,7 +771,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_search_availability",
@@ -824,7 +824,7 @@
     "scope": "booking:read",
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_update_resource",
@@ -930,7 +930,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "booking_update_resource_schedule",
@@ -1069,7 +1069,7 @@
     "scope": "booking:write",
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "cancel_auto_renew",
@@ -1403,7 +1403,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "cancel_event_registration",
@@ -1416,7 +1416,7 @@
         "registration_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for registration seq num."
         },
         "idempotency_key": {
@@ -1442,7 +1442,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "check_approval",
@@ -1468,7 +1468,7 @@
     "scope": "credentials:read",
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "check_free_conditions",
@@ -1484,7 +1484,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "check_in_event_registration",
@@ -1497,7 +1497,7 @@
         "registration_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for registration seq num."
         },
         "idempotency_key": {
@@ -1523,7 +1523,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "check_slug_availability",
@@ -1579,7 +1579,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "claim_slug",
@@ -2076,7 +2076,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "configure_integration",
@@ -2218,7 +2218,7 @@
     "scope": "integrations:write",
     "risk": "write",
     "domain": "integrations",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "configure_payment_credentials",
@@ -2856,7 +2856,7 @@
     "scope": "payments:config",
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "confirm_supergroups",
@@ -2918,7 +2918,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_broadcast",
@@ -3798,7 +3798,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_catalog_group",
@@ -3883,7 +3883,7 @@
     "scope": "catalog:write",
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_chain_step",
@@ -3935,7 +3935,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_event",
@@ -4017,7 +4017,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_event_registration",
@@ -4030,19 +4030,19 @@
         "event_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for event seq num."
         },
         "user_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for user seq num."
         },
         "catalog_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for catalog seq num."
         },
         "idempotency_key": {
@@ -4069,7 +4069,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_export",
@@ -4130,7 +4130,7 @@
     "scope": "export",
     "risk": "write",
     "domain": "export",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_forum_topic",
@@ -4172,7 +4172,7 @@
     "scope": "topics:write",
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_knowledge",
@@ -4219,7 +4219,7 @@
           "items": {
             "type": "integer",
             "exclusiveMinimum": 0,
-            "maximum": 9007199254740991,
+            "maximum": 2147483647,
             "description": "Value for prepared step seq nums item."
           },
           "description": "Value for prepared step seq nums."
@@ -4242,7 +4242,7 @@
     "scope": "kb:write",
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_marketing_campaign",
@@ -4585,7 +4585,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_marketing_link",
@@ -4658,7 +4658,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_menu_button",
@@ -4735,7 +4735,7 @@
     "scope": "client-config:write",
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_menu_group",
@@ -4796,7 +4796,7 @@
     "scope": "client-config:write",
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_message_chain",
@@ -4828,7 +4828,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_order",
@@ -5095,7 +5095,7 @@
     "scope": "orders",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_order_status",
@@ -5282,7 +5282,7 @@
     "scope": "statuses:write",
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_quest_product",
@@ -5608,12 +5608,12 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_quick_reply",
     "title": "Create Quick Reply",
-    "description": "Create a quick reply: a button `title` (≤64 chars) + the ready-to-send `text` (≤256). Optionally a sort weight and active flag (default active). Returns the created reply with its `id`. Errors CONFLICT past the per-tenant soft cap (50).",
+    "description": "Create a quick reply: a button `title` (≤64 chars) + the ready-to-send `text` (≤256). Optionally a sort weight and active flag (default active). Returns the created reply with its `seqNum`. Errors CONFLICT past the per-tenant soft cap (50).",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -5657,7 +5657,7 @@
     "scope": "quick-replies:write",
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_quick_site",
@@ -5744,7 +5744,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_saved_segment",
@@ -6120,7 +6120,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "create_session",
@@ -6187,7 +6187,7 @@
     "scope": "sessions",
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_broadcast",
@@ -6219,7 +6219,7 @@
     "scope": "broadcasts:write",
     "risk": "destructive",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_catalog_group",
@@ -6251,7 +6251,7 @@
     "scope": "catalog:write",
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_chain_step",
@@ -6290,7 +6290,7 @@
     "scope": "chains:write",
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_event",
@@ -6322,7 +6322,7 @@
     "scope": "events:write",
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_forum_topic_message",
@@ -6360,7 +6360,7 @@
     "scope": "topics:write",
     "risk": "destructive",
     "domain": "topics",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_integration",
@@ -6394,7 +6394,7 @@
     "scope": "integrations:write",
     "risk": "destructive",
     "domain": "integrations",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_knowledge",
@@ -6435,7 +6435,7 @@
     "scope": "kb:write",
     "risk": "destructive",
     "domain": "kb",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_marketing_campaign",
@@ -6467,7 +6467,7 @@
     "scope": "marketing:write",
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_marketing_link",
@@ -6499,7 +6499,7 @@
     "scope": "marketing:write",
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_menu_button",
@@ -6531,7 +6531,7 @@
     "scope": "client-config:write",
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_menu_group",
@@ -6563,7 +6563,7 @@
     "scope": "client-config:write",
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_message_chain",
@@ -6595,7 +6595,7 @@
     "scope": "chains:write",
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_order_status",
@@ -6627,21 +6627,21 @@
     "scope": "statuses:write",
     "risk": "destructive",
     "domain": "statuses",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_quick_reply",
     "title": "Delete Quick Reply",
-    "description": "Delete a quick reply by `id`. Idempotent (deleting an absent reply returns deleted:true).",
+    "description": "Delete a quick reply by `seq_num`. Idempotent (deleting an absent reply returns deleted:true with the same seqNum).",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32,
-          "description": "Value for id."
+        "seq_num": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "description": "Value for seq num."
         },
         "bot": {
           "type": "string",
@@ -6651,7 +6651,7 @@
         }
       },
       "required": [
-        "id"
+        "seq_num"
       ],
       "additionalProperties": false
     },
@@ -6659,7 +6659,7 @@
     "scope": "quick-replies:write",
     "risk": "destructive",
     "domain": "quick-replies",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "delete_saved_segment",
@@ -6698,7 +6698,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "describe_segment_axes",
@@ -6714,7 +6714,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "describe_tool",
@@ -6780,7 +6780,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "disable_payment_provider",
@@ -6821,7 +6821,7 @@
     "scope": "payments:config",
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "discover_supergroups",
@@ -6842,7 +6842,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "domain_add_request",
@@ -6889,7 +6889,7 @@
     "scope": "domain:write",
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "domain_execute_unlink",
@@ -6927,7 +6927,7 @@
     "scope": "domain:write",
     "risk": "destructive",
     "domain": "domain",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "domain_prepare_unlink",
@@ -6961,7 +6961,7 @@
     "scope": "domain:write",
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "domain_status",
@@ -6986,7 +6986,7 @@
     "scope": "domain:read",
     "risk": "read",
     "domain": "domain",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "domain_verify",
@@ -7020,7 +7020,7 @@
     "scope": "domain:write",
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "edit_forum_topic_message",
@@ -7142,7 +7142,7 @@
     "scope": "topics:write",
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "enable_payment_provider",
@@ -7183,7 +7183,7 @@
     "scope": "payments:config",
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "exchange_session_approval_code",
@@ -7214,7 +7214,7 @@
     "scope": "sessions",
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "execute_admin_read",
@@ -7252,7 +7252,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "execute_admin_write",
@@ -7290,7 +7290,7 @@
     "scope": "platform:read",
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "execute_broadcast_launch",
@@ -7328,7 +7328,7 @@
     "scope": "broadcasts:write",
     "risk": "money",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "execute_chain_batch_entry",
@@ -7366,7 +7366,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "execute_manual_sale",
@@ -7404,7 +7404,7 @@
     "scope": "orders:write",
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "execute_order_status_change",
@@ -7442,7 +7442,7 @@
     "scope": "orders:status",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "execute_send_invoice",
@@ -7480,12 +7480,12 @@
     "scope": "orders:write",
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "export_form_submissions_normalized",
     "title": "Export Form Submissions Normalized",
-    "description": "Export one form's submissions as a FLAT table — one row per submission, one column per answer field, headers in alphabetical order — so you never have to unpick raw JSON. Columns are `submission_id`, `created_at` (in the business's own timezone), `status`, `linked_user_id`, `channel`, then every field name that form has ever collected. Returns an `export_id`; poll the exports endpoint for the download link (it is a temporary signed URL). One export runs at a time per key. This file DOES contain the answers themselves — it is the sanctioned way to hand the owner their own data, so tell them where it came from and do not paste its contents back into the conversation.",
+    "description": "Export one form's submissions as a FLAT table — one row per submission, one column per answer field, headers in alphabetical order — so you never have to unpick raw JSON. Columns are `seq_num`, `created_at` (in the business's own timezone), `status`, `linked_user_seq_num`, `channel`, then every field name that form has ever collected. Returns an `export_id`; poll the exports endpoint for the download link (it is a temporary signed URL). One export runs at a time per key. This file DOES contain the answers themselves — it is the sanctioned way to hand the owner their own data, so tell them where it came from and do not paste its contents back into the conversation.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -7493,7 +7493,7 @@
         "form_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for form seq num."
         },
         "format": {
@@ -7532,7 +7532,7 @@
     "scope": "pull:form_submissions",
     "risk": "write",
     "domain": "pull",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_active_bot",
@@ -7548,7 +7548,7 @@
     "scope": "identity:read",
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_agent_config",
@@ -7564,7 +7564,7 @@
     "scope": "agents:read",
     "risk": "read",
     "domain": "agents",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_billing_state",
@@ -7891,7 +7891,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_broadcast_status",
@@ -7917,7 +7917,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_catalog",
@@ -8262,7 +8262,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_catalog_group",
@@ -8288,7 +8288,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_catalog_item",
@@ -8322,7 +8322,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_catalog_topic_link",
@@ -8338,7 +8338,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_client_config",
@@ -8432,7 +8432,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_content_draft",
@@ -8715,7 +8715,7 @@
     "scope": "content:read",
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_conversation",
@@ -8741,7 +8741,7 @@
     "scope": "dialogs:read",
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_customer",
@@ -8767,7 +8767,7 @@
     "scope": "orders",
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_data_dictionary",
@@ -8783,7 +8783,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_doc",
@@ -8819,7 +8819,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_entitlements",
@@ -8844,7 +8844,7 @@
     "scope": "entitlements",
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_event_registration",
@@ -8857,7 +8857,7 @@
         "registration_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for registration seq num."
         }
       },
@@ -8870,21 +8870,21 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_form_submission",
     "title": "Get Form Submission",
-    "description": "Read ONE submission by its `submission_id`. Same fields as `pull_form_submissions`, and the same rule about the answers: 🔴 `payload` is returned only with `include: \"full_payload\"`, and that opt-in writes an audit row naming the api key, the form and the moment. A submission id that belongs to another account simply does not exist here. 0-cost read.",
+    "description": "Read ONE submission by its own `seq_num` (the id you pass to get/mark), not the form number or public code. Same fields as `pull_form_submissions`, and the same rule about the answers: 🔴 `payload` is returned only with `include: \"full_payload\"`, and that opt-in writes an audit row naming the api key, the form and the moment. A submission number that belongs to another account simply does not exist here. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "submission_id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32,
-          "description": "Value for submission id."
+        "seq_num": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 2147483647,
+          "description": "Value for seq num."
         },
         "include": {
           "type": "string",
@@ -8895,7 +8895,7 @@
         }
       },
       "required": [
-        "submission_id"
+        "seq_num"
       ],
       "additionalProperties": false
     },
@@ -8903,7 +8903,7 @@
     "scope": "pull:form_submissions",
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_knowledge",
@@ -8938,7 +8938,7 @@
     "scope": "kb:read",
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_legal_profile",
@@ -8954,7 +8954,7 @@
     "scope": "legal:read",
     "risk": "read",
     "domain": "legal",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_menu_button",
@@ -8980,7 +8980,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_menu_group",
@@ -9006,7 +9006,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_message_stats",
@@ -9022,7 +9022,7 @@
     "scope": "dialogs:read",
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_onboarding_state",
@@ -10220,7 +10220,7 @@
     "scope": "onboarding:read",
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_payment_config",
@@ -10236,7 +10236,7 @@
     "scope": "payments:config",
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_plan_checkout_link",
@@ -10252,7 +10252,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_saved_segment",
@@ -10278,7 +10278,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_session_status",
@@ -10318,17 +10318,13 @@
             {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "string"
-                },
                 "seq_id": {
                   "type": "integer",
-                  "minimum": -9007199254740991,
-                  "maximum": 9007199254740991
+                  "exclusiveMinimum": 0,
+                  "maximum": 2147483647
                 }
               },
               "required": [
-                "id",
                 "seq_id"
               ],
               "additionalProperties": false
@@ -10349,7 +10345,7 @@
     "scope": "sessions",
     "risk": "read",
     "domain": "sessions",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_skill",
@@ -10381,7 +10377,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_storefront",
@@ -10397,7 +10393,7 @@
     "scope": "storefront:read",
     "risk": "read",
     "domain": "storefront",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_subscription_status",
@@ -10422,7 +10418,7 @@
     "scope": "entitlements",
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_token_billing",
@@ -10438,7 +10434,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "get_token_topup_link",
@@ -10454,7 +10450,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "init_managed_bot",
@@ -10477,12 +10473,12 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "invite_team_member",
     "title": "Invite Team Member",
-    "description": "Invite a team member by tg_username and/or email (≥1 required), with optional permission flags. Creates the member in the `invited` state. OWNER-ONLY. Returns the created member with its `id`.",
+    "description": "Invite a team member by tg_username and/or email (≥1 required), with optional permission flags. Creates the member in the `invited` state. OWNER-ONLY. Returns the created member with its `seqNum`.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -10568,7 +10564,7 @@
     "scope": "team:write",
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "issue_api_key",
@@ -10669,7 +10665,7 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "link_anonymous_order",
@@ -10708,7 +10704,7 @@
     "scope": "orders",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_accessible_bots",
@@ -10724,7 +10720,7 @@
     "scope": "identity:read",
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_broadcasts",
@@ -10740,7 +10736,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_catalog_groups",
@@ -10756,7 +10752,7 @@
     "scope": "catalog:read",
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_chain_runs",
@@ -10785,7 +10781,7 @@
     "scope": "chains:read",
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_chain_steps",
@@ -10811,7 +10807,7 @@
     "scope": "chains:read",
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_connections",
@@ -10883,7 +10879,7 @@
     "scope": "credentials:read",
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_customers",
@@ -10912,7 +10908,7 @@
     "scope": "orders",
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_event_registrations",
@@ -10936,7 +10932,7 @@
         "event_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for event seq num."
         }
       },
@@ -10946,7 +10942,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_events",
@@ -10962,7 +10958,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_forum_topics",
@@ -10978,7 +10974,7 @@
     "scope": "topics:read",
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_integrations",
@@ -10994,7 +10990,7 @@
     "scope": "integrations:read",
     "risk": "read",
     "domain": "integrations",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_knowledge",
@@ -11010,7 +11006,7 @@
     "scope": "kb:read",
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_marketing_campaigns",
@@ -11026,7 +11022,7 @@
     "scope": "marketing:read",
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_marketing_links",
@@ -11042,7 +11038,7 @@
     "scope": "marketing:read",
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_menu_buttons",
@@ -11058,7 +11054,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_menu_groups",
@@ -11074,7 +11070,7 @@
     "scope": "client-config:read",
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_message_chains",
@@ -11090,7 +11086,7 @@
     "scope": "chains:read",
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_order_statuses",
@@ -11106,7 +11102,7 @@
     "scope": "statuses:read",
     "risk": "read",
     "domain": "statuses",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_payment_rows",
@@ -11135,12 +11131,12 @@
     "scope": "payments",
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_quick_replies",
     "title": "List Quick Replies",
-    "description": "List the tenant quick replies (canned operator responses shown as a shortcut menu in open lines). Returns each with its `id` (pass to update/delete), title, text, sort, and active flag. 0-cost read.",
+    "description": "List the tenant quick replies (canned operator responses shown as a shortcut menu in open lines). Returns each with its `seqNum` (the id you pass to update/delete as `seq_num`), title, text, sort, and active flag. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -11151,7 +11147,7 @@
     "scope": "quick-replies:read",
     "risk": "read",
     "domain": "quick-replies",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_saved_segments",
@@ -11184,7 +11180,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_segment_targets",
@@ -11244,12 +11240,12 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_team_members",
     "title": "List Team Members",
-    "description": "List the tenant team (operators/members): each with `id`, seqNum, tg_username/email identity, lifecycle status (invited/active/revoked), and the 12 per-capability permission flags. OWNER-ONLY. 0-cost read.",
+    "description": "List the tenant team (operators/members): each with `seqNum` (the id you pass to update/revoke as `seq_num`), tg_username/email identity, lifecycle status (invited/active/revoked), and the 12 per-capability permission flags. OWNER-ONLY. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -11260,7 +11256,7 @@
     "scope": "team:read",
     "risk": "read",
     "domain": "team",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "list_unanswered",
@@ -11334,7 +11330,7 @@
     "scope": "dialogs:read",
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "load_domain",
@@ -11416,7 +11412,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "manage_message",
@@ -12186,7 +12182,7 @@
     "scope": "dialogs:write",
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "manage_pricing_rules",
@@ -13927,21 +13923,21 @@
     "scope": "pricing:write",
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "mark_form_submission_handled",
     "title": "Mark Form Submission Handled",
-    "description": "Mark ONE submission as dealt with, by its `submission_code` (the opaque address `pull_form_submissions` returns beside every row — NOT `submission_id`, and not the form's number). This is what the owner's operators see: the card in their Telegram topic turns from 🔵 to 🟢 and records that YOUR integration did it, by name. Answers `outcome`: `handled` — you marked it; `already_handled` — somebody (an operator, or an earlier call of yours) had already dealt with it and nothing changed; `not_found` — no such submission in this account. 🔴 Report `already_handled` as somebody else's work, never as yours. Safe to retry: a repeat call changes nothing.",
+    "description": "Mark ONE submission as dealt with, by its own `seq_num` (the id you pass to get/mark, returned by `pull_form_submissions` — not the form's number or the public code). This is what the owner's operators see: the card in their Telegram topic turns from 🔵 to 🟢 and records that YOUR integration did it, by name. Answers `outcome`: `handled` — you marked it; `already_handled` — somebody (an operator, or an earlier call of yours) had already dealt with it and nothing changed; `not_found` — no such submission in this account. 🔴 Report `already_handled` as somebody else's work, never as yours. Safe to retry: a repeat call changes nothing.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "submission_code": {
-          "type": "string",
-          "minLength": 16,
-          "maxLength": 16,
-          "description": "Value for submission code."
+        "seq_num": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 2147483647,
+          "description": "Value for seq num."
         },
         "bot": {
           "type": "string",
@@ -13951,7 +13947,7 @@
         }
       },
       "required": [
-        "submission_code"
+        "seq_num"
       ],
       "additionalProperties": false
     },
@@ -13959,7 +13955,7 @@
     "scope": "push:form_submissions",
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "mark_paid",
@@ -14020,7 +14016,7 @@
     "scope": "orders:write",
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "media_finalize",
@@ -14052,7 +14048,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "media_get_status",
@@ -14078,7 +14074,7 @@
     "scope": "content:read",
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "media_import_files",
@@ -14321,7 +14317,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "media_request_upload",
@@ -14383,7 +14379,7 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "partner_get_balance",
@@ -14399,7 +14395,7 @@
     "scope": "partner:read",
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "partner_get_invite_links",
@@ -14415,7 +14411,7 @@
     "scope": "partner:read",
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "partner_request_payout",
@@ -14438,7 +14434,7 @@
     "scope": "partner:payout",
     "risk": "money",
     "domain": "partner",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "prepare_broadcast_launch",
@@ -14470,7 +14466,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "prepare_chain_batch_entry",
@@ -14531,7 +14527,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "prepare_manual_sale",
@@ -14680,7 +14676,7 @@
     "scope": "orders:write",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "prepare_order_status_change",
@@ -14725,7 +14721,7 @@
     "scope": "orders:status",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "prepare_send_invoice",
@@ -14757,7 +14753,7 @@
     "scope": "orders:write",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "preview_segment_reach",
@@ -14785,7 +14781,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "publish_entity",
@@ -15230,8 +15226,11 @@
                       "delivery": {
                         "type": "object",
                         "properties": {
-                          "message_content_id": {
-                            "description": "Value for message content id."
+                          "message_content_seq_num": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 2147483647,
+                            "description": "Value for message content seq num."
                           }
                         },
                         "additionalProperties": false,
@@ -16909,12 +16908,12 @@
     "scope": "content:write",
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "pull_form_submissions",
     "title": "Pull Form Submissions",
-    "description": "List the submissions this business's own hosted forms collected, newest first. Returns `submission_id`, `created_at`, `status` (`anonymous` = the visitor has not been matched to a messenger user yet, `linked` = they have), `form_seq_num` with the form title as it was at the time, and — once linked — `linked_user_id` and `channel`. Filter by `form_seq_num` (the number `site_form_declare` returned), `status` and a date range; page with the opaque `cursor` from the previous answer. 🔴 The ANSWERS THEMSELVES are not included: what a visitor typed is personal data, so `payload` comes back only if you pass `include: \"full_payload\"`, and that opt-in is recorded in the account's audit trail. Do not pass it to count leads or to check whether a form works — this call already tells you that. Pass it only when the owner asked you to read the actual answers.",
+    "description": "List the submissions this business's own hosted forms collected, newest first. Returns the submission own `seq_num` (the id you pass to get/mark), its separate public `submission_code`, `created_at`, `status` (`anonymous` = the visitor has not been matched to a messenger user yet, `linked` = they have), `form_seq_num` with the form title as it was at the time, and — once linked — `linked_user_seq_num` and `channel`. Filter by `form_seq_num` (the number `site_form_declare` returned), `status` and a date range; page with the opaque `cursor` from the previous answer. 🔴 The ANSWERS THEMSELVES are not included: what a visitor typed is personal data, so `payload` comes back only if you pass `include: \"full_payload\"`, and that opt-in is recorded in the account's audit trail. Do not pass it to count leads or to check whether a form works — this call already tells you that. Pass it only when the owner asked you to read the actual answers.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -16922,7 +16921,7 @@
         "form_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for form seq num."
         },
         "status": {
@@ -16970,7 +16969,7 @@
     "scope": "pull:form_submissions",
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "query_form_submission_segment",
@@ -16983,7 +16982,7 @@
         "form_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for form seq num."
         },
         "matches": {
@@ -17044,7 +17043,7 @@
     "scope": "pull:form_submissions",
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "quote_order",
@@ -17273,7 +17272,7 @@
     "scope": "orders",
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "refresh_payment_urls",
@@ -17319,16 +17318,23 @@
     "scope": "orders",
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "register_existing_bot",
     "title": "Register Existing Bot",
-    "description": "BotFather-fallback hand-off (ADR-162 token-hygiene): does NOT take a bot token. Returns instructions to paste your @BotFather token into the TelegaFirst platform bot chat, where the platform validates it (getMe), resets the webhook, and finishes setup. Prefer init_managed_bot (MCP-primary); use this only when managed bots are unavailable. NOT for creating a bot via MTProto (ADR-076).",
+    "description": "Connect an existing Telegram bot using its BotFather token supplied in this chat. The platform validates the bot and configures its webhook. Returns confirmed connection and the next onboarding action. If the response is lost, use resume_bot_connection without sending the token again.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
+        "bot_token": {
+          "type": "string",
+          "minLength": 44,
+          "maxLength": 59,
+          "pattern": "^(\\d{8,12}):([A-Za-z0-9_-]{35,46})$",
+          "description": "Value for bot token."
+        },
         "bot": {
           "type": "string",
           "minLength": 1,
@@ -17336,13 +17342,293 @@
           "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
+      "required": [
+        "bot_token"
+      ],
       "additionalProperties": false
     },
-    "outputSchema": null,
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "active_slug": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bot_username": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "slug",
+            "bot_username"
+          ],
+          "additionalProperties": false
+        },
+        "owner_onboardings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "supergroups_create",
+                  "supergroups_admin",
+                  "supergroups_confirm",
+                  "infrastructure",
+                  "infrastructure_ready",
+                  "quest_1",
+                  "quest_2",
+                  "warmup",
+                  "tariff",
+                  "paid",
+                  "free"
+                ]
+              }
+            },
+            "required": [
+              "slug",
+              "stage"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "address",
+            "site",
+            "bot",
+            "supergroups_create",
+            "supergroups_admin",
+            "supergroups_confirm",
+            "infrastructure",
+            "infrastructure_ready",
+            "quest_1",
+            "quest_2",
+            "warmup",
+            "tariff",
+            "paid",
+            "free"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "todo",
+            "in_progress",
+            "waiting_owner",
+            "blocked",
+            "done"
+          ]
+        },
+        "billing": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        },
+        "next_action": {
+          "type": "object",
+          "properties": {
+            "goal": {
+              "type": "string",
+              "enum": [
+                "address",
+                "site",
+                "bot",
+                "supergroups_create",
+                "supergroups_admin",
+                "supergroups_confirm",
+                "infrastructure",
+                "infrastructure_blocked",
+                "infrastructure_ready",
+                "quest_product_pending",
+                "quest_product_ready",
+                "quest_product_failed",
+                "payment_provider_alive",
+                "payment_provider_failed",
+                "tariff",
+                "paid",
+                "free",
+                "address_new_business",
+                "entry_choose_business",
+                "entry_work_or_create",
+                "infrastructure_ready_nth_bot"
+              ]
+            },
+            "say_to_user": {
+              "type": "string"
+            },
+            "collect": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "hint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "hint"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "wait_for": {
+              "type": "object",
+              "properties": {
+                "event": {
+                  "type": "string"
+                },
+                "retry_after_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "event"
+              ],
+              "additionalProperties": false
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "video",
+                    "image_steps"
+                  ]
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "switch_to": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "goal",
+            "say_to_user",
+            "collect"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "connected": {
+              "type": "boolean",
+              "const": true
+            }
+          },
+          "required": [
+            "connected"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "active_slug",
+        "tenant",
+        "owner_onboardings",
+        "stage",
+        "status",
+        "next_action",
+        "body"
+      ],
+      "additionalProperties": false
+    },
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "register_mini_app_origin",
@@ -17382,7 +17668,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "release_chat",
@@ -17414,7 +17700,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "request_access_link",
@@ -17522,7 +17808,307 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
+  },
+  {
+    "name": "resume_bot_connection",
+    "title": "Resume Bot Connection",
+    "description": "Recover the existing bot connection after an interrupted or lost response, without sending the bot token again. Returns confirmed durable completion and the current onboarding action; an unfinished connection returns BOT_CONNECTION_NOT_READY.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "active_slug": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bot_username": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "slug",
+            "bot_username"
+          ],
+          "additionalProperties": false
+        },
+        "owner_onboardings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "supergroups_create",
+                  "supergroups_admin",
+                  "supergroups_confirm",
+                  "infrastructure",
+                  "infrastructure_ready",
+                  "quest_1",
+                  "quest_2",
+                  "warmup",
+                  "tariff",
+                  "paid",
+                  "free"
+                ]
+              }
+            },
+            "required": [
+              "slug",
+              "stage"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "address",
+            "site",
+            "bot",
+            "supergroups_create",
+            "supergroups_admin",
+            "supergroups_confirm",
+            "infrastructure",
+            "infrastructure_ready",
+            "quest_1",
+            "quest_2",
+            "warmup",
+            "tariff",
+            "paid",
+            "free"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "todo",
+            "in_progress",
+            "waiting_owner",
+            "blocked",
+            "done"
+          ]
+        },
+        "billing": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        },
+        "next_action": {
+          "type": "object",
+          "properties": {
+            "goal": {
+              "type": "string",
+              "enum": [
+                "address",
+                "site",
+                "bot",
+                "supergroups_create",
+                "supergroups_admin",
+                "supergroups_confirm",
+                "infrastructure",
+                "infrastructure_blocked",
+                "infrastructure_ready",
+                "quest_product_pending",
+                "quest_product_ready",
+                "quest_product_failed",
+                "payment_provider_alive",
+                "payment_provider_failed",
+                "tariff",
+                "paid",
+                "free",
+                "address_new_business",
+                "entry_choose_business",
+                "entry_work_or_create",
+                "infrastructure_ready_nth_bot"
+              ]
+            },
+            "say_to_user": {
+              "type": "string"
+            },
+            "collect": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "hint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "hint"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "wait_for": {
+              "type": "object",
+              "properties": {
+                "event": {
+                  "type": "string"
+                },
+                "retry_after_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "event"
+              ],
+              "additionalProperties": false
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "video",
+                    "image_steps"
+                  ]
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "switch_to": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "goal",
+            "say_to_user",
+            "collect"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "connected": {
+              "type": "boolean",
+              "const": true
+            }
+          },
+          "required": [
+            "connected"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "active_slug",
+        "tenant",
+        "owner_onboardings",
+        "stage",
+        "status",
+        "next_action",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "scope": "onboarding:write",
+    "risk": "write",
+    "domain": "onboarding",
+    "platform_version": "1.0.63"
   },
   {
     "name": "retry_onboarding_site",
@@ -18708,7 +19294,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "revoke_connection",
@@ -18754,21 +19340,21 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "revoke_team_member",
     "title": "Revoke Team Member",
-    "description": "Revoke a team member by `id` (sets status=revoked — access is removed but the row is retained for audit). Idempotent (already-revoked → revoked:true). OWNER-ONLY. Errors NOT_FOUND for a missing id.",
+    "description": "Revoke a team member by `seq_num` (sets status=revoked — access is removed but the row is retained for audit). Idempotent (already-revoked → revoked:true). OWNER-ONLY. Errors NOT_FOUND for a missing tenant sequence.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32,
-          "description": "Value for id."
+        "seq_num": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "description": "Value for seq num."
         },
         "bot": {
           "type": "string",
@@ -18778,7 +19364,7 @@
         }
       },
       "required": [
-        "id"
+        "seq_num"
       ],
       "additionalProperties": false
     },
@@ -18786,7 +19372,7 @@
     "scope": "team:write",
     "risk": "destructive",
     "domain": "team",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "sample_segment_audience",
@@ -18822,7 +19408,7 @@
     "scope": "broadcasts:read",
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "scope_change",
@@ -18930,7 +19516,7 @@
     "scope": "credentials:write",
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "search_admin_tools",
@@ -19034,7 +19620,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "search_docs",
@@ -19078,7 +19664,7 @@
     "scope": "platform:read",
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "secret_delete",
@@ -19117,7 +19703,7 @@
     "scope": "site:write",
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "secret_list",
@@ -19133,7 +19719,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "secret_put",
@@ -19179,7 +19765,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "secret_rotate",
@@ -19225,7 +19811,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "send_card",
@@ -19721,7 +20307,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "send_entity_card",
@@ -19889,7 +20475,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "send_notification",
@@ -19899,9 +20485,11 @@
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "user_id": {
-          "type": "string",
-          "description": "Value for user id."
+        "user_seq_id": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 2147483647,
+          "description": "Value for user seq id."
         },
         "text": {
           "type": "string",
@@ -20037,7 +20625,7 @@
         }
       },
       "required": [
-        "user_id",
+        "user_seq_id",
         "text"
       ],
       "additionalProperties": false
@@ -20046,7 +20634,7 @@
     "scope": "push",
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "send_to_forum_topic",
@@ -20195,7 +20783,7 @@
     "scope": "topics:write",
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "set_tax_profile",
@@ -20596,7 +21184,7 @@
     "scope": "onboarding:write",
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_checkout_key",
@@ -20619,7 +21207,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_execute_delete",
@@ -20657,7 +21245,7 @@
     "scope": "site:write",
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_fetch_file",
@@ -20691,7 +21279,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_form_declare",
@@ -20706,7 +21294,7 @@
             {
               "type": "integer",
               "exclusiveMinimum": 0,
-              "maximum": 9007199254740991,
+              "maximum": 2147483647,
               "description": "Value for seq Num option."
             },
             {
@@ -20771,7 +21359,7 @@
               "stepSeqNum": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
-                "maximum": 9007199254740991,
+                "maximum": 2147483647,
                 "description": "Value for step Seq Num."
               },
               "sort": {
@@ -20816,7 +21404,7 @@
             {
               "type": "integer",
               "exclusiveMinimum": 0,
-              "maximum": 9007199254740991,
+              "maximum": 2147483647,
               "description": "Value for default Step Seq Num option."
             },
             {
@@ -20870,19 +21458,20 @@
           ],
           "description": "Value for funnel Outcome."
         },
-        "catalogId": {
+        "catalogSeqNum": {
           "anyOf": [
             {
-              "type": "string",
-              "pattern": "^[0-9]+$",
-              "description": "Value for catalog Id option."
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 2147483647,
+              "description": "Value for catalog Seq Num option."
             },
             {
               "type": "null",
-              "description": "Value for catalog Id option."
+              "description": "Value for catalog Seq Num option."
             }
           ],
-          "description": "Value for catalog Id."
+          "description": "Value for catalog Seq Num."
         },
         "enabled": {
           "type": "boolean",
@@ -20905,7 +21494,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_get_analytics",
@@ -20934,7 +21523,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_get_manifest",
@@ -20961,7 +21550,7 @@
     "scope": "site:read",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_page_preview",
@@ -20987,7 +21576,7 @@
     "scope": "site:write",
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_pages_set_visibility",
@@ -21030,7 +21619,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_prepare_delete",
@@ -21063,7 +21652,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_publish",
@@ -21103,7 +21692,7 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "site_request_upload",
@@ -21182,12 +21771,12 @@
     "scope": "site:write",
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "submit_form_submission",
     "title": "Submit Form Submission",
-    "description": "Submit answers to one of this business's forms by `form_seq_num`. The caller tenant is always taken from the API key; do not provide a client id. The form's declared submission schema is enforced before the lead is stored. Returns the new opaque submission address. This call creates a new submission every time and is not idempotent.",
+    "description": "Submit answers to one of this business's forms by `form_seq_num`. The caller tenant is always taken from the API key; do not provide a client id. The form's declared submission schema is enforced before the lead is stored. Returns the new submission own `seq_num` and its separate public `submission_code`. This call creates a new submission every time and is not idempotent.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -21195,7 +21784,7 @@
         "form_seq_num": {
           "type": "integer",
           "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
+          "maximum": 2147483647,
           "description": "Value for form seq num."
         },
         "payload": {
@@ -21218,7 +21807,7 @@
     "scope": "push:form_submissions",
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "support_ticket_create",
@@ -21325,7 +21914,7 @@
     "scope": "support:write",
     "risk": "write",
     "domain": "support",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "support_ticket_list",
@@ -21359,7 +21948,7 @@
     "scope": "support:read",
     "risk": "read",
     "domain": "support",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "switch_active_bot",
@@ -21391,7 +21980,7 @@
     "scope": "identity:write",
     "risk": "write",
     "domain": "identity",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "take_chat",
@@ -21423,7 +22012,7 @@
     "scope": "dialogs:write",
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "test_funnel_pipeline",
@@ -21460,7 +22049,7 @@
     "scope": "events:read",
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_agent_config",
@@ -21867,7 +22456,7 @@
     "scope": "agents:write",
     "risk": "write",
     "domain": "agents",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_broadcast",
@@ -22478,7 +23067,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_catalog_group",
@@ -22570,12 +23159,12 @@
     "scope": "catalog:write",
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_catalog_item",
     "title": "Update Catalog Item",
-    "description": "Patch a catalog item (sparse — omitted fields are untouched). Requires `etag` for optimistic concurrency and `idempotency_key` for durable receipt replay. Optional `zone` selects RU or COM public price presentation in the returned detail; omitted defaults to RU. To configure selectable POS modifiers, patch the canonical nested `variants` object; retained keys are stable addresses, so an illegal key rewrite is rejected by the canonical writer. Reach is two INDEPENDENT booleans you may patch separately: `is_active:false` switches the item off entirely (purchasable by nothing); `is_public:false` takes it out of the showcase and storefront while it stays fully payable through its direct link. To configure a booking service, patch nested `booking`: `enabled`, `mode` (`hourly`/`daily`), `duration_value`, `buffer_minutes`, and `resource_seq_nums`.",
+    "description": "Patch a catalog item (sparse — omitted fields are untouched). Requires `etag` for optimistic concurrency and `idempotency_key` for durable receipt replay. A nonempty patch returns its canonical committed receipt identically on first success and exact replay. Use `get_catalog_item` for the current RU or COM price presentation and payment-provider availability. Optional `zone` selects that current presentation for an empty no-op patch; omitted defaults to RU. To configure selectable POS modifiers, patch the canonical nested `variants` object; retained keys are stable addresses, so an illegal key rewrite is rejected by the canonical writer. Reach is two INDEPENDENT booleans you may patch separately: `is_active:false` switches the item off entirely (purchasable by nothing); `is_public:false` takes it out of the showcase and storefront while it stays fully payable through its direct link. To configure a booking service, patch nested `booking`: `enabled`, `mode` (`hourly`/`daily`), `duration_value`, `buffer_minutes`, and `resource_seq_nums`.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -23264,7 +23853,7 @@
     "scope": "catalog:write",
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_chain_step",
@@ -23584,7 +24173,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_client_config",
@@ -23677,12 +24266,12 @@
     "scope": "client-config:write",
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_event",
     "title": "Update Event",
-    "description": "Update an event by its `seqNum` (a partial patch — send only the fields you change; phase + start/end times are NOT settable here). `is_online` marks an event as online. Also binds the event automation with seq addresses: `registration_chain_seq_num`, `checkin_chain_seq_num`, `checkout_chain_seq_num`, `post_event_chain_seq_num`, `decline_chain_seq_num`, `start_event_chain_seq_num`, `no_show_chain_seq_num`, `reminder_24h_chain_seq_num` — each a message-chain seq_num as a string (send `null` to unbind, omit to leave alone). Each binding also accepts an ENTRY STEP — `registration_chain_step_seq`, `checkin_chain_step_seq`, `checkout_chain_step_seq`, `post_event_chain_step_seq`, `decline_chain_step_seq`, `start_event_chain_step_seq`, `no_show_chain_step_seq`, `reminder_24h_chain_step_seq` — a step seq_num of THAT SAME chain, meaning «start the funnel at this step instead of at the beginning». A step is only accepted TOGETHER with its chain in the same call; sending a step without its chain is an error, and sending a chain without a step means «start from the beginning» (which is NOT the same as naming whichever step is first today — the first step can be edited). Plus `catalog_ids` for the ticket tiers this event sells (whole list; `[]` unbinds). `capacity` may not exceed `target_registrations`. Idempotent. Returns the updated event. Errors NOT_FOUND if the seqNum does not exist for your tenant.",
+    "description": "Update an event by its `seqNum` (a partial patch — send only the fields you change; phase + start/end times are NOT settable here). `is_online` marks an event as online. Also binds the event automation with seq addresses: `registration_chain_seq_num`, `checkin_chain_seq_num`, `checkout_chain_seq_num`, `post_event_chain_seq_num`, `decline_chain_seq_num`, `start_event_chain_seq_num`, `no_show_chain_seq_num`, `reminder_24h_chain_seq_num` — each a message-chain seq_num as a string (send `null` to unbind, omit to leave alone). Each binding also accepts an ENTRY STEP — `registration_chain_step_seq`, `checkin_chain_step_seq`, `checkout_chain_step_seq`, `post_event_chain_step_seq`, `decline_chain_step_seq`, `start_event_chain_step_seq`, `no_show_chain_step_seq`, `reminder_24h_chain_step_seq` — a step seq_num of THAT SAME chain, meaning «start the funnel at this step instead of at the beginning». A step is only accepted TOGETHER with its chain in the same call; sending a step without its chain is an error, and sending a chain without a step means «start from the beginning» (which is NOT the same as naming whichever step is first today — the first step can be edited). Plus `catalog_ids` containing tenant Catalog.seq_num positive int4 decimal strings for ticket tiers (whole list; `[]` unbinds); response `catalogIds` carries those same sequence strings, never Catalog primary keys. `capacity` may not exceed `target_registrations`. Idempotent. Returns the updated event. Errors NOT_FOUND if an event or catalog sequence does not exist for your tenant.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -23761,8 +24350,10 @@
           "type": "array",
           "items": {
             "type": "string",
-            "pattern": "^\\d+$",
-            "description": "Value for catalog ids item."
+            "pattern": "^(?:[1-9][0-9]{0,8}|1[0-9]{9}|20[0-9]{8}|21[0-3][0-9]{7}|214[0-6][0-9]{6}|2147[0-3][0-9]{5}|21474[0-7][0-9]{4}|214748[0-2][0-9]{3}|2147483[0-5][0-9]{2}|21474836[0-3][0-9]|214748364[0-7])$",
+            "description": "Tenant Catalog.seq_num as a canonical positive decimal string in the inclusive range 1..2147483647; no leading zeros and never a Catalog primary key.",
+            "minLength": 1,
+            "maxLength": 10
           },
           "description": "Value for catalog ids."
         },
@@ -24006,7 +24597,7 @@
     "scope": "events:write",
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_knowledge",
@@ -24062,7 +24653,7 @@
               "items": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
-                "maximum": 9007199254740991,
+                "maximum": 2147483647,
                 "description": "Value for prepared step seq nums item."
               },
               "description": "Value for prepared step seq nums."
@@ -24089,7 +24680,7 @@
     "scope": "kb:write",
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_legal_profile",
@@ -24395,7 +24986,7 @@
     "scope": "legal:write",
     "risk": "write",
     "domain": "legal",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_marketing_campaign",
@@ -24710,7 +25301,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_marketing_link",
@@ -24766,7 +25357,7 @@
     "scope": "marketing:write",
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_menu_button",
@@ -24897,7 +25488,7 @@
     "scope": "client-config:write",
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_menu_group",
@@ -24985,7 +25576,7 @@
     "scope": "client-config:write",
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_message_chain",
@@ -25023,7 +25614,7 @@
     "scope": "chains:write",
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_order_status",
@@ -25242,21 +25833,21 @@
     "scope": "statuses:write",
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_quick_reply",
     "title": "Update Quick Reply",
-    "description": "Update a quick reply by `id` (partial patch — send only changed fields). Idempotent. Returns the updated reply. Errors NOT_FOUND if the id does not exist for your tenant.",
+    "description": "Update a quick reply by `seq_num` (partial patch — send only changed fields). Returns the updated reply with the same `seqNum`. Errors NOT_FOUND if the number does not exist for your tenant.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32,
-          "description": "Value for id."
+        "seq_num": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "description": "Value for seq num."
         },
         "title": {
           "type": "string",
@@ -25288,7 +25879,7 @@
         }
       },
       "required": [
-        "id"
+        "seq_num"
       ],
       "additionalProperties": false
     },
@@ -25296,7 +25887,7 @@
     "scope": "quick-replies:write",
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_saved_segment",
@@ -25684,7 +26275,7 @@
     "scope": "broadcasts:write",
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_storefront",
@@ -25743,21 +26334,21 @@
     "scope": "storefront:write",
     "risk": "write",
     "domain": "storefront",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   },
   {
     "name": "update_team_member",
     "title": "Update Team Member",
-    "description": "Update a team member by `id`: change lifecycle status (invited/active/revoked) and/or the permission flags (partial patch). Identity (tg_username/email) is IMMUTABLE here. Idempotent. OWNER-ONLY. Errors NOT_FOUND for a missing id.",
+    "description": "Update a team member by `seq_num`: change lifecycle status (invited/active/revoked) and/or the permission flags (partial patch). Identity (tg_username/email) is IMMUTABLE here. Idempotent. OWNER-ONLY. Errors NOT_FOUND for a missing tenant sequence.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32,
-          "description": "Value for id."
+        "seq_num": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "description": "Value for seq num."
         },
         "status": {
           "type": "string",
@@ -25831,7 +26422,7 @@
         }
       },
       "required": [
-        "id"
+        "seq_num"
       ],
       "additionalProperties": false
     },
@@ -25839,6 +26430,6 @@
     "scope": "team:write",
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.60"
+    "platform_version": "1.0.63"
   }
 ]

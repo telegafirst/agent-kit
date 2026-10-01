@@ -2,6 +2,15 @@
 
 ## Agent-facing changes
 
+### 1.0.18 — 2026-10-01
+
+- `NEW-261001-3` RU-руководство Google Spark исправлено: оно описывает подключение пользовательского MCP-сервера в веб-версии и ограничения доступности. Проверка подключения на реальном хосте не заявлена.
+
+### 1.0.17 — 2026-10-01
+
+- `NEW-261001-1` Полные RU-руководства подключения для Antigravity, ChatGPT, Claude web/Desktop, Claude Code, Codex, Cursor и Gemini Spark теперь входят в версионируемый Kit как копии канонических руководств. Они описывают настройку, авторизацию, проверку tools и бизнес-операций; существующие EN-руководства сохранены. Статус проверки конкретного хоста указан в руководстве и не означает подтверждённый live-запуск.
+- `NEW-261001-2` Справочники REST и MCP раскрывают фактические поля запросов и ответов, ошибки, scopes и заголовки, чтобы агент мог исправить вызов по контракту. Агенту, использующему отдельный `@telegafirst/hub-sdk`, доступен opt-in conditional JSON: ответ с телом и ETag, ответ 304 без тела и структурированная ошибка. SDK не включён в Kit.
+
 ### 1.0.16 — 2026-09-30
 
 - Agents start with personal onboarding state and its next action, distinguish owner and operator businesses, and can explicitly create their own business without borrowing another tenant’s permissions.
