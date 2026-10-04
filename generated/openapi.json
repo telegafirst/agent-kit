@@ -63,6 +63,12 @@
           "INVALID_API_VERSION",
           "INVALID_PRICING_QUOTE",
           "MALFORMED_IF_MATCH",
+          "FIRST_PAYMENT_PURCHASE_ZONE_CONFLICT",
+          "FIRST_PAYMENT_PURCHASE_ZONE_REQUIRED",
+          "FIRST_PAYMENT_CURRENCY_UNSUPPORTED",
+          "FIRST_PAYMENT_AMOUNT_INVALID",
+          "FIRST_PAYMENT_AMOUNT_BELOW_MINIMUM",
+          "FIRST_PAYMENT_AMOUNT_EXCEEDS_STORAGE",
           "UNAUTHORIZED",
           "INVALID_API_KEY",
           "INVALID_JWT",
@@ -77,6 +83,7 @@
           "PLATFORM_OFFER_ACCEPTANCE_REQUIRED",
           "NO_ACTIVE_BOT",
           "PUBLISHABLE_KEY_NOT_ALLOWED",
+          "PAID_ACCESS_REQUIRED",
           "NOT_FOUND",
           "RESOURCE_NOT_FOUND",
           "SESSION_NOT_FOUND",
@@ -118,6 +125,21 @@
           "ACQUISITION_REJECTED",
           "PLATFORM_TARGET_UNRESOLVED",
           "ORDER_LOCK_CONTENDED",
+          "QUEST_PRODUCT_FREE_TEST_PRICE_REQUIRED",
+          "FIRST_PAYMENT_PRODUCT_CHANGED",
+          "FIRST_PAYMENT_CURRENT_PROVIDER_REQUIRED",
+          "FIRST_PAYMENT_EXECUTION_ALREADY_ACCEPTED",
+          "FIRST_PAYMENT_EXECUTION_MISMATCH",
+          "FIRST_PAYMENT_PREPARATION_CHANGED",
+          "FIRST_PAYMENT_PROVIDER_CHANGED",
+          "FIRST_PAYMENT_INFRASTRUCTURE_REQUIRED",
+          "FIRST_PAYMENT_TEST_PRODUCT_REQUIRED",
+          "FIRST_PAYMENT_PROVIDER_UNAVAILABLE",
+          "FIRST_PAYMENT_DELIVERED_TEST_REQUIRED",
+          "ONBOARDING_JOURNEY_NOT_READY",
+          "ONBOARDING_REQUIRED_PAID_ACCESS",
+          "ONBOARDING_FIRST_PAYMENT_NOT_READY",
+          "ONBOARDING_JOURNEY_ALREADY_COMPLETED",
           "SESSION_EXPIRED",
           "APPROVAL_CODE_EXPIRED",
           "PRECONDITION_FAILED",
@@ -3672,11 +3694,14 @@
           "user_seq_id": {
             "type": "integer",
             "exclusiveMinimum": 0,
-            "maximum": 2147483647
+            "maximum": 2147483647,
+            "description": "Per-client user number (seq_num) of the recipient, as listed by the users API."
           },
           "text": {
             "type": "string",
-            "maxLength": 4096
+            "minLength": 1,
+            "maxLength": 4096,
+            "description": "Message text, delivered to the user's private chat on the messenger they use (Telegram, MAX or VK), with a copy in the user's Open Lines topic."
           },
           "parse_mode": {
             "type": [
@@ -3698,14 +3723,16 @@
               },
               "maxItems": 3
             },
-            "maxItems": 3
+            "maxItems": 3,
+            "description": "Up to 3 rows of up to 3 buttons. url buttons work on every messenger and with every credential; callback buttons only for a Telegram user and only with an ExternalApp key. The Open Lines copy carries only the url buttons."
           },
           "media": {
             "$ref": "#/components/schemas/Media"
           },
           "idempotency_key": {
             "type": "string",
-            "maxLength": 255
+            "maxLength": 255,
+            "description": "Repeating a key within your app returns the same notification_id and does not queue a second push while the first one is still known to the queue."
           }
         },
         "required": [
@@ -3770,7 +3797,8 @@
           },
           "callback_data": {
             "type": "string",
-            "maxLength": 64
+            "maxLength": 64,
+            "description": "Returned to your app when the user taps the button, so it needs an ExternalApp key with a webhook: sent with any other credential (an OAuth grant or an M2M credential) a callback button is refused with INVALID_BUTTON_CONFIG. The platform prefixes it with ext:{app}:, and the prefixed value must fit 64 bytes. Answered only for a Telegram user: for a MAX or VK user a callback button is refused with INVALID_BUTTON_CONFIG — use a url button."
           }
         },
         "required": [
@@ -3802,7 +3830,8 @@
         "required": [
           "type",
           "url"
-        ]
+        ],
+        "description": "Not delivered: a request carrying media is refused with INVALID_MEDIA. Put a link to the file in text instead."
       },
       "SendNotificationResponse": {
         "type": "object",
@@ -3814,7 +3843,8 @@
             "type": "string",
             "enum": [
               "queued"
-            ]
+            ],
+            "description": "Accepted for asynchronous delivery. A push is dropped if not handed over for delivery within 24 hours of being accepted; an accepted push not yet handed over is also dropped if the platform switches push delivery off in an emergency; a user who blocked the bot or was deleted receives nothing."
           }
         },
         "required": [
@@ -43411,6 +43441,8 @@
     "/api/v1/notifications": {
       "post": {
         "operationId": "sendNotification",
+        "summary": "Queue a push notification to one user",
+        "description": "Delivers text with optional buttons to the user's private chat on the messenger they use (Telegram, MAX or VK), with a copy in the user's Open Lines topic. Media is not delivered and is refused with INVALID_MEDIA; a callback button for a MAX or VK user, or sent with any credential other than an ExternalApp key (an OAuth grant or M2M credential), is refused with INVALID_BUTTON_CONFIG, and the Open Lines copy carries only the url buttons. 202 means queued: a push is dropped if not handed over for delivery within 24 hours, an accepted push not yet handed over is also dropped if the platform switches push delivery off in an emergency, and a user who blocked the bot or was deleted receives nothing. 503 SERVICE_UNAVAILABLE means push notifications are switched off for now and nothing was queued.",
         "parameters": [
           {
             "name": "Idempotency-Key",
@@ -43532,7 +43564,7 @@
             }
           },
           "422": {
-            "description": "Notification address/content validation or Idempotency-Key mismatch",
+            "description": "USER_NOT_FOUND, TEXT_TOO_LONG, INVALID_BUTTON_CONFIG, INVALID_MEDIA, or Idempotency-Key mismatch",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -43551,6 +43583,16 @@
                 }
               }
             },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "SERVICE_UNAVAILABLE: push notifications are switched off for now; nothing was queued",
             "content": {
               "application/problem+json": {
                 "schema": {

@@ -1,4 +1,4 @@
-Generated: 2026-10-01T23:41:14.794Z
+Generated: 2026-10-04T13:37:06.152Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -216,7 +216,7 @@ The Hub API exposes TelegaFirst commerce, auth, and catalog data to external app
 - `GET /api/v1/media/uploads/{uploadId}` _(scopes: content:read)_ — getMediaUploadStatus
 
 ### /api/v1/notifications
-- `POST /api/v1/notifications` _(scopes: push)_ — sendNotification
+- `POST /api/v1/notifications` _(scopes: push)_ — Queue a push notification to one user
 
 ### /api/v1/exports
 - `POST /api/v1/exports` _(scopes: export)_ — createExport
