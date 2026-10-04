@@ -3724,7 +3724,7 @@
               "maxItems": 3
             },
             "maxItems": 3,
-            "description": "Up to 3 rows of up to 3 buttons. url buttons work on every messenger and with every credential; callback buttons only for a Telegram user and only with an ExternalApp key. The Open Lines copy carries only the url buttons."
+            "description": "Up to 3 rows of up to 3 buttons. url buttons work on every messenger and with every credential; callback buttons are an integration mechanism of an ExternalApp key with the button.clicked webhook and work only for a Telegram user. The Open Lines copy carries only the url buttons."
           },
           "media": {
             "$ref": "#/components/schemas/Media"
@@ -3798,7 +3798,7 @@
           "callback_data": {
             "type": "string",
             "maxLength": 64,
-            "description": "Returned to your app when the user taps the button, so it needs an ExternalApp key with a webhook: sent with any other credential (an OAuth grant or an M2M credential) a callback button is refused with INVALID_BUTTON_CONFIG. The platform prefixes it with ext:{app}:, and the prefixed value must fit 64 bytes. Answered only for a Telegram user: for a MAX or VK user a callback button is refused with INVALID_BUTTON_CONFIG — use a url button."
+            "description": "An integration mechanism of an ExternalApp key: when the user taps the button, the value is delivered to your server by the button.clicked webhook. Sent with any other credential (an OAuth grant or an M2M credential) a callback button is refused with INVALID_BUTTON_CONFIG; the MCP send_notification tool carries url buttons only. The platform prefixes it with ext:{app}:, and the prefixed value must fit 64 bytes. Answered only for a Telegram user: for a MAX or VK user a callback button is refused with INVALID_BUTTON_CONFIG — use a url button."
           }
         },
         "required": [
@@ -3844,7 +3844,7 @@
             "enum": [
               "queued"
             ],
-            "description": "Accepted for asynchronous delivery. A push is dropped if not handed over for delivery within 24 hours of being accepted; an accepted push not yet handed over is also dropped if the platform switches push delivery off in an emergency; a user who blocked the bot or was deleted receives nothing."
+            "description": "Accepted for asynchronous delivery as a transactional message; promotional messages go through broadcasts. A push is dropped if not handed over for delivery within 24 hours of being accepted; an accepted push not yet handed over is also dropped if the platform switches push delivery off in an emergency; a user who blocked the bot or was deleted receives nothing."
           }
         },
         "required": [
@@ -43442,7 +43442,7 @@
       "post": {
         "operationId": "sendNotification",
         "summary": "Queue a push notification to one user",
-        "description": "Delivers text with optional buttons to the user's private chat on the messenger they use (Telegram, MAX or VK), with a copy in the user's Open Lines topic. Media is not delivered and is refused with INVALID_MEDIA; a callback button for a MAX or VK user, or sent with any credential other than an ExternalApp key (an OAuth grant or M2M credential), is refused with INVALID_BUTTON_CONFIG, and the Open Lines copy carries only the url buttons. 202 means queued: a push is dropped if not handed over for delivery within 24 hours, an accepted push not yet handed over is also dropped if the platform switches push delivery off in an emergency, and a user who blocked the bot or was deleted receives nothing. 503 SERVICE_UNAVAILABLE means push notifications are switched off for now and nothing was queued.",
+        "description": "Delivers a transactional text with optional buttons to the user's private chat on the messenger they use (Telegram, MAX or VK), with a copy in the user's Open Lines topic; promotional messages go through broadcasts. Media is not delivered and is refused with INVALID_MEDIA. Callback buttons are an integration mechanism of an ExternalApp key: a tap is delivered to your server by the button.clicked webhook. A callback button for a MAX or VK user, or sent with any credential other than an ExternalApp key (an OAuth grant or M2M credential), is refused with INVALID_BUTTON_CONFIG, and the Open Lines copy carries only the url buttons. 202 means queued: a push is dropped if not handed over for delivery within 24 hours, an accepted push not yet handed over is also dropped if the platform switches push delivery off in an emergency, and a user who blocked the bot or was deleted receives nothing. 503 SERVICE_UNAVAILABLE means push notifications are switched off for now and nothing was queued.",
         "parameters": [
           {
             "name": "Idempotency-Key",
