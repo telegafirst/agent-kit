@@ -31,7 +31,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "analyze_business_performance",
@@ -60,7 +60,7 @@
     ],
     "risk": "read",
     "domain": "analytics",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_cancel",
@@ -109,7 +109,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_create",
@@ -205,7 +205,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_create_resource",
@@ -302,7 +302,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_create_resource_schedule",
@@ -435,7 +435,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_delete_resource_schedule",
@@ -483,7 +483,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_execute_attendance",
@@ -524,7 +524,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_execute_confirm",
@@ -565,7 +565,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_get_resource",
@@ -594,7 +594,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_get_resource_schedule",
@@ -623,7 +623,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_get_user_list",
@@ -652,7 +652,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_list_pending",
@@ -687,7 +687,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_list_resource_schedules",
@@ -728,7 +728,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_list_resources",
@@ -747,7 +747,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_prepare_attendance",
@@ -787,7 +787,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_prepare_confirm",
@@ -822,7 +822,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_search_availability",
@@ -878,7 +878,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_update_resource",
@@ -987,7 +987,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "booking_update_resource_schedule",
@@ -1129,7 +1129,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "cancel_auto_renew",
@@ -1537,6 +1537,44 @@
                     "is_active",
                     "preparation_id",
                     "payload_hash"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
                   ],
                   "additionalProperties": false
                 },
@@ -2033,6 +2071,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -2171,7 +2222,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "cancel_event_registration",
@@ -2213,7 +2264,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "check_approval",
@@ -2242,7 +2293,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "check_free_conditions",
@@ -2261,7 +2312,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "check_in_event_registration",
@@ -2303,7 +2354,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "check_slug_availability",
@@ -2362,7 +2413,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "claim_slug",
@@ -2805,6 +2856,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -3294,6 +3383,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -3532,7 +3634,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "configure_integration",
@@ -3677,7 +3779,7 @@
     ],
     "risk": "write",
     "domain": "integrations",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "configure_payment_credentials",
@@ -4403,6 +4505,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -4892,6 +5032,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -5133,7 +5286,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "confirm_supergroups",
@@ -5198,7 +5351,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "connect_channel",
@@ -5670,6 +5823,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -6159,6 +6350,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -6259,7 +6463,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_broadcast",
@@ -7142,7 +7346,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_catalog_group",
@@ -7230,7 +7434,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_chain_step",
@@ -7285,7 +7489,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_event",
@@ -7370,7 +7574,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_event_registration",
@@ -7425,7 +7629,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_export",
@@ -7489,7 +7693,7 @@
     ],
     "risk": "write",
     "domain": "export",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_forum_topic",
@@ -7534,7 +7738,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_knowledge",
@@ -7607,7 +7811,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_marketing_campaign",
@@ -7953,7 +8157,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_marketing_link",
@@ -8029,7 +8233,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_menu_button",
@@ -8109,7 +8313,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_menu_group",
@@ -8173,7 +8377,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_message_chain",
@@ -8208,7 +8412,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_order",
@@ -8486,7 +8690,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_order_status",
@@ -8676,7 +8880,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_quest_product",
@@ -9507,6 +9711,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -9996,6 +10238,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -10096,7 +10351,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_quick_reply",
@@ -10148,7 +10403,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_quick_site",
@@ -10238,7 +10493,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_saved_segment",
@@ -10617,7 +10872,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "create_session",
@@ -10687,7 +10942,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_broadcast",
@@ -10722,7 +10977,7 @@
     ],
     "risk": "destructive",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_catalog_group",
@@ -10757,7 +11012,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_chain_step",
@@ -10799,7 +11054,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_event",
@@ -10834,7 +11089,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_forum_topic_message",
@@ -10875,7 +11130,7 @@
     ],
     "risk": "destructive",
     "domain": "topics",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_integration",
@@ -10912,7 +11167,7 @@
     ],
     "risk": "destructive",
     "domain": "integrations",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_knowledge",
@@ -10956,7 +11211,7 @@
     ],
     "risk": "destructive",
     "domain": "kb",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_marketing_campaign",
@@ -10991,7 +11246,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_marketing_link",
@@ -11026,7 +11281,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_menu_button",
@@ -11061,7 +11316,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_menu_group",
@@ -11096,7 +11351,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_message_chain",
@@ -11131,7 +11386,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_order_status",
@@ -11166,7 +11421,7 @@
     ],
     "risk": "destructive",
     "domain": "statuses",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_quick_reply",
@@ -11201,7 +11456,7 @@
     ],
     "risk": "destructive",
     "domain": "quick-replies",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "delete_saved_segment",
@@ -11243,7 +11498,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "describe_segment_axes",
@@ -11262,7 +11517,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "describe_tool",
@@ -11331,7 +11586,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "disable_payment_provider",
@@ -11375,12 +11630,12 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "discover_supergroups",
     "title": "Discover Supergroups",
-    "description": "Discover existing operator supergroups after an owner action. Read get_onboarding_state for the next action.",
+    "description": "Scan the owner's Telegram groups with the reserved technical account. Call it once, only after the owner has acted (added the account to the groups); never poll it. Scans are limited to one per business per minute, refresh included. When body.kind is \"wait\", body.wait_for gives reason, retry_after_seconds and until: do not call again before retry_after_seconds; body.candidates is then the last saved snapshot. Read get_onboarding_state for the next action.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -11388,6 +11643,12 @@
         "refresh": {
           "description": "Refresh the candidate groups after an owner action.",
           "type": "boolean"
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
         }
       },
       "additionalProperties": false
@@ -11397,9 +11658,9 @@
     "required_scopes": [
       "onboarding:read"
     ],
-    "risk": "read",
+    "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "domain_add_request",
@@ -11449,7 +11710,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "domain_execute_unlink",
@@ -11490,7 +11751,7 @@
     ],
     "risk": "destructive",
     "domain": "domain",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "domain_prepare_unlink",
@@ -11527,7 +11788,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "domain_status",
@@ -11555,7 +11816,7 @@
     ],
     "risk": "read",
     "domain": "domain",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "domain_verify",
@@ -11592,7 +11853,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "edit_forum_topic_message",
@@ -11717,7 +11978,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "enable_payment_provider",
@@ -11761,7 +12022,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "exchange_session_approval_code",
@@ -11795,7 +12056,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "execute_admin_read",
@@ -11836,7 +12097,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "execute_admin_write",
@@ -11877,7 +12138,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "execute_broadcast_launch",
@@ -11918,7 +12179,7 @@
     ],
     "risk": "money",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "execute_chain_batch_entry",
@@ -11959,7 +12220,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "execute_manual_sale",
@@ -12000,7 +12261,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "execute_order_status_change",
@@ -12041,7 +12302,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "execute_send_invoice",
@@ -12082,7 +12343,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "export_form_submissions_normalized",
@@ -12137,7 +12398,7 @@
     ],
     "risk": "write",
     "domain": "pull",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_active_bot",
@@ -12156,7 +12417,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_agent_config",
@@ -12175,7 +12436,7 @@
     ],
     "risk": "read",
     "domain": "agents",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_billing_state",
@@ -12583,6 +12844,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -13072,6 +13371,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -13210,7 +13522,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_broadcast_status",
@@ -13239,7 +13551,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_catalog",
@@ -13587,7 +13899,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_catalog_group",
@@ -13616,7 +13928,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_catalog_item",
@@ -13653,7 +13965,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_catalog_topic_link",
@@ -13672,7 +13984,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_client_config",
@@ -13769,7 +14081,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_content_draft",
@@ -14055,7 +14367,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_conversation",
@@ -14084,7 +14396,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_customer",
@@ -14113,7 +14425,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_data_dictionary",
@@ -14132,7 +14444,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_doc",
@@ -14171,7 +14483,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_entitlements",
@@ -14199,7 +14511,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_event_registration",
@@ -14228,7 +14540,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_form_submission",
@@ -14264,7 +14576,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_knowledge",
@@ -14302,7 +14614,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_legal_profile",
@@ -14321,7 +14633,7 @@
     ],
     "risk": "read",
     "domain": "legal",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_menu_button",
@@ -14350,7 +14662,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_menu_group",
@@ -14379,7 +14691,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_message_stats",
@@ -14398,7 +14710,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_onboarding_state",
@@ -14825,6 +15137,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -15314,6 +15664,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -15819,6 +16182,44 @@
                       "type": "null"
                     }
                   ]
+                },
+                "advance": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tokens": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "days": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "until": {
+                          "type": "string",
+                          "format": "date-time",
+                          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "tokens",
+                        "days",
+                        "until",
+                        "timezone"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 }
               },
               "required": [
@@ -16132,6 +16533,42 @@
                 {
                   "type": "object",
                   "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "snapshot",
+                        "wait"
+                      ]
+                    },
+                    "wait_for": {
+                      "type": "object",
+                      "properties": {
+                        "reason": {
+                          "type": "string",
+                          "enum": [
+                            "SA_TEMPORARILY_UNAVAILABLE",
+                            "DISCOVERY_IN_FLIGHT",
+                            "DISCOVERY_COOLDOWN"
+                          ]
+                        },
+                        "retry_after_seconds": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "until": {
+                          "type": "string",
+                          "format": "date-time",
+                          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                        }
+                      },
+                      "required": [
+                        "reason",
+                        "retry_after_seconds",
+                        "until"
+                      ],
+                      "additionalProperties": false
+                    },
                     "fingerprint": {
                       "type": "string",
                       "pattern": "^[a-f0-9]{64}$"
@@ -16684,7 +17121,8 @@
                             "SA_ANONYMOUS",
                             "SG_BOT_CAP_REACHED",
                             "CLIENT_BOT_RIGHTS_MISSING",
-                            "terminal_capability"
+                            "terminal_capability",
+                            "RETRY_EXHAUSTED"
                           ]
                         },
                         {
@@ -16749,7 +17187,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_payment_config",
@@ -16768,7 +17206,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_plan_checkout_link",
@@ -16787,7 +17225,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_saved_segment",
@@ -16816,7 +17254,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_session_status",
@@ -16886,7 +17324,7 @@
     ],
     "risk": "read",
     "domain": "sessions",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_skill",
@@ -16921,7 +17359,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_storefront",
@@ -16940,7 +17378,7 @@
     ],
     "risk": "read",
     "domain": "storefront",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_subscription_status",
@@ -16968,7 +17406,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_token_billing",
@@ -16987,7 +17425,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "get_token_topup_link",
@@ -17006,7 +17444,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "init_managed_bot",
@@ -17032,7 +17470,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "invite_team_member",
@@ -17126,7 +17564,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "issue_api_key",
@@ -17230,7 +17668,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "link_anonymous_order",
@@ -17272,7 +17710,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_accessible_bots",
@@ -17291,7 +17729,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_broadcasts",
@@ -17310,7 +17748,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_catalog_groups",
@@ -17329,7 +17767,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_chain_runs",
@@ -17361,7 +17799,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_chain_steps",
@@ -17390,7 +17828,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_connections",
@@ -17465,7 +17903,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_customers",
@@ -17497,7 +17935,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_event_registrations",
@@ -17534,7 +17972,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_events",
@@ -17553,7 +17991,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_forum_topics",
@@ -17572,7 +18010,7 @@
     ],
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_integrations",
@@ -17591,7 +18029,7 @@
     ],
     "risk": "read",
     "domain": "integrations",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_knowledge",
@@ -17610,7 +18048,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_marketing_campaigns",
@@ -17629,7 +18067,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_marketing_links",
@@ -17648,7 +18086,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_menu_buttons",
@@ -17667,7 +18105,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_menu_groups",
@@ -17686,7 +18124,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_message_chains",
@@ -17705,7 +18143,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_order_statuses",
@@ -17724,7 +18162,7 @@
     ],
     "risk": "read",
     "domain": "statuses",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_payment_rows",
@@ -17756,7 +18194,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_quick_replies",
@@ -17775,7 +18213,7 @@
     ],
     "risk": "read",
     "domain": "quick-replies",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_saved_segments",
@@ -17811,7 +18249,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_segment_targets",
@@ -17874,7 +18312,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_team_members",
@@ -17893,7 +18331,7 @@
     ],
     "risk": "read",
     "domain": "team",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "list_unanswered",
@@ -17970,7 +18408,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "load_domain",
@@ -18055,7 +18493,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "manage_message",
@@ -18828,7 +19266,7 @@
     ],
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "manage_pricing_rules",
@@ -20572,7 +21010,7 @@
     ],
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "mark_form_submission_handled",
@@ -20607,7 +21045,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "mark_paid",
@@ -20671,7 +21109,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "media_finalize",
@@ -20706,7 +21144,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "media_get_status",
@@ -20735,7 +21173,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "media_import_files",
@@ -20981,7 +21419,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "media_request_upload",
@@ -21046,12 +21484,12 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_check_payment_provider",
     "title": "Onboarding Check Payment Provider",
-    "description": "Verify the current payment configuration and return specific remaining requirements.",
+    "description": "Verify the current payment configuration and return specific remaining requirements. Optional: payment setup is not part of the mandatory onboarding path and never blocks onboarding_complete.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -21479,6 +21917,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -21968,6 +22444,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -22209,7 +22698,7 @@
     ],
     "risk": "write",
     "domain": "payments",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_check_test_product",
@@ -22617,6 +23106,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -23106,6 +23633,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -23169,6 +23709,24 @@
                 "ready",
                 "failed"
               ]
+            },
+            "reason": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "no_product",
+                    "no_delivery",
+                    "not_digital",
+                    "not_free",
+                    "inactive",
+                    "ambiguous"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -23196,7 +23754,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_check_test_purchase",
@@ -23604,6 +24162,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -24093,6 +24689,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -24176,12 +24785,12 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_complete",
     "title": "Onboarding Complete",
-    "description": "After explicit owner confirmation, verify every mandatory condition and finish this business onboarding.",
+    "description": "After explicit owner confirmation, verify every mandatory condition and finish this business onboarding. A payment provider and a first payment are not mandatory conditions.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -24605,6 +25214,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -25094,6 +25741,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -25169,12 +25829,12 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_confirm_payment_webhook",
     "title": "Onboarding Confirm Payment Webhook",
-    "description": "After the owner reviews the exact provider configuration, record their explicit webhook setup confirmation. This is owner attestation, not verification of a live callback.",
+    "description": "After the owner reviews the exact provider configuration, record their explicit webhook setup confirmation. This is owner attestation, not verification of a live callback. Optional: payment setup is not part of the mandatory onboarding path and never blocks onboarding_complete.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -25608,6 +26268,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -26097,6 +26795,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -26338,7 +27049,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_connect_channel",
@@ -26810,6 +27521,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -27299,6 +28048,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -27399,12 +28161,12 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_connect_payment_provider",
     "title": "Onboarding Connect Payment Provider",
-    "description": "Save the selected payment provider configuration and verify readiness without charging the owner.",
+    "description": "Save the selected payment provider configuration and verify readiness without charging the owner. The first accepted payment of at least 10 RUB secures the trial advance. Optional: payment setup is not part of the mandatory onboarding path and never blocks onboarding_complete.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "anyOf": [
@@ -28158,6 +28920,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -28647,6 +29447,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -28888,12 +29701,12 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_defer_first_payment",
     "title": "Onboarding Defer First Payment",
-    "description": "Record the owner’s decision to receive their first live payment later.",
+    "description": "Record the owner’s decision to receive their first live payment later. Informational only: a first payment is not required to finish onboarding.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -29303,6 +30116,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -29792,6 +30643,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -29891,7 +30755,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_defer_tariff",
@@ -30306,6 +31170,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -30795,6 +31697,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -30894,12 +31809,12 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_execute_first_payment",
     "title": "Onboarding Execute First Payment",
-    "description": "Execute the owner-approved preparation receipt, save its exact catalog price and send a real purchase card. Card delivery does not confirm payment.",
+    "description": "Execute the owner-approved preparation receipt, save its exact catalog price and send a real purchase card. Card delivery does not confirm payment. Optional: payment setup is not part of the mandatory onboarding path and never blocks onboarding_complete.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -31324,6 +32239,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -31813,6 +32766,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -31896,12 +32862,12 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_prepare_first_payment",
     "title": "Onboarding Prepare First Payment",
-    "description": "Prepare a paid version of the delivered test product and show its exact price and provider for owner approval. This does not charge money.",
+    "description": "Prepare a paid version of the delivered test product and show its exact price and provider for owner approval. This does not charge money. Optional: payment setup is not part of the mandatory onboarding path and never blocks onboarding_complete.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -32358,6 +33324,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -32847,6 +33851,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -32979,7 +33996,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_save_ai_preferences",
@@ -33439,6 +34456,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -33928,6 +34983,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -34045,7 +35113,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "onboarding_send_tariff_checkout_card",
@@ -34487,6 +35555,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -34976,6 +36082,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -35062,7 +36181,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "partner_get_balance",
@@ -35081,7 +36200,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "partner_get_invite_links",
@@ -35100,7 +36219,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "partner_request_payout",
@@ -35126,7 +36245,7 @@
     ],
     "risk": "money",
     "domain": "partner",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "prepare_broadcast_launch",
@@ -35161,7 +36280,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "prepare_chain_batch_entry",
@@ -35225,7 +36344,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "prepare_manual_sale",
@@ -35377,7 +36496,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "prepare_order_status_change",
@@ -35425,7 +36544,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "prepare_send_invoice",
@@ -35460,7 +36579,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "preview_segment_reach",
@@ -35491,7 +36610,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "publish_entity",
@@ -37627,7 +38746,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "pull_form_submissions",
@@ -37691,7 +38810,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "query_form_submission_segment",
@@ -37768,7 +38887,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "quote_order",
@@ -38000,7 +39119,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "refresh_payment_urls",
@@ -38049,7 +39168,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "register_existing_bot",
@@ -38474,6 +39593,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -38963,6 +40120,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -39032,7 +40202,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "register_mini_app_origin",
@@ -39075,7 +40245,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "release_chat",
@@ -39110,7 +40280,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "request_access_link",
@@ -39221,7 +40391,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "resume_bot_connection",
@@ -39636,6 +40806,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -40125,6 +41333,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -40194,7 +41415,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "resume_infrastructure",
@@ -40609,6 +41830,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -41098,6 +42357,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -41603,6 +42875,44 @@
                       "type": "null"
                     }
                   ]
+                },
+                "advance": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tokens": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "days": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "until": {
+                          "type": "string",
+                          "format": "date-time",
+                          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "tokens",
+                        "days",
+                        "until",
+                        "timezone"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 }
               },
               "required": [
@@ -41916,6 +43226,42 @@
                 {
                   "type": "object",
                   "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "snapshot",
+                        "wait"
+                      ]
+                    },
+                    "wait_for": {
+                      "type": "object",
+                      "properties": {
+                        "reason": {
+                          "type": "string",
+                          "enum": [
+                            "SA_TEMPORARILY_UNAVAILABLE",
+                            "DISCOVERY_IN_FLIGHT",
+                            "DISCOVERY_COOLDOWN"
+                          ]
+                        },
+                        "retry_after_seconds": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "until": {
+                          "type": "string",
+                          "format": "date-time",
+                          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                        }
+                      },
+                      "required": [
+                        "reason",
+                        "retry_after_seconds",
+                        "until"
+                      ],
+                      "additionalProperties": false
+                    },
                     "fingerprint": {
                       "type": "string",
                       "pattern": "^[a-f0-9]{64}$"
@@ -42468,7 +43814,8 @@
                             "SA_ANONYMOUS",
                             "SG_BOT_CAP_REACHED",
                             "CLIENT_BOT_RIGHTS_MISSING",
-                            "terminal_capability"
+                            "terminal_capability",
+                            "RETRY_EXHAUSTED"
                           ]
                         },
                         {
@@ -42533,7 +43880,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "retry_onboarding_site",
@@ -42948,6 +44295,44 @@
                   "type": "null"
                 }
               ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -43437,6 +44822,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -43942,6 +45340,44 @@
                       "type": "null"
                     }
                   ]
+                },
+                "advance": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tokens": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "days": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "until": {
+                          "type": "string",
+                          "format": "date-time",
+                          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "tokens",
+                        "days",
+                        "until",
+                        "timezone"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 }
               },
               "required": [
@@ -44255,6 +45691,42 @@
                 {
                   "type": "object",
                   "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "snapshot",
+                        "wait"
+                      ]
+                    },
+                    "wait_for": {
+                      "type": "object",
+                      "properties": {
+                        "reason": {
+                          "type": "string",
+                          "enum": [
+                            "SA_TEMPORARILY_UNAVAILABLE",
+                            "DISCOVERY_IN_FLIGHT",
+                            "DISCOVERY_COOLDOWN"
+                          ]
+                        },
+                        "retry_after_seconds": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "until": {
+                          "type": "string",
+                          "format": "date-time",
+                          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                        }
+                      },
+                      "required": [
+                        "reason",
+                        "retry_after_seconds",
+                        "until"
+                      ],
+                      "additionalProperties": false
+                    },
                     "fingerprint": {
                       "type": "string",
                       "pattern": "^[a-f0-9]{64}$"
@@ -44807,7 +46279,8 @@
                             "SA_ANONYMOUS",
                             "SG_BOT_CAP_REACHED",
                             "CLIENT_BOT_RIGHTS_MISSING",
-                            "terminal_capability"
+                            "terminal_capability",
+                            "RETRY_EXHAUSTED"
                           ]
                         },
                         {
@@ -44872,7 +46345,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "revoke_connection",
@@ -44921,7 +46394,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "revoke_team_member",
@@ -44956,7 +46429,7 @@
     ],
     "risk": "destructive",
     "domain": "team",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "sample_segment_audience",
@@ -44995,7 +46468,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "scope_change",
@@ -45106,7 +46579,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "search_admin_tools",
@@ -45288,7 +46761,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "search_docs",
@@ -45335,7 +46808,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "secret_delete",
@@ -45377,7 +46850,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "secret_list",
@@ -45396,7 +46869,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "secret_put",
@@ -45445,7 +46918,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "secret_rotate",
@@ -45494,7 +46967,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "send_card",
@@ -45993,7 +47466,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "send_entity_card",
@@ -46164,7 +47637,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "send_notification",
@@ -46295,7 +47768,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "send_to_forum_topic",
@@ -46447,12 +47920,12 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "set_tax_profile",
     "title": "Set Tax Profile",
-    "description": "Set the business tax profile for payment setup. Returns onboarding progress and the next action.",
+    "description": "Set the business tax profile for payment setup. Returns onboarding progress and the next action. Optional: payment setup is not part of the mandatory onboarding path and never blocks onboarding_complete.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "oneOf": [
@@ -46934,6 +48407,44 @@
                     "is_active",
                     "preparation_id",
                     "payload_hash"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
                   ],
                   "additionalProperties": false
                 },
@@ -47430,6 +48941,19 @@
                 "retry_after_seconds": {
                   "type": "number",
                   "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE",
+                    "DISCOVERY_IN_FLIGHT",
+                    "DISCOVERY_COOLDOWN"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -47521,7 +49045,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_checkout_key",
@@ -47547,7 +49071,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_execute_delete",
@@ -47588,7 +49112,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_fetch_file",
@@ -47625,7 +49149,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_form_declare",
@@ -47843,7 +49367,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_get_analytics",
@@ -47875,7 +49399,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_get_manifest",
@@ -47905,7 +49429,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_page_preview",
@@ -47934,7 +49458,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_pages_set_visibility",
@@ -47980,7 +49504,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_prepare_delete",
@@ -48016,7 +49540,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_publish",
@@ -48059,7 +49583,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "site_request_upload",
@@ -48141,7 +49665,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "submit_form_submission",
@@ -48180,7 +49704,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "support_ticket_create",
@@ -48290,7 +49814,7 @@
     ],
     "risk": "write",
     "domain": "support",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "support_ticket_list",
@@ -48327,7 +49851,7 @@
     ],
     "risk": "read",
     "domain": "support",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "switch_active_bot",
@@ -48362,7 +49886,7 @@
     ],
     "risk": "write",
     "domain": "identity",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "take_chat",
@@ -48397,7 +49921,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "test_funnel_pipeline",
@@ -48437,7 +49961,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_agent_config",
@@ -48847,7 +50371,7 @@
     ],
     "risk": "write",
     "domain": "agents",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_broadcast",
@@ -49461,7 +50985,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_catalog_group",
@@ -49556,7 +51080,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_catalog_item",
@@ -50253,7 +51777,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_chain_step",
@@ -50576,7 +52100,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_client_config",
@@ -50672,7 +52196,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_event",
@@ -51006,7 +52530,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_knowledge",
@@ -51092,7 +52616,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_legal_profile",
@@ -51401,7 +52925,7 @@
     ],
     "risk": "write",
     "domain": "legal",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_marketing_campaign",
@@ -51719,7 +53243,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_marketing_link",
@@ -51778,7 +53302,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_menu_button",
@@ -51912,7 +53436,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_menu_group",
@@ -52003,7 +53527,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_message_chain",
@@ -52044,7 +53568,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_order_status",
@@ -52266,7 +53790,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_quick_reply",
@@ -52323,7 +53847,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_saved_segment",
@@ -52714,7 +54238,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_storefront",
@@ -52776,7 +54300,7 @@
     ],
     "risk": "write",
     "domain": "storefront",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   },
   {
     "name": "update_team_member",
@@ -52875,6 +54399,6 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.76"
+    "platform_version": "1.0.79"
   }
 ]

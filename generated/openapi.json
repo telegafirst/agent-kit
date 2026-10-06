@@ -84,6 +84,7 @@
           "NO_ACTIVE_BOT",
           "PUBLISHABLE_KEY_NOT_ALLOWED",
           "PAID_ACCESS_REQUIRED",
+          "PLAN_UPGRADE_REQUIRED",
           "NOT_FOUND",
           "RESOURCE_NOT_FOUND",
           "SESSION_NOT_FOUND",
@@ -44349,6 +44350,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -44781,6 +44813,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -45239,6 +45283,37 @@
                                 "payload_hash"
                               ],
                               "additionalProperties": false
+                            },
+                            "advance": {
+                              "type": [
+                                "object",
+                                "null"
+                              ],
+                              "properties": {
+                                "tokens": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0
+                                },
+                                "days": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0
+                                },
+                                "until": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                },
+                                "timezone": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "tokens",
+                                "days",
+                                "until",
+                                "timezone"
+                              ],
+                              "additionalProperties": false
                             }
                           },
                           "required": [
@@ -45525,6 +45600,40 @@
                             "null"
                           ],
                           "properties": {
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "snapshot",
+                                "wait"
+                              ]
+                            },
+                            "wait_for": {
+                              "type": "object",
+                              "properties": {
+                                "reason": {
+                                  "type": "string",
+                                  "enum": [
+                                    "SA_TEMPORARILY_UNAVAILABLE",
+                                    "DISCOVERY_IN_FLIGHT",
+                                    "DISCOVERY_COOLDOWN"
+                                  ]
+                                },
+                                "retry_after_seconds": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0
+                                },
+                                "until": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                }
+                              },
+                              "required": [
+                                "reason",
+                                "retry_after_seconds",
+                                "until"
+                              ],
+                              "additionalProperties": false
+                            },
                             "fingerprint": {
                               "type": "string",
                               "pattern": "^[a-f0-9]{64}$"
@@ -46038,6 +46147,7 @@
                                 "SG_BOT_CAP_REACHED",
                                 "CLIENT_BOT_RIGHTS_MISSING",
                                 "terminal_capability",
+                                "RETRY_EXHAUSTED",
                                 null
                               ]
                             },
@@ -46610,6 +46720,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -47042,6 +47183,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -47083,6 +47236,40 @@
                     "body": {
                       "type": "object",
                       "properties": {
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "snapshot",
+                            "wait"
+                          ]
+                        },
+                        "wait_for": {
+                          "type": "object",
+                          "properties": {
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "retry_after_seconds": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          },
+                          "required": [
+                            "reason",
+                            "retry_after_seconds",
+                            "until"
+                          ],
+                          "additionalProperties": false
+                        },
                         "fingerprint": {
                           "type": "string",
                           "pattern": "^[a-f0-9]{64}$"
@@ -47553,6 +47740,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -47985,6 +48203,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -48499,6 +48729,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -48931,6 +49192,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -49396,6 +49669,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -49828,6 +50132,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -49885,6 +50201,21 @@
                             "pending",
                             "ready",
                             "failed"
+                          ]
+                        },
+                        "reason": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "enum": [
+                            "no_product",
+                            "no_delivery",
+                            "not_digital",
+                            "not_free",
+                            "inactive",
+                            "ambiguous",
+                            null
                           ]
                         }
                       },
@@ -50310,6 +50641,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -50742,6 +51104,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -51245,6 +51619,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -51677,6 +52082,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -52135,6 +52552,37 @@
                                 "payload_hash"
                               ],
                               "additionalProperties": false
+                            },
+                            "advance": {
+                              "type": [
+                                "object",
+                                "null"
+                              ],
+                              "properties": {
+                                "tokens": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0
+                                },
+                                "days": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0
+                                },
+                                "until": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                },
+                                "timezone": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "tokens",
+                                "days",
+                                "until",
+                                "timezone"
+                              ],
+                              "additionalProperties": false
                             }
                           },
                           "required": [
@@ -52421,6 +52869,40 @@
                             "null"
                           ],
                           "properties": {
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "snapshot",
+                                "wait"
+                              ]
+                            },
+                            "wait_for": {
+                              "type": "object",
+                              "properties": {
+                                "reason": {
+                                  "type": "string",
+                                  "enum": [
+                                    "SA_TEMPORARILY_UNAVAILABLE",
+                                    "DISCOVERY_IN_FLIGHT",
+                                    "DISCOVERY_COOLDOWN"
+                                  ]
+                                },
+                                "retry_after_seconds": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0
+                                },
+                                "until": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                }
+                              },
+                              "required": [
+                                "reason",
+                                "retry_after_seconds",
+                                "until"
+                              ],
+                              "additionalProperties": false
+                            },
                             "fingerprint": {
                               "type": "string",
                               "pattern": "^[a-f0-9]{64}$"
@@ -52934,6 +53416,7 @@
                                 "SG_BOT_CAP_REACHED",
                                 "CLIENT_BOT_RIGHTS_MISSING",
                                 "terminal_capability",
+                                "RETRY_EXHAUSTED",
                                 null
                               ]
                             },
@@ -53502,6 +53985,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -53934,6 +54448,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -54471,6 +54997,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -54903,6 +55460,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -55555,6 +56124,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -55987,6 +56587,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -56891,6 +57503,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -57323,6 +57966,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -57881,6 +58536,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -58313,6 +58999,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -58815,6 +59513,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -59247,6 +59976,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -59705,6 +60446,37 @@
                                 "payload_hash"
                               ],
                               "additionalProperties": false
+                            },
+                            "advance": {
+                              "type": [
+                                "object",
+                                "null"
+                              ],
+                              "properties": {
+                                "tokens": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0
+                                },
+                                "days": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0
+                                },
+                                "until": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                },
+                                "timezone": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "tokens",
+                                "days",
+                                "until",
+                                "timezone"
+                              ],
+                              "additionalProperties": false
                             }
                           },
                           "required": [
@@ -59991,6 +60763,40 @@
                             "null"
                           ],
                           "properties": {
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "snapshot",
+                                "wait"
+                              ]
+                            },
+                            "wait_for": {
+                              "type": "object",
+                              "properties": {
+                                "reason": {
+                                  "type": "string",
+                                  "enum": [
+                                    "SA_TEMPORARILY_UNAVAILABLE",
+                                    "DISCOVERY_IN_FLIGHT",
+                                    "DISCOVERY_COOLDOWN"
+                                  ]
+                                },
+                                "retry_after_seconds": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0
+                                },
+                                "until": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                }
+                              },
+                              "required": [
+                                "reason",
+                                "retry_after_seconds",
+                                "until"
+                              ],
+                              "additionalProperties": false
+                            },
                             "fingerprint": {
                               "type": "string",
                               "pattern": "^[a-f0-9]{64}$"
@@ -60504,6 +61310,7 @@
                                 "SG_BOT_CAP_REACHED",
                                 "CLIENT_BOT_RIGHTS_MISSING",
                                 "terminal_capability",
+                                "RETRY_EXHAUSTED",
                                 null
                               ]
                             },
@@ -60985,6 +61792,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -61417,6 +62255,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -61934,6 +62784,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -62366,6 +63247,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -62868,6 +63761,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -63300,6 +64224,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -64122,6 +65058,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -64554,6 +65521,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -65229,6 +66208,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -65661,6 +66671,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -66331,6 +67353,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -66763,6 +67816,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -67415,6 +68480,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -67847,6 +68943,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -68379,6 +69487,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -68811,6 +69950,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -69328,6 +70479,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -69760,6 +70942,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -70323,6 +71517,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -70755,6 +71980,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -71321,6 +72558,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -71753,6 +73021,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -72318,6 +73598,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -72750,6 +74061,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -73323,6 +74646,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -73755,6 +75109,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -74332,6 +75698,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -74764,6 +76161,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -75301,6 +76710,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -75733,6 +77173,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -76462,6 +77914,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -76894,6 +78377,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
@@ -77392,6 +78887,37 @@
                             "payload_hash"
                           ],
                           "additionalProperties": false
+                        },
+                        "advance": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "tokens": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "days": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "tokens",
+                            "days",
+                            "until",
+                            "timezone"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -77824,6 +79350,18 @@
                             "retry_after_seconds": {
                               "type": "number",
                               "minimum": 0
+                            },
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE",
+                                "DISCOVERY_IN_FLIGHT",
+                                "DISCOVERY_COOLDOWN"
+                              ]
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
                             }
                           },
                           "required": [
