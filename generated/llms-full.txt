@@ -1,10 +1,12 @@
-Generated: 2026-10-07T01:03:07.876Z
+Generated: 2026-10-07T09:24:54.632Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
-2. Add it as a connector; OAuth runs when it is added.
+2. Add it as a connector; complete OAuth when requested and approve the displayed access in Telegram.
 3. Full reference: https://mcp.telegafirst.com/llms-full.txt
 4. Task: tell the connected agent what to set up or operate.
+Authentication instructions: https://telegafirst.com/auth.md
+Public documentation index: https://telegafirst.com/llms.txt
 Connection guides:
 - https://github.com/telegafirst/agent-kit/blob/main/docs/connect/claude-ai.md
 - https://github.com/telegafirst/agent-kit/blob/main/docs/connect/claude-code.md
@@ -20,9 +22,11 @@ Connection guides:
 The Hub API exposes TelegaFirst commerce, auth, and catalog data to external applications and MCP agents. All endpoints are versioned under `/api/v1`. Discovery endpoints (`/guide`, `/me`, `/openapi.json`) remain accessible to introspect the currently authenticated app.
 
 ## Authentication
-- `X-Api-Key: tgf_api_<secret>` — server-to-server API key.
-- `Authorization: Bearer <jwt>` — user-scoped JWT (from `/sessions/exchange`).
-- `tgf_test_` prefix selects sandbox mode.
+- AI clients use an OAuth access token issued to their own connection after the person approves access in Telegram. Send the opaque token as `Authorization: Bearer <access_token>`; the MCP client manages its OAuth flow.
+- Server integrations use an ExternalApp API key: `X-Api-Key: tgf_api_<secret>` or the supported Bearer header.
+- Headless integrations use their own scoped M2MCredential; this is a separate real credential kind, not an ExternalApp or a person session.
+- Surface/customer sessions authorize their own surface; they do not establish the OAuth connection of an AI client.
+Read https://telegafirst.com/auth.md and https://telegafirst.com/docs/authorization.md for consent, current permissions and revocation.
 
 ## Endpoints
 ### /api/v1/users
