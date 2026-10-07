@@ -46082,6 +46082,10 @@
                                         },
                                         "skipped_reason": {
                                           "type": "string"
+                                        },
+                                        "retry_at": {
+                                          "type": "string",
+                                          "format": "date-time"
                                         }
                                       },
                                       "required": [
@@ -46097,6 +46101,10 @@
                                         },
                                         "skipped_reason": {
                                           "type": "string"
+                                        },
+                                        "retry_at": {
+                                          "type": "string",
+                                          "format": "date-time"
                                         }
                                       },
                                       "required": [
@@ -46112,6 +46120,10 @@
                                         },
                                         "skipped_reason": {
                                           "type": "string"
+                                        },
+                                        "retry_at": {
+                                          "type": "string",
+                                          "format": "date-time"
                                         }
                                       },
                                       "required": [
@@ -53351,6 +53363,10 @@
                                         },
                                         "skipped_reason": {
                                           "type": "string"
+                                        },
+                                        "retry_at": {
+                                          "type": "string",
+                                          "format": "date-time"
                                         }
                                       },
                                       "required": [
@@ -53366,6 +53382,10 @@
                                         },
                                         "skipped_reason": {
                                           "type": "string"
+                                        },
+                                        "retry_at": {
+                                          "type": "string",
+                                          "format": "date-time"
                                         }
                                       },
                                       "required": [
@@ -53381,6 +53401,10 @@
                                         },
                                         "skipped_reason": {
                                           "type": "string"
+                                        },
+                                        "retry_at": {
+                                          "type": "string",
+                                          "format": "date-time"
                                         }
                                       },
                                       "required": [
@@ -61245,6 +61269,10 @@
                                         },
                                         "skipped_reason": {
                                           "type": "string"
+                                        },
+                                        "retry_at": {
+                                          "type": "string",
+                                          "format": "date-time"
                                         }
                                       },
                                       "required": [
@@ -61260,6 +61288,10 @@
                                         },
                                         "skipped_reason": {
                                           "type": "string"
+                                        },
+                                        "retry_at": {
+                                          "type": "string",
+                                          "format": "date-time"
                                         }
                                       },
                                       "required": [
@@ -61275,6 +61307,10 @@
                                         },
                                         "skipped_reason": {
                                           "type": "string"
+                                        },
+                                        "retry_at": {
+                                          "type": "string",
+                                          "format": "date-time"
                                         }
                                       },
                                       "required": [
