@@ -1,4 +1,4 @@
-Generated: 2026-10-07T09:24:54.632Z
+Generated: 2026-10-09T12:53:56.409Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -22,11 +22,15 @@ Connection guides:
 The Hub API exposes TelegaFirst commerce, auth, and catalog data to external applications and MCP agents. All endpoints are versioned under `/api/v1`. Discovery endpoints (`/guide`, `/me`, `/openapi.json`) remain accessible to introspect the currently authenticated app.
 
 ## Authentication
-- AI clients use an OAuth access token issued to their own connection after the person approves access in Telegram. Send the opaque token as `Authorization: Bearer <access_token>`; the MCP client manages its OAuth flow.
-- Server integrations use an ExternalApp API key: `X-Api-Key: tgf_api_<secret>` or the supported Bearer header.
-- Headless integrations use their own scoped M2MCredential; this is a separate real credential kind, not an ExternalApp or a person session.
-- Surface/customer sessions authorize their own surface; they do not establish the OAuth connection of an AI client.
-Read https://telegafirst.com/auth.md and https://telegafirst.com/docs/authorization.md for consent, current permissions and revocation.
+AI clients use an OAuth access token issued to their own connection after the person approves access in Telegram. Send the opaque token as `Authorization: Bearer <access_token>`; the MCP client manages its OAuth flow.
+
+Server integrations use an ExternalApp API key: `X-Api-Key: tgf_api_<secret>` or the supported Bearer header.
+
+Headless integrations use their own scoped M2MCredential; this is a separate real credential kind, not an ExternalApp or a person session.
+
+Surface/customer sessions authorize their own surface; they do not establish the OAuth connection of an AI client.
+
+Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authorization.md` for consent, current permissions and revocation.
 
 ## Endpoints
 ### /api/v1/users
@@ -67,10 +71,19 @@ Read https://telegafirst.com/auth.md and https://telegafirst.com/docs/authorizat
 - `POST /api/v1/tools/chains` _(scopes: chains:write)_ — Create a message chain shell
 - `PATCH /api/v1/tools/chains` _(scopes: chains:write)_ — Update a chain shell by tenant sequence
 - `POST /api/v1/tools/chains/delete` _(scopes: chains:write)_ — Soft-delete a chain shell by tenant sequence
+- `POST /api/v1/tools/chains/steps` _(scopes: chains:write)_ — Add a step with its message to a chain
+- `GET /api/v1/tools/chains/steps` _(scopes: chains:read)_ — listChainSteps
+- `PATCH /api/v1/tools/chains/steps` _(scopes: chains:write)_ — updateChainStep
+- `GET /api/v1/tools/chains/steps/get` _(scopes: chains:read)_ — getChainStep
+- `POST /api/v1/tools/chains/steps/delete` _(scopes: chains:write)_ — deleteChainStep
 - `GET /api/v1/tools/events` _(scopes: events:read)_ — listEvents
 - `POST /api/v1/tools/events` _(scopes: events:write)_ — createEvent
 - `PATCH /api/v1/tools/events` _(scopes: events:write)_ — updateEvent
 - `POST /api/v1/tools/events/delete` _(scopes: events:write)_ — deleteEvent
+- `GET /api/v1/tools/events/get` _(scopes: events:read)_ — getEvent
+- `POST /api/v1/tools/events/phase` _(scopes: events:write)_ — setEventPhase
+- `POST /api/v1/tools/events/cancel` _(scopes: events:write)_ — cancelEvent
+- `POST /api/v1/tools/events/complete` _(scopes: events:write)_ — completeEvent
 - `GET /api/v1/tools/broadcasts` _(scopes: broadcasts:read)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
 - `POST /api/v1/tools/broadcasts` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
 - `PATCH /api/v1/tools/broadcasts` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
@@ -113,13 +126,26 @@ Read https://telegafirst.com/auth.md and https://telegafirst.com/docs/authorizat
 - `POST /api/v1/tools/site/secrets` _(scopes: site:write)_ — Request approval or store a new secret
 - `PUT /api/v1/tools/site/secrets/{name}` _(scopes: site:write)_ — Request approval or rotate a stored secret
 - `DELETE /api/v1/tools/site/secrets/{name}` _(scopes: site:write)_ — Request approval or delete a stored secret
+- `GET /api/v1/tools/site/pages` _(scopes: site:read)_ — List publishable hosts and registered site pages
+- `DELETE /api/v1/tools/site/pages/{seqNum}` _(scopes: site:write)_ — Withdraw one page from the deployed site
+- `POST /api/v1/tools/site/pages/visibility` _(scopes: site:write)_ — Show or hide existing site pages
+- `POST /api/v1/tools/site/pages/{seqNum}/preview` _(scopes: site:write)_ — Open a private preview of one site page
 - `GET /api/v1/tools/storefront` _(scopes: storefront:read)_ — Read tenant storefront settings
 - `PATCH /api/v1/tools/storefront` _(scopes: storefront:write)_ — Update tenant storefront settings
+- `GET /api/v1/tools/catalog-groups` _(scopes: catalog:read)_ — List catalog groups
+- `POST /api/v1/tools/catalog-groups` _(scopes: catalog:write)_ — Create a catalog group
+- `GET /api/v1/tools/catalog-groups/{seqNum}` _(scopes: catalog:read)_ — Read one catalog group
+- `PATCH /api/v1/tools/catalog-groups/{seqNum}` _(scopes: catalog:write)_ — Update a catalog group
+- `DELETE /api/v1/tools/catalog-groups/{seqNum}` _(scopes: catalog:write)_ — Delete a catalog group
+- `PUT /api/v1/tools/catalog-groups/{seqNum}/items/{itemSeqId}` _(scopes: catalog:write)_ — Put a catalog item into a group
+- `DELETE /api/v1/tools/catalog-groups/{seqNum}/items/{itemSeqId}` _(scopes: catalog:write)_ — Take a catalog item out of a group
 - `GET /api/v1/tools/event-registrations` _(scopes: events:read)_ — listEventRegistrations
 - `POST /api/v1/tools/event-registrations` _(scopes: events:write)_ — createEventRegistration
 - `GET /api/v1/tools/event-registrations/{seqNum}` _(scopes: events:read)_ — getEventRegistration
 - `POST /api/v1/tools/event-registrations/{seqNum}/cancel` _(scopes: events:write)_ — cancelEventRegistration
 - `POST /api/v1/tools/event-registrations/{seqNum}/check-in` _(scopes: events:write)_ — checkInEventRegistration
+- `POST /api/v1/tools/event-registrations/{seqNum}/check-out` _(scopes: events:write)_ — checkOutEventRegistration
+- `POST /api/v1/tools/event-registrations/walk-ins` _(scopes: events:write)_ — walkInEventRegistration
 - `GET /api/v1/tools/onboarding/catalog-topic-link` _(scopes: onboarding:read)_ — getCatalogTopicLink
 - `GET /api/v1/tools/onboarding/state` _(scopes: onboarding:read)_ — getOnboardingState
 - `GET /api/v1/tools/onboarding/slug-availability` _(scopes: onboarding:read)_ — checkSlugAvailability
@@ -134,6 +160,7 @@ Read https://telegafirst.com/auth.md and https://telegafirst.com/docs/authorizat
 - `POST /api/v1/tools/onboarding/billing/cancel-auto-renew` _(scopes: onboarding:write)_ — cancelAutoRenew
 - `POST /api/v1/tools/onboarding/quest-product` _(scopes: onboarding:write)_ — createQuestProduct
 - `POST /api/v1/tools/onboarding/supergroups/confirm` _(scopes: onboarding:write)_ — confirmSupergroups
+- `POST /api/v1/tools/onboarding/supergroups/manual-request` _(scopes: onboarding:write)_ — requestManualSupergroups
 - `POST /api/v1/tools/onboarding/infrastructure/resume` _(scopes: onboarding:write)_ — resumeInfrastructure
 - `POST /api/v1/tools/onboarding/managed-bot` _(scopes: onboarding:write)_ — initManagedBot
 - `POST /api/v1/tools/onboarding/existing-bot` _(scopes: onboarding:write)_ — registerExistingBot
@@ -178,6 +205,7 @@ Read https://telegafirst.com/auth.md and https://telegafirst.com/docs/authorizat
 - `GET /api/v1/orders/{id}` _(scopes: pull:orders)_ — getOrder
 - `POST /api/v1/orders/{id}/refresh-payment-urls` _(scopes: orders)_ — refreshPaymentUrls
 - `POST /api/v1/orders/{id}/link-user` _(scopes: orders)_ — linkOrderUser
+- `POST /api/v1/orders/{seqNum}/composition` _(scopes: orders:write)_ — Apply one change to the composition of an open, unpaid order: remove_line, set_quantity, set_line_price or add_line (a variant change is a remove plus an add). Prices are recalculated by the platform under its pricing rules; an unpaid payment link is reissued for the new amount and the old one no longer pays the order. MCP agents prepare the same change with prepare_order_composition_change first.
 
 ### /api/v1/carts
 - `POST /api/v1/carts` _(scopes: orders)_ — createCart
@@ -191,12 +219,16 @@ Read https://telegafirst.com/auth.md and https://telegafirst.com/docs/authorizat
 - `GET /api/v1/catalog` _(scopes: catalog:read)_ — listCatalog
 - `GET /api/v1/catalog/{seq_id}` _(scopes: catalog:read)_ — getCatalogItem
 - `PATCH /api/v1/catalog/{seq_id}` _(scopes: catalog:write)_ — Requires an API key credential, supplied in X-Api-Key or Authorization: Bearer tgf_*. Surface-session JWT credentials are not accepted for this operation.
+- `DELETE /api/v1/catalog/{seq_id}` _(scopes: catalog:write)_ — Soft delete: the item leaves the showcase, storefront and listings and can no longer be bought; existing orders keep their own item snapshot. A repeat answers deleted:true again. Undo with content publish intent RESTORE; to pause sales only, PATCH is_active:false. Requires an API key credential, supplied in X-Api-Key or Authorization: Bearer tgf_*.
 
 ### /api/v1/booking
+- `POST /api/v1/booking/resources/{resourceSeqNum}/calendar/connect` _(scopes: booking:write)_ — connectBookingResourceCalendar
+- `DELETE /api/v1/booking/resources/{resourceSeqNum}/calendar` _(scopes: booking:write)_ — disconnectBookingResourceCalendar
 - `GET /api/v1/booking/resources` _(scopes: booking:read)_ — listBookingResources
 - `POST /api/v1/booking/resources` _(scopes: booking:write)_ — createBookingResource
 - `GET /api/v1/booking/resources/{seqNum}` _(scopes: booking:read)_ — getBookingResource
 - `PATCH /api/v1/booking/resources/{seqNum}` _(scopes: booking:write)_ — updateBookingResource
+- `DELETE /api/v1/booking/resources/{seqNum}` _(scopes: booking:write)_ — deleteBookingResource
 - `GET /api/v1/booking/resource-schedules` _(scopes: booking:read)_ — listBookingResourceSchedules
 - `POST /api/v1/booking/resource-schedules` _(scopes: booking:write)_ — createBookingResourceSchedule
 - `GET /api/v1/booking/resource-schedules/{seqNum}` _(scopes: booking:read)_ — getBookingResourceSchedule
@@ -204,14 +236,28 @@ Read https://telegafirst.com/auth.md and https://telegafirst.com/docs/authorizat
 - `DELETE /api/v1/booking/resource-schedules/{seqNum}` _(scopes: booking:write)_ — deleteBookingResourceSchedule
 - `GET /api/v1/booking/availability` _(scopes: booking:read)_ — searchBookingAvailability
 - `POST /api/v1/booking/bookings` _(scopes: booking:write)_ — createBooking
+- `GET /api/v1/booking/bookings` _(scopes: booking:read)_ — listBookings
 - `POST /api/v1/booking/bookings/{seqNum}/cancel` _(scopes: booking:write)_ — cancelBooking
+- `POST /api/v1/booking/bookings/{seqNum}/price` _(scopes: booking:write, orders:write)_ — agreeBookingPrice
+- `POST /api/v1/booking/overbookings` _(scopes: booking:write)_ — createBookingOverbooking
 - `POST /api/v1/booking/bookings/{seqNum}/attendance` _(scopes: booking:write)_ — markBookingAttendance
+- `POST /api/v1/booking/bookings/{seqNum}/reschedule` _(scopes: booking:write)_ — rescheduleBooking
+- `POST /api/v1/booking/bookings/{seqNum}/assign` _(scopes: booking:write)_ — assignBookingResource
+- `POST /api/v1/booking/bookings/{seqNum}/notes` _(scopes: booking:write)_ — addBookingOperatorNote
+- `GET /api/v1/booking/reviews` _(scopes: booking:read)_ — listBookingReviews
+- `POST /api/v1/booking/reviews/{bookingSeqNum}/visibility` _(scopes: booking:write)_ — setBookingReviewVisibility
+- `PUT /api/v1/booking/resources/{seqNum}/meeting-provider` _(scopes: booking:write)_ — setBookingResourceMeetingProvider
+- `POST /api/v1/booking/resource-schedules/copy-month` _(scopes: booking:write)_ — copyBookingResourceScheduleMonth
+- `POST /api/v1/booking/services` _(scopes: booking:write)_ — createBookingService
+- `GET /api/v1/booking/meeting-providers` _(scopes: booking:read)_ — getMeetingProviderStatus
+- `POST /api/v1/booking/meeting-providers/{provider}/connect` _(scopes: booking:write)_ — connectMeetingProvider
 
 ### /api/v1/entitlements
 - `GET /api/v1/entitlements` _(scopes: entitlements)_ — getEntitlements
 
 ### /api/v1/form-submissions
 - `POST /api/v1/form-submissions` _(scopes: push:form_submissions)_ — submitFormSubmission
+- `PATCH /api/v1/form-submissions/{seqNum}` _(scopes: push:form_submissions)_ — Mark a submission handled, or back to new
 
 ### /api/v1/media
 - `POST /api/v1/media/import` _(scopes: content:write)_ — importMediaFiles
