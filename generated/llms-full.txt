@@ -1,4 +1,4 @@
-Generated: 2026-10-10T12:16:13.519Z
+Generated: 2026-10-10T22:13:21.415Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -104,7 +104,9 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `PATCH /api/v1/tools/agents` _(scopes: agents:write)_ — Update the tenant AI agent configuration
 - `GET /api/v1/tools/kb` _(scopes: kb:read)_ — List tenant knowledge across both boards
 - `POST /api/v1/tools/kb` _(scopes: kb:write)_ — Create tenant knowledge and enqueue indexing
+- `PATCH /api/v1/tools/kb` _(scopes: kb:write)_ — Edit tenant knowledge by board and tenant sequence
 - `POST /api/v1/tools/kb/get` _(scopes: kb:read)_ — Read knowledge by board and tenant sequence
+- `POST /api/v1/tools/kb/delete` _(scopes: kb:write)_ — Delete tenant knowledge by board and tenant sequence
 - `GET /api/v1/tools/integrations` _(scopes: integrations:read)_ — List tenant CRM connectors
 - `POST /api/v1/tools/integrations` _(scopes: integrations:write)_ — Configure tenant CRM connector
 - `POST /api/v1/tools/integrations/delete` _(scopes: integrations:write)_ — Disconnect tenant CRM connector

@@ -10098,7 +10098,7 @@
           "content": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 20000
+            "maxLength": 4000
           },
           "tags": {
             "type": "array",
@@ -10116,7 +10116,8 @@
               "exclusiveMinimum": 0,
               "maximum": 2147483647
             },
-            "maxItems": 50
+            "maxItems": 50,
+            "description": "Chain step seq_nums whose prepared card the AI may send before its answer when it answers from this item. Ordered; [] clears the binding."
           }
         },
         "required": [
@@ -10134,6 +10135,132 @@
             }
           }
         ]
+      },
+      "KnowledgeUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "kb_type": {
+            "type": "string",
+            "enum": [
+              "manager",
+              "coach"
+            ]
+          },
+          "seq_num": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 2147483647
+          },
+          "patch": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "content": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
+                "maxItems": 50
+              },
+              "prepared_step_seq_nums": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 2147483647
+                },
+                "maxItems": 50,
+                "description": "Chain step seq_nums whose prepared card the AI may send before its answer when it answers from this item. Ordered; [] clears the binding."
+              },
+              "is_active": {
+                "type": "boolean"
+              },
+              "is_public": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "kb_type",
+          "seq_num",
+          "patch"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "properties": {
+              "patch": {
+                "minProperties": 1,
+                "properties": {
+                  "prepared_step_seq_nums": {
+                    "uniqueItems": true
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "KnowledgeDeleteRequest": {
+        "type": "object",
+        "properties": {
+          "kb_type": {
+            "type": "string",
+            "enum": [
+              "manager",
+              "coach"
+            ]
+          },
+          "seq_num": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 2147483647
+          }
+        },
+        "required": [
+          "kb_type",
+          "seq_num"
+        ],
+        "additionalProperties": false
+      },
+      "KnowledgeDeleteResult": {
+        "type": "object",
+        "properties": {
+          "kbType": {
+            "type": "string",
+            "enum": [
+              "manager",
+              "coach"
+            ]
+          },
+          "seqNum": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 2147483647
+          },
+          "deleted": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "kbType",
+          "seqNum",
+          "deleted"
+        ],
+        "additionalProperties": false
       },
       "KnowledgeEntry": {
         "type": "object",
@@ -10171,6 +10298,12 @@
               "type": "string"
             }
           },
+          "preparedStepSeqNums": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
           "tags": {
             "type": [
               "array",
@@ -10179,6 +10312,12 @@
             "items": {
               "type": "string"
             }
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "isPublic": {
+            "type": "boolean"
           },
           "status": {
             "type": "string"
@@ -10227,7 +10366,10 @@
           "content",
           "contentLength",
           "preparedStepCodes",
+          "preparedStepSeqNums",
           "tags",
+          "isActive",
+          "isPublic",
           "status",
           "chunkCount",
           "entitiesCount",
@@ -11473,6 +11615,11 @@
                 "type": "string",
                 "maxLength": 2048,
                 "format": "uri"
+              },
+              "buttonLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32
               }
             },
             "additionalProperties": false
@@ -11863,13 +12010,20 @@
                   "string",
                   "null"
                 ]
+              },
+              "buttonLabel": {
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
             },
             "required": [
               "mode",
               "title",
               "text",
-              "redirectUrl"
+              "redirectUrl",
+              "buttonLabel"
             ],
             "additionalProperties": false
           },
@@ -12062,6 +12216,152 @@
         ],
         "additionalProperties": false
       },
+      "SiteMiniAppLinks": {
+        "type": "object",
+        "properties": {
+          "telegram": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "null"
+                  }
+                },
+                "required": [
+                  "url",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "null"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "enum": [
+                      "channel_not_connected",
+                      "channel_surface_not_native",
+                      "mini_app_not_opened",
+                      "page_not_published",
+                      "page_not_addressed",
+                      "page_on_other_host",
+                      "platform_app_not_configured"
+                    ]
+                  }
+                },
+                "required": [
+                  "url",
+                  "reason"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "max": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "null"
+                  }
+                },
+                "required": [
+                  "url",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "null"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "enum": [
+                      "channel_not_connected",
+                      "channel_surface_not_native",
+                      "mini_app_not_opened",
+                      "page_not_published",
+                      "page_not_addressed",
+                      "page_on_other_host",
+                      "platform_app_not_configured"
+                    ]
+                  }
+                },
+                "required": [
+                  "url",
+                  "reason"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "vk": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "null"
+                  }
+                },
+                "required": [
+                  "url",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "null"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "enum": [
+                      "channel_not_connected",
+                      "channel_surface_not_native",
+                      "mini_app_not_opened",
+                      "page_not_published",
+                      "page_not_addressed",
+                      "page_on_other_host",
+                      "platform_app_not_configured"
+                    ]
+                  }
+                },
+                "required": [
+                  "url",
+                  "reason"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": [
+          "telegram",
+          "max",
+          "vk"
+        ],
+        "additionalProperties": false
+      },
       "SitePageList": {
         "type": "object",
         "properties": {
@@ -12143,6 +12443,9 @@
                 },
                 "protected": {
                   "type": "boolean"
+                },
+                "mini_app_links": {
+                  "$ref": "#/components/schemas/SiteMiniAppLinks"
                 }
               },
               "required": [
@@ -12153,15 +12456,20 @@
                 "published",
                 "reason",
                 "owner_hidden",
-                "protected"
+                "protected",
+                "mini_app_links"
               ],
               "additionalProperties": false
             }
+          },
+          "mini_app_home": {
+            "$ref": "#/components/schemas/SiteMiniAppLinks"
           }
         },
         "required": [
           "hosts",
-          "pages"
+          "pages",
+          "mini_app_home"
         ],
         "additionalProperties": false
       },
@@ -36472,7 +36780,7 @@
           "kb"
         ],
         "summary": "Create tenant knowledge and enqueue indexing",
-        "description": "Title is 1–200 characters and content 1–20000. Tags are at most 50 strings of 1–64 characters. Optional prepared_step_seq_nums is an ordered unique list of up to 50 numeric positive-int4 tenant sequences (1–2147483647); [] clears binding. The existing writer queues asynchronous indexing and returns lifecycle state; completion is not implied by HTTP 201. Source type is api_import. Read-only graph counts/status and money commands are not accepted. No pagination or ETag.",
+        "description": "Title is 1–200 characters and content 1–4000 (one knowledge item; split longer material into several items). Tags are at most 50 strings of 1–64 characters. Optional prepared_step_seq_nums is an ordered unique list of up to 50 numeric positive-int4 tenant sequences (1–2147483647); [] clears binding. The existing writer queues asynchronous indexing and returns lifecycle state; completion is not implied by HTTP 201. Source type is api_import. Read-only graph counts/status and money commands are not accepted. No pagination or ETag.",
         "security": [
           {
             "hubApiKey": []
@@ -36597,6 +36905,223 @@
           },
           "409": {
             "description": "A request with this key is still processing.",
+            "x-error-codes": [
+              "CONFLICT"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Per-tool payload size or item-count limit exceeded before validation.",
+            "x-error-codes": [
+              "PAYLOAD_TOO_LARGE",
+              "ITEM_COUNT_EXCEEDED"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Idempotency-Key reused with different inputs.",
+            "x-error-codes": [
+              "IDEMPOTENCY_KEY_MISMATCH"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Per-tool rate limit exceeded or unavailable; fail closed.",
+            "x-error-codes": [
+              "RATE_LIMIT_EXCEEDED",
+              "RATE_LIMIT_UNAVAILABLE"
+            ],
+            "headers": {
+              "Retry-After": {
+                "required": false,
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected internal failure.",
+            "x-error-codes": [
+              "INTERNAL_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateKnowledge",
+        "tags": [
+          "kb"
+        ],
+        "summary": "Edit tenant knowledge by board and tenant sequence",
+        "description": "kb_type plus numeric positive-int4 seq_num (1–2147483647) addresses the entry inside the authenticated tenant. patch carries at least one of title (1–200), content (1–4000), tags, prepared_step_seq_nums ([] clears binding), is_active, is_public. A text change or switching the entry back on queues re-indexing and returns status indexing; switching it off takes it out of the agent search and returns status pending with null graph statistics. Idempotency-Key is optional on PATCH. 409 CONFLICT means the entry changed while it was being written (for example the indexer finished): read it again and retry. No If-Match or ETag contract.",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "x-required-scopes": [
+          "kb:write"
+        ],
+        "x-pagination": {
+          "kind": "none"
+        },
+        "x-idempotency": {
+          "required": false,
+          "ttlSeconds": 86400,
+          "mismatchStatus": 422
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": false,
+            "description": "Replay the same tenant, credential, route and request for 24 hours.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KnowledgeUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated knowledge entry.",
+            "headers": {
+              "X-Client-Slug": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KnowledgeEntry"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Strict request validation failed.",
+            "x-error-codes": [
+              "VALIDATION_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, revoked or expired API credential. Surface-session JWTs are not accepted.",
+            "x-error-codes": [
+              "INVALID_API_KEY"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing effective scope, forbidden publishable key, inaccessible tenant or no active bot.",
+            "x-error-codes": [
+              "INSUFFICIENT_SCOPE",
+              "PUBLISHABLE_KEY_NOT_ALLOWED",
+              "FORBIDDEN",
+              "NO_ACTIVE_BOT"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No live knowledge entry with this tenant, board and sequence.",
+            "x-error-codes": [
+              "NOT_FOUND"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The entry changed while it was being written, or a request with this key is still processing.",
             "x-error-codes": [
               "CONFLICT"
             ],
@@ -36807,6 +37332,214 @@
             "description": "No live knowledge entry with this tenant, board and sequence.",
             "x-error-codes": [
               "NOT_FOUND"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A request with this key is still processing.",
+            "x-error-codes": [
+              "CONFLICT"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Per-tool payload size or item-count limit exceeded before validation.",
+            "x-error-codes": [
+              "PAYLOAD_TOO_LARGE",
+              "ITEM_COUNT_EXCEEDED"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Idempotency-Key reused with different inputs.",
+            "x-error-codes": [
+              "IDEMPOTENCY_KEY_MISMATCH"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Per-tool rate limit exceeded or unavailable; fail closed.",
+            "x-error-codes": [
+              "RATE_LIMIT_EXCEEDED",
+              "RATE_LIMIT_UNAVAILABLE"
+            ],
+            "headers": {
+              "Retry-After": {
+                "required": false,
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected internal failure.",
+            "x-error-codes": [
+              "INTERNAL_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tools/kb/delete": {
+      "post": {
+        "operationId": "deleteKnowledge",
+        "tags": [
+          "kb"
+        ],
+        "summary": "Delete tenant knowledge by board and tenant sequence",
+        "description": "Soft-deletes the entry and takes it out of the agent search; repeatable — an already deleted or absent sequence returns deleted:true. POST retains the Nest 201 status. Database primary keys and string aliases are refused.",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "x-required-scopes": [
+          "kb:write"
+        ],
+        "x-pagination": {
+          "kind": "none"
+        },
+        "x-idempotency": {
+          "required": true,
+          "ttlSeconds": 86400,
+          "mismatchStatus": 422
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "description": "Replay the same tenant, credential, route and request for 24 hours.",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KnowledgeDeleteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Deleted, or already absent.",
+            "headers": {
+              "X-Client-Slug": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KnowledgeDeleteResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Strict request validation failed or Idempotency-Key is missing for POST with a body.",
+            "x-error-codes": [
+              "VALIDATION_ERROR",
+              "IDEMPOTENCY_KEY_REQUIRED"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, revoked or expired API credential. Surface-session JWTs are not accepted.",
+            "x-error-codes": [
+              "INVALID_API_KEY"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing effective scope, forbidden publishable key, inaccessible tenant or no active bot.",
+            "x-error-codes": [
+              "INSUFFICIENT_SCOPE",
+              "PUBLISHABLE_KEY_NOT_ALLOWED",
+              "FORBIDDEN",
+              "NO_ACTIVE_BOT"
             ],
             "content": {
               "application/problem+json": {
@@ -39104,7 +39837,7 @@
           "site"
         ],
         "summary": "Declare or redeclare a site form",
-        "description": "Owner-only site:write. Uses the canonical complete declaration, not a patch: omitted optionals resolve in the facade. Form and step addresses are tenant sequences; the public form address remains clientSlug plus opaque code. Redeclaration preserves that address. Both ru and com are supported. enabled:false stops acceptance; there is no form DELETE. No secret approval gate. afterSubmit decides what the visitor sees after sending: auto shows the declared title/text (zone defaults when omitted) and the continue action, redirect sends the visitor to redirectUrl, which must lead to the business's own site address, a connected custom domain or an allowedOrigins origin.",
+        "description": "Owner-only site:write. Uses the canonical complete declaration, not a patch: omitted optionals resolve in the facade. Form and step addresses are tenant sequences; the public form address remains clientSlug plus opaque code. Redeclaration preserves that address. Both ru and com are supported. enabled:false stops acceptance; there is no form DELETE. No secret approval gate. afterSubmit decides what the visitor sees after sending: auto shows the declared title/text (zone defaults when omitted) and the continue action, labelled by buttonLabel (at most 32 characters; zone default when omitted), redirect sends the visitor to redirectUrl, which must lead to the business's own site address, a connected custom domain or an allowedOrigins origin.",
         "security": [
           {
             "hubApiKey": []
@@ -39327,7 +40060,7 @@
           "site"
         ],
         "summary": "Request staged bundle upload URLs",
-        "description": "Owner-only site:write. Canonical UGC host (*.telegafirstsite.ru or *.telegafirstsite.com) or connected verified custom host; tenant UGC on the main platform host is prohibited. Nonempty declared files; each includes path, integer nonnegative sizeBytes, contentType and optional references. mode defaults to merge: omitted bio, binary assets, gates and references are preserved. Explicit replace declares a complete snapshot and removes omitted files and rules. The issuer pins canonical host, mode and server-owned baseManifestDigest; caller base/client fields are forbidden. The facade checks tenant host, safe paths, dependencies, each video file against the per-video size of the plan (by the served type of its extension, before the bundle total), the full effective site quota and the daily upload budget before minting. Video files (.mp4, .webm) are accepted within that size. Every refusal names its limit in details. Signed PUTs target staging and bind Content-Length. Expire in 300 seconds. No secret approval gate.",
+        "description": "Owner-only site:write. Canonical UGC host ({slug}.{ugc zone} in either zone) or connected verified custom host; tenant UGC on the main platform host is prohibited. Nonempty declared files; each includes path, integer nonnegative sizeBytes, contentType and optional references. mode defaults to merge: omitted bio, binary assets, gates and references are preserved. Explicit replace declares a complete snapshot and removes omitted files and rules. The issuer pins canonical host, mode and server-owned baseManifestDigest; caller base/client fields are forbidden. The facade checks tenant host, safe paths, dependencies, each video file against the per-video size of the plan (by the served type of its extension, before the bundle total), the full effective site quota and the daily upload budget before minting. Video files (.mp4, .webm) are accepted within that size. Every refusal names its limit in details. Signed PUTs target staging and bind Content-Length. Expire in 300 seconds. No secret approval gate.",
         "security": [
           {
             "hubApiKey": []
@@ -40894,7 +41627,7 @@
           "site"
         ],
         "summary": "List publishable hosts and registered site pages",
-        "description": "site:read. `hosts` is every host the publication routes accept: the platform site address and each custom domain (live once verified). `pages` is every page ever published, addressed by its tenant seq_num; public_url is null while the page is not served and reason says why. Protected platform pages cannot be hidden or deleted one by one.",
+        "description": "site:read. `hosts` is every host the publication routes accept: the platform site address and each custom domain (live once verified). `pages` is every page ever published, addressed by its tenant seq_num; public_url is null while the page is not served and reason says why. mini_app_links (per page) and mini_app_home (no parameter) open the page or the home AS the Telegram / MAX / VK mini app — paste them into a broadcast text; a channel whose link would not open the mini app gets url null and a reason. Protected platform pages cannot be hidden or deleted one by one.",
         "security": [
           {
             "hubApiKey": []
