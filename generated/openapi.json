@@ -116,6 +116,7 @@
           "ORDER_ITEM_VERSION_CONFLICT",
           "ORDER_ALREADY_PAID",
           "ORDER_CLOSED",
+          "DIALOG_MEDIA_IMPORTING",
           "CART_INACTIVE",
           "DRAFT_NOT_PENDING",
           "TENANT_ARCHIVED",
@@ -174,7 +175,6 @@
           "MEDIA_OUTCOME_CONFLICT",
           "MEDIA_SIZE_MISMATCH",
           "MEDIA_SLOT_NOT_FOUND",
-          "MEDIA_VALIDATION_FAILED",
           "CATALOG_BOOKING_CONFIG_INVALID",
           "CATALOG_BOOKING_RESOURCE_NOT_FOUND",
           "TEXT_TOO_LONG",
@@ -211,6 +211,20 @@
           "INVALID_INPUT",
           "FAILED_PRECONDITION",
           "FORM_REDIRECT_HOST_NOT_ALLOWED",
+          "SITE_HTML_TAG_TOO_LARGE",
+          "SITE_VIDEO_TOO_LARGE",
+          "SITE_BUNDLE_TOO_LARGE",
+          "SITE_TOO_MANY_FILES",
+          "MEDIA_SOURCE_NOT_ALLOWED",
+          "MEDIA_SOURCE_UNAVAILABLE",
+          "MEDIA_SOURCE_REDIRECT_REFUSED",
+          "MEDIA_MIME_MISMATCH",
+          "MEDIA_LENGTH_REQUIRED",
+          "MEDIA_TOO_LARGE",
+          "MEDIA_BATCH_TOO_LARGE",
+          "MEDIA_TOO_MANY_FILES",
+          "MEDIA_TRANSFER_TIMEOUT",
+          "MEDIA_METHOD_UNSUPPORTED",
           "PRECONDITION_REQUIRED",
           "PRICING_QUOTE_REQUIRED",
           "ETAG_REQUIRED",
@@ -221,9 +235,11 @@
           "EXPORT_LIMIT_EXCEEDED",
           "REFRESH_LIMIT_EXCEEDED",
           "RATE_LIMIT_UNAVAILABLE",
+          "MINT_QUOTA_EXCEEDED",
           "INTERNAL_ERROR",
           "SERVICE_UNAVAILABLE",
-          "PRICING_UNAVAILABLE"
+          "PRICING_UNAVAILABLE",
+          "MINT_QUOTA_UNAVAILABLE"
         ]
       },
       "PaymentStatus": {
@@ -39311,7 +39327,7 @@
           "site"
         ],
         "summary": "Request staged bundle upload URLs",
-        "description": "Owner-only site:write. Canonical UGC host (*.telegafirstsite.ru or *.telegafirstsite.com) or connected verified custom host; tenant UGC on the main platform host is prohibited. Nonempty declared files; each includes path, integer nonnegative sizeBytes, contentType and optional references. mode defaults to merge: omitted bio, binary assets, gates and references are preserved. Explicit replace declares a complete snapshot and removes omitted files and rules. The issuer pins canonical host, mode and server-owned baseManifestDigest; caller base/client fields are forbidden. The facade checks tenant host, safe paths, dependencies and the full effective site quota before minting. Signed PUTs target staging and bind Content-Length. Expire in 300 seconds. No secret approval gate.",
+        "description": "Owner-only site:write. Canonical UGC host (*.telegafirstsite.ru or *.telegafirstsite.com) or connected verified custom host; tenant UGC on the main platform host is prohibited. Nonempty declared files; each includes path, integer nonnegative sizeBytes, contentType and optional references. mode defaults to merge: omitted bio, binary assets, gates and references are preserved. Explicit replace declares a complete snapshot and removes omitted files and rules. The issuer pins canonical host, mode and server-owned baseManifestDigest; caller base/client fields are forbidden. The facade checks tenant host, safe paths, dependencies, each video file against the per-video size of the plan (by the served type of its extension, before the bundle total), the full effective site quota and the daily upload budget before minting. Video files (.mp4, .webm) are accepted within that size. Every refusal names its limit in details. Signed PUTs target staging and bind Content-Length. Expire in 300 seconds. No secret approval gate.",
         "security": [
           {
             "hubApiKey": []
@@ -39489,11 +39505,14 @@
             }
           },
           "422": {
-            "description": "Replay mismatch, a path outside the permitted publication prefix, or a path reserved on a tenant site host",
+            "description": "Replay mismatch; a path outside the permitted publication prefix or reserved on a tenant site host; a video over the per-video size of the plan (details.path, details.limitBytes); a bundle over the site size of the plan (details.limitBytes) or over the file count of a site, the same on every plan (details.limitFiles)",
             "x-error-codes": [
               "IDEMPOTENCY_KEY_MISMATCH",
               "SITE_PATH_OUTSIDE_PUBLISHABLE_PREFIX",
-              "SITE_PATH_RESERVED"
+              "SITE_PATH_RESERVED",
+              "SITE_VIDEO_TOO_LARGE",
+              "SITE_BUNDLE_TOO_LARGE",
+              "SITE_TOO_MANY_FILES"
             ],
             "content": {
               "application/problem+json": {
@@ -39504,10 +39523,11 @@
             }
           },
           "429": {
-            "description": "Resource rate budget exceeded or unavailable",
+            "description": "Resource rate budget exceeded or unavailable, or the daily upload budget of the plan is spent: tickets, one per request whatever its file count (details.limitTickets, details.remainingTickets), and declared bytes (details.limitBytes, details.remainingBytes); details.retryAfter is the reset at UTC midnight. With remainingTickets 0 only that reset helps; with tickets left, a declaration within remainingBytes is issued today",
             "x-error-codes": [
               "RATE_LIMIT_EXCEEDED",
-              "RATE_LIMIT_UNAVAILABLE"
+              "RATE_LIMIT_UNAVAILABLE",
+              "MINT_QUOTA_EXCEEDED"
             ],
             "headers": {
               "Retry-After": {
@@ -39537,6 +39557,27 @@
                 }
               }
             }
+          },
+          "503": {
+            "description": "The daily upload budget could not be checked; no ticket was issued. Repeat after Retry-After",
+            "x-error-codes": [
+              "MINT_QUOTA_UNAVAILABLE"
+            ],
+            "headers": {
+              "Retry-After": {
+                "description": "Retry delay in seconds, when supplied by the limiter",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -39548,7 +39589,7 @@
           "site"
         ],
         "summary": "Publish a staged site bundle",
-        "description": "Owner-only site:write. host plus UUID uploadId; no action_id. Staging is scoped to credential tenant. Server-side object sizes govern the live cap before download; staged declaration must match. Ticket host/mode/base cannot be rebound or reinterpreted. Merge preserves omitted files and access rules; replace is a complete snapshot. A changed base or access policy yields SITE_BUNDLE_STALE 409: request a new ticket, PUT its files and publish again. Delta Sync returns uploaded, deleted and unchanged paths plus manifestDigest, attributionSnippet and pageUrls for only ticket HTML paths actually finished published. Use the exact returned URLs. The full effective site quota is checked. Successful publication clears staging; failed staging remains retryable. No secret approval gate.",
+        "description": "Owner-only site:write. host plus UUID uploadId; no action_id. Staging is scoped to credential tenant. Server-side object sizes govern the live cap before download; staged declaration must match. Ticket host/mode/base cannot be rebound or reinterpreted. Merge preserves omitted files and access rules; replace is a complete snapshot. A changed base or access policy yields SITE_BUNDLE_STALE 409: request a new ticket, PUT its files and publish again. Delta Sync returns uploaded, deleted and unchanged paths plus manifestDigest, attributionSnippet and pageUrls for only ticket HTML paths actually finished published. Use the exact returned URLs. The full effective site quota and the per-video size are checked again on server sizes. An HTML tag longer than the publisher reads (details.limitBytes; usually an image, video or font inlined as a data: URL) is SITE_HTML_TAG_TOO_LARGE naming the page, element and attribute; move that data into its own bundle file. Every refusal leaves the live site unchanged. Successful publication clears staging; failed staging remains retryable. No secret approval gate.",
         "security": [
           {
             "hubApiKey": []
@@ -39727,11 +39768,15 @@
             }
           },
           "422": {
-            "description": "Replay mismatch, a path outside the permitted publication prefix, or a path reserved on a tenant site host",
+            "description": "Replay mismatch; a path outside the permitted publication prefix or reserved on a tenant site host; an HTML tag over the parser bound (details.path, details.limitBytes, details.tag, details.attr); a video over the per-video size of the plan (details.path, details.limitBytes); a bundle over the site size of the plan (details.limitBytes) or the file count of a site, the same on every plan (details.limitFiles)",
             "x-error-codes": [
               "IDEMPOTENCY_KEY_MISMATCH",
               "SITE_PATH_OUTSIDE_PUBLISHABLE_PREFIX",
-              "SITE_PATH_RESERVED"
+              "SITE_PATH_RESERVED",
+              "SITE_HTML_TAG_TOO_LARGE",
+              "SITE_VIDEO_TOO_LARGE",
+              "SITE_BUNDLE_TOO_LARGE",
+              "SITE_TOO_MANY_FILES"
             ],
             "content": {
               "application/problem+json": {
@@ -41181,9 +41226,10 @@
             }
           },
           "422": {
-            "description": "Replay key reused for different input",
+            "description": "Replay mismatch; or the site that stays after the withdrawal is over the site size of the plan (details.limitBytes), as after a plan change. The page stays live",
             "x-error-codes": [
-              "IDEMPOTENCY_KEY_MISMATCH"
+              "IDEMPOTENCY_KEY_MISMATCH",
+              "SITE_BUNDLE_TOO_LARGE"
             ],
             "content": {
               "application/problem+json": {
@@ -53975,14 +54021,6 @@
                           "maxLength": 8192,
                           "format": "uri"
                         },
-                        "media_kind": {
-                          "type": "string",
-                          "enum": [
-                            "voice",
-                            "audio",
-                            "video_note"
-                          ]
-                        },
                         "file_id": {
                           "type": "string",
                           "minLength": 1,
@@ -53997,20 +54035,65 @@
                           "type": "string",
                           "minLength": 1,
                           "maxLength": 1024
+                        },
+                        "media_kind": {
+                          "type": "string",
+                          "enum": [
+                            "voice",
+                            "audio",
+                            "video_note"
+                          ]
                         }
                       },
                       "required": [
-                        "download_url"
+                        "download_url",
+                        "file_id"
                       ],
                       "additionalProperties": false
                     },
-                    "minItems": 1,
-                    "maxItems": 10
+                    "maxItems": 10,
+                    "description": "Files the AI host attached: a download_url and a file_id each. ChatGPT fills this itself."
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "maxLength": 8192,
+                          "format": "uri"
+                        },
+                        "mime_type": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 255
+                        },
+                        "file_name": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 1024
+                        },
+                        "media_kind": {
+                          "type": "string",
+                          "enum": [
+                            "voice",
+                            "audio",
+                            "video_note"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "maxItems": 10,
+                    "description": "HTTPS addresses of files on the business site or an allowed file host. Up to 10 files and sources together."
                   }
                 },
                 "required": [
-                  "idempotency_key",
-                  "files"
+                  "idempotency_key"
                 ],
                 "additionalProperties": false
               }
@@ -54019,7 +54102,7 @@
         },
         "responses": {
           "200": {
-            "description": "Files imported and committed into immutable tenant media storage",
+            "description": "COMMITTED: imported into immutable tenant media storage, with publishable media references. IMPORTING: the transfer continues in the background; read GET /api/v1/media/uploads/{uploadId}. STAGING: nothing is running; repeat with the same idempotency_key and a new Idempotency-Key header",
             "headers": {
               "X-RateLimit-Limit": {
                 "description": "Effective request budget",
@@ -54065,7 +54148,9 @@
                     "state": {
                       "type": "string",
                       "enum": [
-                        "COMMITTED"
+                        "COMMITTED",
+                        "IMPORTING",
+                        "STAGING"
                       ]
                     },
                     "items": {
@@ -54209,7 +54294,6 @@
                         ],
                         "additionalProperties": false
                       },
-                      "minItems": 1,
                       "maxItems": 10
                     },
                     "albumSendable": {
@@ -54219,8 +54303,7 @@
                   "required": [
                     "uploadId",
                     "state",
-                    "items",
-                    "albumSendable"
+                    "items"
                   ],
                   "additionalProperties": false
                 }
@@ -54228,7 +54311,7 @@
             }
           },
           "400": {
-            "description": "VALIDATION_ERROR: malformed import request; IDEMPOTENCY_KEY_REQUIRED: missing nonempty POST key",
+            "description": "VALIDATION_ERROR: malformed import request, or files and sources together outside 1..10; IDEMPOTENCY_KEY_REQUIRED: missing nonempty POST key",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -54248,7 +54331,7 @@
             }
           },
           "403": {
-            "description": "Scope or resource policy refused the request",
+            "description": "PLAN_UPGRADE_REQUIRED: the plan has no media import (details.plan); otherwise scope or resource policy refused the request",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -54258,7 +54341,7 @@
             }
           },
           "409": {
-            "description": "CONFLICT: durable manifest differs or HTTP replay key is processing",
+            "description": "MEDIA_MANIFEST_CONFLICT: this idempotency_key was already used for other files; CONFLICT: HTTP replay key is processing",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -54278,7 +54361,7 @@
             }
           },
           "422": {
-            "description": "VALIDATION_ERROR: inadmissible source, media type or size; IDEMPOTENCY_KEY_MISMATCH: different request under the same HTTP key",
+            "description": "MEDIA_SOURCE_NOT_ALLOWED, MEDIA_SOURCE_UNAVAILABLE, MEDIA_SOURCE_REDIRECT_REFUSED, MEDIA_METHOD_UNSUPPORTED, MEDIA_LENGTH_REQUIRED, MEDIA_TRANSFER_TIMEOUT (details.origin); MEDIA_MIME_MISMATCH, MEDIA_MAGIC_MISMATCH, MEDIA_SIZE_MISMATCH, MEDIA_ABORTED; MEDIA_TOO_LARGE, MEDIA_BATCH_TOO_LARGE (details.limitBytes, details.plan), MEDIA_TOO_MANY_FILES (details.limitFiles); VALIDATION_ERROR: unrecognized media bytes; IDEMPOTENCY_KEY_MISMATCH: different request under the same HTTP key",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -54522,7 +54605,7 @@
             }
           },
           "403": {
-            "description": "Scope or resource policy refused the request",
+            "description": "PLAN_UPGRADE_REQUIRED: the plan has no media upload (details.plan); otherwise scope or resource policy refused the request",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -54532,7 +54615,7 @@
             }
           },
           "409": {
-            "description": "CONFLICT: durable manifest differs or HTTP replay key is processing",
+            "description": "MEDIA_MANIFEST_CONFLICT: this idempotency_key was already used for other files; CONFLICT: HTTP replay key is processing",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -54552,7 +54635,7 @@
             }
           },
           "422": {
-            "description": "VALIDATION_ERROR: file declaration violates media policy; IDEMPOTENCY_KEY_MISMATCH: different request under the same HTTP key",
+            "description": "MEDIA_TOO_LARGE, MEDIA_BATCH_TOO_LARGE (details.limitBytes, details.plan), MEDIA_TOO_MANY_FILES (details.limitFiles); VALIDATION_ERROR: file declaration violates media policy; IDEMPOTENCY_KEY_MISMATCH: different request under the same HTTP key",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -54966,7 +55049,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Read immutable upload outcome for the authenticated tenant",
+            "description": "Upload or import outcome for the authenticated tenant: STAGING, IMPORTING, COMMITTED with media references, or FAILED with failure.code and failure.details",
             "headers": {
               "X-RateLimit-Limit": {
                 "description": "Effective request budget",
@@ -55013,6 +55096,7 @@
                       "type": "string",
                       "enum": [
                         "STAGING",
+                        "IMPORTING",
                         "COMMITTED",
                         "FAILED"
                       ]
@@ -55159,6 +55243,51 @@
                         "additionalProperties": false
                       },
                       "maxItems": 10
+                    },
+                    "albumSendable": {
+                      "type": "boolean"
+                    },
+                    "failure": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "$ref": "#/components/schemas/ErrorCode"
+                        },
+                        "details": {
+                          "type": "object",
+                          "properties": {
+                            "limitBytes": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "limitFiles": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "plan": {
+                              "type": "string",
+                              "enum": [
+                                "free",
+                                "starter",
+                                "ai_manager",
+                                "ai_coach",
+                                "enterprise",
+                                "topup_1m"
+                              ]
+                            },
+                            "origin": {
+                              "type": "string",
+                              "maxLength": 2048
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "details"
+                      ],
+                      "additionalProperties": false
                     }
                   },
                   "required": [
@@ -55213,6 +55342,177 @@
           },
           "422": {
             "description": "VALIDATION_ERROR: upload id violates storage bounds or alphabet",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "RATE_LIMIT_EXCEEDED or RATE_LIMIT_UNAVAILABLE: resource budget refusal",
+            "headers": {
+              "Retry-After": {
+                "description": "Retry delay in seconds, when supplied by the limiter",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL_ERROR: unexpected failure; no internal payload is exposed",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/media/download-link": {
+      "get": {
+        "operationId": "getMediaDownloadLink",
+        "x-idempotency": "none",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "x-required-scopes": [
+          "content:read"
+        ],
+        "tags": [
+          "media"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 512,
+              "pattern": "^media-ingress\\/v1\\/[a-f0-9]{64}\\/[A-Za-z0-9_-]{16,128}\\/objects\\/[a-z][a-z0-9-]{0,63}\\/[a-f0-9]{64}\\/[a-f0-9]{24}\\.blob$",
+              "description": "A mediaRef returned for this business (the MCP field of the same name)."
+            },
+            "required": true,
+            "description": "A mediaRef returned for this business (the MCP field of the same name).",
+            "name": "media_ref",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A short-lived public address of one committed media file, opaque to its storage location, and the moment it stops working; request a new one after expiresAt",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "description": "Effective request budget",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Remaining budget or unknown",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Window reset Unix seconds",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Client-Slug": {
+                "description": "Authenticated tenant slug, when available",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "description": "Authenticated public bot username, when available",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "expiresAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "expiresAt"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "VALIDATION_ERROR: media_ref is missing or is not a mediaRef",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Scope or resource policy refused the request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "MEDIA_SLOT_NOT_FOUND: no committed file of the authenticated tenant has this mediaRef",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "PAYLOAD_TOO_LARGE or ITEM_COUNT_EXCEEDED: per-tool resource limits",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -62691,6 +62991,7 @@
     "/api/v1/tools/onboarding/quest-purchase/check": {
       "get": {
         "operationId": "checkTestPurchase",
+        "description": "Reads the two purchase facts. When both hold, it records the derived, idempotent passed-test step (a repeat call writes nothing new); while an earlier onboarding step is missing or the business is closed it writes nothing and answers completed false.",
         "x-idempotency": "none",
         "tags": [
           "onboarding"
@@ -63673,6 +63974,23 @@
                         "completed": {
                           "type": "boolean"
                         },
+                        "card_shown": {
+                          "type": "boolean"
+                        },
+                        "delivery_state": {
+                          "type": "string",
+                          "enum": [
+                            "none",
+                            "pending",
+                            "delivered",
+                            "refused"
+                          ]
+                        },
+                        "delivery_reason": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 64
+                        },
                         "bonus_state": {
                           "type": "string",
                           "enum": [
@@ -63688,6 +64006,8 @@
                       },
                       "required": [
                         "completed",
+                        "card_shown",
+                        "delivery_state",
                         "bonus_state",
                         "tokens_granted"
                       ],

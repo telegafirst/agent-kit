@@ -22,12 +22,24 @@ Connect MCP using the package connection guide. Call `get_onboarding_state` with
 
 ## Build and publish
 
-1. Prepare a complete initial bundle whose pages explain the offer, show a clear next action, and link to the business bot.
+1. Prepare a complete initial bundle whose pages explain the offer, show a clear next action, and link to the business bot. The bundle is the HTML pages plus every image, video, font, CSS and JS file they use, each as its own file. No storage account of the owner is needed: the upload URLs are the platform's.
 2. Call `site_request_upload` with every file in the complete bundle and retain the returned `uploadId`.
 3. Upload each declared file to its returned URL with the exact declared byte size.
 4. Call `site_publish` with the same host and `uploadId`, then retain its returned `attributionSnippet`.
 5. Add that exact snippet to every bot-linking page, call `site_request_upload` again for the refreshed complete bundle, upload every declared file to the fresh URLs, and call `site_publish` with the new `uploadId`.
 6. Confirm the deployed state with `site_get_manifest`; use `site_fetch_file` only after the manifest identifies the exact path to inspect.
+
+## Turn an HTML prototype into a bundle
+
+A page saved from a browser or produced by a generator often inlines images, video and fonts as `data:` URLs. One HTML tag is read only up to a fixed size, so such a page is refused with `SITE_HTML_TAG_TOO_LARGE`, which names the page, tag and attribute. Inline `<style>` and `<script>` are fine by themselves.
+
+1. Decode each large `data:` URL into a file with exactly the same bytes; take the type from the `data:<type>;base64,` prefix.
+2. Give the file a content-addressed name such as `assets/hero.3f2a9c.png` and point the attribute at its path relative to the page.
+3. Check that no local path (`file://`, a drive letter) remains and that sibling pages point at the same files.
+4. Declare every file in one `site_request_upload` and list a page's files in its `references`.
+5. Video (`.mp4`, `.webm`) is accepted up to the per-video size of the plan, checked before the whole-site size. On `SITE_VIDEO_TOO_LARGE` compress the video or embed it from YouTube, VK Video or Rutube.
+
+Every refusal carries its limit in `details` and leaves the live site unchanged. `MINT_QUOTA_EXCEEDED` means the daily upload budget of the plan is spent; `MINT_QUOTA_UNAVAILABLE` means repeat the same request after `retryAfter`. Do not quote plan sizes from memory: read them from the refusal.
 
 ## Add a lead form or checkout only when needed
 

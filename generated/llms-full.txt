@@ -1,4 +1,4 @@
-Generated: 2026-10-09T12:53:56.409Z
+Generated: 2026-10-10T12:16:13.519Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -153,7 +153,7 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `GET /api/v1/tools/onboarding/billing` _(scopes: onboarding:read)_ — getBillingState
 - `GET /api/v1/tools/onboarding/existing-bot/instructions` _(scopes: onboarding:read)_ — getExistingBotInstructions
 - `GET /api/v1/tools/onboarding/quest-product/check` _(scopes: onboarding:read)_ — checkTestProduct
-- `GET /api/v1/tools/onboarding/quest-purchase/check` _(scopes: onboarding:read)_ — checkTestPurchase
+- `GET /api/v1/tools/onboarding/quest-purchase/check` _(scopes: onboarding:read)_ — Reads the two purchase facts. When both hold, it records the derived, idempotent passed-test step (a repeat call writes nothing new); while an earlier onboarding step is missing or the business is closed it writes nothing and answers completed false.
 - `POST /api/v1/tools/onboarding/site/retry` _(scopes: onboarding:write)_ — retryOnboardingSite
 - `POST /api/v1/tools/onboarding/tax-profile` _(scopes: onboarding:write)_ — setTaxProfile
 - `POST /api/v1/tools/onboarding/payment-provider/probe` _(scopes: payments:config)_ — probePaymentProvider
@@ -264,6 +264,7 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/media/uploads` _(scopes: content:write)_ — requestMediaUpload
 - `POST /api/v1/media/uploads/{uploadId}/finalize` _(scopes: content:write)_ — finalizeMediaUpload
 - `GET /api/v1/media/uploads/{uploadId}` _(scopes: content:read)_ — getMediaUploadStatus
+- `GET /api/v1/media/download-link` _(scopes: content:read)_ — getMediaDownloadLink
 
 ### /api/v1/notifications
 - `POST /api/v1/notifications` _(scopes: push)_ — Queue a push notification to one user

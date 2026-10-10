@@ -2,6 +2,11 @@
 
 ## Agent-facing changes
 
+### 1.0.22 — 2026-10-10
+
+- Передача файлов через Hub: `media_import_files` / `POST /media/import` принимают `files[]` (файл хоста с download_url и file_id, например вложение ChatGPT) и `sources[]` (URL, включая файл собственного сайта бизнеса); крупный перенос идёт фоном и отвечает `importing`, статус — `media_get_status`. Отказы названы точно (`MEDIA_SOURCE_NOT_ALLOWED`, `MEDIA_TOO_LARGE` с лимитом тарифа, `MEDIA_MIME_MISMATCH` и др.), повтор после отказа источника переносит файл заново. Новое направление «скачать»: `media_get_download_link` / `GET /media/download-link?media_ref=`.
+- Публикация сайта: видео в бандле в пределах лимита тарифа (`SITE_VIDEO_TOO_LARGE`), крупный `data:`-URL в теге — `SITE_HTML_TAG_TOO_LARGE` с путём и лимитом, суточный бюджет загрузок — `MINT_QUOTA_EXCEEDED`; навык «сайт за минуту» описывает разбор встроенных файлов в отдельные.
+
 ### 1.0.21 — 2026-10-06
 
 - Руководства подключения описывают пробный период так, как он работает: триал приравнен к AI Manager и открывает каталог и контент; коды отказа различают невыданный scope (`INSUFFICIENT_SCOPE`) и тарифное ограничение (`PLAN_UPGRADE_REQUIRED`).

@@ -31,7 +31,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "analyze_business_performance",
@@ -60,7 +60,7 @@
     ],
     "risk": "read",
     "domain": "analytics",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "assign_catalog_item_to_group",
@@ -108,7 +108,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_add_operator_note",
@@ -150,7 +150,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_assign_resource",
@@ -201,7 +201,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_cancel",
@@ -250,7 +250,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_connect_resource_calendar",
@@ -292,7 +292,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_copy_resource_schedule_month",
@@ -367,7 +367,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_create",
@@ -463,7 +463,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_create_resource",
@@ -816,7 +816,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_create_resource_schedule",
@@ -949,7 +949,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_create_service",
@@ -1188,7 +1188,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_delete_resource",
@@ -1229,7 +1229,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_delete_resource_schedule",
@@ -1277,7 +1277,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_disconnect_resource_calendar",
@@ -1319,7 +1319,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_execute_attendance",
@@ -1360,7 +1360,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_execute_confirm",
@@ -1401,7 +1401,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_execute_overbooking",
@@ -1442,7 +1442,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_execute_price",
@@ -1484,7 +1484,7 @@
     ],
     "risk": "money",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_get_resource",
@@ -1513,7 +1513,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_get_resource_schedule",
@@ -1542,7 +1542,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_get_user_list",
@@ -1571,7 +1571,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_list",
@@ -1641,7 +1641,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_list_pending",
@@ -1676,7 +1676,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_list_resource_schedules",
@@ -1717,7 +1717,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_list_resources",
@@ -1736,7 +1736,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_list_reviews",
@@ -1804,7 +1804,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_prepare_attendance",
@@ -1844,7 +1844,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_prepare_confirm",
@@ -1879,7 +1879,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_prepare_overbooking",
@@ -1941,7 +1941,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_prepare_price",
@@ -1983,7 +1983,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_reschedule",
@@ -2025,7 +2025,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_search_availability",
@@ -2081,7 +2081,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_set_review_visibility",
@@ -2132,7 +2132,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_update_resource",
@@ -2497,7 +2497,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "booking_update_resource_schedule",
@@ -2639,7 +2639,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "cancel_auto_renew",
@@ -3851,7 +3851,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "cancel_event",
@@ -3886,7 +3886,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "cancel_event_registration",
@@ -3928,7 +3928,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "check_approval",
@@ -3957,7 +3957,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "check_free_conditions",
@@ -3976,7 +3976,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "check_in_event_registration",
@@ -4018,7 +4018,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "check_out_event_registration",
@@ -4060,7 +4060,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "check_slug_availability",
@@ -4119,7 +4119,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "claim_slug",
@@ -5487,7 +5487,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "complete_event",
@@ -5522,7 +5522,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "configure_integration",
@@ -5667,7 +5667,7 @@
     ],
     "risk": "write",
     "domain": "integrations",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "configure_payment_credentials",
@@ -7293,7 +7293,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "confirm_supergroups",
@@ -7358,7 +7358,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "connect_channel",
@@ -8589,7 +8589,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_broadcast",
@@ -9472,7 +9472,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_catalog_group",
@@ -9560,7 +9560,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_chain_step",
@@ -9806,7 +9806,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_event",
@@ -9921,7 +9921,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_event_registration",
@@ -9976,7 +9976,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_export",
@@ -10041,7 +10041,7 @@
     ],
     "risk": "write",
     "domain": "export",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_forum_topic",
@@ -10086,7 +10086,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_knowledge",
@@ -10159,7 +10159,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_marketing_campaign",
@@ -10505,7 +10505,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_marketing_link",
@@ -10581,7 +10581,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_menu_button",
@@ -10661,7 +10661,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_menu_group",
@@ -10725,7 +10725,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_message_chain",
@@ -10760,7 +10760,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_order",
@@ -11038,7 +11038,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_order_status",
@@ -11228,7 +11228,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_quest_product",
@@ -12818,7 +12818,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_quick_reply",
@@ -12870,7 +12870,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_quick_site",
@@ -12960,7 +12960,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_saved_segment",
@@ -13339,7 +13339,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "create_session",
@@ -13409,7 +13409,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_broadcast",
@@ -13444,7 +13444,7 @@
     ],
     "risk": "destructive",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_catalog_group",
@@ -13479,7 +13479,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_catalog_item",
@@ -13514,7 +13514,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_chain_step",
@@ -13556,7 +13556,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_event",
@@ -13591,7 +13591,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_forum_topic_message",
@@ -13632,7 +13632,7 @@
     ],
     "risk": "destructive",
     "domain": "topics",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_integration",
@@ -13669,7 +13669,7 @@
     ],
     "risk": "destructive",
     "domain": "integrations",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_knowledge",
@@ -13713,7 +13713,7 @@
     ],
     "risk": "destructive",
     "domain": "kb",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_marketing_campaign",
@@ -13748,7 +13748,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_marketing_link",
@@ -13783,7 +13783,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_menu_button",
@@ -13818,7 +13818,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_menu_group",
@@ -13853,7 +13853,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_message_chain",
@@ -13888,7 +13888,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_order_status",
@@ -13923,7 +13923,7 @@
     ],
     "risk": "destructive",
     "domain": "statuses",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_quick_reply",
@@ -13958,7 +13958,7 @@
     ],
     "risk": "destructive",
     "domain": "quick-replies",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "delete_saved_segment",
@@ -14000,7 +14000,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "describe_segment_axes",
@@ -14019,7 +14019,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "describe_tool",
@@ -14088,7 +14088,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "disable_payment_provider",
@@ -14132,7 +14132,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "discover_supergroups",
@@ -14162,7 +14162,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "domain_add_request",
@@ -14207,7 +14207,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "domain_execute_unlink",
@@ -14248,7 +14248,7 @@
     ],
     "risk": "destructive",
     "domain": "domain",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "domain_prepare_unlink",
@@ -14285,7 +14285,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "domain_status",
@@ -14313,7 +14313,7 @@
     ],
     "risk": "read",
     "domain": "domain",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "domain_verify",
@@ -14350,7 +14350,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "edit_forum_topic_message",
@@ -14475,7 +14475,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "enable_payment_provider",
@@ -14519,7 +14519,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "exchange_session_approval_code",
@@ -14553,7 +14553,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "execute_admin_read",
@@ -14594,7 +14594,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "execute_admin_write",
@@ -14635,7 +14635,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "execute_broadcast_launch",
@@ -14676,7 +14676,7 @@
     ],
     "risk": "money",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "execute_chain_batch_entry",
@@ -14717,7 +14717,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "execute_manual_sale",
@@ -14758,7 +14758,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "execute_order_composition_change",
@@ -14799,7 +14799,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "execute_order_status_change",
@@ -14840,7 +14840,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "execute_send_invoice",
@@ -14881,7 +14881,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "export_form_submissions_normalized",
@@ -14936,7 +14936,7 @@
     ],
     "risk": "write",
     "domain": "pull",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_active_bot",
@@ -14955,7 +14955,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_agent_config",
@@ -14974,7 +14974,7 @@
     ],
     "risk": "read",
     "domain": "agents",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_billing_state",
@@ -16179,7 +16179,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_broadcast_status",
@@ -16208,7 +16208,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_catalog",
@@ -16580,7 +16580,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_catalog_group",
@@ -16609,7 +16609,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_catalog_item",
@@ -16646,7 +16646,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_catalog_topic_link",
@@ -16665,7 +16665,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_chain_step",
@@ -16701,7 +16701,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_client_config",
@@ -16798,7 +16798,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_content_draft",
@@ -17085,7 +17085,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_conversation",
@@ -17114,7 +17114,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_customer",
@@ -17143,7 +17143,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_data_dictionary",
@@ -17162,7 +17162,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_doc",
@@ -17201,7 +17201,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_entitlements",
@@ -17229,7 +17229,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_event",
@@ -17258,7 +17258,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_event_registration",
@@ -17287,7 +17287,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_form_submission",
@@ -17323,7 +17323,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_knowledge",
@@ -17361,7 +17361,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_legal_profile",
@@ -17380,7 +17380,7 @@
     ],
     "risk": "read",
     "domain": "legal",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_menu_button",
@@ -17409,7 +17409,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_menu_group",
@@ -17438,7 +17438,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_message_stats",
@@ -17457,7 +17457,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_onboarding_state",
@@ -20259,7 +20259,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_payment_config",
@@ -20278,7 +20278,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_plan_checkout_link",
@@ -20297,7 +20297,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_saved_segment",
@@ -20326,7 +20326,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_session_status",
@@ -20396,7 +20396,7 @@
     ],
     "risk": "read",
     "domain": "sessions",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_skill",
@@ -20431,7 +20431,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_storefront",
@@ -20450,7 +20450,7 @@
     ],
     "risk": "read",
     "domain": "storefront",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_subscription_status",
@@ -20478,7 +20478,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_token_billing",
@@ -20497,7 +20497,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "get_token_topup_link",
@@ -20516,7 +20516,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "init_managed_bot",
@@ -20542,7 +20542,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "invite_team_member",
@@ -20636,7 +20636,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "issue_api_key",
@@ -20740,7 +20740,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "link_anonymous_order",
@@ -20782,7 +20782,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_accessible_bots",
@@ -20801,7 +20801,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_broadcasts",
@@ -20820,7 +20820,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_catalog_groups",
@@ -20839,7 +20839,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_chain_runs",
@@ -20871,7 +20871,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_chain_steps",
@@ -20900,7 +20900,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_connections",
@@ -20975,7 +20975,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_customers",
@@ -21007,7 +21007,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_event_registrations",
@@ -21044,7 +21044,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_events",
@@ -21063,7 +21063,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_forum_topics",
@@ -21082,7 +21082,7 @@
     ],
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_integrations",
@@ -21101,7 +21101,7 @@
     ],
     "risk": "read",
     "domain": "integrations",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_knowledge",
@@ -21120,7 +21120,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_marketing_campaigns",
@@ -21139,7 +21139,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_marketing_links",
@@ -21158,7 +21158,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_menu_buttons",
@@ -21177,7 +21177,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_menu_groups",
@@ -21196,7 +21196,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_message_chains",
@@ -21215,7 +21215,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_order_statuses",
@@ -21234,7 +21234,7 @@
     ],
     "risk": "read",
     "domain": "statuses",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_payment_rows",
@@ -21266,7 +21266,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_quick_replies",
@@ -21285,7 +21285,7 @@
     ],
     "risk": "read",
     "domain": "quick-replies",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_saved_segments",
@@ -21321,7 +21321,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_segment_targets",
@@ -21384,7 +21384,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_team_members",
@@ -21403,7 +21403,7 @@
     ],
     "risk": "read",
     "domain": "team",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "list_unanswered",
@@ -21480,7 +21480,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "load_domain",
@@ -21565,7 +21565,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "manage_message",
@@ -22069,15 +22069,6 @@
                       "format": "uri",
                       "description": "Value for download url."
                     },
-                    "media_kind": {
-                      "type": "string",
-                      "enum": [
-                        "voice",
-                        "audio",
-                        "video_note"
-                      ],
-                      "description": "Value for media kind."
-                    },
                     "mime_type": {
                       "type": "string",
                       "minLength": 1,
@@ -22089,6 +22080,15 @@
                       "minLength": 1,
                       "maxLength": 1024,
                       "description": "Value for file name."
+                    },
+                    "media_kind": {
+                      "type": "string",
+                      "enum": [
+                        "voice",
+                        "audio",
+                        "video_note"
+                      ],
+                      "description": "Value for media kind."
                     },
                     "type": {
                       "type": "string",
@@ -22347,7 +22347,7 @@
     ],
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "manage_pricing_rules",
@@ -24091,7 +24091,7 @@
     ],
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "mark_paid",
@@ -24155,7 +24155,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "media_finalize",
@@ -24169,7 +24169,7 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 128,
-          "description": "The `uploadId` returned by media_request_upload."
+          "description": "The `uploadId` returned by media_request_upload or media_import_files."
         },
         "bot": {
           "type": "string",
@@ -24190,12 +24190,41 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
+  },
+  {
+    "name": "media_get_download_link",
+    "title": "Media Get Download Link",
+    "description": "Get a short-lived download link for one committed media file of this business, to open it or hand it to a person. Pass a `mediaRef` from media_finalize, media_import_files or media_get_status. Returns a link and its `expiresAt`; after that, call again for a fresh one. No file bytes pass through this call.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "media_ref": {
+          "type": "string",
+          "maxLength": 512,
+          "pattern": "^media-ingress\\/v1\\/[a-f0-9]{64}\\/[A-Za-z0-9_-]{16,128}\\/objects\\/[a-z][a-z0-9-]{0,63}\\/[a-f0-9]{64}\\/[a-f0-9]{24}\\.blob$",
+          "description": "A `mediaRef` returned by media_finalize, media_import_files or media_get_status for this business."
+        }
+      },
+      "required": [
+        "media_ref"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "content:read",
+    "required_scopes": [
+      "content:read"
+    ],
+    "risk": "read",
+    "domain": "content",
+    "platform_version": "1.0.97"
   },
   {
     "name": "media_get_status",
     "title": "Media Get Status",
-    "description": "Read the immutable upload outcome without finalizing it. Use while waiting for direct presigned PUTs to finish. STAGING with items:[] means no committed outcome exists; bytes may already be present. Only COMMITTED returns publishable descriptors. 0-cost read.",
+    "description": "Read an upload or import outcome without finalizing it. IMPORTING: a media_import_files transfer is still running, poll again. STAGING: no outcome yet (presigned PUTs not finalized, or an import to repeat with the same idempotency_key). FAILED carries `failure.code` and limit details. Only COMMITTED returns publishable descriptors. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -24204,7 +24233,7 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 128,
-          "description": "The `uploadId` returned by media_request_upload."
+          "description": "The `uploadId` returned by media_request_upload or media_import_files."
         }
       },
       "required": [
@@ -24219,12 +24248,12 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "media_import_files",
     "title": "Media Import Files",
-    "description": "Import files exposed by your AI host through short-lived HTTPS download URLs. The server streams each source into immutable tenant storage, verifies it, and returns durable mediaRefs for publish tools. Optional `media_kind` declares voice, audio or video_note and is verified against the source bytes. Never pass bytes, base64, or a local path.",
+    "description": "Import up to 10 media files into tenant storage and get mediaRefs for publish tools. ChatGPT fills `files` with the files the user attached. Other hosts pass `sources`: https URLs of the business site or an allowed file host. A Claude chat attachment has no URL: the user uploads it in the web cabinet or the Mini App, or puts it on the business site and you pass that URL in `sources`. Bytes, base64 and local paths are not accepted. Optional `media_kind` (voice, audio, video_note) is checked against the bytes. Large files import in the background: COMMITTED returns mediaRefs; IMPORTING returns an uploadId, then poll media_get_status(upload_id) until COMMITTED; STAGING means repeat this call with the same idempotency_key. One idempotency_key names one set of files: other files need a new key.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -24236,7 +24265,7 @@
           "description": "Value for idempotency key."
         },
         "files": {
-          "minItems": 1,
+          "description": "Files the AI host attached: a download_url and a file_id each. ChatGPT fills this itself.",
           "maxItems": 10,
           "type": "array",
           "items": {
@@ -24247,15 +24276,6 @@
                 "maxLength": 8192,
                 "format": "uri",
                 "description": "Value for download url."
-              },
-              "media_kind": {
-                "type": "string",
-                "enum": [
-                  "voice",
-                  "audio",
-                  "video_note"
-                ],
-                "description": "Value for media kind."
               },
               "file_id": {
                 "type": "string",
@@ -24274,15 +24294,66 @@
                 "minLength": 1,
                 "maxLength": 1024,
                 "description": "Value for file name."
+              },
+              "media_kind": {
+                "type": "string",
+                "enum": [
+                  "voice",
+                  "audio",
+                  "video_note"
+                ],
+                "description": "Value for media kind."
               }
             },
             "required": [
-              "download_url"
+              "download_url",
+              "file_id"
             ],
             "additionalProperties": false,
             "description": "Value for files item."
-          },
-          "description": "Value for files."
+          }
+        },
+        "sources": {
+          "description": "HTTPS addresses of files on the business site or an allowed file host. Up to 10 files and sources together.",
+          "maxItems": 10,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "maxLength": 8192,
+                "format": "uri",
+                "description": "Value for url."
+              },
+              "mime_type": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 255,
+                "description": "Value for mime type."
+              },
+              "file_name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024,
+                "description": "Value for file name."
+              },
+              "media_kind": {
+                "type": "string",
+                "enum": [
+                  "voice",
+                  "audio",
+                  "video_note"
+                ],
+                "description": "Value for media kind."
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false,
+            "description": "Value for sources item."
+          }
         },
         "bot": {
           "type": "string",
@@ -24292,8 +24363,7 @@
         }
       },
       "required": [
-        "idempotency_key",
-        "files"
+        "idempotency_key"
       ],
       "additionalProperties": false
     },
@@ -24308,10 +24378,13 @@
         },
         "state": {
           "type": "string",
-          "const": "COMMITTED"
+          "enum": [
+            "COMMITTED",
+            "IMPORTING",
+            "STAGING"
+          ]
         },
         "items": {
-          "minItems": 1,
           "maxItems": 10,
           "type": "array",
           "items": {
@@ -24463,8 +24536,7 @@
       "required": [
         "uploadId",
         "state",
-        "items",
-        "albumSendable"
+        "items"
       ],
       "additionalProperties": false
     },
@@ -24474,7 +24546,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "media_request_upload",
@@ -24548,7 +24620,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "meeting_provider_connect",
@@ -24585,7 +24657,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "meeting_provider_status",
@@ -24604,7 +24676,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_check_payment_provider",
@@ -25937,7 +26009,7 @@
     ],
     "risk": "write",
     "domain": "payments",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_check_test_product",
@@ -27112,12 +27184,12 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_check_test_purchase",
     "title": "Onboarding Check Test Purchase",
-    "description": "Verify the owner’s test purchase, actual delivery and granted bonus from server facts.",
+    "description": "Verify the owner’s test as a buyer of their own bot from server facts: a real product card shown to them (card_shown) and a confirmed digital delivery (delivery_state none, pending, delivered or refused with delivery_reason). The order status, price and product do not matter. When both facts hold, the check records the passed test (completed true), so finishing onboarding accepts it; the bonus is reported separately. This read therefore may write one derived, idempotent step: a repeat call writes nothing new, and while an earlier onboarding step is missing or the business is closed it writes nothing and answers completed false.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -28223,6 +28295,23 @@
             "completed": {
               "type": "boolean"
             },
+            "card_shown": {
+              "type": "boolean"
+            },
+            "delivery_state": {
+              "type": "string",
+              "enum": [
+                "none",
+                "pending",
+                "delivered",
+                "refused"
+              ]
+            },
+            "delivery_reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
             "bonus_state": {
               "type": "string",
               "enum": [
@@ -28239,6 +28328,8 @@
           },
           "required": [
             "completed",
+            "card_shown",
+            "delivery_state",
             "bonus_state",
             "tokens_granted"
           ],
@@ -28262,7 +28353,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_complete",
@@ -29425,7 +29516,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_confirm_payment_webhook",
@@ -30764,7 +30855,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_connect_channel",
@@ -31995,7 +32086,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_connect_payment_provider",
@@ -33654,7 +33745,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_defer_first_payment",
@@ -34827,7 +34918,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_defer_tariff",
@@ -36000,7 +36091,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_execute_first_payment",
@@ -37172,7 +37263,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_prepare_first_payment",
@@ -38425,7 +38516,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_save_ai_preferences",
@@ -39661,7 +39752,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "onboarding_send_tariff_checkout_card",
@@ -40848,7 +40939,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "partner_get_balance",
@@ -40867,7 +40958,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "partner_get_invite_links",
@@ -40886,7 +40977,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "partner_request_payout",
@@ -40912,7 +41003,7 @@
     ],
     "risk": "money",
     "domain": "partner",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "prepare_broadcast_launch",
@@ -40947,7 +41038,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "prepare_chain_batch_entry",
@@ -41011,7 +41102,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "prepare_manual_sale",
@@ -41163,7 +41254,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "prepare_order_composition_change",
@@ -41358,7 +41449,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "prepare_order_status_change",
@@ -41406,7 +41497,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "prepare_send_invoice",
@@ -41441,7 +41532,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "preview_segment_reach",
@@ -41472,7 +41563,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "publish_entity",
@@ -43733,7 +43824,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "pull_form_submissions",
@@ -43797,7 +43888,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "query_form_submission_segment",
@@ -43874,7 +43965,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "quote_order",
@@ -44106,7 +44197,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "refresh_payment_urls",
@@ -44155,7 +44246,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "register_existing_bot",
@@ -45308,7 +45399,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "register_mini_app_origin",
@@ -45360,7 +45451,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "release_chat",
@@ -45395,7 +45486,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "remove_catalog_item_from_group",
@@ -45437,7 +45528,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "request_access_link",
@@ -45548,7 +45639,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "request_manual_supergroups",
@@ -46731,7 +46822,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "resource_set_meeting_provider",
@@ -46776,7 +46867,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "resume_bot_connection",
@@ -47919,7 +48010,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "resume_infrastructure",
@@ -50801,7 +50892,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "retry_onboarding_site",
@@ -53591,7 +53682,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "revoke_connection",
@@ -53640,7 +53731,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "revoke_team_member",
@@ -53675,7 +53766,7 @@
     ],
     "risk": "destructive",
     "domain": "team",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "sample_segment_audience",
@@ -53714,7 +53805,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "scope_change",
@@ -53825,7 +53916,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "search_admin_tools",
@@ -54007,7 +54098,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "search_docs",
@@ -54054,7 +54145,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "secret_delete",
@@ -54096,7 +54187,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "secret_list",
@@ -54115,7 +54206,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "secret_put",
@@ -54164,7 +54255,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "secret_rotate",
@@ -54213,7 +54304,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "send_card",
@@ -54484,15 +54575,6 @@
                           "format": "uri",
                           "description": "Value for download url."
                         },
-                        "media_kind": {
-                          "type": "string",
-                          "enum": [
-                            "voice",
-                            "audio",
-                            "video_note"
-                          ],
-                          "description": "Value for media kind."
-                        },
                         "mime_type": {
                           "type": "string",
                           "minLength": 1,
@@ -54504,6 +54586,15 @@
                           "minLength": 1,
                           "maxLength": 1024,
                           "description": "Value for file name."
+                        },
+                        "media_kind": {
+                          "type": "string",
+                          "enum": [
+                            "voice",
+                            "audio",
+                            "video_note"
+                          ],
+                          "description": "Value for media kind."
                         },
                         "type": {
                           "type": "string",
@@ -54721,7 +54812,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "send_entity_card",
@@ -54892,7 +54983,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "send_notification",
@@ -55023,7 +55114,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "send_to_forum_topic",
@@ -55175,7 +55266,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "set_event_phase",
@@ -55219,7 +55310,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "set_form_submission_handled",
@@ -55259,7 +55350,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "set_tax_profile",
@@ -56503,7 +56594,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_checkout_key",
@@ -56529,7 +56620,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_delete_page",
@@ -56564,7 +56655,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_execute_delete",
@@ -56605,7 +56696,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_fetch_file",
@@ -56642,7 +56733,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_form_declare",
@@ -56930,7 +57021,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_get_analytics",
@@ -56962,7 +57053,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_get_manifest",
@@ -56992,7 +57083,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_list_pages",
@@ -57011,7 +57102,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_page_preview",
@@ -57040,7 +57131,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_pages_set_visibility",
@@ -57086,7 +57177,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_prepare_delete",
@@ -57122,12 +57213,12 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_publish",
     "title": "Site Publish",
-    "description": "Step 2 of publishing the site: after every upload PUT has completed, make the files uploaded under `uploadId` live at the `host` its ticket returned. The ticket's pinned mode and base apply: `merge` keeps omitted files, the bio page, binary assets, access rules and references; `replace` removes omitted files and rules. Only files that actually differ from what is deployed are written, and `index.html` is written LAST so visitors never see a half-swapped site. If the bundle contains `tgf-gate.json`, the access rules in it are applied to the site's gated pages. A changed base or access policy returns 409 SITE_BUNDLE_STALE: request a new ticket, PUT its files and publish again; moving a ticket to another host is refused. The plan's size limit is checked against the bytes actually uploaded. Returns which paths were written, removed and already identical, `manifestDigest`, and `pageUrls` for only the ticket's HTML pages that actually went live — open those exact URLs rather than guessing a homepage, and do not treat retained pages as newly published. A successful publication consumes the uploaded files; to publish again, request fresh upload URLs. It also returns `attributionSnippet`: a one-line <script> tag. Paste it into every page of the site that links to the business's bot. Without it, a visitor who taps such a link on this site arrives anonymous and the business cannot tell which page or campaign brought them — the links keep working either way, so nothing looks broken. If the pages you just published do not carry it yet, add it and publish again.",
+    "description": "Step 2 of publishing the site: after every upload PUT has completed, make the files uploaded under `uploadId` live at the `host` its ticket returned. The ticket's pinned mode and base apply: `merge` keeps omitted files, the bio page, binary assets, access rules and references; `replace` removes omitted files and rules. Only files that actually differ from what is deployed are written, and `index.html` is written LAST so visitors never see a half-swapped site. If the bundle contains `tgf-gate.json`, the access rules in it are applied to the site's gated pages. A changed base or access policy returns 409 SITE_BUNDLE_STALE: request a new ticket, PUT its files and publish again; moving a ticket to another host is refused. The plan's size limits (whole site, each video) are checked against the bytes actually uploaded, and each HTML tag is read up to a fixed size: a larger one — usually an image, video or font inlined as a `data:` URL — is SITE_HTML_TAG_TOO_LARGE with the page `path`, `tag` and `attr` in `details`; move that data into its own file, request a new ticket and publish again. Any refusal leaves the live site as it was. Returns which paths were written, removed and already identical, `manifestDigest`, and `pageUrls` for only the ticket's HTML pages that actually went live — open those exact URLs rather than guessing a homepage, and do not treat retained pages as newly published. A successful publication consumes the uploaded files; to publish again, request fresh upload URLs. It also returns `attributionSnippet`: a one-line <script> tag. Paste it into every page of the site that links to the business's bot. Without it, a visitor who taps such a link on this site arrives anonymous and the business cannot tell which page or campaign brought them — the links keep working either way, so nothing looks broken. If the pages you just published do not carry it yet, add it and publish again.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -57165,12 +57256,12 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "site_request_upload",
     "title": "Site Request Upload",
-    "description": "Step 1 of publishing a static site: declare the files (path, byte size, content type, optional dependency `references`) and get one upload URL per file plus an `uploadId`. `host` is one of the `hosts` from `site_list_pages`: the platform site address (`kind: \"platform\"`, no setup needed) or a custom domain added with `domain_add_request` (live once `domain_verify` succeeds); never the main platform domain. Default `mode: merge`: declare only new or changed files; omitted files, the bio page, binary assets, access rules and references stay as deployed. `mode: replace` is a full snapshot; omitted files and access rules are removed. Host, dependencies and the plan's size limit for the whole resulting site are checked before any URL is issued. The ticket pins host, mode and the deployed base it was issued on, and cannot be rebased or moved to another host. PUT each file to its URL with exactly the declared byte length (else rejected), then call `site_publish` with the returned `host` and `uploadId`. 409 SITE_BUNDLE_STALE: the site changed meanwhile; request a new ticket. Platform-owned on every site address (sign-in, checkout, buyer account, product/event/booking pages): /auth, /checkout, /cart, /account, /refund, /l, /f, /product, /events, /booking, /widget, /miniapp, /api, /__telegafirst, /.well-known/acme-challenge and all below. A file there, or a service-worker script (sw.js, service-worker.js, *-sw.js), refuses the whole bundle with SITE_PATH_RESERVED. A file at /, /shop, /bio, /privacy, /terms or /refunds replaces that platform page; the catalog always answers /shop, and / too while the site has no index.html. Every page linking to the business's bot should carry the platform's attribution <script>, or the business cannot tell which page or campaign brought a customer: `site_publish` returns it as `attributionSnippet`; put it in the page template now to avoid a second deploy.",
+    "description": "Step 1 of publishing a static site. `host`: one of `hosts` from `site_list_pages` (platform site address or a verified custom domain). Declare the files (path, byte size, content type, optional dependency `references`) and get one upload URL per file plus an `uploadId`. Default `mode: merge` changes only the declared files; the bio page, other files and access rules stay. `mode: replace` is a full snapshot: omitted files and rules are removed. PUT each file with exactly its declared byte length, then `site_publish` with the returned `host` and `uploadId`. 409 SITE_BUNDLE_STALE: the site changed meanwhile; request a new ticket. Bundle = the HTML pages plus every image, video, font, CSS and JS file they use, each its own file, uploaded to our storage. Inline CSS/JS are fine; a large `data:` URL is not (SITE_HTML_TAG_TOO_LARGE): decode it into a file with the same bytes, a content-addressed name and a relative link, listed in the page's `references`. Video (.mp4, .webm) fits the per-video size of the plan (SITE_VIDEO_TOO_LARGE: compress, or embed from a video host). Plan limits and the daily upload budget (MINT_QUOTA_EXCEEDED; MINT_QUOTA_UNAVAILABLE: retry after `retryAfter`) are checked before any URL; each refusal names its limit in `details` and leaves the live site unchanged. Platform-owned on every site address (sign-in, checkout, buyer account, product/event/booking pages): /auth, /checkout, /cart, /account, /refund, /l, /f, /product, /events, /booking, /widget, /miniapp, /api, /__telegafirst, /.well-known/acme-challenge and all below. A file there, or a service-worker script (sw.js, service-worker.js, *-sw.js), refuses the whole bundle with SITE_PATH_RESERVED. A file at /, /shop, /bio, /privacy, /terms or /refunds replaces that platform page; the catalog always answers /shop, and / too while the site has no index.html. Pages linking to the bot need the attribution <script> that `site_publish` returns as `attributionSnippet`; add it to the template now.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -57257,7 +57348,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "submit_form_submission",
@@ -57296,7 +57387,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "support_ticket_create",
@@ -57406,7 +57497,7 @@
     ],
     "risk": "write",
     "domain": "support",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "support_ticket_list",
@@ -57443,7 +57534,7 @@
     ],
     "risk": "read",
     "domain": "support",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "switch_active_bot",
@@ -57478,7 +57569,7 @@
     ],
     "risk": "write",
     "domain": "identity",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "take_chat",
@@ -57513,7 +57604,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "test_funnel_pipeline",
@@ -57553,7 +57644,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_agent_config",
@@ -57963,7 +58054,7 @@
     ],
     "risk": "write",
     "domain": "agents",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_broadcast",
@@ -58577,7 +58668,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_catalog_group",
@@ -58672,7 +58763,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_catalog_item",
@@ -59369,7 +59460,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_chain_step",
@@ -59752,7 +59843,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_client_config",
@@ -59848,7 +59939,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_event",
@@ -60327,7 +60418,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_knowledge",
@@ -60413,7 +60504,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_legal_profile",
@@ -60722,7 +60813,7 @@
     ],
     "risk": "write",
     "domain": "legal",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_marketing_campaign",
@@ -61040,7 +61131,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_marketing_link",
@@ -61099,7 +61190,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_menu_button",
@@ -61233,7 +61324,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_menu_group",
@@ -61324,7 +61415,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_message_chain",
@@ -61365,7 +61456,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_order_status",
@@ -61587,7 +61678,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_quick_reply",
@@ -61644,7 +61735,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_saved_segment",
@@ -62035,7 +62126,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_storefront",
@@ -62097,7 +62188,7 @@
     ],
     "risk": "write",
     "domain": "storefront",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "update_team_member",
@@ -62196,7 +62287,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   },
   {
     "name": "walk_in_event_registration",
@@ -62245,6 +62336,6 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.87"
+    "platform_version": "1.0.97"
   }
 ]
