@@ -31,7 +31,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "analyze_business_performance",
@@ -60,7 +60,7 @@
     ],
     "risk": "read",
     "domain": "analytics",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "assign_catalog_item_to_group",
@@ -108,7 +108,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_add_operator_note",
@@ -150,7 +150,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_assign_resource",
@@ -201,7 +201,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_cancel",
@@ -250,7 +250,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_connect_resource_calendar",
@@ -292,7 +292,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_copy_resource_schedule_month",
@@ -367,7 +367,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_create",
@@ -463,7 +463,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_create_resource",
@@ -816,7 +816,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_create_resource_schedule",
@@ -949,7 +949,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_create_service",
@@ -1188,7 +1188,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_delete_resource",
@@ -1229,7 +1229,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_delete_resource_schedule",
@@ -1277,7 +1277,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_disconnect_resource_calendar",
@@ -1319,7 +1319,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_execute_attendance",
@@ -1360,7 +1360,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_execute_confirm",
@@ -1401,7 +1401,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_execute_overbooking",
@@ -1442,7 +1442,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_execute_price",
@@ -1484,7 +1484,7 @@
     ],
     "risk": "money",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_get_resource",
@@ -1513,7 +1513,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_get_resource_schedule",
@@ -1542,7 +1542,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_get_user_list",
@@ -1571,7 +1571,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_list",
@@ -1641,7 +1641,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_list_pending",
@@ -1676,7 +1676,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_list_resource_schedules",
@@ -1717,7 +1717,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_list_resources",
@@ -1736,7 +1736,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_list_reviews",
@@ -1804,7 +1804,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_prepare_attendance",
@@ -1844,7 +1844,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_prepare_confirm",
@@ -1879,7 +1879,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_prepare_overbooking",
@@ -1941,7 +1941,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_prepare_price",
@@ -1983,7 +1983,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_reschedule",
@@ -2025,7 +2025,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_search_availability",
@@ -2081,7 +2081,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_set_review_visibility",
@@ -2132,7 +2132,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_update_resource",
@@ -2497,7 +2497,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "booking_update_resource_schedule",
@@ -2639,7 +2639,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "cancel_auto_renew",
@@ -3851,7 +3851,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "cancel_event",
@@ -3886,7 +3886,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "cancel_event_registration",
@@ -3928,7 +3928,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "check_approval",
@@ -3957,7 +3957,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "check_free_conditions",
@@ -3976,7 +3976,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "check_in_event_registration",
@@ -4018,7 +4018,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "check_out_event_registration",
@@ -4060,7 +4060,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "check_slug_availability",
@@ -4119,7 +4119,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "claim_slug",
@@ -5487,7 +5487,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "complete_event",
@@ -5522,7 +5522,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "configure_integration",
@@ -5667,7 +5667,7 @@
     ],
     "risk": "write",
     "domain": "integrations",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "configure_payment_credentials",
@@ -7293,7 +7293,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "confirm_supergroups",
@@ -7358,7 +7358,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "connect_channel",
@@ -8589,7 +8589,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_broadcast",
@@ -8603,13 +8603,13 @@
           "type": "object",
           "properties": {
             "text": {
-              "description": "Telegram HTML message text. Max 4096 chars.",
+              "description": "Message text with Telegram HTML formatting. Up to 4096 characters, or 1024 when the card has media.",
               "type": "string",
               "maxLength": 4096
             },
             "mediaRefs": {
               "default": [],
-              "description": "Immutable descriptors from media_finalize. URLs and bytes are forbidden.",
+              "description": "Media files exactly as media_finalize or media_import_files returned them, up to 10.",
               "maxItems": 10,
               "type": "array",
               "items": {
@@ -8774,7 +8774,7 @@
                   "mimeType"
                 ],
                 "additionalProperties": false,
-                "description": "Value for media Refs item."
+                "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
               }
             },
             "sourceUrl": {
@@ -9472,7 +9472,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_catalog_group",
@@ -9560,7 +9560,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_chain_step",
@@ -9580,13 +9580,13 @@
           "type": "object",
           "properties": {
             "text": {
-              "description": "Telegram HTML message text. Max 4096 chars.",
+              "description": "Message text with Telegram HTML formatting. Up to 4096 characters, or 1024 when the card has media.",
               "type": "string",
               "maxLength": 4096
             },
             "mediaRefs": {
               "default": [],
-              "description": "Immutable descriptors from media_finalize. URLs and bytes are forbidden.",
+              "description": "Media files exactly as media_finalize or media_import_files returned them, up to 10.",
               "maxItems": 10,
               "type": "array",
               "items": {
@@ -9751,7 +9751,7 @@
                   "mimeType"
                 ],
                 "additionalProperties": false,
-                "description": "Value for media Refs item."
+                "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
               }
             },
             "sourceUrl": {
@@ -9806,7 +9806,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_event",
@@ -9921,7 +9921,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_event_registration",
@@ -9976,7 +9976,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_export",
@@ -10041,7 +10041,7 @@
     ],
     "risk": "write",
     "domain": "export",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_forum_topic",
@@ -10086,12 +10086,12 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_knowledge",
     "title": "Create Knowledge",
-    "description": "Add a knowledge-base entry to a board (`kb_type`: manager or coach) with a title + content (≤4000 chars — one item; split longer material into several items) and optional tags. ASYNC: the entry is stored and QUEUED for graph indexing — it returns immediately with status `indexing` (poll get_knowledge until `indexed`). Returns the created entry with its assigned `seqNum`.",
+    "description": "Add a knowledge-base entry to a board (`kb_type`: manager or coach) with a title + content (≤4000 chars — one item; split longer material into several items) and optional tags. ASYNC: the entry is stored and QUEUED for graph indexing — it returns immediately with status `indexing` (poll get_knowledge until `indexed`). Returns the created entry with its assigned `seqNum`. Optional `prepared_step_seq_nums`: ordered chain step numbers whose ready-made messages are attached to this entry — the business's AI agent reads their text when this entry answers a customer and may send them into the chat, complete with media and buttons; the entry itself stays text.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -10159,7 +10159,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_marketing_campaign",
@@ -10505,7 +10505,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_marketing_link",
@@ -10581,7 +10581,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_menu_button",
@@ -10661,7 +10661,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_menu_group",
@@ -10725,7 +10725,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_message_chain",
@@ -10760,7 +10760,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_order",
@@ -11038,7 +11038,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_order_status",
@@ -11228,7 +11228,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_quest_product",
@@ -11265,7 +11265,7 @@
             },
             "mediaRefs": {
               "default": [],
-              "description": "Immutable descriptors from media_finalize. URLs and bytes are forbidden.",
+              "description": "Media files exactly as media_finalize or media_import_files returned them, up to 10.",
               "maxItems": 10,
               "type": "array",
               "items": {
@@ -11430,7 +11430,7 @@
                   "mimeType"
                 ],
                 "additionalProperties": false,
-                "description": "Value for media Refs item."
+                "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
               }
             }
           },
@@ -11461,7 +11461,7 @@
             },
             "mediaRefs": {
               "default": [],
-              "description": "Immutable descriptors from media_finalize. URLs and bytes are forbidden.",
+              "description": "Media files exactly as media_finalize or media_import_files returned them, up to 10.",
               "maxItems": 10,
               "type": "array",
               "items": {
@@ -11626,7 +11626,7 @@
                   "mimeType"
                 ],
                 "additionalProperties": false,
-                "description": "Value for media Refs item."
+                "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
               }
             }
           },
@@ -12818,7 +12818,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_quick_reply",
@@ -12870,7 +12870,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_quick_site",
@@ -12960,7 +12960,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_saved_segment",
@@ -13339,7 +13339,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "create_session",
@@ -13409,7 +13409,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_broadcast",
@@ -13444,7 +13444,7 @@
     ],
     "risk": "destructive",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_catalog_group",
@@ -13479,7 +13479,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_catalog_item",
@@ -13514,7 +13514,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_chain_step",
@@ -13556,7 +13556,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_event",
@@ -13591,7 +13591,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_forum_topic_message",
@@ -13632,7 +13632,7 @@
     ],
     "risk": "destructive",
     "domain": "topics",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_integration",
@@ -13669,7 +13669,7 @@
     ],
     "risk": "destructive",
     "domain": "integrations",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_knowledge",
@@ -13713,7 +13713,7 @@
     ],
     "risk": "destructive",
     "domain": "kb",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_marketing_campaign",
@@ -13748,7 +13748,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_marketing_link",
@@ -13783,7 +13783,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_menu_button",
@@ -13818,7 +13818,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_menu_group",
@@ -13853,7 +13853,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_message_chain",
@@ -13888,7 +13888,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_order_status",
@@ -13923,7 +13923,7 @@
     ],
     "risk": "destructive",
     "domain": "statuses",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_quick_reply",
@@ -13958,7 +13958,7 @@
     ],
     "risk": "destructive",
     "domain": "quick-replies",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "delete_saved_segment",
@@ -14000,7 +14000,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "describe_segment_axes",
@@ -14019,7 +14019,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "describe_tool",
@@ -14088,7 +14088,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "disable_payment_provider",
@@ -14132,7 +14132,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "discover_supergroups",
@@ -14162,7 +14162,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "domain_add_request",
@@ -14207,7 +14207,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "domain_execute_unlink",
@@ -14248,7 +14248,7 @@
     ],
     "risk": "destructive",
     "domain": "domain",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "domain_prepare_unlink",
@@ -14285,7 +14285,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "domain_status",
@@ -14313,7 +14313,7 @@
     ],
     "risk": "read",
     "domain": "domain",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "domain_verify",
@@ -14350,7 +14350,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "edit_forum_topic_message",
@@ -14475,7 +14475,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "enable_payment_provider",
@@ -14519,7 +14519,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "exchange_session_approval_code",
@@ -14553,7 +14553,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "execute_admin_read",
@@ -14594,7 +14594,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "execute_admin_write",
@@ -14635,7 +14635,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "execute_broadcast_launch",
@@ -14676,12 +14676,12 @@
     ],
     "risk": "money",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "execute_chain_batch_entry",
     "title": "Execute Chain Batch Entry",
-    "description": "Enter users into the chain identified by a matching prepared scenario. Call this tool only after final human confirmation of the prepared scenario.",
+    "description": "Enter users into the chain identified by a matching prepared scenario. The result splits the users: `enteredUserSeqNums` got a run on the entry step, or kept their live run under `noop`; `contentShownUserSeqNums` were shown the step's card and no run moved. Call this tool only after final human confirmation of the prepared scenario.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -14717,7 +14717,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "execute_manual_sale",
@@ -14758,7 +14758,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "execute_order_composition_change",
@@ -14799,7 +14799,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "execute_order_status_change",
@@ -14840,7 +14840,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "execute_send_invoice",
@@ -14881,7 +14881,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "export_form_submissions_normalized",
@@ -14936,7 +14936,7 @@
     ],
     "risk": "write",
     "domain": "pull",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_active_bot",
@@ -14955,7 +14955,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_agent_config",
@@ -14974,7 +14974,7 @@
     ],
     "risk": "read",
     "domain": "agents",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_billing_state",
@@ -16179,7 +16179,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_broadcast_status",
@@ -16208,7 +16208,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_catalog",
@@ -16580,7 +16580,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_catalog_group",
@@ -16609,7 +16609,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_catalog_item",
@@ -16646,7 +16646,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_catalog_topic_link",
@@ -16665,7 +16665,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_chain_step",
@@ -16701,7 +16701,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_client_config",
@@ -16798,12 +16798,12 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_content_draft",
     "title": "Get Content Draft",
-    "description": "Read back one content draft by the tenant-scoped `draftHandle` publish_entity returned: its publish status (pending | publishing | published | failed | cancelled), the assigned `seqNum` once published, and the failure reason when it failed. This is the poll target for every async content write. 0-cost read.",
+    "description": "Check a content write by the draftHandle it returned. published: the message is out; bound: it is attached to its item and seqNum names that item. Published but not bound: poll again. A failed or cancelled write has stopped; failure.code says why and failure.recovery, when present, how to correct the request. This read is free.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -17004,7 +17004,8 @@
               "sha256",
               "mimeType"
             ],
-            "additionalProperties": false
+            "additionalProperties": false,
+            "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
           }
         },
         "sourceUrl": {
@@ -17027,6 +17028,10 @@
             "cancelled"
           ]
         },
+        "bound": {
+          "type": "boolean",
+          "description": "Whether the content is attached to its item. When false, keep polling this tool."
+        },
         "seqNum": {
           "anyOf": [
             {
@@ -17045,10 +17050,23 @@
             "type": "string"
           }
         },
-        "error": {
+        "failure": {
           "anyOf": [
             {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "recovery": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code"
+              ],
+              "additionalProperties": false,
+              "description": "Why the write stopped. recovery is present when the request can be corrected and sent again."
             },
             {
               "type": "null"
@@ -17071,9 +17089,10 @@
         "mediaRefs",
         "sourceUrl",
         "status",
+        "bound",
         "seqNum",
         "publishedMessageIds",
-        "error",
+        "failure",
         "createdAt",
         "updatedAt"
       ],
@@ -17085,7 +17104,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_conversation",
@@ -17114,7 +17133,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_customer",
@@ -17143,7 +17162,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_data_dictionary",
@@ -17162,7 +17181,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_doc",
@@ -17201,7 +17220,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_entitlements",
@@ -17229,7 +17248,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_event",
@@ -17258,7 +17277,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_event_registration",
@@ -17287,7 +17306,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_form_submission",
@@ -17323,7 +17342,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_knowledge",
@@ -17361,7 +17380,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_legal_profile",
@@ -17380,7 +17399,7 @@
     ],
     "risk": "read",
     "domain": "legal",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_menu_button",
@@ -17409,7 +17428,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_menu_group",
@@ -17438,7 +17457,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_message_stats",
@@ -17457,7 +17476,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_onboarding_state",
@@ -20259,7 +20278,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_payment_config",
@@ -20278,7 +20297,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_plan_checkout_link",
@@ -20297,7 +20316,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_saved_segment",
@@ -20326,7 +20345,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_session_status",
@@ -20396,7 +20415,7 @@
     ],
     "risk": "read",
     "domain": "sessions",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_skill",
@@ -20431,7 +20450,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_storefront",
@@ -20450,7 +20469,7 @@
     ],
     "risk": "read",
     "domain": "storefront",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_subscription_status",
@@ -20478,7 +20497,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_token_billing",
@@ -20497,7 +20516,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "get_token_topup_link",
@@ -20516,7 +20535,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "init_managed_bot",
@@ -20542,7 +20561,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "invite_team_member",
@@ -20636,7 +20655,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "issue_api_key",
@@ -20740,7 +20759,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "link_anonymous_order",
@@ -20782,7 +20801,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_accessible_bots",
@@ -20801,7 +20820,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_broadcasts",
@@ -20820,7 +20839,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_catalog_groups",
@@ -20839,7 +20858,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_chain_runs",
@@ -20871,7 +20890,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_chain_steps",
@@ -20900,7 +20919,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_connections",
@@ -20975,7 +20994,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_customers",
@@ -21007,7 +21026,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_event_registrations",
@@ -21044,7 +21063,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_events",
@@ -21063,7 +21082,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_forum_topics",
@@ -21082,7 +21101,7 @@
     ],
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_integrations",
@@ -21101,7 +21120,7 @@
     ],
     "risk": "read",
     "domain": "integrations",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_knowledge",
@@ -21120,7 +21139,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_marketing_campaigns",
@@ -21139,7 +21158,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_marketing_links",
@@ -21158,7 +21177,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_menu_buttons",
@@ -21177,7 +21196,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_menu_groups",
@@ -21196,7 +21215,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_message_chains",
@@ -21215,7 +21234,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_order_statuses",
@@ -21234,7 +21253,7 @@
     ],
     "risk": "read",
     "domain": "statuses",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_payment_rows",
@@ -21266,7 +21285,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_quick_replies",
@@ -21285,7 +21304,7 @@
     ],
     "risk": "read",
     "domain": "quick-replies",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_saved_segments",
@@ -21321,7 +21340,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_segment_targets",
@@ -21384,7 +21403,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_team_members",
@@ -21403,7 +21422,7 @@
     ],
     "risk": "read",
     "domain": "team",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "list_unanswered",
@@ -21480,7 +21499,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "load_domain",
@@ -21565,12 +21584,12 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "manage_message",
     "title": "Manage Message",
-    "description": "Edit text, caption, media or buttons, or delete a sent message by userSeqNum and messageSeqNum. Updates private and Open Lines copies.",
+    "description": "Edit the text, caption, media or buttons of a message sent to a customer, or delete it, by userSeqNum and messageSeqNum. New media is a mediaRef from media_finalize or media_import_files. The team's copy changes too.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "oneOf": [
@@ -21852,263 +21871,168 @@
               "description": "Value for action."
             },
             "media": {
-              "anyOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "uploadId": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 512,
-                      "description": "Value for upload Id."
-                    },
-                    "item": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "enum": [
-                            "photo",
-                            "video",
-                            "document"
-                          ],
-                          "description": "Value for type."
-                        },
-                        "kind": {
-                          "type": "string",
-                          "enum": [
-                            "voice",
-                            "audio",
-                            "video_note"
-                          ],
-                          "description": "Value for kind."
-                        },
-                        "mediaRef": {
-                          "type": "string",
-                          "maxLength": 512,
-                          "pattern": "^media-ingress\\/v1\\/[a-f0-9]{64}\\/[A-Za-z0-9_-]{16,128}\\/objects\\/[a-z][a-z0-9-]{0,63}\\/[a-f0-9]{64}\\/[a-f0-9]{24}\\.blob$",
-                          "description": "Value for media Ref."
-                        },
-                        "expectedSizeBytes": {
-                          "type": "integer",
-                          "exclusiveMinimum": 0,
-                          "maximum": 4294967296,
-                          "description": "Value for expected Size Bytes."
-                        },
-                        "sha256": {
-                          "type": "string",
-                          "pattern": "^[0-9a-f]{64}$",
-                          "description": "Value for sha256."
-                        },
-                        "mimeType": {
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength": 255,
-                          "description": "Value for mime Type."
-                        },
-                        "generatedFileName": {
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength": 255,
-                          "description": "Value for generated File Name."
-                        },
-                        "caption": {
-                          "type": "string",
-                          "maxLength": 1024,
-                          "description": "Value for caption."
-                        },
-                        "captionEntities": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "type": {
-                                "type": "string",
-                                "enum": [
-                                  "mention",
-                                  "hashtag",
-                                  "cashtag",
-                                  "bot_command",
-                                  "url",
-                                  "email",
-                                  "phone_number",
-                                  "bold",
-                                  "italic",
-                                  "underline",
-                                  "strikethrough",
-                                  "spoiler",
-                                  "blockquote",
-                                  "expandable_blockquote",
-                                  "code",
-                                  "pre",
-                                  "text_link",
-                                  "text_mention",
-                                  "custom_emoji"
-                                ],
-                                "description": "Value for type."
-                              },
-                              "offset": {
-                                "type": "integer",
-                                "minimum": 0,
-                                "maximum": 9007199254740991,
-                                "description": "Value for offset."
-                              },
-                              "length": {
-                                "type": "integer",
-                                "exclusiveMinimum": 0,
-                                "maximum": 9007199254740991,
-                                "description": "Value for length."
-                              },
-                              "url": {
-                                "type": "string",
-                                "description": "Value for url."
-                              },
-                              "user": {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "string",
-                                    "pattern": "^-?\\d+$",
-                                    "description": "Value for id."
-                                  },
-                                  "firstName": {
-                                    "type": "string",
-                                    "description": "Value for first Name."
-                                  },
-                                  "lastName": {
-                                    "type": "string",
-                                    "description": "Value for last Name."
-                                  },
-                                  "username": {
-                                    "type": "string",
-                                    "description": "Value for username."
-                                  }
-                                },
-                                "required": [
-                                  "id"
-                                ],
-                                "additionalProperties": false,
-                                "description": "Value for user."
-                              },
-                              "language": {
-                                "type": "string",
-                                "description": "Value for language."
-                              },
-                              "custom_emoji_id": {
-                                "type": "string",
-                                "description": "Value for custom emoji id."
-                              }
-                            },
-                            "required": [
-                              "type",
-                              "offset",
-                              "length"
-                            ],
-                            "additionalProperties": false,
-                            "description": "Value for caption Entities item."
-                          },
-                          "description": "Value for caption Entities."
-                        },
-                        "captionHtml": {
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength": 16384,
-                          "description": "Value for caption Html."
-                        }
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "photo",
+                    "video",
+                    "document"
+                  ],
+                  "description": "Value for type."
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "voice",
+                    "audio",
+                    "video_note"
+                  ],
+                  "description": "Value for kind."
+                },
+                "mediaRef": {
+                  "type": "string",
+                  "maxLength": 512,
+                  "pattern": "^media-ingress\\/v1\\/[a-f0-9]{64}\\/[A-Za-z0-9_-]{16,128}\\/objects\\/[a-z][a-z0-9-]{0,63}\\/[a-f0-9]{64}\\/[a-f0-9]{24}\\.blob$",
+                  "description": "Value for media Ref."
+                },
+                "expectedSizeBytes": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 4294967296,
+                  "description": "Value for expected Size Bytes."
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$",
+                  "description": "Value for sha256."
+                },
+                "mimeType": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 255,
+                  "description": "Value for mime Type."
+                },
+                "generatedFileName": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 255,
+                  "description": "Value for generated File Name."
+                },
+                "caption": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "description": "Value for caption."
+                },
+                "captionEntities": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "mention",
+                          "hashtag",
+                          "cashtag",
+                          "bot_command",
+                          "url",
+                          "email",
+                          "phone_number",
+                          "bold",
+                          "italic",
+                          "underline",
+                          "strikethrough",
+                          "spoiler",
+                          "blockquote",
+                          "expandable_blockquote",
+                          "code",
+                          "pre",
+                          "text_link",
+                          "text_mention",
+                          "custom_emoji"
+                        ],
+                        "description": "Value for type."
                       },
-                      "required": [
-                        "type",
-                        "mediaRef",
-                        "expectedSizeBytes",
-                        "sha256",
-                        "mimeType"
-                      ],
-                      "additionalProperties": false,
-                      "description": "Value for item."
-                    }
+                      "offset": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991,
+                        "description": "Value for offset."
+                      },
+                      "length": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991,
+                        "description": "Value for length."
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "Value for url."
+                      },
+                      "user": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "pattern": "^-?\\d+$",
+                            "description": "Value for id."
+                          },
+                          "firstName": {
+                            "type": "string",
+                            "description": "Value for first Name."
+                          },
+                          "lastName": {
+                            "type": "string",
+                            "description": "Value for last Name."
+                          },
+                          "username": {
+                            "type": "string",
+                            "description": "Value for username."
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ],
+                        "additionalProperties": false,
+                        "description": "Value for user."
+                      },
+                      "language": {
+                        "type": "string",
+                        "description": "Value for language."
+                      },
+                      "custom_emoji_id": {
+                        "type": "string",
+                        "description": "Value for custom emoji id."
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "offset",
+                      "length"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Value for caption Entities item."
                   },
-                  "required": [
-                    "uploadId",
-                    "item"
-                  ],
-                  "additionalProperties": false,
-                  "description": "Value for media option."
+                  "description": "Value for caption Entities."
                 },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "photo",
-                        "video",
-                        "document"
-                      ],
-                      "description": "Value for type."
-                    },
-                    "file_id": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 1024,
-                      "description": "Value for file id."
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "file_id"
-                  ],
-                  "additionalProperties": false,
-                  "description": "Value for media option."
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "download_url": {
-                      "type": "string",
-                      "maxLength": 8192,
-                      "format": "uri",
-                      "description": "Value for download url."
-                    },
-                    "mime_type": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 255,
-                      "description": "Value for mime type."
-                    },
-                    "file_name": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 1024,
-                      "description": "Value for file name."
-                    },
-                    "media_kind": {
-                      "type": "string",
-                      "enum": [
-                        "voice",
-                        "audio",
-                        "video_note"
-                      ],
-                      "description": "Value for media kind."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "photo",
-                        "video",
-                        "document"
-                      ],
-                      "description": "Value for type."
-                    }
-                  },
-                  "required": [
-                    "download_url",
-                    "type"
-                  ],
-                  "additionalProperties": false,
-                  "description": "Value for media option."
+                "captionHtml": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 16384,
+                  "description": "Value for caption Html."
                 }
+              },
+              "required": [
+                "type",
+                "mediaRef",
+                "expectedSizeBytes",
+                "sha256",
+                "mimeType"
               ],
-              "description": "Value for media."
+              "additionalProperties": false,
+              "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
             },
             "caption": {
               "type": "string",
@@ -22347,7 +22271,7 @@
     ],
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "manage_pricing_rules",
@@ -24091,7 +24015,7 @@
     ],
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "mark_paid",
@@ -24155,7 +24079,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "media_finalize",
@@ -24190,7 +24114,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "media_get_download_link",
@@ -24219,7 +24143,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "media_get_status",
@@ -24248,7 +24172,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "media_import_files",
@@ -24546,7 +24470,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "media_request_upload",
@@ -24620,7 +24544,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "meeting_provider_connect",
@@ -24657,7 +24581,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "meeting_provider_status",
@@ -24676,7 +24600,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_check_payment_provider",
@@ -26009,7 +25933,7 @@
     ],
     "risk": "write",
     "domain": "payments",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_check_test_product",
@@ -27184,7 +27108,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_check_test_purchase",
@@ -28353,7 +28277,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_complete",
@@ -29516,7 +29440,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_confirm_payment_webhook",
@@ -30855,7 +30779,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_connect_channel",
@@ -32086,7 +32010,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_connect_payment_provider",
@@ -33745,7 +33669,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_defer_first_payment",
@@ -34918,7 +34842,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_defer_tariff",
@@ -36091,7 +36015,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_execute_first_payment",
@@ -37263,7 +37187,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_prepare_first_payment",
@@ -38516,7 +38440,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_save_ai_preferences",
@@ -39752,7 +39676,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "onboarding_send_tariff_checkout_card",
@@ -40939,7 +40863,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "partner_get_balance",
@@ -40958,7 +40882,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "partner_get_invite_links",
@@ -40977,7 +40901,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "partner_request_payout",
@@ -41003,7 +40927,7 @@
     ],
     "risk": "money",
     "domain": "partner",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "prepare_broadcast_launch",
@@ -41038,12 +40962,12 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "prepare_chain_batch_entry",
     "title": "Prepare Chain Batch Entry",
-    "description": "Prepare entry of up to 50 users into a message chain. You MUST name `on_active`: `noop` preserves a live run, `deliver` sends the selected step without moving it, and `restart` abandons it before a new run. Show the immutable prepared scenario to a human before executing it.",
+    "description": "Prepare entry of up to 50 users into a message chain. You MUST name `on_active`: `noop` preserves a live run, `deliver` sends the selected step without moving it, and `restart` abandons it before a new run. A run starts only on an entry step: a `step_seq_num` that is not an entry step shows that step's card under every `on_active`, starts no run and moves no live run. Show the immutable prepared scenario to a human before executing it.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -41102,7 +41026,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "prepare_manual_sale",
@@ -41254,7 +41178,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "prepare_order_composition_change",
@@ -41449,7 +41373,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "prepare_order_status_change",
@@ -41497,7 +41421,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "prepare_send_invoice",
@@ -41532,7 +41456,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "preview_segment_reach",
@@ -41563,12 +41487,12 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "publish_entity",
     "title": "Publish Entity",
-    "description": "Create, replace or restore content cards in the client's Telegram Settings supergroup — catalog items, order statuses, marketing campaigns, broadcasts, message-chain steps, events, resources. FIRST catalog delivery uses INITIALIZE_DELIVERY, targetTopic catalog, initializeTarget:{seqId}, and content; poll get_content_draft. Existing delivery uses REPLACE with replaceTarget.kind delivery. Resource photos use CREATE/REPLACE only on an existing booking resource, with config.resourceSeqNum and config.etag; scheduling lifecycle remains on the booking facade. Pass items:[…] for a batch (mixed topics allowed), each item carrying text, mediaRefs from media_finalize and topic config. Results are per element with a tenant draftHandle while publishing or seqNum when complete; one bad item never aborts the rest. Retrying an identical request is safe. Batch size is capped by your plan; over it, nothing is written.",
+    "description": "Create or replace the content of business items in one call: catalog items, order statuses, marketing campaigns, broadcasts, chain steps, events and booking resources. Each item carries targetTopic, intent, content (text and/or mediaRefs from media_finalize or media_import_files) and the config of its topic. CREATE makes a new item; REPLACE swaps the content of an existing one (replaceTarget.seqId) and keeps its number; RESTORE brings a deleted one back; INITIALIZE_DELIVERY adds the first after-purchase message to a catalog item (initializeTarget.seqId). A booking resource photo takes CREATE/REPLACE only, with config.resourceSeqNum and config.etag. Each result returns seqNum once the item is ready, or a draftHandle to poll with get_content_draft. One bad item never stops the others, repeating the same request is safe, and the batch size follows your plan.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -41590,11 +41514,11 @@
                   "events",
                   "resources"
                 ],
-                "description": "Which Settings-SG content topic this card belongs to."
+                "description": "Kind of item this content belongs to: catalog item, order status, marketing campaign, broadcast, chain step, event or booking resource."
               },
               "intent": {
                 "default": "CREATE",
-                "description": "CREATE a new card, REPLACE existing content, RESTORE a deleted card, or INITIALIZE_DELIVERY to create the first delivery message of an existing catalog item.",
+                "description": "CREATE a new item, REPLACE the content of an existing one, RESTORE a deleted one, or INITIALIZE_DELIVERY to add the first after-purchase message to an existing catalog item.",
                 "type": "string",
                 "enum": [
                   "CREATE",
@@ -41607,13 +41531,13 @@
                 "type": "object",
                 "properties": {
                   "text": {
-                    "description": "Telegram HTML message text. Max 4096 chars.",
+                    "description": "Message text with Telegram HTML formatting. Up to 4096 characters, or 1024 when the card has media.",
                     "type": "string",
                     "maxLength": 4096
                   },
                   "mediaRefs": {
                     "default": [],
-                    "description": "Immutable descriptors from media_finalize. URLs and bytes are forbidden.",
+                    "description": "Media files exactly as media_finalize or media_import_files returned them, up to 10.",
                     "maxItems": 10,
                     "type": "array",
                     "items": {
@@ -41778,7 +41702,7 @@
                         "mimeType"
                       ],
                       "additionalProperties": false,
-                      "description": "Value for media Refs item."
+                      "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
                     }
                   },
                   "sourceUrl": {
@@ -41791,7 +41715,7 @@
                   "mediaRefs"
                 ],
                 "additionalProperties": false,
-                "description": "Channel-agnostic content payload."
+                "description": "The message: text, media, or a page to read the text from."
               },
               "config": {
                 "description": "Entity fields for the chosen targetTopic. Each topic admits its OWN shape; a mismatch is rejected.",
@@ -43693,7 +43617,7 @@
                 ]
               },
               "replaceTarget": {
-                "description": "REPLACE / RESTORE only — which existing card to swap.",
+                "description": "REPLACE / RESTORE only — the item whose content is swapped.",
                 "type": "object",
                 "properties": {
                   "kind": {
@@ -43702,10 +43626,10 @@
                       "card",
                       "delivery"
                     ],
-                    "description": "Which content to swap — the entity's own card, or its delivery message."
+                    "description": "card: the item's own message. delivery: the message a buyer receives after purchase (catalog and marketing only)."
                   },
                   "seqId": {
-                    "description": "Per-client seq of the entity to replace.",
+                    "description": "seqNum of the item whose content is replaced.",
                     "type": "integer",
                     "exclusiveMinimum": 0,
                     "maximum": 9007199254740991
@@ -43717,14 +43641,14 @@
                 "additionalProperties": false
               },
               "initializeTarget": {
-                "description": "INITIALIZE_DELIVERY only; targetTopic must be catalog. Existing delivery requires REPLACE.",
+                "description": "INITIALIZE_DELIVERY only, with targetTopic catalog. An item that already has one uses REPLACE with kind delivery.",
                 "type": "object",
                 "properties": {
                   "seqId": {
                     "type": "integer",
                     "exclusiveMinimum": 0,
                     "maximum": 9007199254740991,
-                    "description": "Tenant catalog sequence receiving its first delivery message."
+                    "description": "seqNum of the catalog item that gets its first after-purchase message."
                   }
                 },
                 "required": [
@@ -43734,7 +43658,7 @@
               },
               "waitResult": {
                 "default": false,
-                "description": "true = wait for the published entity and return its seqId; false = return the draftId immediately.",
+                "description": "true waits until the item exists and returns its seqNum; false returns a draftHandle at once, to poll with get_content_draft.",
                 "type": "boolean"
               }
             },
@@ -43802,8 +43726,21 @@
                   "type": "string"
                 }
               },
-              "error": {
-                "type": "string"
+              "failure": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "recovery": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "code"
+                ],
+                "additionalProperties": false,
+                "description": "Why the write stopped. recovery is present when the request can be corrected and sent again."
               }
             },
             "required": [
@@ -43824,7 +43761,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "pull_form_submissions",
@@ -43888,7 +43825,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "query_form_submission_segment",
@@ -43965,7 +43902,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "quote_order",
@@ -44197,7 +44134,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "refresh_payment_urls",
@@ -44246,7 +44183,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "register_existing_bot",
@@ -45399,7 +45336,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "register_mini_app_origin",
@@ -45451,7 +45388,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "release_chat",
@@ -45486,7 +45423,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "remove_catalog_item_from_group",
@@ -45528,7 +45465,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "request_access_link",
@@ -45639,7 +45576,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "request_manual_supergroups",
@@ -46822,7 +46759,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "resource_set_meeting_provider",
@@ -46867,7 +46804,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "resume_bot_connection",
@@ -48010,7 +47947,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "resume_infrastructure",
@@ -50892,7 +50829,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "retry_onboarding_site",
@@ -53682,7 +53619,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "revoke_connection",
@@ -53731,7 +53668,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "revoke_team_member",
@@ -53766,7 +53703,7 @@
     ],
     "risk": "destructive",
     "domain": "team",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "sample_segment_audience",
@@ -53805,7 +53742,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "scope_change",
@@ -53916,7 +53853,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "search_admin_tools",
@@ -54098,7 +54035,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "search_docs",
@@ -54145,7 +54082,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "secret_delete",
@@ -54187,7 +54124,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "secret_list",
@@ -54206,7 +54143,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "secret_put",
@@ -54255,7 +54192,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "secret_rotate",
@@ -54304,12 +54241,12 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "send_card",
     "title": "Send Card",
-    "description": "Send cards in a batch: items carry a private target with userSeqNum, text or media, caption, entities and buttons. Media accepts file_id, an uploaded media descriptor, or download_url. Replies use replyToMessageSeqNum. Mirrored to Open Lines; sending never takes over the chat. Plan batch cap applies; results report each item.",
+    "description": "Send messages to customers in their chat with the business. Each item carries target {kind:'private', userSeqNum}, text and/or media, an optional caption, entities and buttons. Media are mediaRefs from media_finalize or media_import_files; a file at an https address goes through media_import_files first. replyToMessageSeqNum answers a message read with get_conversation. The team sees a copy in the dialog; sending never takes over the chat. The batch size follows your plan and each item reports its own result.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -54358,263 +54295,168 @@
                 "maxItems": 10,
                 "type": "array",
                 "items": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "uploadId": {
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength": 512,
-                          "description": "Value for upload Id."
-                        },
-                        "item": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "enum": [
-                                "photo",
-                                "video",
-                                "document"
-                              ],
-                              "description": "Value for type."
-                            },
-                            "kind": {
-                              "type": "string",
-                              "enum": [
-                                "voice",
-                                "audio",
-                                "video_note"
-                              ],
-                              "description": "Value for kind."
-                            },
-                            "mediaRef": {
-                              "type": "string",
-                              "maxLength": 512,
-                              "pattern": "^media-ingress\\/v1\\/[a-f0-9]{64}\\/[A-Za-z0-9_-]{16,128}\\/objects\\/[a-z][a-z0-9-]{0,63}\\/[a-f0-9]{64}\\/[a-f0-9]{24}\\.blob$",
-                              "description": "Value for media Ref."
-                            },
-                            "expectedSizeBytes": {
-                              "type": "integer",
-                              "exclusiveMinimum": 0,
-                              "maximum": 4294967296,
-                              "description": "Value for expected Size Bytes."
-                            },
-                            "sha256": {
-                              "type": "string",
-                              "pattern": "^[0-9a-f]{64}$",
-                              "description": "Value for sha256."
-                            },
-                            "mimeType": {
-                              "type": "string",
-                              "minLength": 1,
-                              "maxLength": 255,
-                              "description": "Value for mime Type."
-                            },
-                            "generatedFileName": {
-                              "type": "string",
-                              "minLength": 1,
-                              "maxLength": 255,
-                              "description": "Value for generated File Name."
-                            },
-                            "caption": {
-                              "type": "string",
-                              "maxLength": 1024,
-                              "description": "Value for caption."
-                            },
-                            "captionEntities": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "type": {
-                                    "type": "string",
-                                    "enum": [
-                                      "mention",
-                                      "hashtag",
-                                      "cashtag",
-                                      "bot_command",
-                                      "url",
-                                      "email",
-                                      "phone_number",
-                                      "bold",
-                                      "italic",
-                                      "underline",
-                                      "strikethrough",
-                                      "spoiler",
-                                      "blockquote",
-                                      "expandable_blockquote",
-                                      "code",
-                                      "pre",
-                                      "text_link",
-                                      "text_mention",
-                                      "custom_emoji"
-                                    ],
-                                    "description": "Value for type."
-                                  },
-                                  "offset": {
-                                    "type": "integer",
-                                    "minimum": 0,
-                                    "maximum": 9007199254740991,
-                                    "description": "Value for offset."
-                                  },
-                                  "length": {
-                                    "type": "integer",
-                                    "exclusiveMinimum": 0,
-                                    "maximum": 9007199254740991,
-                                    "description": "Value for length."
-                                  },
-                                  "url": {
-                                    "type": "string",
-                                    "description": "Value for url."
-                                  },
-                                  "user": {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "string",
-                                        "pattern": "^-?\\d+$",
-                                        "description": "Value for id."
-                                      },
-                                      "firstName": {
-                                        "type": "string",
-                                        "description": "Value for first Name."
-                                      },
-                                      "lastName": {
-                                        "type": "string",
-                                        "description": "Value for last Name."
-                                      },
-                                      "username": {
-                                        "type": "string",
-                                        "description": "Value for username."
-                                      }
-                                    },
-                                    "required": [
-                                      "id"
-                                    ],
-                                    "additionalProperties": false,
-                                    "description": "Value for user."
-                                  },
-                                  "language": {
-                                    "type": "string",
-                                    "description": "Value for language."
-                                  },
-                                  "custom_emoji_id": {
-                                    "type": "string",
-                                    "description": "Value for custom emoji id."
-                                  }
-                                },
-                                "required": [
-                                  "type",
-                                  "offset",
-                                  "length"
-                                ],
-                                "additionalProperties": false,
-                                "description": "Value for caption Entities item."
-                              },
-                              "description": "Value for caption Entities."
-                            },
-                            "captionHtml": {
-                              "type": "string",
-                              "minLength": 1,
-                              "maxLength": 16384,
-                              "description": "Value for caption Html."
-                            }
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "photo",
+                        "video",
+                        "document"
+                      ],
+                      "description": "Value for type."
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "voice",
+                        "audio",
+                        "video_note"
+                      ],
+                      "description": "Value for kind."
+                    },
+                    "mediaRef": {
+                      "type": "string",
+                      "maxLength": 512,
+                      "pattern": "^media-ingress\\/v1\\/[a-f0-9]{64}\\/[A-Za-z0-9_-]{16,128}\\/objects\\/[a-z][a-z0-9-]{0,63}\\/[a-f0-9]{64}\\/[a-f0-9]{24}\\.blob$",
+                      "description": "Value for media Ref."
+                    },
+                    "expectedSizeBytes": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 4294967296,
+                      "description": "Value for expected Size Bytes."
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$",
+                      "description": "Value for sha256."
+                    },
+                    "mimeType": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 255,
+                      "description": "Value for mime Type."
+                    },
+                    "generatedFileName": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 255,
+                      "description": "Value for generated File Name."
+                    },
+                    "caption": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "description": "Value for caption."
+                    },
+                    "captionEntities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "mention",
+                              "hashtag",
+                              "cashtag",
+                              "bot_command",
+                              "url",
+                              "email",
+                              "phone_number",
+                              "bold",
+                              "italic",
+                              "underline",
+                              "strikethrough",
+                              "spoiler",
+                              "blockquote",
+                              "expandable_blockquote",
+                              "code",
+                              "pre",
+                              "text_link",
+                              "text_mention",
+                              "custom_emoji"
+                            ],
+                            "description": "Value for type."
                           },
-                          "required": [
-                            "type",
-                            "mediaRef",
-                            "expectedSizeBytes",
-                            "sha256",
-                            "mimeType"
-                          ],
-                          "additionalProperties": false,
-                          "description": "Value for item."
-                        }
+                          "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991,
+                            "description": "Value for offset."
+                          },
+                          "length": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 9007199254740991,
+                            "description": "Value for length."
+                          },
+                          "url": {
+                            "type": "string",
+                            "description": "Value for url."
+                          },
+                          "user": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^-?\\d+$",
+                                "description": "Value for id."
+                              },
+                              "firstName": {
+                                "type": "string",
+                                "description": "Value for first Name."
+                              },
+                              "lastName": {
+                                "type": "string",
+                                "description": "Value for last Name."
+                              },
+                              "username": {
+                                "type": "string",
+                                "description": "Value for username."
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Value for user."
+                          },
+                          "language": {
+                            "type": "string",
+                            "description": "Value for language."
+                          },
+                          "custom_emoji_id": {
+                            "type": "string",
+                            "description": "Value for custom emoji id."
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "offset",
+                          "length"
+                        ],
+                        "additionalProperties": false,
+                        "description": "Value for caption Entities item."
                       },
-                      "required": [
-                        "uploadId",
-                        "item"
-                      ],
-                      "additionalProperties": false,
-                      "description": "Value for media item option."
+                      "description": "Value for caption Entities."
                     },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "enum": [
-                            "photo",
-                            "video",
-                            "document"
-                          ],
-                          "description": "Value for type."
-                        },
-                        "file_id": {
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength": 1024,
-                          "description": "Value for file id."
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "file_id"
-                      ],
-                      "additionalProperties": false,
-                      "description": "Value for media item option."
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "download_url": {
-                          "type": "string",
-                          "maxLength": 8192,
-                          "format": "uri",
-                          "description": "Value for download url."
-                        },
-                        "mime_type": {
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength": 255,
-                          "description": "Value for mime type."
-                        },
-                        "file_name": {
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength": 1024,
-                          "description": "Value for file name."
-                        },
-                        "media_kind": {
-                          "type": "string",
-                          "enum": [
-                            "voice",
-                            "audio",
-                            "video_note"
-                          ],
-                          "description": "Value for media kind."
-                        },
-                        "type": {
-                          "type": "string",
-                          "enum": [
-                            "photo",
-                            "video",
-                            "document"
-                          ],
-                          "description": "Value for type."
-                        }
-                      },
-                      "required": [
-                        "download_url",
-                        "type"
-                      ],
-                      "additionalProperties": false,
-                      "description": "Value for media item option."
+                    "captionHtml": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 16384,
+                      "description": "Value for caption Html."
                     }
+                  },
+                  "required": [
+                    "type",
+                    "mediaRef",
+                    "expectedSizeBytes",
+                    "sha256",
+                    "mimeType"
                   ],
-                  "description": "Value for media item."
+                  "additionalProperties": false,
+                  "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
                 },
                 "description": "Value for media."
               },
@@ -54812,7 +54654,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "send_entity_card",
@@ -54983,7 +54825,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "send_notification",
@@ -55114,7 +54956,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "send_to_forum_topic",
@@ -55266,7 +55108,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "set_event_phase",
@@ -55310,7 +55152,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "set_form_submission_handled",
@@ -55350,7 +55192,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "set_tax_profile",
@@ -56594,7 +56436,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_checkout_key",
@@ -56620,7 +56462,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_delete_page",
@@ -56655,7 +56497,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_execute_delete",
@@ -56696,7 +56538,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_fetch_file",
@@ -56733,12 +56575,12 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_form_declare",
     "title": "Site Form Declare",
-    "description": "Declare a form and its submit URL BEFORE BUILDING THE PAGES: it returns `clientSlug` and `code`, the pages POST to `https://fn.telegafirst.ru/f/{clientSlug}/{code}` (`fn.telegafirst.com` when `zone` is `com`). Pass the returned `seqNum` to UPDATE it (the address stays); omit it for a NEW form at a NEW address. It configures the ENVELOPE (delivery, origins, captcha), not fields: draw inputs in your HTML. `destinations` items: `{\"kind\":\"telegram\",\"topicId\":<topic id>}`, `{\"kind\":\"webhook\",\"url\":\"https://…\"}`, or `{\"kind\":\"external_api\",\"url\":\"https://…\",\"method\":\"POST\",\"headerName\":\"X-Api-Key\",\"secretName\":\"<name from secret_put>\"}` (secret NAME, never value). `allowedOrigins` must list the site's own addresses (`https://acme.ru`), or no submission is accepted. Stop with `enabled: false` (no delete). `afterSubmit` = what the visitor sees after sending: `{\"mode\":\"auto\"}` shows your `title`/`text` (or zone defaults) plus a bot button (optional `buttonLabel`), `{\"mode\":\"redirect\",\"redirectUrl\":\"https://…\"}` redirects to a URL on the site's own hosts or `allowedOrigins`; `description` and `submitLabel` dress the hosted page. `variants` run after a submission: each names a funnel step by `stepSeqNum` plus a condition — `when` for `funnelMode: \"deterministic\"` (first match by `sort` wins) or `hint` (plain language) for `funnelMode: \"ai_agent\"`; exactly one per entry. `defaultStepSeqNum` if none matches. `managerFollowUp: true` adds an AI Manager answer after the step. `callOperatorOnSubmit: true` (or an entry's `callsOperator: true`) calls a live operator. ⚠️ Not a patch: an optional omitted on re-declaration (`variants`, `afterSubmit`…) RESETS — always send the complete declaration. Optional `submissionSchema`, e.g. `[{\"name\":\"phone\",\"type\":\"tel\",\"required\":true,\"label\":\"Ваш телефон\"}]`, validates: a non-matching submission is refused naming the field; names must match your HTML inputs. Always give every field a human `label` (the full question): operators read it.",
+    "description": "Declare a form and its submit URL BEFORE BUILDING THE PAGES: it returns `clientSlug` and `code`, the pages POST to `https://fn.telegafirst.ru/f/{clientSlug}/{code}` (`fn.telegafirst.com` when `zone` is `com`). Pass the returned `seqNum` to UPDATE it (the address stays); omit it for a NEW form at a NEW address. It configures the ENVELOPE (delivery, origins, captcha), not fields: draw inputs in your HTML. `destinations` items: `{\"kind\":\"telegram\",\"topicId\":<topic id>}`, `{\"kind\":\"webhook\",\"url\":\"https://…\"}`, or `{\"kind\":\"external_api\",\"url\":\"https://…\",\"method\":\"POST\",\"headerName\":\"X-Api-Key\",\"secretName\":\"<name from secret_put>\"}` (secret NAME, never value). `allowedOrigins` must list the site's own addresses, or no submission is accepted. Stop with `enabled: false` (no delete). `afterSubmit` (after sending): `{\"mode\":\"auto\"}` shows your `title`/`text` (or zone defaults) plus a bot button (optional `buttonLabel`), `{\"mode\":\"redirect\",\"redirectUrl\":\"https://…\"}` redirects to a URL on the site's own hosts or `allowedOrigins`. `variants` run after a submission: each names a funnel step by `stepSeqNum` plus a condition — `when` for `funnelMode: \"deterministic\"` (first match by `sort` wins) or `hint` (plain language) for `funnelMode: \"ai_agent\"`; exactly one per entry. `defaultStepSeqNum` if none matches. `managerFollowUp: true` adds an AI Manager answer after the step. `callOperatorOnSubmit: true` (or an entry's `callsOperator: true`) calls a live operator. ⚠️ Not a patch: an optional omitted on re-declaration (`variants`, `afterSubmit`…) RESETS — always send the complete declaration. Optional `submissionSchema`, e.g. `[{\"name\":\"phone\",\"type\":\"tel\",\"required\":true,\"label\":\"Ваш телефон\"}]`, validates: a non-matching submission is refused naming the field; names must match your HTML inputs. Always give every field a human `label` — the question as the visitor sees it (operators, CRM, analytics read it); business metadata (segment, score) → `hidden: true`, never shown as a question.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -56954,6 +56796,323 @@
               "maxItems": 100,
               "type": "array",
               "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "description": "Value for name."
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256,
+                        "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                      },
+                      "hidden": {
+                        "description": "Metadata submitted with the form, hidden from visitors and from the question list.",
+                        "type": "boolean"
+                      },
+                      "required": {
+                        "type": "boolean",
+                        "description": "Value for required."
+                      },
+                      "placeholder": {
+                        "type": "string",
+                        "maxLength": 256,
+                        "description": "Value for placeholder."
+                      },
+                      "type": {
+                        "type": "string",
+                        "const": "text",
+                        "description": "Value for type."
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "label",
+                      "type"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Value for submission Schema option item option."
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "description": "Value for name."
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256,
+                        "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                      },
+                      "hidden": {
+                        "description": "Metadata submitted with the form, hidden from visitors and from the question list.",
+                        "type": "boolean"
+                      },
+                      "required": {
+                        "type": "boolean",
+                        "description": "Value for required."
+                      },
+                      "placeholder": {
+                        "type": "string",
+                        "maxLength": 256,
+                        "description": "Value for placeholder."
+                      },
+                      "type": {
+                        "type": "string",
+                        "const": "textarea",
+                        "description": "Value for type."
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "label",
+                      "type"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Value for submission Schema option item option."
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "description": "Value for name."
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256,
+                        "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                      },
+                      "hidden": {
+                        "description": "Metadata submitted with the form, hidden from visitors and from the question list.",
+                        "type": "boolean"
+                      },
+                      "required": {
+                        "type": "boolean",
+                        "description": "Value for required."
+                      },
+                      "placeholder": {
+                        "type": "string",
+                        "maxLength": 256,
+                        "description": "Value for placeholder."
+                      },
+                      "type": {
+                        "type": "string",
+                        "const": "email",
+                        "description": "Value for type."
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "label",
+                      "type"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Value for submission Schema option item option."
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "description": "Value for name."
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256,
+                        "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                      },
+                      "hidden": {
+                        "description": "Metadata submitted with the form, hidden from visitors and from the question list.",
+                        "type": "boolean"
+                      },
+                      "required": {
+                        "type": "boolean",
+                        "description": "Value for required."
+                      },
+                      "placeholder": {
+                        "type": "string",
+                        "maxLength": 256,
+                        "description": "Value for placeholder."
+                      },
+                      "type": {
+                        "type": "string",
+                        "const": "tel",
+                        "description": "Value for type."
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "label",
+                      "type"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Value for submission Schema option item option."
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "description": "Value for name."
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256,
+                        "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                      },
+                      "hidden": {
+                        "description": "Metadata submitted with the form, hidden from visitors and from the question list.",
+                        "type": "boolean"
+                      },
+                      "required": {
+                        "type": "boolean",
+                        "description": "Value for required."
+                      },
+                      "placeholder": {
+                        "type": "string",
+                        "maxLength": 256,
+                        "description": "Value for placeholder."
+                      },
+                      "min": {
+                        "type": "number",
+                        "description": "Value for min."
+                      },
+                      "max": {
+                        "type": "number",
+                        "description": "Value for max."
+                      },
+                      "type": {
+                        "type": "string",
+                        "const": "number",
+                        "description": "Value for type."
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "label",
+                      "type"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Value for submission Schema option item option."
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "description": "Value for name."
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256,
+                        "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                      },
+                      "hidden": {
+                        "description": "Metadata submitted with the form, hidden from visitors and from the question list.",
+                        "type": "boolean"
+                      },
+                      "required": {
+                        "type": "boolean",
+                        "description": "Value for required."
+                      },
+                      "placeholder": {
+                        "type": "string",
+                        "maxLength": 256,
+                        "description": "Value for placeholder."
+                      },
+                      "options": {
+                        "minItems": 1,
+                        "maxItems": 100,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 256,
+                          "description": "Value for options item."
+                        },
+                        "description": "Value for options."
+                      },
+                      "type": {
+                        "type": "string",
+                        "const": "select",
+                        "description": "Value for type."
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "label",
+                      "options",
+                      "type"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Value for submission Schema option item option."
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "description": "Value for name."
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256,
+                        "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                      },
+                      "hidden": {
+                        "description": "Metadata submitted with the form, hidden from visitors and from the question list.",
+                        "type": "boolean"
+                      },
+                      "required": {
+                        "type": "boolean",
+                        "description": "Value for required."
+                      },
+                      "placeholder": {
+                        "type": "string",
+                        "maxLength": 256,
+                        "description": "Value for placeholder."
+                      },
+                      "type": {
+                        "type": "string",
+                        "const": "checkbox",
+                        "description": "Value for type."
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "label",
+                      "type"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Value for submission Schema option item option."
+                  }
+                ],
                 "description": "Value for submission Schema option item."
               },
               "description": "Value for submission Schema option."
@@ -57027,7 +57186,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_get_analytics",
@@ -57059,7 +57218,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_get_manifest",
@@ -57089,7 +57248,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_list_pages",
@@ -57108,7 +57267,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_page_preview",
@@ -57137,7 +57296,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_pages_set_visibility",
@@ -57183,7 +57342,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_prepare_delete",
@@ -57219,7 +57378,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_publish",
@@ -57262,7 +57421,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "site_request_upload",
@@ -57354,7 +57513,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "submit_form_submission",
@@ -57393,7 +57552,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "support_ticket_create",
@@ -57503,7 +57662,7 @@
     ],
     "risk": "write",
     "domain": "support",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "support_ticket_list",
@@ -57540,7 +57699,7 @@
     ],
     "risk": "read",
     "domain": "support",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "switch_active_bot",
@@ -57575,7 +57734,7 @@
     ],
     "risk": "write",
     "domain": "identity",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "take_chat",
@@ -57610,7 +57769,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "test_funnel_pipeline",
@@ -57650,7 +57809,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_agent_config",
@@ -58060,7 +58219,7 @@
     ],
     "risk": "write",
     "domain": "agents",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_broadcast",
@@ -58674,7 +58833,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_catalog_group",
@@ -58769,7 +58928,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_catalog_item",
@@ -59466,7 +59625,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_chain_step",
@@ -59849,7 +60008,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_client_config",
@@ -59945,7 +60104,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_event",
@@ -60424,12 +60583,12 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_knowledge",
     "title": "Update Knowledge",
-    "description": "Update an operator-authored knowledge-base entry by board (`kb_type`) and tenant-scoped `seq_num`. Send only fields you intend to change. `is_active: false` switches the entry off (the AI agent stops using it, it leaves the graph); `is_active: true` switches it back on and re-indexes it. `is_public: false` keeps it reachable only through its own link. A changed `content` is re-indexed.",
+    "description": "Update an operator-authored knowledge-base entry by board (`kb_type`) and tenant-scoped `seq_num`. Send only fields you intend to change. `is_active: false` switches the entry off (the AI agent stops using it, it leaves the graph); `is_active: true` switches it back on and re-indexes it. `is_public: false` keeps it reachable only through its own link. A changed `content` is re-indexed. Optional `prepared_step_seq_nums`: ordered chain step numbers whose ready-made messages are attached to this entry — the business's AI agent reads their text when this entry answers a customer and may send them into the chat, complete with media and buttons; the entry itself stays text. `[]` detaches them all.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -60518,7 +60677,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_legal_profile",
@@ -60827,7 +60986,7 @@
     ],
     "risk": "write",
     "domain": "legal",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_marketing_campaign",
@@ -61145,7 +61304,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_marketing_link",
@@ -61204,7 +61363,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_menu_button",
@@ -61338,7 +61497,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_menu_group",
@@ -61429,7 +61588,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_message_chain",
@@ -61470,7 +61629,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_order_status",
@@ -61692,7 +61851,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_quick_reply",
@@ -61749,7 +61908,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_saved_segment",
@@ -62140,7 +62299,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_storefront",
@@ -62202,7 +62361,7 @@
     ],
     "risk": "write",
     "domain": "storefront",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "update_team_member",
@@ -62301,7 +62460,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   },
   {
     "name": "walk_in_event_registration",
@@ -62350,6 +62509,6 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.98"
+    "platform_version": "1.0.100"
   }
 ]

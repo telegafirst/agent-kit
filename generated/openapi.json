@@ -116,7 +116,6 @@
           "ORDER_ITEM_VERSION_CONFLICT",
           "ORDER_ALREADY_PAID",
           "ORDER_CLOSED",
-          "DIALOG_MEDIA_IMPORTING",
           "CART_INACTIVE",
           "DRAFT_NOT_PENDING",
           "TENANT_ARCHIVED",
@@ -144,6 +143,7 @@
           "ONBOARDING_REQUIRED_PAID_ACCESS",
           "ONBOARDING_FIRST_PAYMENT_NOT_READY",
           "ONBOARDING_JOURNEY_ALREADY_COMPLETED",
+          "REPLACE_IN_PROGRESS",
           "SESSION_EXPIRED",
           "APPROVAL_CODE_EXPIRED",
           "PRECONDITION_FAILED",
@@ -162,6 +162,7 @@
           "SA_ANONYMOUS",
           "PAYMENT_TAX_PROFILE_MISSING",
           "VALIDATION_ERROR",
+          "VALIDATION_FAILED",
           "IDEMPOTENCY_KEY_MISMATCH",
           "ZONE_REQUIRED",
           "SITE_PATH_OUTSIDE_PUBLISHABLE_PREFIX",
@@ -225,6 +226,10 @@
           "MEDIA_TOO_MANY_FILES",
           "MEDIA_TRANSFER_TIMEOUT",
           "MEDIA_METHOD_UNSUPPORTED",
+          "CONTENT_TOPIC_NOT_CONFIGURED",
+          "CONTENT_INVALID_HTML",
+          "CONTENT_TOO_LONG",
+          "CONTENT_SOURCE_UNREADABLE",
           "PRECONDITION_REQUIRED",
           "PRICING_QUOTE_REQUIRED",
           "ETAG_REQUIRED",
@@ -2660,10 +2665,12 @@
             "exclusiveMinimum": 0
           },
           "order_number": {
-            "type": "string"
+            "type": "string",
+            "description": "Order label: Заказ №N, using this business’s order number."
           },
           "display_number": {
-            "type": "string"
+            "type": "string",
+            "description": "The same label as order_number: Заказ №N."
           },
           "status": {
             "$ref": "#/components/schemas/OrderStatus"
@@ -2693,13 +2700,13 @@
         "additionalProperties": false,
         "example": {
           "seq_num": 1042,
-          "order_number": "1042",
-          "display_number": "#1042",
+          "order_number": "Заказ №1042",
+          "display_number": "Заказ №1042",
           "status": "pending",
           "items": [
             {
               "line_no": 1,
-              "catalog_seq_num": 42,
+              "catalog_seq_num": 100,
               "title": "Consultation",
               "quantity": 1,
               "unit_amount": "1500.00",
@@ -2763,7 +2770,7 @@
         "additionalProperties": false,
         "example": {
           "line_no": 1,
-          "catalog_seq_num": 42,
+          "catalog_seq_num": 100,
           "title": "Consultation",
           "quantity": 1,
           "unit_amount": "1500.00",
@@ -5140,7 +5147,7 @@
                     "events",
                     "resources"
                   ],
-                  "description": "Which Settings-SG content topic this card belongs to."
+                  "description": "Kind of item this content belongs to: catalog item, order status, marketing campaign, broadcast, chain step, event or booking resource."
                 },
                 "intent": {
                   "type": "string",
@@ -5151,7 +5158,7 @@
                     "INITIALIZE_DELIVERY"
                   ],
                   "default": "CREATE",
-                  "description": "CREATE a new card, REPLACE existing content, RESTORE a deleted card, or INITIALIZE_DELIVERY to create the first delivery message of an existing catalog item."
+                  "description": "CREATE a new item, REPLACE the content of an existing one, RESTORE a deleted one, or INITIALIZE_DELIVERY to add the first after-purchase message to an existing catalog item."
                 },
                 "content": {
                   "type": "object",
@@ -5159,7 +5166,7 @@
                     "text": {
                       "type": "string",
                       "maxLength": 4096,
-                      "description": "Telegram HTML message text. Max 4096 chars."
+                      "description": "Message text with Telegram HTML formatting. Up to 4096 characters, or 1024 when the card has media."
                     },
                     "mediaRefs": {
                       "type": "array",
@@ -5300,11 +5307,12 @@
                           "sha256",
                           "mimeType"
                         ],
-                        "additionalProperties": false
+                        "additionalProperties": false,
+                        "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
                       },
                       "maxItems": 10,
                       "default": [],
-                      "description": "Immutable descriptors from media_finalize. URLs and bytes are forbidden."
+                      "description": "Media files exactly as media_finalize or media_import_files returned them, up to 10."
                     },
                     "sourceUrl": {
                       "type": "string",
@@ -5313,7 +5321,7 @@
                     }
                   },
                   "additionalProperties": false,
-                  "description": "Channel-agnostic content payload."
+                  "description": "The message: text, media, or a page to read the text from."
                 },
                 "config": {
                   "anyOf": [
@@ -6777,19 +6785,19 @@
                         "card",
                         "delivery"
                       ],
-                      "description": "Which content to swap — the entity's own card, or its delivery message."
+                      "description": "card: the item's own message. delivery: the message a buyer receives after purchase (catalog and marketing only)."
                     },
                     "seqId": {
                       "type": "integer",
                       "exclusiveMinimum": 0,
-                      "description": "Per-client seq of the entity to replace."
+                      "description": "seqNum of the item whose content is replaced."
                     }
                   },
                   "required": [
                     "kind"
                   ],
                   "additionalProperties": false,
-                  "description": "REPLACE / RESTORE only — which existing card to swap."
+                  "description": "REPLACE / RESTORE only — the item whose content is swapped."
                 },
                 "initializeTarget": {
                   "type": "object",
@@ -6797,19 +6805,19 @@
                     "seqId": {
                       "type": "integer",
                       "exclusiveMinimum": 0,
-                      "description": "Tenant catalog sequence receiving its first delivery message."
+                      "description": "seqNum of the catalog item that gets its first after-purchase message."
                     }
                   },
                   "required": [
                     "seqId"
                   ],
                   "additionalProperties": false,
-                  "description": "INITIALIZE_DELIVERY only; targetTopic must be catalog. Existing delivery requires REPLACE."
+                  "description": "INITIALIZE_DELIVERY only, with targetTopic catalog. An item that already has one uses REPLACE with kind delivery."
                 },
                 "waitResult": {
                   "type": "boolean",
                   "default": false,
-                  "description": "true = wait for the published entity and return its seqId; false = return the draftId immediately."
+                  "description": "true waits until the item exists and returns its seqNum; false returns a draftHandle at once, to poll with get_content_draft."
                 }
               },
               "required": [
@@ -6858,8 +6866,21 @@
                 "waitTimedOut": {
                   "type": "boolean"
                 },
-                "error": {
-                  "type": "string"
+                "failure": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "recovery": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Why the write stopped: a public error code, and recovery when the request can be corrected and sent again."
                 },
                 "autoDisabledProviders": {
                   "type": "array",
@@ -6906,13 +6927,30 @@
               "type": "string"
             }
           },
-          "error": {
-            "type": "string"
+          "failure": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "recovery": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code"
+            ],
+            "additionalProperties": false,
+            "description": "Why the write stopped: a public error code, and recovery when the request can be corrected and sent again."
           }
         },
         "required": [
           "draftHandle",
-          "status"
+          "status",
+          "failure"
         ],
         "additionalProperties": false
       },
@@ -7113,6 +7151,10 @@
               "cancelled"
             ]
           },
+          "bound": {
+            "type": "boolean",
+            "description": "Whether the content is attached to its item; true exactly when seqNum is present."
+          },
           "seqNum": {
             "type": [
               "integer",
@@ -7126,11 +7168,24 @@
               "type": "string"
             }
           },
-          "error": {
+          "failure": {
             "type": [
-              "string",
+              "object",
               "null"
-            ]
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "recovery": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code"
+            ],
+            "additionalProperties": false,
+            "description": "Why the write stopped: a public error code, and recovery when the request can be corrected and sent again."
           },
           "createdAt": {
             "type": "string",
@@ -7150,9 +7205,10 @@
           "mediaRefs",
           "sourceUrl",
           "status",
+          "bound",
           "seqNum",
           "publishedMessageIds",
-          "error",
+          "failure",
           "createdAt",
           "updatedAt"
         ],
@@ -11703,7 +11759,300 @@
               "array",
               "null"
             ],
-            "items": {},
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                    },
+                    "hidden": {
+                      "type": "boolean",
+                      "description": "Metadata submitted with the form, hidden from visitors and from the question list."
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "placeholder": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "text"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "label",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                    },
+                    "hidden": {
+                      "type": "boolean",
+                      "description": "Metadata submitted with the form, hidden from visitors and from the question list."
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "placeholder": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "textarea"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "label",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                    },
+                    "hidden": {
+                      "type": "boolean",
+                      "description": "Metadata submitted with the form, hidden from visitors and from the question list."
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "placeholder": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "email"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "label",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                    },
+                    "hidden": {
+                      "type": "boolean",
+                      "description": "Metadata submitted with the form, hidden from visitors and from the question list."
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "placeholder": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "tel"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "label",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                    },
+                    "hidden": {
+                      "type": "boolean",
+                      "description": "Metadata submitted with the form, hidden from visitors and from the question list."
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "placeholder": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "min": {
+                      "type": "number"
+                    },
+                    "max": {
+                      "type": "number"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "number"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "label",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                    },
+                    "hidden": {
+                      "type": "boolean",
+                      "description": "Metadata submitted with the form, hidden from visitors and from the question list."
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "placeholder": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "options": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256
+                      },
+                      "minItems": 1,
+                      "maxItems": 100
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "select"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "label",
+                    "options",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "description": "The full question as the visitor sees it; for hidden metadata, its readable name. Required for operators, reporting and analytics."
+                    },
+                    "hidden": {
+                      "type": "boolean",
+                      "description": "Metadata submitted with the form, hidden from visitors and from the question list."
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "placeholder": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "checkbox"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "label",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
             "maxItems": 100
           },
           "funnelAgentPrompt": {
@@ -14423,7 +14772,7 @@
               "text": {
                 "type": "string",
                 "maxLength": 4096,
-                "description": "Telegram HTML message text. Max 4096 chars."
+                "description": "Message text with Telegram HTML formatting. Up to 4096 characters, or 1024 when the card has media."
               },
               "mediaRefs": {
                 "type": "array",
@@ -14564,11 +14913,12 @@
                     "sha256",
                     "mimeType"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
                 },
                 "maxItems": 10,
                 "default": [],
-                "description": "Immutable descriptors from media_finalize. URLs and bytes are forbidden."
+                "description": "Media files exactly as media_finalize or media_import_files returned them, up to 10."
               },
               "sourceUrl": {
                 "type": "string",
@@ -44118,7 +44468,7 @@
                   "summary": "Add a product line",
                   "value": {
                     "kind": "add_line",
-                    "catalog_seq_num": 23,
+                    "catalog_seq_num": 100,
                     "quantity": 1
                   }
                 },
@@ -44161,7 +44511,7 @@
                   "$ref": "#/components/schemas/OrderCompositionApplyResponse"
                 },
                 "example": {
-                  "order_seq_num": 45,
+                  "order_seq_num": 100,
                   "order_version": "W/\"c8d8e23b45a34ae6\"",
                   "amount": "4500.00",
                   "currency": "RUB",
@@ -71033,11 +71383,12 @@
                             "sha256",
                             "mimeType"
                           ],
-                          "additionalProperties": false
+                          "additionalProperties": false,
+                          "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
                         },
                         "maxItems": 10,
                         "default": [],
-                        "description": "Immutable descriptors from media_finalize. URLs and bytes are forbidden."
+                        "description": "Media files exactly as media_finalize or media_import_files returned them, up to 10."
                       }
                     },
                     "additionalProperties": false
@@ -71199,11 +71550,12 @@
                             "sha256",
                             "mimeType"
                           ],
-                          "additionalProperties": false
+                          "additionalProperties": false,
+                          "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
                         },
                         "maxItems": 10,
                         "default": [],
-                        "description": "Immutable descriptors from media_finalize. URLs and bytes are forbidden."
+                        "description": "Media files exactly as media_finalize or media_import_files returned them, up to 10."
                       }
                     },
                     "additionalProperties": false
