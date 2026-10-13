@@ -1,4 +1,4 @@
-Generated: 2026-10-12T19:19:04.012Z
+Generated: 2026-10-13T23:31:17.691Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -121,6 +121,8 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/tools/domain/verify` _(scopes: domain:write)_ — Check the tenant zone ownership TXT record
 - `DELETE /api/v1/tools/domain/{zone}` _(scopes: domain:write)_ — Disconnect a tenant custom domain
 - `POST /api/v1/tools/site/forms` _(scopes: site:write)_ — Declare or redeclare a site form
+- `GET /api/v1/tools/site/egress-origins` _(scopes: site:read)_ — List the exact origins form destinations may be sent to
+- `PUT /api/v1/tools/site/egress-origins` _(scopes: site:write)_ — Replace the exact origins form destinations may be sent to
 - `POST /api/v1/tools/site/request-upload` _(scopes: site:write)_ — Request staged bundle upload URLs
 - `POST /api/v1/tools/site/publish` _(scopes: site:write)_ — Publish a staged site bundle
 - `POST /api/v1/tools/site/checkout-key` _(scopes: site:write)_ — Issue or rotate a browser checkout key

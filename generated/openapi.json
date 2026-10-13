@@ -12088,6 +12088,48 @@
         ],
         "additionalProperties": false
       },
+      "SiteEgressOriginsSetRequest": {
+        "type": "object",
+        "properties": {
+          "origins": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "maxItems": 50
+          }
+        },
+        "required": [
+          "origins"
+        ],
+        "additionalProperties": false
+      },
+      "SiteEgressOrigins": {
+        "type": "object",
+        "properties": {
+          "origins": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The set: canonical https://<host> origins, sorted."
+          },
+          "missingOrigins": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Origins a declared form (enabled or not) sends to that the set lacks, sorted. Each such delivery is refused without sending; add the origin, or redeclare the form without that destination."
+          }
+        },
+        "required": [
+          "origins",
+          "missingOrigins"
+        ],
+        "additionalProperties": false
+      },
       "SiteUploadRequest": {
         "type": "object",
         "properties": {
@@ -40352,10 +40394,388 @@
             }
           },
           "422": {
-            "description": "Replay key reused for different input, or afterSubmit.redirectUrl leads off the business's own hosts",
+            "description": "Replay key reused for different input; afterSubmit.redirectUrl leads off the business's own hosts; a webhook or external_api destination has no exact https origin, or its origin is not in the egress origins",
             "x-error-codes": [
               "IDEMPOTENCY_KEY_MISMATCH",
-              "FORM_REDIRECT_HOST_NOT_ALLOWED"
+              "FORM_REDIRECT_HOST_NOT_ALLOWED",
+              "INVALID_INPUT",
+              "FAILED_PRECONDITION"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Resource rate budget exceeded or unavailable",
+            "x-error-codes": [
+              "RATE_LIMIT_EXCEEDED",
+              "RATE_LIMIT_UNAVAILABLE"
+            ],
+            "headers": {
+              "Retry-After": {
+                "description": "Retry delay in seconds, when supplied by the limiter",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected internal failure",
+            "x-error-codes": [
+              "INTERNAL_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tools/site/egress-origins": {
+      "get": {
+        "operationId": "listSiteEgressOrigins",
+        "tags": [
+          "site"
+        ],
+        "summary": "List the exact origins form destinations may be sent to",
+        "description": "site:read. The tenant's exact-origin egress set: canonical https://<host> origins, sorted. A webhook or external_api form destination is delivered only to an origin in this set; an empty set admits none. missingOrigins names the origins declared forms send to that the set lacks: those deliveries are refused without sending until the origin is added.",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "x-required-scopes": [
+          "site:read"
+        ],
+        "x-scope-semantics": "ALL",
+        "x-pagination": {
+          "supported": false,
+          "queryParameters": []
+        },
+        "x-idempotency": {
+          "implementation": "none",
+          "required": false,
+          "ttlSeconds": null,
+          "replayStatus": null,
+          "conflictStatus": null,
+          "scope": []
+        },
+        "responses": {
+          "200": {
+            "description": "Tenant site control-plane result",
+            "headers": {
+              "X-Client-Slug": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Active tenant slug, when resolved"
+              },
+              "X-Bot-Username": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Active bot username, when resolved"
+              },
+              "X-RateLimit-Limit": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Effective request budget"
+              },
+              "X-RateLimit-Remaining": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Remaining request budget"
+              },
+              "X-RateLimit-Reset": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Unix window reset in seconds"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SiteEgressOrigins"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, revoked or conflicting credential; surface JWT is refused",
+            "x-error-codes": [
+              "INVALID_API_KEY"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope, prohibited publishable credential or absent active bot",
+            "x-error-codes": [
+              "INSUFFICIENT_SCOPE",
+              "PUBLISHABLE_KEY_NOT_ALLOWED",
+              "NO_ACTIVE_BOT"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Resource policy size or item-count limit exceeded",
+            "x-error-codes": [
+              "PAYLOAD_TOO_LARGE",
+              "ITEM_COUNT_EXCEEDED"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Resource rate budget exceeded or unavailable",
+            "x-error-codes": [
+              "RATE_LIMIT_EXCEEDED",
+              "RATE_LIMIT_UNAVAILABLE"
+            ],
+            "headers": {
+              "Retry-After": {
+                "description": "Retry delay in seconds, when supplied by the limiter",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected internal failure",
+            "x-error-codes": [
+              "INTERNAL_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "setSiteEgressOrigins",
+        "tags": [
+          "site"
+        ],
+        "summary": "Replace the exact origins form destinations may be sent to",
+        "description": "Owner-only site:write. The complete set, not a patch: the stored set becomes exactly the listed origins (at most 50), canonicalised (lower case, IDN to punycode, :443 dropped). Each origin is https:// plus a public DNS host, with no other port and no user, wildcard, path, query or fragment. Removing an origin a declared form still sends to is refused; redeclare that form first. site_form_declare refuses a destination whose origin is not in the set. The response is the stored set plus missingOrigins, as for GET. No secret approval gate. Idempotency-Key is optional for PUT.",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "description": "Tenant, credential and handler-bound byte-shape replay key",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "x-required-scopes": [
+          "site:write"
+        ],
+        "x-scope-semantics": "ALL",
+        "x-pagination": {
+          "supported": false,
+          "queryParameters": []
+        },
+        "x-idempotency": {
+          "implementation": "global-cache",
+          "required": false,
+          "ttlSeconds": 86400,
+          "replayStatus": 200,
+          "conflictStatus": 422,
+          "scope": [
+            "client",
+            "credential",
+            "controller-handler",
+            "key"
+          ]
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SiteEgressOriginsSetRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tenant site control-plane result",
+            "headers": {
+              "X-Client-Slug": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Active tenant slug, when resolved"
+              },
+              "X-Bot-Username": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Active bot username, when resolved"
+              },
+              "X-RateLimit-Limit": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Effective request budget"
+              },
+              "X-RateLimit-Remaining": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Remaining request budget"
+              },
+              "X-RateLimit-Reset": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Unix window reset in seconds"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SiteEgressOrigins"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid strict body",
+            "x-error-codes": [
+              "VALIDATION_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, revoked or conflicting credential; surface JWT is refused",
+            "x-error-codes": [
+              "INVALID_API_KEY"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope, prohibited publishable credential or absent active bot",
+            "x-error-codes": [
+              "INSUFFICIENT_SCOPE",
+              "PUBLISHABLE_KEY_NOT_ALLOWED",
+              "NO_ACTIVE_BOT"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Typed domain conflict or request in flight",
+            "x-error-codes": [
+              "CONFLICT"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Resource policy size or item-count limit exceeded",
+            "x-error-codes": [
+              "PAYLOAD_TOO_LARGE",
+              "ITEM_COUNT_EXCEEDED"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Replay key reused for different input; an origin is not an exact https origin of a public DNS host; or a declared form still sends to an origin the set would drop",
+            "x-error-codes": [
+              "IDEMPOTENCY_KEY_MISMATCH",
+              "INVALID_INPUT",
+              "FAILED_PRECONDITION"
             ],
             "content": {
               "application/problem+json": {
