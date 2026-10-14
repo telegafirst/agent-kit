@@ -7,7 +7,7 @@ Use this playbook to resolve an account problem before escalating it.
 - Setup looks incomplete or the bot is silent: call `get_onboarding_state` and follow its next action.
 - Payments do not arrive: call `get_payment_config`; it is secret-free.
 - A custom domain or site does not resolve: call `domain_status` and repeat its failure reason accurately.
-- Customers say nobody answered: call `list_unanswered`.
+- Customers say nobody answered: call `list_dialogs` with the filter awaiting_reply, then read the chronology of the user with `get_user_timeline`. See the operator-assistant recipe.
 - The owner asks how a feature works: call `search_docs`, then `get_doc`.
 
 State when a source has no data. Do not turn a guess into a finding.

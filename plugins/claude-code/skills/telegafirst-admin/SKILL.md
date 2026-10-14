@@ -46,7 +46,7 @@ Setup messages, warmup messages, reminders and follow-ups sent by the platform b
 
 Accept a whole product card and a separate whole delivery message: text, media-only, photos, videos, documents such as PDF, or supported albums. A photo is optional. Preserve captions, formatting, ordered media and every delivery file. Use the runtime instruction and discovered schema for `create_quest_product`; verify with `onboarding_check_test_product` and `onboarding_check_test_purchase`. The owner must make the self-purchase in their bot; only confirmed delivery and awarded results establish success.
 
-For an AI host that exposes attachments as short-lived HTTPS URLs, use `media_import_files`. A local path, invented URL, bytes or base64 is not a downloadable attachment. A host with byte access can instead use `media_request_upload`, PUT the exact declared bytes to every returned URL, then call `media_finalize` with the returned upload identifier; use `media_get_status` for recovery. Retain only returned durable mediaRefs for the content call. If your host cannot expose or upload a file, explain that specific limitation and let the owner use the web/Mini App upload. Never report upload or delivery without a confirmed result.
+For an AI host that exposes attachments as short-lived HTTPS URLs, use `media_import_files`. A local path or invented URL is not a downloadable attachment. A small file (up to 128 KiB decoded) can be passed in `sources` as `data:<mime>;base64,…` with a required byte_length and an optional `sha256`; never print base64 of a large file. A host with byte access can instead use `media_request_upload`, PUT the exact declared bytes to every returned URL (the response carries a ready `curl` command), then call `media_finalize` with the returned upload identifier; use `media_get_status` for recovery. Retain only returned durable mediaRefs for the content call. If your host cannot expose or upload a file, explain that specific limitation and let the owner use the web/Mini App upload. Never report upload or delivery without a confirmed result.
 
 ## Operating rules
 
@@ -55,11 +55,16 @@ For an AI host that exposes attachments as short-lived HTTPS URLs, use `media_im
 3. Respect the customer's timezone when scheduling. Keep messages useful, concise, and non-spammy.
 4. If `get_onboarding_state` reports a problem, follow its next action and give a concrete next step instead of abandoning the task.
 5. Do not mutate money or orders merely to experiment. Explain the proposed action and use the platform's prepared confirmation flow where the tool requires it.
+6. The bot's public profile (name, short line, the «What can this bot do?» text, profile photo) is read with `get_bot_profile` and changed with `update_bot_profile`, sending only the fields that change; the start-screen picture is changed only in @BotFather.
 
 ## Choose the work reference
 
 | Need                                                               | Read first                                                             |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+| Plan any funnel, event, booking or knowledge setup from the typical scenarios | [Plan from the playbook catalog](references/plan-from-playbooks.md) |
+| Make a funnel that moves users without button presses, with timeouts and an offer window | [Proactive auto-funnel](references/auto-funnel.md) |
+| Triage unanswered dialogs, draft replies for approval, report on operators | [Operator assistant](references/operator-assistant.md) |
+| Send one heavy file to many users | [Heavy file to many users](references/heavy-file-broadcast.md) |
 | Diagnose a silent bot, payment, domain, or unanswered conversation | [Support and operations](references/support-and-ops.md)                |
 | Build a registration-to-offer webinar funnel                       | [Webinar funnel](references/funnel-launch-webinar.md)                  |
 | Build an event funnel ending in online booking                     | [Event with online booking](references/funnel-event-online-booking.md) |

@@ -2,6 +2,13 @@
 
 ## Agent-facing changes
 
+### 1.0.23 — 2026-10-14
+
+- Каталог сценариев и блоков: `list_playbooks`, `get_playbook`, `list_blocks`, `get_block` доступны на любом тарифе с MCP; рядом с `tools.json` публикуется `generated/playbooks.json`, навык планирует воронки, события, запись и базу знаний от сценария (`references/plan-from-playbooks.md`), а проактивную автоворонку с таймаутами и окном оффера описывает `references/auto-funnel.md`.
+- Помощник оператора: `list_dialogs` (новое имя прежнего list_unanswered, окно `since` не дальше семи дней), `get_user_timeline`, `get_operator_report` и пара `prepare_reply_batch` → `execute_reply_batch` для ответов на одобрение; отказы названы точно (`REPLY_BATCH_USER_WROTE_AFTER_PREPARE`, `REPLY_BATCH_DUPLICATE_RECIPIENT`, `DIALOG_NOT_FOUND`, `REPLY_SEND_FAILED` и др.).
+- Профиль бота читается `get_bot_profile` и меняется `update_bot_profile` (имя, короткое описание, «Что умеет этот бот?», фото профиля); картинку стартового экрана меняют только в @BotFather.
+- Цепочки: `debug_chain_run` показывает путь прогона, `move_user_in_chain` переводит покупателя на шаг; тяжёлый файл многим покупателям отправляется по `references/heavy-file-broadcast.md`, а готовящийся файл отвечает `MEDIA_PREPARING` / `MEDIA_UNAVAILABLE`.
+
 ### 1.0.22 — 2026-10-10
 
 - Передача файлов через Hub: `media_import_files` / `POST /media/import` принимают `files[]` (файл хоста с download_url и file_id, например вложение ChatGPT) и `sources[]` (URL, включая файл собственного сайта бизнеса); крупный перенос идёт фоном и отвечает `importing`, статус — `media_get_status`. Отказы названы точно (`MEDIA_SOURCE_NOT_ALLOWED`, `MEDIA_TOO_LARGE` с лимитом тарифа, `MEDIA_MIME_MISMATCH` и др.), повтор после отказа источника переносит файл заново. Новое направление «скачать»: `media_get_download_link` / `GET /media/download-link?media_ref=`.

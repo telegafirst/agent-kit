@@ -31,7 +31,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "analyze_business_performance",
@@ -60,7 +60,7 @@
     ],
     "risk": "read",
     "domain": "analytics",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "assign_catalog_item_to_group",
@@ -108,7 +108,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_add_operator_note",
@@ -150,7 +150,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_assign_resource",
@@ -201,7 +201,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_cancel",
@@ -250,7 +250,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_connect_resource_calendar",
@@ -292,7 +292,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_copy_resource_schedule_month",
@@ -367,7 +367,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_create",
@@ -463,12 +463,12 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_create_resource",
     "title": "Booking Create Resource",
-    "description": "Create a booking resource (master / room / equipment). The idempotency_key is mandatory: a retry with the same key and the same fields returns the first answer and creates nothing. `slot_hold_policy` is the prepayment setting: `on_confirmation` (free — the slot is held once confirmed), `on_payment_window` (paid — the slot is held for the payment window), `on_payment` (paid — held only once paid). `chain_bindings` attach auto-funnels to the six moments (booking_confirmed, booking_reminder_24h, booking_reminder_1h, booking_attended, booking_no_show, booking_cancelled) by chain `seq_num` and optional entry-step `seq_num`. The result carries `publicUrl` (the resource's public booking page `/booking/{code}` — share it as is, never build one), `slotHoldPolicy`, the six `chainBindings` and the Google Calendar `calendar` status. `messageContentSeqNum` and `hasPhoto` describe its OWN media card. Upload/finalize the photo, then call publish_entity with targetTopic resources, config {resourceSeqNum, etag}. CREATE initializes a missing card; REPLACE with replaceTarget {kind: card, seqId: resourceSeqNum} replaces its own card.",
+    "description": "Create a booking resource (master / room / equipment). The idempotency_key is mandatory: a retry with the same key and the same fields returns the first answer and creates nothing. `slot_hold_policy` is the prepayment setting: `on_confirmation` (free — the slot is held once confirmed), `on_payment_window` (paid — the slot is held for the payment window), `on_payment` (paid — held only once paid). `chain_bindings` attach auto-funnels to the six moments (booking_confirmed, booking_reminder_24h, booking_reminder_1h, booking_attended, booking_no_show, booking_cancelled) by chain `seq_num` and optional entry-step `seq_num`. Booking reminders ARE configurable here: build the reminder as a chain (create_message_chain, then create_chain_step for its message) and bind it to `booking_reminder_24h` / `booking_reminder_1h`. The result carries `publicUrl` (the resource's public booking page `/booking/{code}` — share it as is, never build one), `slotHoldPolicy`, the six `chainBindings` and the Google Calendar `calendar` status. `messageContentSeqNum` and `hasPhoto` describe its OWN media card. Upload/finalize the photo, then call publish_entity with targetTopic resources, config {resourceSeqNum, etag}. CREATE initializes a missing card; REPLACE with replaceTarget {kind: card, seqId: resourceSeqNum} replaces its own card.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -816,7 +816,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_create_resource_schedule",
@@ -949,7 +949,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_create_service",
@@ -1188,7 +1188,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_delete_resource",
@@ -1229,7 +1229,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_delete_resource_schedule",
@@ -1277,7 +1277,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_disconnect_resource_calendar",
@@ -1319,7 +1319,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_execute_attendance",
@@ -1360,7 +1360,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_execute_confirm",
@@ -1401,7 +1401,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_execute_overbooking",
@@ -1442,7 +1442,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_execute_price",
@@ -1484,12 +1484,12 @@
     ],
     "risk": "money",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_get_resource",
     "title": "Booking Get Resource",
-    "description": "Get one booking resource by tenant-local sequence number. The result carries `publicUrl` (the resource's public booking page `/booking/{code}` — share it as is, never build one), `slotHoldPolicy`, the six `chainBindings` and the Google Calendar `calendar` status. `messageContentSeqNum` and `hasPhoto` describe its OWN media card. Upload/finalize the photo, then call publish_entity with targetTopic resources, config {resourceSeqNum, etag}. CREATE initializes a missing card; REPLACE with replaceTarget {kind: card, seqId: resourceSeqNum} replaces its own card.",
+    "description": "Get one booking resource by tenant-local sequence number. The result carries `publicUrl` (the resource's public booking page `/booking/{code}` — share it as is, never build one), `slotHoldPolicy`, the six `chainBindings` and the Google Calendar `calendar` status. `messageContentSeqNum` and `hasPhoto` describe its OWN media card. Upload/finalize the photo, then call publish_entity with targetTopic resources, config {resourceSeqNum, etag}. CREATE initializes a missing card; REPLACE with replaceTarget {kind: card, seqId: resourceSeqNum} replaces its own card. `mini_app_links` (telegram / max / vk) open this page AS the mini app for a post, a broadcast or an old bot: copy the one you need, never build one yourself. A channel the business has not connected has `url: null` and a `reason`; a page that is switched off or link-only (not volunteered) answers `page_not_published` on every channel.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -1513,7 +1513,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_get_resource_schedule",
@@ -1542,7 +1542,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_get_user_list",
@@ -1571,7 +1571,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_list",
@@ -1641,7 +1641,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_list_pending",
@@ -1676,7 +1676,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_list_resource_schedules",
@@ -1717,12 +1717,12 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_list_resources",
     "title": "Booking List Resources",
-    "description": "List the tenant's bookable resources (masters / rooms / equipment) with their `seqNum` (the id you pass to search and create), the services each one currently offers, the slot grid step, and the two reach flags: `isActive` = switched on at all, `isPublic` = offered in the shared selector (an active non-public resource is bookable ONLY by its own link, `publicUrl`). The result carries `publicUrl` (the resource's public booking page `/booking/{code}` — share it as is, never build one), `slotHoldPolicy`, the six `chainBindings` and the Google Calendar `calendar` status. `messageContentSeqNum` and `hasPhoto` describe its OWN media card. Upload/finalize the photo, then call publish_entity with targetTopic resources, config {resourceSeqNum, etag}. CREATE initializes a missing card; REPLACE with replaceTarget {kind: card, seqId: resourceSeqNum} replaces its own card. Connecting a Google Calendar is an OAuth consent only the OWNER can give, by opening the authorizeUrl returned by booking_connect_resource_calendar; the agent starts the connection and the owner approves once. Call this first — `booking_search_availability` needs a service that some resource actually offers. 0-cost read.",
+    "description": "List the tenant's bookable resources (masters / rooms / equipment) with their `seqNum` (the id you pass to search and create), the services each one currently offers, the slot grid step, and the two reach flags: `isActive` = switched on at all, `isPublic` = offered in the shared selector (an active non-public resource is bookable ONLY by its own link, `publicUrl`). The result carries `publicUrl` (the resource's public booking page `/booking/{code}` — share it as is, never build one), `slotHoldPolicy`, the six `chainBindings` and the Google Calendar `calendar` status. `messageContentSeqNum` and `hasPhoto` describe its OWN media card. Upload/finalize the photo, then call publish_entity with targetTopic resources, config {resourceSeqNum, etag}. CREATE initializes a missing card; REPLACE with replaceTarget {kind: card, seqId: resourceSeqNum} replaces its own card. Connecting a Google Calendar is an OAuth consent only the OWNER can give, by opening the authorizeUrl returned by booking_connect_resource_calendar; the agent starts the connection and the owner approves once. `mini_app_links` (telegram / max / vk) open this page AS the mini app for a post, a broadcast or an old bot: copy the one you need, never build one yourself. A channel the business has not connected has `url: null` and a `reason`; a page that is switched off or link-only (not volunteered) answers `page_not_published` on every channel. Call this first — `booking_search_availability` needs a service that some resource actually offers. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -1736,7 +1736,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_list_reviews",
@@ -1804,7 +1804,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_prepare_attendance",
@@ -1844,7 +1844,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_prepare_confirm",
@@ -1879,7 +1879,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_prepare_overbooking",
@@ -1941,7 +1941,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_prepare_price",
@@ -1983,7 +1983,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_reschedule",
@@ -2025,7 +2025,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_search_availability",
@@ -2081,7 +2081,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_set_review_visibility",
@@ -2132,12 +2132,12 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_update_resource",
     "title": "Booking Update Resource",
-    "description": "Update a booking resource with its current etag. The idempotency_key is mandatory. Sparse: an absent field — and an absent moment inside `chain_bindings` — is left as it is; `chain_seq_num: null` unbinds a moment. The result carries `publicUrl` (the resource's public booking page `/booking/{code}` — share it as is, never build one), `slotHoldPolicy`, the six `chainBindings` and the Google Calendar `calendar` status. `messageContentSeqNum` and `hasPhoto` describe its OWN media card. Upload/finalize the photo, then call publish_entity with targetTopic resources, config {resourceSeqNum, etag}. CREATE initializes a missing card; REPLACE with replaceTarget {kind: card, seqId: resourceSeqNum} replaces its own card.",
+    "description": "Update a booking resource with its current etag. The idempotency_key is mandatory. Sparse: an absent field — and an absent moment inside `chain_bindings` — is left as it is; `chain_seq_num: null` unbinds a moment. Reminders before the visit are the moments `booking_reminder_24h` and `booking_reminder_1h` of `chain_bindings`. The result carries `publicUrl` (the resource's public booking page `/booking/{code}` — share it as is, never build one), `slotHoldPolicy`, the six `chainBindings` and the Google Calendar `calendar` status. `messageContentSeqNum` and `hasPhoto` describe its OWN media card. Upload/finalize the photo, then call publish_entity with targetTopic resources, config {resourceSeqNum, etag}. CREATE initializes a missing card; REPLACE with replaceTarget {kind: card, seqId: resourceSeqNum} replaces its own card.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -2497,7 +2497,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "booking_update_resource_schedule",
@@ -2639,7 +2639,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "cancel_auto_renew",
@@ -3851,7 +3851,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "cancel_event",
@@ -3886,7 +3886,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "cancel_event_registration",
@@ -3928,7 +3928,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "check_approval",
@@ -3957,7 +3957,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "check_free_conditions",
@@ -3976,7 +3976,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "check_in_event_registration",
@@ -4018,7 +4018,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "check_out_event_registration",
@@ -4060,7 +4060,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "check_slug_availability",
@@ -4119,7 +4119,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "claim_slug",
@@ -5487,7 +5487,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "complete_event",
@@ -5522,7 +5522,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "configure_integration",
@@ -5667,7 +5667,7 @@
     ],
     "risk": "write",
     "domain": "integrations",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "configure_payment_credentials",
@@ -7293,7 +7293,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "confirm_supergroups",
@@ -7358,7 +7358,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "connect_channel",
@@ -8589,12 +8589,12 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_broadcast",
     "title": "Create Broadcast",
-    "description": "Create a rich broadcast draft in one call: give required `content` and optional structured `segment_filter`, schedule, delivery target, reply setting, TTL and button. This never sends. The declared rich-launch workflow has exactly four calls: create_broadcast, one get_content_draft poll that must return published `seqNum`, prepare_broadcast_launch, then (only after final human confirmation) execute_broadcast_launch. If that one poll is not published, stop: it is not a hidden retry budget.",
+    "description": "Create a rich broadcast draft in one call: give required `content` and optional structured `segment_filter`, schedule, delivery target, reply setting, TTL and button. This never sends. The text may address each recipient: {first_name}, {last_name}, {full_name} are filled per recipient (empty when the recipient has none); any other `{name}` is sent as written and `warnings` names it. The declared rich-launch workflow has exactly four calls: create_broadcast, one get_content_draft poll that must return published `seqNum`, prepare_broadcast_launch, then (only after final human confirmation) execute_broadcast_launch. If that one poll is not published, stop: it is not a hidden retry budget.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -9472,7 +9472,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_catalog_group",
@@ -9560,12 +9560,12 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_chain_step",
     "title": "Create Chain Step",
-    "description": "Add a step with its message to the chain `chain_seq_num`. `content` is required (text and/or `mediaRefs` from media_finalize); `title` and `delay_minutes` are optional. The first step of a chain becomes its entry point. Returns the step's `stepSeqNum`; when `waitTimedOut` is true, find the step with list_chain_steps. Set buttons, timeouts and entry state with update_chain_step; replace an existing step's message with publish_entity (intent REPLACE, replaceTarget seqId = the step seqNum).",
+    "description": "Add a step with its message to the chain `chain_seq_num`. `content` is required (text and/or `mediaRefs` from media_finalize); `title` and `delay_minutes` are optional. The first step of a chain becomes its entry point. Returns the step's `stepSeqNum`; when `waitTimedOut` is true, find the step with list_chain_steps. Set buttons, timeouts and entry state with update_chain_step; replace an existing step's message with publish_entity (intent REPLACE, replaceTarget seqId = the step seqNum). A step is reusable prepared content in two modes: a STANDALONE message (video, file, photo, instruction) the AI agent sends instead of inventing text, attached to a knowledge entry with create_knowledge(prepared_step_seq_nums); and an ENTRY into a funnel (an entry-point step): the AI sends the opening message and the whole funnel starts from it. Do not park standalone steps in a service chain with `isActive: false`: a switched-off step is never sent.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -9806,7 +9806,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_event",
@@ -9921,7 +9921,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_event_registration",
@@ -9976,7 +9976,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_export",
@@ -10041,7 +10041,7 @@
     ],
     "risk": "write",
     "domain": "export",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_forum_topic",
@@ -10086,12 +10086,12 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_knowledge",
     "title": "Create Knowledge",
-    "description": "Add a knowledge-base entry to a board (`kb_type`: manager or coach) with a title + content (≤4000 chars — one item; split longer material into several items) and optional tags. ASYNC: the entry is stored and QUEUED for graph indexing — it returns immediately with status `indexing` (poll get_knowledge until `indexed`). Returns the created entry with its assigned `seqNum`. Optional `prepared_step_seq_nums`: ordered chain step numbers whose ready-made messages are attached to this entry — the business's AI agent reads their text when this entry answers a customer and may send them into the chat, complete with media and buttons; the entry itself stays text.",
+    "description": "Add a knowledge-base entry to a board (`kb_type`: manager or coach) with a title + content (≤4000 chars — one item; split longer material into several items) and optional tags. ASYNC: the entry is stored and QUEUED for graph indexing — it returns immediately with status `indexing` (poll get_knowledge until `indexed`). Returns the created entry with its assigned `seqNum`. Optional `prepared_step_seq_nums`: ordered chain step numbers whose ready-made messages are attached to this entry — the business's AI agent reads their text when this entry answers a customer and may send them into the chat, complete with media and buttons; the entry itself stays text. A step works in one of two modes: a standalone message (the step is active, its content is live, it has no delay) is sent as that one message; a chain entry step (`is_entry_point: true`) sends its start message and starts the whole chain. Create the step with create_chain_step first; do not park prepared messages in a switched-off service chain (`is_active: false`) — a switched-off step is never sent.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -10159,7 +10159,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_marketing_campaign",
@@ -10505,7 +10505,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_marketing_link",
@@ -10581,7 +10581,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_menu_button",
@@ -10661,7 +10661,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_menu_group",
@@ -10725,7 +10725,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_message_chain",
@@ -10760,7 +10760,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_order",
@@ -11038,7 +11038,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_order_status",
@@ -11228,7 +11228,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_quest_product",
@@ -12818,7 +12818,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_quick_reply",
@@ -12870,7 +12870,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_quick_site",
@@ -12960,7 +12960,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_saved_segment",
@@ -13339,7 +13339,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "create_session",
@@ -13409,7 +13409,48 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "debug_chain_run",
+    "title": "Debug Chain Run",
+    "description": "Debug one customer's message-chain runs, newest first (up to 10). Each run shows its chain, status, entry step, the current step with the moment it was entered, the step timer (`timeoutMinutes`, `timeoutNextStepSeqNum`, `conditional`), `timer.dueAt` — when the timeout is owed — `timer.firesAt` — the minute tick (its `:00` boundary) that moves the run on — and `timer.reason`: `timer_armed` (fires at a later tick), `fires_on_next_tick` (fires at the very next tick), `timer_overdue` (already due; the next tick moves it), `waiting_offer_delivery` (a conditional timer starts when the offer card reaches the private chat), `timer_skipped_by_purchase`, `step_has_no_timeout`, `timeout_target_missing` (target step absent, deleted or switched off), `run_not_active`. It also lists the last transitions with their actor. A customer with no run in the asked chain gets `noRun`: `no_run`, or `step_not_entry_point` — a step that is not an entry point shows its card without a run, so no timer exists; start the funnel at an entry step or move the customer with move_user_in_chain. `user_seq_num` is the customer's seqNum; `chain_seq_num` / `step_seq_num` narrow the read. 0-cost read.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "user_seq_num": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991,
+          "description": "Value for user seq num."
+        },
+        "chain_seq_num": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991,
+          "description": "Value for chain seq num."
+        },
+        "step_seq_num": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991,
+          "description": "Value for step seq num."
+        }
+      },
+      "required": [
+        "user_seq_num"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "chains:read",
+    "required_scopes": [
+      "chains:read"
+    ],
+    "risk": "read",
+    "domain": "chains",
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_broadcast",
@@ -13444,7 +13485,7 @@
     ],
     "risk": "destructive",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_catalog_group",
@@ -13479,7 +13520,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_catalog_item",
@@ -13514,7 +13555,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_chain_step",
@@ -13556,7 +13597,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_event",
@@ -13591,7 +13632,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_forum_topic_message",
@@ -13632,7 +13673,7 @@
     ],
     "risk": "destructive",
     "domain": "topics",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_integration",
@@ -13669,7 +13710,7 @@
     ],
     "risk": "destructive",
     "domain": "integrations",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_knowledge",
@@ -13713,7 +13754,7 @@
     ],
     "risk": "destructive",
     "domain": "kb",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_marketing_campaign",
@@ -13748,7 +13789,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_marketing_link",
@@ -13783,7 +13824,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_menu_button",
@@ -13818,7 +13859,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_menu_group",
@@ -13853,7 +13894,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_message_chain",
@@ -13888,7 +13929,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_order_status",
@@ -13923,7 +13964,7 @@
     ],
     "risk": "destructive",
     "domain": "statuses",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_quick_reply",
@@ -13958,7 +13999,7 @@
     ],
     "risk": "destructive",
     "domain": "quick-replies",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "delete_saved_segment",
@@ -14000,7 +14041,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "describe_segment_axes",
@@ -14019,7 +14060,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "describe_tool",
@@ -14088,7 +14129,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "disable_payment_provider",
@@ -14132,7 +14173,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "discover_supergroups",
@@ -14162,7 +14203,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "domain_add_request",
@@ -14207,7 +14248,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "domain_execute_unlink",
@@ -14248,7 +14289,7 @@
     ],
     "risk": "destructive",
     "domain": "domain",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "domain_prepare_unlink",
@@ -14285,7 +14326,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "domain_status",
@@ -14313,7 +14354,7 @@
     ],
     "risk": "read",
     "domain": "domain",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "domain_verify",
@@ -14350,7 +14391,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "edit_forum_topic_message",
@@ -14475,7 +14516,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "enable_payment_provider",
@@ -14519,7 +14560,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "exchange_session_approval_code",
@@ -14553,7 +14594,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "execute_admin_read",
@@ -14594,7 +14635,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "execute_admin_write",
@@ -14635,7 +14676,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "execute_broadcast_launch",
@@ -14676,7 +14717,7 @@
     ],
     "risk": "money",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "execute_chain_batch_entry",
@@ -14717,7 +14758,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "execute_manual_sale",
@@ -14758,7 +14799,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "execute_order_composition_change",
@@ -14799,7 +14840,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "execute_order_status_change",
@@ -14840,7 +14881,48 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "execute_reply_batch",
+    "title": "Execute Reply Batch",
+    "description": "Send exactly the batch prepared by prepare_reply_batch: each reply answers that customer's last message, and the team sees a copy in the dialog. Sending never takes over a chat. Each item reports its own result; REPLY_DELIVERY_UNCONFIRMED means the message may still arrive — do not send it again; REPLY_IN_PROGRESS means the reply had not started when the answer was due and is still going out — call again with the same preparation later to read its result; REPLY_BATCH_USER_WROTE_AFTER_PREPARE means the customer wrote again, so read the conversation and prepare a new reply. Repeating the call with the same preparation returns the same results and sends only the replies that were refused. A file still being prepared refuses the call without sending anything; repeat it in a minute. Call this tool only after final human confirmation of the prepared scenario.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "preparation_id": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+          "description": "Value for preparation id."
+        },
+        "payload_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "Value for payload hash."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
+      "required": [
+        "preparation_id",
+        "payload_hash"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "dialogs:write",
+    "required_scopes": [
+      "dialogs:write"
+    ],
+    "risk": "write",
+    "domain": "dialogs",
+    "platform_version": "1.0.107"
   },
   {
     "name": "execute_send_invoice",
@@ -14881,7 +14963,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "export_form_submissions_normalized",
@@ -14936,7 +15018,7 @@
     ],
     "risk": "write",
     "domain": "pull",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_active_bot",
@@ -14955,7 +15037,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_agent_config",
@@ -14974,7 +15056,7 @@
     ],
     "risk": "read",
     "domain": "agents",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_billing_state",
@@ -16179,12 +16261,78 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "get_block",
+    "title": "Get Block",
+    "description": "Get one block by id from list_blocks: tools in call order with required fields, how it joins neighbouring blocks (in and out) and its settings. Read-only. Args: id; optional locale ru|en.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "description": "Id taken from the matching list_* answer."
+        },
+        "locale": {
+          "description": "Answer language, ru or en. Omit to use the business language.",
+          "type": "string",
+          "enum": [
+            "ru",
+            "en"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "platform:read",
+    "required_scopes": [
+      "platform:read"
+    ],
+    "risk": "read",
+    "domain": "platform",
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "get_bot_profile",
+    "title": "Get Bot Profile",
+    "description": "Read the public profile of the business's own Telegram bot as users see it: `name`, `about` (the short line in the bot profile) and `description` (the text of the «What can this bot do?» block on the start screen), with their limits. `languageCode` (`ru`, `en` or `default`) picks the localization; omitted = the business language. `default` is the text everyone sees who has no dedicated one. The platform never changes these fields by itself. The start-screen picture or GIF and the current profile photo cannot be read; `botfatherOnly` says what is changed only in @BotFather. If Telegram no longer accepts the bot's token (`BOT_TOKEN_REVOKED`), the bot must be connected again. 0-cost read.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "languageCode": {
+          "type": "string",
+          "enum": [
+            "ru",
+            "en",
+            "default"
+          ],
+          "description": "Value for language Code."
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "client-config:read",
+    "required_scopes": [
+      "client-config:read"
+    ],
+    "risk": "read",
+    "domain": "client-config",
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_broadcast_status",
     "title": "Get Broadcast Status",
-    "description": "Poll a broadcast by `seqNum`: returns its engine-driven status (draft/scheduled/sending/completed/failed/cancelled) and the latest execution progress (recipients/sent/failed), or null execution if it was never launched. Use after execute_broadcast_launch to watch a launch to completion. 0-cost read.",
+    "description": "Poll a broadcast by `seqNum`: returns its engine-driven status (draft/scheduled/sending/completed/failed/cancelled) and the latest execution progress (recipients/sent/failed), or null execution if it was never launched, plus `massSendReady`/`massSendState`: launch only when massSendReady is true — `preparing` means the content is not published yet, `unavailable` means its file belongs to another bot and the content must be published again. Use after execute_broadcast_launch to watch a launch to completion. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -16208,12 +16356,12 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_catalog",
     "title": "Get Catalog",
-    "description": "List all live catalog items (cursor-paginated; deleted excluded) with reach pair `is_active`/`is_public`: `is_active:false` = off, sold by nothing; both true = in the showcase, offer freely; `is_public:false` = link-only, never volunteer it. `public_url` is the ready storefront page to share (null while the item is off or link-only). `zone` (ru/com) selects price presentation and the public_url domain, default ru.",
+    "description": "List all live catalog items (cursor-paginated; deleted excluded) with reach pair `is_active`/`is_public`: `is_active:false` = off, sold by nothing; both true = in the showcase, offer freely; `is_public:false` = link-only, never volunteer it. `public_url` is the ready storefront page to share (null while the item is off or link-only). `mini_app_links` (telegram / max / vk) open this page AS the mini app for a post, a broadcast or an old bot: copy the one you need, never build one yourself. A channel the business has not connected has `url: null` and a `reason`; a page that is switched off or link-only (not volunteered) answers `page_not_published` on every channel. `zone` (ru/com) selects price presentation and the public_url domain, default ru.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -16513,6 +16661,155 @@
                 "type": "string",
                 "format": "date-time",
                 "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+              },
+              "mini_app_links": {
+                "type": "object",
+                "properties": {
+                  "telegram": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "reason": {
+                            "type": "null"
+                          }
+                        },
+                        "required": [
+                          "url",
+                          "reason"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "null"
+                          },
+                          "reason": {
+                            "type": "string",
+                            "enum": [
+                              "channel_not_connected",
+                              "channel_surface_not_native",
+                              "mini_app_not_opened",
+                              "page_not_published",
+                              "page_not_addressed",
+                              "page_on_other_host",
+                              "platform_app_not_configured"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "url",
+                          "reason"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "max": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "reason": {
+                            "type": "null"
+                          }
+                        },
+                        "required": [
+                          "url",
+                          "reason"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "null"
+                          },
+                          "reason": {
+                            "type": "string",
+                            "enum": [
+                              "channel_not_connected",
+                              "channel_surface_not_native",
+                              "mini_app_not_opened",
+                              "page_not_published",
+                              "page_not_addressed",
+                              "page_on_other_host",
+                              "platform_app_not_configured"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "url",
+                          "reason"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "vk": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "reason": {
+                            "type": "null"
+                          }
+                        },
+                        "required": [
+                          "url",
+                          "reason"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "null"
+                          },
+                          "reason": {
+                            "type": "string",
+                            "enum": [
+                              "channel_not_connected",
+                              "channel_surface_not_native",
+                              "mini_app_not_opened",
+                              "page_not_published",
+                              "page_not_addressed",
+                              "page_on_other_host",
+                              "platform_app_not_configured"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "url",
+                          "reason"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "telegram",
+                  "max",
+                  "vk"
+                ],
+                "additionalProperties": false
               }
             },
             "required": [
@@ -16527,7 +16824,8 @@
               "requires_postal_code",
               "public_url",
               "buy_url",
-              "updated_at"
+              "updated_at",
+              "mini_app_links"
             ],
             "additionalProperties": false
           }
@@ -16580,7 +16878,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_catalog_group",
@@ -16609,12 +16907,12 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_catalog_item",
     "title": "Get Catalog Item",
-    "description": "Read one catalog item by seq_id; the response carries the `etag` you pass to update it, its `groups`, `public_url` (storefront page, null while off or link-only) and `delivery` — what the buyer receives after payment: `{message_content_seq_num, kind}` or null. To set or replace the delivery (text, a file via mediaRefs, or a link in the text) call publish_entity with targetTopic 'catalog', intent 'REPLACE', replaceTarget {kind:'delivery', seqId}. `zone` (ru/com) selects price presentation, default ru.",
+    "description": "Read one catalog item by seq_id; the response carries the `etag` you pass to update it, its `groups`, `public_url` (storefront page, null while off or link-only), `mini_app_links` (the same page as the Telegram / MAX / VK mini app: copy, never build) and `delivery` — what the buyer receives after payment: `{message_content_seq_num, kind}` or null. To set or replace the delivery (text, a file via mediaRefs, or a link in the text) call publish_entity with targetTopic 'catalog', intent 'REPLACE', replaceTarget {kind:'delivery', seqId}. `zone` (ru/com) selects price presentation, default ru.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -16646,7 +16944,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_catalog_topic_link",
@@ -16665,12 +16963,12 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_chain_step",
     "title": "Get Chain Step",
-    "description": "Read one chain step by tenant-local chain_seq_num and step_seq_num. Returns complete configuration, contentAvailable and the existing opaque deeplinkCode/publicUrl for this exact step. Publish content with publish_entity.",
+    "description": "Read one chain step by tenant-local chain_seq_num and step_seq_num. Returns complete configuration, contentAvailable, the message `text` and `media` (type, mime, fileName, sizeBytes of each file; a published file carries no mediaRef, so to reuse it upload it again) and the existing opaque deeplinkCode/publicUrl for this exact step. Publish content with publish_entity.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -16701,7 +16999,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_client_config",
@@ -16798,7 +17096,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_content_draft",
@@ -17104,7 +17402,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_conversation",
@@ -17133,7 +17431,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_customer",
@@ -17162,7 +17460,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_data_dictionary",
@@ -17181,7 +17479,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_doc",
@@ -17220,7 +17518,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_entitlements",
@@ -17248,12 +17546,12 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_event",
     "title": "Get Event",
-    "description": "Read one event by `seqNum`: everything list_events returns, plus `description` (the card text the event was published with), `media` (each attachment's type, file name and size) and `qr` — a signed PNG URL with its `expiresAt` for each of the registration, check-in and check-out links (each URL expires about 15 minutes after the call). 0-cost read. Errors NOT_FOUND for a seqNum this tenant does not have.",
+    "description": "Read one event by `seqNum`: everything list_events returns, plus `description` (the card text the event was published with), `media` (each attachment's type, file name and size) and `qr` — a signed PNG URL with its `expiresAt` for each of the registration, check-in and check-out links (each URL expires about 15 minutes after the call). `mini_app_links` (telegram / max / vk) open this page AS the mini app for a post, a broadcast or an old bot: copy the one you need, never build one yourself. A channel the business has not connected has `url: null` and a `reason`; a page that is switched off or link-only (not volunteered) answers `page_not_published` on every channel. 0-cost read. Errors NOT_FOUND for a seqNum this tenant does not have.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -17277,7 +17575,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_event_registration",
@@ -17306,7 +17604,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_form_submission",
@@ -17342,7 +17640,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_knowledge",
@@ -17380,7 +17678,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_legal_profile",
@@ -17399,7 +17697,7 @@
     ],
     "risk": "read",
     "domain": "legal",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_menu_button",
@@ -17428,7 +17726,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_menu_group",
@@ -17457,7 +17755,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_message_stats",
@@ -17476,12 +17774,12 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_onboarding_state",
     "title": "Get Onboarding State",
-    "description": "Read onboarding progress and the next action for the current business.",
+    "description": "Read onboarding progress and the next action for the current business. Takes only the optional `src` (lowercase letters, digits, `_` and `-`, up to 64) and `intent`; any other key is refused by name.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -20278,7 +20576,287 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "get_operator_report",
+    "title": "Get Operator Report",
+    "description": "Report how your team handled dialogs in a window ('24h', '7d' default, '30d'): per operator by name and @username, dialogs taken, time from a customer's call to taking it, time to the first message, median and p90 reply time, and who waits for them now; plus open calls nobody took yet. Judge reply quality by reading get_user_timeline.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "window": {
+          "type": "string",
+          "enum": [
+            "24h",
+            "7d",
+            "30d"
+          ],
+          "description": "Value for window."
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "since": {
+          "type": "string"
+        },
+        "until": {
+          "type": "string"
+        },
+        "operators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "operator": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "operator"
+                      },
+                      "name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "username": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "name",
+                      "username"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "agent"
+                      },
+                      "credentialKind": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "credentialKind"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "dialogs": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              "timeToTake": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "count": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      },
+                      "medianSeconds": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      },
+                      "p90Seconds": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      }
+                    },
+                    "required": [
+                      "count",
+                      "medianSeconds",
+                      "p90Seconds"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "firstResponse": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "count": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      },
+                      "medianSeconds": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      },
+                      "p90Seconds": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      }
+                    },
+                    "required": [
+                      "count",
+                      "medianSeconds",
+                      "p90Seconds"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "response": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "count": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      },
+                      "medianSeconds": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      },
+                      "p90Seconds": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      }
+                    },
+                    "required": [
+                      "count",
+                      "medianSeconds",
+                      "p90Seconds"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "awaitingNow": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "userSeqNum": {
+                      "type": "integer",
+                      "minimum": -9007199254740991,
+                      "maximum": 9007199254740991
+                    },
+                    "waitedSeconds": {
+                      "type": "integer",
+                      "minimum": -9007199254740991,
+                      "maximum": 9007199254740991
+                    }
+                  },
+                  "required": [
+                    "userSeqNum",
+                    "waitedSeconds"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "operator",
+              "dialogs",
+              "timeToTake",
+              "firstResponse",
+              "response",
+              "awaitingNow"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "unassignedWaiting": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "userSeqNum": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              "inquirySeqNum": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              "waitedSeconds": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "userSeqNum",
+              "inquirySeqNum",
+              "waitedSeconds"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "since",
+        "until",
+        "operators",
+        "unassignedWaiting",
+        "truncated"
+      ],
+      "additionalProperties": false
+    },
+    "scope": "dialogs:read",
+    "required_scopes": [
+      "dialogs:read"
+    ],
+    "risk": "read",
+    "domain": "dialogs",
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_payment_config",
@@ -20297,7 +20875,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_plan_checkout_link",
@@ -20316,7 +20894,44 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "get_playbook",
+    "title": "Get Playbook",
+    "description": "Get one scenario by id from list_playbooks: ordered blocks with roles, branches, finals, pitfalls, self-check and an example chain that passes the chain-step schema. Read-only. Args: id; optional locale ru|en.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "description": "Id taken from the matching list_* answer."
+        },
+        "locale": {
+          "description": "Answer language, ru or en. Omit to use the business language.",
+          "type": "string",
+          "enum": [
+            "ru",
+            "en"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "platform:read",
+    "required_scopes": [
+      "platform:read"
+    ],
+    "risk": "read",
+    "domain": "platform",
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_saved_segment",
@@ -20345,7 +20960,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_session_status",
@@ -20415,7 +21030,7 @@
     ],
     "risk": "read",
     "domain": "sessions",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_skill",
@@ -20450,7 +21065,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_storefront",
@@ -20469,7 +21084,7 @@
     ],
     "risk": "read",
     "domain": "storefront",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_subscription_status",
@@ -20497,7 +21112,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_token_billing",
@@ -20516,7 +21131,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "get_token_topup_link",
@@ -20535,7 +21150,284 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "get_user_timeline",
+    "title": "Get User Timeline",
+    "description": "Read one customer's history by userSeqNum as a time-ordered feed: messages with their author, products and events opened, orders and their statuses, calls for an operator, who took and released the dialog, and chat status changes. Entities read as [seq] «title»; each line is in your team's language; a reply carries how long the other side waited. from/to are ISO times (default: the last seven days); pass nextCursor to read further.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "userSeqNum": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991,
+          "description": "Value for user Seq Num."
+        },
+        "from": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+          "description": "Value for from."
+        },
+        "to": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+          "description": "Value for to."
+        },
+        "cursor": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512,
+          "description": "Value for cursor."
+        }
+      },
+      "required": [
+        "userSeqNum"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "userSeqNum": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "chatStatus": {
+          "type": "string"
+        },
+        "awaiting": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "side": {
+                  "type": "string",
+                  "enum": [
+                    "operator",
+                    "user"
+                  ]
+                },
+                "sinceAt": {
+                  "type": "string"
+                },
+                "waitedSeconds": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                }
+              },
+              "required": [
+                "side",
+                "sinceAt",
+                "waitedSeconds"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "at": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "message",
+                  "event",
+                  "order_status",
+                  "chat_taken",
+                  "chat_released"
+                ]
+              },
+              "text": {
+                "type": "string"
+              },
+              "author": {
+                "type": "string"
+              },
+              "messageSeqNum": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              "event": {
+                "type": "string"
+              },
+              "entity": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "product",
+                      "order",
+                      "event",
+                      "chain",
+                      "broadcast",
+                      "campaign",
+                      "booking"
+                    ]
+                  },
+                  "seq": {
+                    "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991
+                  },
+                  "title": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "seq",
+                  "title",
+                  "label"
+                ],
+                "additionalProperties": false
+              },
+              "operator": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "operator"
+                      },
+                      "name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "username": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "name",
+                      "username"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "agent"
+                      },
+                      "credentialKind": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "credentialKind"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "waitedSeconds": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "at",
+              "kind",
+              "text"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "userSeqNum",
+        "name",
+        "chatStatus",
+        "awaiting",
+        "from",
+        "to",
+        "entries",
+        "nextCursor"
+      ],
+      "additionalProperties": false
+    },
+    "scope": "dialogs:read",
+    "required_scopes": [
+      "dialogs:read"
+    ],
+    "risk": "read",
+    "domain": "dialogs",
+    "platform_version": "1.0.107"
   },
   {
     "name": "init_managed_bot",
@@ -20561,7 +21453,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "invite_team_member",
@@ -20655,7 +21547,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "issue_api_key",
@@ -20759,7 +21651,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "link_anonymous_order",
@@ -20801,7 +21693,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_accessible_bots",
@@ -20820,7 +21712,35 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "list_blocks",
+    "title": "List Blocks",
+    "description": "List the building blocks scenarios are made of (chain step with its three axes, quiz, CRM form, knowledge-base prepared message, product and offer, event, online booking, site and page, bot profile) and the tools each uses. Read-only. Args: optional locale ru|en.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "locale": {
+          "description": "Answer language, ru or en. Omit to use the business language.",
+          "type": "string",
+          "enum": [
+            "ru",
+            "en"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "platform:read",
+    "required_scopes": [
+      "platform:read"
+    ],
+    "risk": "read",
+    "domain": "platform",
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_broadcasts",
@@ -20839,7 +21759,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_catalog_groups",
@@ -20858,7 +21778,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_chain_runs",
@@ -20890,12 +21810,12 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_chain_steps",
     "title": "List Chain Steps",
-    "description": "List steps of one message chain. Every result carries tenant-local `seqNum`; pass that number (never a database id) to update or delete a step. Use get_chain_step for one step. Each step exposes its registry deeplinkCode/publicUrl, contentAvailable, and also returns its message `text` (null for media-only), `hasMessage` (false = the step is never delivered) and, for an entry point, `entryUrl` — the ready public link that starts the chain at that step; share it as is. 0-cost read.",
+    "description": "List ALL steps of one message chain: `chain_seq_num` is the only parameter, there is no paging, and any other key is ignored and named in `ignoredFields`. Every result carries tenant-local `seqNum`; pass that number (never a database id) to update or delete a step. Use get_chain_step for one step. Each step exposes its registry deeplinkCode/publicUrl, contentAvailable, and also returns its message `text` (null for media-only), `media` (the message files: type, mime, fileName, sizeBytes), `hasMessage` (false = the step is never delivered) and, for an entry point, `entryUrl` — the ready public link that starts the chain at that step; share it as is. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -20910,7 +21830,7 @@
       "required": [
         "chain_seq_num"
       ],
-      "additionalProperties": false
+      "additionalProperties": {}
     },
     "outputSchema": null,
     "scope": "chains:read",
@@ -20919,7 +21839,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_connections",
@@ -20994,7 +21914,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_customers",
@@ -21026,7 +21946,352 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "list_dialogs",
+    "title": "List Dialogs",
+    "description": "List customer dialogs active in a window (window '24h' default or '7d', or since an ISO time at most seven days back) plus every open call for an operator. Each dialog has userSeqNum, name, chatStatus, the last customer and team message times, who waits for whom and how long, the open inquiry, the open order, cart items and products viewed. filter: awaiting_reply (the customer waits for you, longest wait first), awaiting_user, with_open_order, all. Pass nextCursor to read the next page.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "window": {
+          "type": "string",
+          "enum": [
+            "24h",
+            "7d"
+          ],
+          "description": "Value for window."
+        },
+        "since": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+          "description": "Value for since."
+        },
+        "filter": {
+          "type": "string",
+          "enum": [
+            "awaiting_reply",
+            "awaiting_user",
+            "with_open_order",
+            "all"
+          ],
+          "description": "Value for filter."
+        },
+        "cursor": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512,
+          "description": "Value for cursor."
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "since": {
+          "type": "string"
+        },
+        "until": {
+          "type": "string"
+        },
+        "filter": {
+          "type": "string",
+          "enum": [
+            "awaiting_reply",
+            "awaiting_user",
+            "with_open_order",
+            "all"
+          ]
+        },
+        "dialogs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "userSeqNum": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "chatStatus": {
+                "type": "string"
+              },
+              "lastUserMessageAt": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "lastUserMessageText": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "lastOperatorMessageAt": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "lastReplyAt": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "awaiting": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "side": {
+                        "type": "string",
+                        "enum": [
+                          "operator",
+                          "user"
+                        ]
+                      },
+                      "sinceAt": {
+                        "type": "string"
+                      },
+                      "waitedSeconds": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      }
+                    },
+                    "required": [
+                      "side",
+                      "sinceAt",
+                      "waitedSeconds"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "openInquirySeqNum": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "openOrder": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "seq": {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "string"
+                      },
+                      "currency": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "seq",
+                      "label",
+                      "status",
+                      "amount",
+                      "currency"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "cartItems": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "product",
+                        "order",
+                        "event",
+                        "chain",
+                        "broadcast",
+                        "campaign",
+                        "booking"
+                      ]
+                    },
+                    "seq": {
+                      "type": "integer",
+                      "minimum": -9007199254740991,
+                      "maximum": 9007199254740991
+                    },
+                    "title": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "seq",
+                    "title",
+                    "label"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "viewedProducts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "product",
+                        "order",
+                        "event",
+                        "chain",
+                        "broadcast",
+                        "campaign",
+                        "booking"
+                      ]
+                    },
+                    "seq": {
+                      "type": "integer",
+                      "minimum": -9007199254740991,
+                      "maximum": 9007199254740991
+                    },
+                    "title": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "seq",
+                    "title",
+                    "label"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "userSeqNum",
+              "name",
+              "chatStatus",
+              "lastUserMessageAt",
+              "lastUserMessageText",
+              "lastOperatorMessageAt",
+              "lastReplyAt",
+              "awaiting",
+              "openInquirySeqNum",
+              "openOrder",
+              "cartItems",
+              "viewedProducts"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "since",
+        "until",
+        "filter",
+        "dialogs",
+        "nextCursor",
+        "truncated"
+      ],
+      "additionalProperties": false
+    },
+    "scope": "dialogs:read",
+    "required_scopes": [
+      "dialogs:read"
+    ],
+    "risk": "read",
+    "domain": "dialogs",
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_event_registrations",
@@ -21063,12 +22328,12 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_events",
     "title": "List Events",
-    "description": "List the tenant events. Returns each with its `seqNum` (the id you pass to update/delete/get_event/set_event_phase/complete_event), title, phase (draft/registration/registration_closed/started/completed/cancelled), capacity, target, reach (`isActive`/`isPublic`), online format (`isOnline`), notification flags, `address` / `streamUrl` (null when unset), `startAt`/`endAt` (UTC instants) with the `timezone` time inputs are read in (the event's own zone when `hasOwnTimezone` is true, else the business timezone), the automation bindings with their timing (`chains`: the reminder_24h / reminder_1h pairs and the four *OffsetMinutes), and ready links: `publicUrl` (the storefront event page, shown while the event is on and public), `registrationUrl`, `checkinUrl`, `checkoutUrl` (the landings the platform QR cards encode). Card text, media and QR images come from get_event. 0-cost read.",
+    "description": "List the tenant events. Returns each with its `seqNum` (the id you pass to update/delete/get_event/set_event_phase/complete_event), title, phase (draft/registration/registration_closed/started/completed/cancelled), capacity, target, reach (`isActive`/`isPublic`), online format (`isOnline`), notification flags, `address` / `streamUrl` (null when unset), `startAt`/`endAt` (UTC instants) with the `timezone` time inputs are read in (the event's own zone when `hasOwnTimezone` is true, else the business timezone), the automation bindings with their timing (`chains`: the reminder_24h / reminder_1h pairs and the four *OffsetMinutes), and ready links: `publicUrl` (the storefront event page, shown while the event is on and public), `registrationUrl`, `checkinUrl`, `checkoutUrl` (the landings the platform QR cards encode). `mini_app_links` (telegram / max / vk) open this page AS the mini app for a post, a broadcast or an old bot: copy the one you need, never build one yourself. A channel the business has not connected has `url: null` and a `reason`; a page that is switched off or link-only (not volunteered) answers `page_not_published` on every channel. Card text, media and QR images come from get_event. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -21082,7 +22347,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_forum_topics",
@@ -21101,7 +22366,7 @@
     ],
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_integrations",
@@ -21120,7 +22385,7 @@
     ],
     "risk": "read",
     "domain": "integrations",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_knowledge",
@@ -21139,7 +22404,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_marketing_campaigns",
@@ -21158,7 +22423,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_marketing_links",
@@ -21177,7 +22442,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_menu_buttons",
@@ -21196,7 +22461,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_menu_groups",
@@ -21215,7 +22480,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_message_chains",
@@ -21234,7 +22499,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_order_statuses",
@@ -21253,7 +22518,7 @@
     ],
     "risk": "read",
     "domain": "statuses",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_payment_rows",
@@ -21285,7 +22550,35 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "list_playbooks",
+    "title": "List Playbooks",
+    "description": "List typical funnel scenarios (webinar or event, consultation, tripwire, marathon): goal and the blocks each is built from. Call before building anything, pick the closest, then get_playbook. Read-only. Args: optional locale ru|en (business language by default).",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "locale": {
+          "description": "Answer language, ru or en. Omit to use the business language.",
+          "type": "string",
+          "enum": [
+            "ru",
+            "en"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "platform:read",
+    "required_scopes": [
+      "platform:read"
+    ],
+    "risk": "read",
+    "domain": "platform",
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_quick_replies",
@@ -21304,7 +22597,7 @@
     ],
     "risk": "read",
     "domain": "quick-replies",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_saved_segments",
@@ -21340,7 +22633,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_segment_targets",
@@ -21403,7 +22696,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "list_team_members",
@@ -21422,84 +22715,7 @@
     ],
     "risk": "read",
     "domain": "team",
-    "platform_version": "1.0.104"
-  },
-  {
-    "name": "list_unanswered",
-    "title": "List Unanswered",
-    "description": "List waiting dialogs with userSeqNum, inquirySeqNum and the last user message. Includes intercepted chats.",
-    "inputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {},
-      "additionalProperties": false
-    },
-    "outputSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "dialogs": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "userSeqNum": {
-                "type": "integer",
-                "minimum": -9007199254740991,
-                "maximum": 9007199254740991
-              },
-              "inquirySeqNum": {
-                "type": "integer",
-                "minimum": -9007199254740991,
-                "maximum": 9007199254740991
-              },
-              "lastMessageText": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "lastMessageAt": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "createdAt": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "userSeqNum",
-              "inquirySeqNum",
-              "lastMessageText",
-              "lastMessageAt",
-              "createdAt"
-            ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "required": [
-        "dialogs"
-      ],
-      "additionalProperties": false
-    },
-    "scope": "dialogs:read",
-    "required_scopes": [
-      "dialogs:read"
-    ],
-    "risk": "read",
-    "domain": "dialogs",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "load_domain",
@@ -21584,7 +22800,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "manage_message",
@@ -22271,7 +23487,7 @@
     ],
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "manage_pricing_rules",
@@ -24015,7 +25231,7 @@
     ],
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "mark_paid",
@@ -24079,12 +25295,12 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "media_finalize",
     "title": "Media Finalize",
-    "description": "Step 2 of 2 — close an upload and get the media references to publish with. PREREQUISITE: every declared byte was PUT to its returned write-once URL. Returns one `mediaRef` per file that actually landed — pass those verbatim as media on a publish tool; they are storage references, not links, and the platform signs a fresh fetchable URL at send time. Also returns `albumSendable`: when false the files cannot travel as ONE Telegram album (only photos and videos mix; documents ride alone) and must be published separately. Fails if nothing was uploaded.",
+    "description": "Step 2 of 2 — close an upload and get the media references to publish with. PREREQUISITE: every declared byte was PUT to its returned write-once URL. Returns one `mediaRef` per file that actually landed — pass those verbatim as media on a publish tool; they are storage references, not links, and the platform signs a fresh fetchable URL at send time. Also returns `albumSendable`: when false the files cannot travel as ONE Telegram album (only photos and videos mix; documents ride alone) and must be published separately. And `massSendReady` with `massSendState`: a file for a broadcast or a reply batch to many customers must be ready first — `preparing` means a large file is being prepared once, poll media_get_status(upload_id) until massSendReady is true; `unavailable` means it could not be prepared for now: send again in about an hour without uploading the same file again, and if it keeps failing check that the Open Lines group is connected. Fails if nothing was uploaded.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -24114,7 +25330,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "media_get_download_link",
@@ -24143,12 +25359,12 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "media_get_status",
     "title": "Media Get Status",
-    "description": "Read an upload or import outcome without finalizing it. IMPORTING: a media_import_files transfer is still running, poll again. STAGING: no outcome yet (presigned PUTs not finalized, or an import to repeat with the same idempotency_key). FAILED carries `failure.code` and limit details. Only COMMITTED returns publishable descriptors. 0-cost read.",
+    "description": "Read an upload or import outcome without finalizing it. IMPORTING: a media_import_files transfer is still running, poll again. STAGING: no outcome yet (presigned PUTs not finalized, or an import to repeat with the same idempotency_key). FAILED carries `failure.code` and limit details. Only COMMITTED returns publishable descriptors, with `massSendReady`/`massSendState` for a send to many customers. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -24172,12 +25388,12 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "media_import_files",
     "title": "Media Import Files",
-    "description": "Import up to 10 media files into tenant storage and get mediaRefs for publish tools. ChatGPT fills `files` with the files the user attached. Other hosts pass `sources`: https URLs of the business site or an allowed file host. A Claude chat attachment has no URL: the user uploads it in the web cabinet or the Mini App, or puts it on the business site and you pass that URL in `sources`. Bytes, base64 and local paths are not accepted. Optional `media_kind` (voice, audio, video_note) is checked against the bytes. Large files import in the background: COMMITTED returns mediaRefs; IMPORTING returns an uploadId, then poll media_get_status(upload_id) until COMMITTED; STAGING means repeat this call with the same idempotency_key. One idempotency_key names one set of files: other files need a new key.",
+    "description": "Import up to 10 media files into tenant storage and get mediaRefs for publish tools. ChatGPT fills `files` with the files the user attached. Other hosts pass `sources`, each with a `url`: an https address of the business site or an allowed file host, or, for a SMALL file you hold as bytes (up to 128 KiB decoded, such as an icon or a preview), data:<mime>;base64,<payload> together with its exact `byte_length` and optionally `sha256`; the type is checked against the bytes. A larger file is never printed as base64: reserve it with media_request_upload, PUT it, then call media_finalize. A Claude chat attachment has no URL: the user uploads it in the web cabinet or the Mini App, or puts it on the business site and you pass that URL in `sources`. Local paths are not accepted. Optional `media_kind` (voice, audio, video_note) is checked against the bytes. Large files import in the background: COMMITTED returns mediaRefs; IMPORTING returns an uploadId, then poll media_get_status(upload_id) until COMMITTED; STAGING means repeat this call with the same idempotency_key. One idempotency_key names one set of files: other files need a new key.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -24238,7 +25454,7 @@
           }
         },
         "sources": {
-          "description": "HTTPS addresses of files on the business site or an allowed file host. Up to 10 files and sources together.",
+          "description": "HTTPS addresses of files on the business site or an allowed file host, or small files as data: addresses with byte_length. Up to 10 files and sources together.",
           "maxItems": 10,
           "type": "array",
           "items": {
@@ -24246,9 +25462,21 @@
             "properties": {
               "url": {
                 "type": "string",
-                "maxLength": 8192,
-                "format": "uri",
-                "description": "Value for url."
+                "minLength": 1,
+                "maxLength": 1048576,
+                "description": "An https address, or for a small file (at most 131072 bytes after decoding) data:<mime>;base64,<payload>. A larger file goes through media_request_upload."
+              },
+              "byte_length": {
+                "description": "Required with a data: address: the exact number of bytes the base64 payload decodes to.",
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
+              },
+              "sha256": {
+                "description": "Optional with a data: address: the SHA-256 of the decoded bytes, 64 hex characters; checked against them.",
+                "type": "string",
+                "minLength": 64,
+                "maxLength": 64
               },
               "mime_type": {
                 "type": "string",
@@ -24455,6 +25683,18 @@
         },
         "albumSendable": {
           "type": "boolean"
+        },
+        "massSendReady": {
+          "type": "boolean"
+        },
+        "massSendState": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "direct",
+            "preparing",
+            "unavailable"
+          ]
         }
       },
       "required": [
@@ -24470,12 +25710,12 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "media_request_upload",
     "title": "Media Request Upload",
-    "description": "Step 1 of 2 — reserve immutable write-once slots for photos, videos and documents. Optional `media_kind` declares voice, audio or video_note and is verified against the uploaded bytes. Declare each file with `mime_type` and exact `size_bytes`; the response contains an `uploadId` and one presigned PUT URL per file. PUT every declared byte directly, then call `media_finalize`.",
+    "description": "Step 1 of 2 — reserve immutable write-once slots for photos, videos and documents of any size; this is the way for every file above 128 KiB, and a large file is never printed as base64. Optional `media_kind` declares voice, audio or video_note and is verified against the uploaded bytes. Declare each file with `mime_type` and exact `size_bytes`; the response contains an `uploadId` and, per file, a presigned PUT URL with the `requiredHeaders` and a ready `curl` command: replace FILE_PATH in it with the file's local path and run it. Without a shell, PUT every declared byte to `putUrl` with those headers. Then call `media_finalize`.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -24544,7 +25784,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "meeting_provider_connect",
@@ -24581,7 +25821,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "meeting_provider_status",
@@ -24600,7 +25840,62 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "move_user_in_chain",
+    "title": "Move User In Chain",
+    "description": "Move ONE customer to a step of a funnel by hand — the road the operator's tap and the CRM use, recorded with you as the actor. With a live run of the step's chain the run moves there (the old step's timer goes with it); with no run, a run starts at that step even if it is not an entry point. The step's card is delivered to the customer and mirrored to the dialog topic. It never restarts a live run: to let the customer go through again, send the entry link. Read the state first with debug_chain_run. `expected_from_step_seq_num` makes the move conditional on the step the run stands on now (if another move won, you get FAILED_PRECONDITION). `idempotency_key` is mandatory: a retry with the same key shows nothing twice. Result `outcome`: `run_started`, `run_moved`, `already_at_step` (the card was shown again; the run and its timer are unchanged).",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "user_seq_num": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991,
+          "description": "Value for user seq num."
+        },
+        "step_seq_num": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991,
+          "description": "Value for step seq num."
+        },
+        "expected_from_step_seq_num": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991,
+          "description": "Value for expected from step seq num."
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Value for idempotency key."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
+      "required": [
+        "user_seq_num",
+        "step_seq_num",
+        "idempotency_key"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "chains:write",
+    "required_scopes": [
+      "chains:write"
+    ],
+    "risk": "write",
+    "domain": "chains",
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_check_payment_provider",
@@ -25933,7 +27228,7 @@
     ],
     "risk": "write",
     "domain": "payments",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_check_test_product",
@@ -27108,7 +28403,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_check_test_purchase",
@@ -28277,7 +29572,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_complete",
@@ -29440,7 +30735,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_confirm_payment_webhook",
@@ -30779,7 +32074,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_connect_channel",
@@ -32010,7 +33305,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_connect_payment_provider",
@@ -33669,7 +34964,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_defer_first_payment",
@@ -34842,7 +36137,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_defer_tariff",
@@ -36015,7 +37310,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_execute_first_payment",
@@ -37187,7 +38482,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_prepare_first_payment",
@@ -38440,7 +39735,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_save_ai_preferences",
@@ -39676,7 +40971,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "onboarding_send_tariff_checkout_card",
@@ -40863,7 +42158,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "partner_get_balance",
@@ -40882,7 +42177,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "partner_get_invite_links",
@@ -40901,7 +42196,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "partner_request_payout",
@@ -40927,7 +42222,7 @@
     ],
     "risk": "money",
     "domain": "partner",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "prepare_broadcast_launch",
@@ -40962,7 +42257,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "prepare_chain_batch_entry",
@@ -41026,7 +42321,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "prepare_manual_sale",
@@ -41178,7 +42473,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "prepare_order_composition_change",
@@ -41373,7 +42668,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "prepare_order_status_change",
@@ -41421,7 +42716,393 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "prepare_reply_batch",
+    "title": "Prepare Reply Batch",
+    "description": "Prepare personal replies to customers for a human to approve. Each item is one customer by userSeqNum with text and/or media, an optional caption, entities and buttons — one item per customer. Media are mediaRefs from media_finalize; a heavy file is uploaded once and reused for every customer, so never upload it per customer. The result is the exact batch: each customer's name, the text, and replyToMessageSeqNum — the customer's last message the reply will answer (null when they wrote nothing). Show it to the owner or operator and call execute_reply_batch only after they say to send. Nothing is sent here.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "items": {
+          "minItems": 1,
+          "maxItems": 50,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "userSeqNum": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991,
+                "description": "Value for user Seq Num."
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Value for text."
+              },
+              "caption": {
+                "type": "string",
+                "maxLength": 1024,
+                "description": "Value for caption."
+              },
+              "media": {
+                "minItems": 1,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "photo",
+                        "video",
+                        "document"
+                      ],
+                      "description": "Value for type."
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "voice",
+                        "audio",
+                        "video_note"
+                      ],
+                      "description": "Value for kind."
+                    },
+                    "mediaRef": {
+                      "type": "string",
+                      "maxLength": 512,
+                      "pattern": "^media-ingress\\/v1\\/[a-f0-9]{64}\\/[A-Za-z0-9_-]{16,128}\\/objects\\/[a-z][a-z0-9-]{0,63}\\/[a-f0-9]{64}\\/[a-f0-9]{24}\\.blob$",
+                      "description": "Value for media Ref."
+                    },
+                    "expectedSizeBytes": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 4294967296,
+                      "description": "Value for expected Size Bytes."
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$",
+                      "description": "Value for sha256."
+                    },
+                    "mimeType": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 255,
+                      "description": "Value for mime Type."
+                    },
+                    "generatedFileName": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 255,
+                      "description": "Value for generated File Name."
+                    },
+                    "caption": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "description": "Value for caption."
+                    },
+                    "captionEntities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "mention",
+                              "hashtag",
+                              "cashtag",
+                              "bot_command",
+                              "url",
+                              "email",
+                              "phone_number",
+                              "bold",
+                              "italic",
+                              "underline",
+                              "strikethrough",
+                              "spoiler",
+                              "blockquote",
+                              "expandable_blockquote",
+                              "code",
+                              "pre",
+                              "text_link",
+                              "text_mention",
+                              "custom_emoji"
+                            ],
+                            "description": "Value for type."
+                          },
+                          "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991,
+                            "description": "Value for offset."
+                          },
+                          "length": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 9007199254740991,
+                            "description": "Value for length."
+                          },
+                          "url": {
+                            "type": "string",
+                            "description": "Value for url."
+                          },
+                          "user": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^-?\\d+$",
+                                "description": "Value for id."
+                              },
+                              "firstName": {
+                                "type": "string",
+                                "description": "Value for first Name."
+                              },
+                              "lastName": {
+                                "type": "string",
+                                "description": "Value for last Name."
+                              },
+                              "username": {
+                                "type": "string",
+                                "description": "Value for username."
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Value for user."
+                          },
+                          "language": {
+                            "type": "string",
+                            "description": "Value for language."
+                          },
+                          "custom_emoji_id": {
+                            "type": "string",
+                            "description": "Value for custom emoji id."
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "offset",
+                          "length"
+                        ],
+                        "additionalProperties": false,
+                        "description": "Value for caption Entities item."
+                      },
+                      "description": "Value for caption Entities."
+                    },
+                    "captionHtml": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 16384,
+                      "description": "Value for caption Html."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "mediaRef",
+                    "expectedSizeBytes",
+                    "sha256",
+                    "mimeType"
+                  ],
+                  "additionalProperties": false,
+                  "description": "One media file exactly as media_finalize, media_import_files or media_get_status returned it."
+                },
+                "description": "Value for media."
+              },
+              "entities": {
+                "maxItems": 100,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "mention",
+                        "hashtag",
+                        "cashtag",
+                        "bot_command",
+                        "url",
+                        "email",
+                        "phone_number",
+                        "bold",
+                        "italic",
+                        "underline",
+                        "strikethrough",
+                        "spoiler",
+                        "blockquote",
+                        "expandable_blockquote",
+                        "code",
+                        "pre",
+                        "text_link",
+                        "text_mention",
+                        "custom_emoji"
+                      ],
+                      "description": "Value for type."
+                    },
+                    "offset": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991,
+                      "description": "Value for offset."
+                    },
+                    "length": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991,
+                      "description": "Value for length."
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "Value for url."
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[1-9]\\d*$",
+                          "description": "Value for id."
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "description": "Value for first Name."
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "description": "Value for last Name."
+                        },
+                        "username": {
+                          "type": "string",
+                          "description": "Value for username."
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "additionalProperties": false,
+                      "description": "Value for user."
+                    },
+                    "language": {
+                      "type": "string",
+                      "description": "Value for language."
+                    },
+                    "custom_emoji_id": {
+                      "type": "string",
+                      "description": "Value for custom emoji id."
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "offset",
+                    "length"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Value for entities item."
+                },
+                "description": "Value for entities."
+              },
+              "buttons": {
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "minItems": 1,
+                  "maxItems": 8,
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 64,
+                            "description": "Value for text."
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Value for url."
+                          }
+                        },
+                        "required": [
+                          "text",
+                          "url"
+                        ],
+                        "additionalProperties": false,
+                        "description": "Value for buttons item item option."
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 64,
+                            "description": "Value for text."
+                          },
+                          "callback_data": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 64,
+                            "description": "Value for callback data."
+                          }
+                        },
+                        "required": [
+                          "text",
+                          "callback_data"
+                        ],
+                        "additionalProperties": false,
+                        "description": "Value for buttons item item option."
+                      }
+                    ],
+                    "description": "Value for buttons item item."
+                  },
+                  "description": "Value for buttons item."
+                },
+                "description": "Value for buttons."
+              }
+            },
+            "required": [
+              "userSeqNum"
+            ],
+            "additionalProperties": false,
+            "description": "Value for items item."
+          },
+          "description": "Value for items."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "dialogs:write",
+    "required_scopes": [
+      "dialogs:write"
+    ],
+    "risk": "write",
+    "domain": "dialogs",
+    "platform_version": "1.0.107"
   },
   {
     "name": "prepare_send_invoice",
@@ -41456,7 +43137,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "preview_segment_reach",
@@ -41487,7 +43168,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "publish_entity",
@@ -43761,7 +45442,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "pull_form_submissions",
@@ -43825,7 +45506,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "query_form_submission_segment",
@@ -43902,7 +45583,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "quote_order",
@@ -44134,7 +45815,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "refresh_payment_urls",
@@ -44183,7 +45864,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "register_existing_bot",
@@ -45336,7 +47017,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "register_mini_app_origin",
@@ -45388,7 +47069,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "release_chat",
@@ -45423,7 +47104,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "remove_catalog_item_from_group",
@@ -45465,7 +47146,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "request_access_link",
@@ -45576,7 +47257,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "request_manual_supergroups",
@@ -46759,7 +48440,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "resource_set_meeting_provider",
@@ -46804,7 +48485,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "resume_bot_connection",
@@ -47947,7 +49628,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "resume_infrastructure",
@@ -50829,7 +52510,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "retry_onboarding_site",
@@ -53619,7 +55300,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "revoke_connection",
@@ -53668,7 +55349,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "revoke_team_member",
@@ -53703,7 +55384,7 @@
     ],
     "risk": "destructive",
     "domain": "team",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "sample_segment_audience",
@@ -53742,7 +55423,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "scope_change",
@@ -53853,7 +55534,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "search_admin_tools",
@@ -54035,7 +55716,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "search_docs",
@@ -54082,7 +55763,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "secret_delete",
@@ -54124,7 +55805,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "secret_list",
@@ -54143,7 +55824,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "secret_put",
@@ -54192,7 +55873,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "secret_rotate",
@@ -54241,7 +55922,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "send_card",
@@ -54654,7 +56335,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "send_entity_card",
@@ -54825,7 +56506,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "send_notification",
@@ -54956,12 +56637,12 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "send_to_forum_topic",
     "title": "Send To Forum Topic",
-    "description": "Send text or one attachment (maximum 50 MiB) to an arbitrary operator forum topic. Uses a service bot. A topic deleted in Telegram returns TOPIC_DELETED_IN_MESSENGER.",
+    "description": "Send text or one attachment (maximum 50 MiB) to an arbitrary operator forum topic. Uses a service bot. A topic deleted in Telegram returns TOPIC_DELETED_IN_MESSENGER. `confirmed: false` in the answer means the wait for Telegram ran out and the message may still arrive: do not send the same text again as a new call; repeat with the same `idempotency_key` to get the outcome of the first send. Without `idempotency_key` every call posts a new message.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -55089,6 +56770,12 @@
           },
           "description": "Value for buttons."
         },
+        "idempotency_key": {
+          "description": "Optional. A repeat with the same key returns the outcome of the first send instead of posting again.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
         "bot": {
           "type": "string",
           "minLength": 1,
@@ -55108,7 +56795,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "set_event_phase",
@@ -55152,7 +56839,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "set_form_submission_handled",
@@ -55192,7 +56879,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "set_tax_profile",
@@ -56436,7 +58123,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_checkout_key",
@@ -56462,7 +58149,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_delete_page",
@@ -56497,7 +58184,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_egress_origin_list",
@@ -56516,7 +58203,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_egress_origin_set",
@@ -56556,7 +58243,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_execute_delete",
@@ -56597,7 +58284,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_fetch_file",
@@ -56634,12 +58321,12 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_form_declare",
     "title": "Site Form Declare",
-    "description": "Declare a form and its submit URL BEFORE BUILDING THE PAGES: it returns `clientSlug` and `code`, the pages POST to `https://fn.telegafirst.ru/f/{clientSlug}/{code}` (`fn.telegafirst.com` when `zone` is `com`). Pass the returned `seqNum` to UPDATE it (same address); omit it for a NEW form at a NEW address. It configures the ENVELOPE (delivery, origins, captcha), not fields: draw inputs in your HTML. `destinations` items: `{\"kind\":\"telegram\",\"topicId\":<topic id>}`, `{\"kind\":\"webhook\",\"url\":\"https://…\"}`, or `{\"kind\":\"external_api\",\"url\":\"https://…\",\"method\":\"POST\",\"headerName\":\"X-Api-Key\",\"secretName\":\"<name from secret_put>\"}` (secret NAME, never value); add a webhook/external_api URL origin via `site_egress_origin_set` first. `allowedOrigins` must list the site's own addresses, or no submission is accepted. Stop with `enabled: false` (no delete). `afterSubmit`: `{\"mode\":\"auto\"}` shows your `title`/`text` (or zone defaults) plus a bot button (optional `buttonLabel`), `{\"mode\":\"redirect\",\"redirectUrl\":\"https://…\"}` redirects to a URL on the site's own hosts or `allowedOrigins`. `variants` run after a submission: each names a funnel step by `stepSeqNum` plus a condition — `when` for `funnelMode: \"deterministic\"` (first match by `sort` wins) or `hint` (plain language) for `funnelMode: \"ai_agent\"`; exactly one per entry. `defaultStepSeqNum` if none matches. `managerFollowUp: true` adds an AI Manager answer after the step. `callOperatorOnSubmit: true` (or an entry's `callsOperator: true`) calls a live operator. ⚠️ Not a patch: an optional omitted on re-declaration (`variants`, `afterSubmit`…) RESETS — send it whole. Optional `submissionSchema`, e.g. `[{\"name\":\"phone\",\"type\":\"tel\",\"required\":true,\"label\":\"Ваш телефон\"}]`, validates: a non-matching submission is refused naming the field; names must match your HTML inputs. Always give every field a human `label` — the question as the visitor sees it (operators, CRM, analytics read it); business metadata (segment, score) → `hidden: true`.",
+    "description": "Declare a form BEFORE BUILDING THE PAGES: returns `clientSlug`, `code`, `submitSnippet` (OFFICIAL markup: `<form data-tgf-form=\"{code}\">` with your fields + `<script src=\"/widget/forms.v1.js\" async>`) and `mini_app_links`. Paste the snippet; NEVER hand-write the POST or use `mode: \"no-cors\"` (opaque answer, no thank-you or refusal can show). The helper sends, runs `afterSubmit`, fires `tgf:submitted` / `tgf:failed` / `tgf:refused`. Keep its `tgf_consent_pd` checkbox (unticked, required, absolute links to `/consent` and `/privacy`): unticked, the helper sends nothing. The submit address is per zone; do not build one. `seqNum` UPDATES (address stays); omit it for a NEW form. It configures the ENVELOPE, not fields. `destinations`: `{\"kind\":\"telegram\",\"topicId\":<id>}`, `{\"kind\":\"webhook\",\"url\":\"https://…\"}`, `{\"kind\":\"external_api\",\"url\":\"https://…\",\"method\":\"POST\",\"headerName\":\"X-Api-Key\",\"secretName\":\"<secret_put name>\"}`; add a webhook/external_api origin via `site_egress_origin_set` first. `allowedOrigins` must list the site's own addresses. Stop with `enabled: false`. `afterSubmit`: `{\"mode\":\"auto\"}` (your `title`/`text`, bot button, optional `buttonLabel`) or `{\"mode\":\"redirect\",\"redirectUrl\":\"https://…\"}` (own hosts or `allowedOrigins`). `variants`: funnel step `stepSeqNum` + exactly one of `when` (`funnelMode: \"deterministic\"`, first by `sort`) or `hint` (`\"ai_agent\"`); `defaultStepSeqNum` if none matches. `managerFollowUp: true` adds an AI Manager answer; `callOperatorOnSubmit` / `callsOperator` calls an operator. ⚠️ Not a patch: an omitted optional RESETS. `submissionSchema` (e.g. `[{\"name\":\"phone\",\"type\":\"tel\",\"required\":true,\"label\":\"Ваш телефон\"}]`) refuses a non-matching submission naming the field; names match your inputs. Always give every field a human `label`; metadata → `hidden: true`. `mini_app_links` open `/f/{code}` as the mini app.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -56884,6 +58571,27 @@
                         "maxLength": 256,
                         "description": "Value for placeholder."
                       },
+                      "hint": {
+                        "description": "A line under the field; the placeholder stays inside the empty input.",
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "multiple": {
+                        "type": "boolean",
+                        "description": "Value for multiple."
+                      },
+                      "profile_field": {
+                        "description": "Empty profile field of the linked person is filled from this answer once; a filled one is never overwritten.",
+                        "type": "string",
+                        "enum": [
+                          "first_name",
+                          "last_name",
+                          "personal_phone",
+                          "personal_email",
+                          "city",
+                          "birth_date"
+                        ]
+                      },
                       "type": {
                         "type": "string",
                         "const": "text",
@@ -56925,6 +58633,11 @@
                         "type": "string",
                         "maxLength": 256,
                         "description": "Value for placeholder."
+                      },
+                      "hint": {
+                        "description": "A line under the field; the placeholder stays inside the empty input.",
+                        "type": "string",
+                        "maxLength": 256
                       },
                       "type": {
                         "type": "string",
@@ -56968,6 +58681,27 @@
                         "maxLength": 256,
                         "description": "Value for placeholder."
                       },
+                      "hint": {
+                        "description": "A line under the field; the placeholder stays inside the empty input.",
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "multiple": {
+                        "type": "boolean",
+                        "description": "Value for multiple."
+                      },
+                      "profile_field": {
+                        "description": "Empty profile field of the linked person is filled from this answer once; a filled one is never overwritten.",
+                        "type": "string",
+                        "enum": [
+                          "first_name",
+                          "last_name",
+                          "personal_phone",
+                          "personal_email",
+                          "city",
+                          "birth_date"
+                        ]
+                      },
                       "type": {
                         "type": "string",
                         "const": "email",
@@ -57010,6 +58744,27 @@
                         "maxLength": 256,
                         "description": "Value for placeholder."
                       },
+                      "hint": {
+                        "description": "A line under the field; the placeholder stays inside the empty input.",
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "multiple": {
+                        "type": "boolean",
+                        "description": "Value for multiple."
+                      },
+                      "profile_field": {
+                        "description": "Empty profile field of the linked person is filled from this answer once; a filled one is never overwritten.",
+                        "type": "string",
+                        "enum": [
+                          "first_name",
+                          "last_name",
+                          "personal_phone",
+                          "personal_email",
+                          "city",
+                          "birth_date"
+                        ]
+                      },
                       "type": {
                         "type": "string",
                         "const": "tel",
@@ -57051,6 +58806,11 @@
                         "type": "string",
                         "maxLength": 256,
                         "description": "Value for placeholder."
+                      },
+                      "hint": {
+                        "description": "A line under the field; the placeholder stays inside the empty input.",
+                        "type": "string",
+                        "maxLength": 256
                       },
                       "min": {
                         "type": "number",
@@ -57102,6 +58862,11 @@
                         "maxLength": 256,
                         "description": "Value for placeholder."
                       },
+                      "hint": {
+                        "description": "A line under the field; the placeholder stays inside the empty input.",
+                        "type": "string",
+                        "maxLength": 256
+                      },
                       "options": {
                         "minItems": 1,
                         "maxItems": 100,
@@ -57113,6 +58878,24 @@
                           "description": "Value for options item."
                         },
                         "description": "Value for options."
+                      },
+                      "multiple": {
+                        "description": "false / absent: one choice (radio); true: several (checkboxes).",
+                        "type": "boolean"
+                      },
+                      "max": {
+                        "description": "The most choices a `multiple` list takes.",
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 9007199254740991
+                      },
+                      "display": {
+                        "description": "Overrides the default: cards up to 5 options, a native dropdown above.",
+                        "type": "string",
+                        "enum": [
+                          "cards",
+                          "dropdown"
+                        ]
                       },
                       "type": {
                         "type": "string",
@@ -57156,6 +58939,11 @@
                         "type": "string",
                         "maxLength": 256,
                         "description": "Value for placeholder."
+                      },
+                      "hint": {
+                        "description": "A line under the field; the placeholder stays inside the empty input.",
+                        "type": "string",
+                        "maxLength": 256
                       },
                       "type": {
                         "type": "string",
@@ -57245,12 +59033,12 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_get_analytics",
     "title": "Site Get Analytics",
-    "description": "Read the daily analytics rollup for this business's own hosted site. It returns total page views, tab sessions (the historical `views_unique` / `unique` names do NOT mean unique visitors), bot-link clicks, pages, referrer hostnames, UTM labels and click actions. It reads durable daily rollups, not the live event buffer, and costs no tokens. Omit `days` for the latest 7 days; requests above 30 days are bounded to 30. Optionally pass `page_path` to report one published page. There is intentionally no `host` argument: this call is scoped to the authenticated tenant's own site.",
+    "description": "Read the analytics for this business's own hosted site over a window of N UTC days, the last of which is TODAY. It returns total page views, tab sessions (the historical `views_unique` / `unique` names do NOT mean unique visitors), bot-link clicks, pages, referrer hostnames, UTM labels and click actions. Past days come from the nightly rollup; today is incomplete and is read from the live event buffer (`today` names that date; `liveStats: false` means the buffer could not be read, so today's zero is unknown, not \"no visits\"). `/x/` and `/x/index.html` are one page. Costs no tokens. Omit `days` for 7 days; requests above 30 days are bounded to 30. Optionally pass `page_path` to report one published page. There is intentionally no `host` argument: this call is scoped to the authenticated tenant's own site.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -57277,7 +59065,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_get_manifest",
@@ -57307,12 +59095,12 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_list_pages",
     "title": "Site List Pages",
-    "description": "List the business's site pages and the addresses its site can be published at. `hosts` names every host the site tools accept as `host`: the platform site address (`kind: \"platform\"`, available without any setup) and each custom domain added with `domain_add_request` (`live: false` until it serves visitors). `pages` lists every page ever published, each with its `seq_num` — the number `site_pages_set_visibility`, `site_page_preview` and `site_delete_page` take — its host, bundle `path`, and `public_url`, the address visitors open; `public_url` is null while the page is not served, and `reason` then says why (`owner_hidden`, `moderation_blocked`, `domain_not_active`, `not_published`). `mini_app_links` (per page) and `mini_app_home` open the page or the home AS the Telegram/MAX/VK mini app, for a broadcast text; `url: null` comes with a `reason`. `protected` pages (platform files) cannot be hidden or deleted one by one; the home page `index.html` is an ordinary page. 0-cost read.",
+    "description": "List the business's site pages and the addresses its site can be published at. `hosts` names every host the site tools accept as `host`: the platform site address (`kind: \"platform\"`, available without any setup) and each custom domain added with `domain_add_request` (`live: false` until it serves visitors). `pages` lists every page ever published (`kind: \"site\"`) followed by the storefront pages the platform serves on the platform host (`kind: \"storefront\"`: /shop, /events, /booking, /bio, /terms, /privacy and one page per active product, event, bookable resource and enabled form, each with its `section` and `title`; `seq_num: null`, no visibility or delete controls; `storefront_truncated` names a section cut at its cap), each with its `seq_num` — the number `site_pages_set_visibility`, `site_page_preview` and `site_delete_page` take — its host, bundle `path`, and `public_url`, the address visitors open; `public_url` is null while the page is not served, and `reason` then says why (`owner_hidden`, `moderation_blocked`, `domain_not_active`, `not_published`). `mini_app_links` (per page, storefront pages included) and `mini_app_home` open the page or the home AS the Telegram/MAX/VK mini app, for a broadcast text; copy them, never build one yourself; `url: null` comes with a `reason`. `site_pages_set_visibility`, `site_delete_page` and `site_page_preview` take only `kind: \"site\"` pages. `protected` pages (platform files) cannot be hidden or deleted one by one; the home page `index.html` is an ordinary page. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -57326,7 +59114,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_page_preview",
@@ -57355,7 +59143,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_pages_set_visibility",
@@ -57401,7 +59189,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_prepare_delete",
@@ -57437,12 +59225,12 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_publish",
     "title": "Site Publish",
-    "description": "Step 2 of publishing the site: after every upload PUT has completed, make the files uploaded under `uploadId` live at the `host` its ticket returned. The ticket's pinned mode and base apply: `merge` keeps omitted files, the bio page, binary assets, access rules and references; `replace` removes omitted files and rules. Only files that actually differ from what is deployed are written, and `index.html` is written LAST so visitors never see a half-swapped site. If the bundle contains `tgf-gate.json`, the access rules in it are applied to the site's gated pages. A changed base or access policy returns 409 SITE_BUNDLE_STALE: request a new ticket, PUT its files and publish again; moving a ticket to another host is refused. The plan's size limits (whole site, each video) are checked against the bytes actually uploaded, and each HTML tag is read up to a fixed size: a larger one — usually an image, video or font inlined as a `data:` URL — is SITE_HTML_TAG_TOO_LARGE with the page `path`, `tag` and `attr` in `details`; move that data into its own file, request a new ticket and publish again. Any refusal leaves the live site as it was. Returns which paths were written, removed and already identical, `manifestDigest`, and `pageUrls` for only the ticket's HTML pages that actually went live — open those exact URLs rather than guessing a homepage, and do not treat retained pages as newly published. A successful publication consumes the uploaded files; to publish again, request fresh upload URLs. It also returns `attributionSnippet`: a one-line <script> tag. Paste it into every page of the site that links to the business's bot. Without it, a visitor who taps such a link on this site arrives anonymous and the business cannot tell which page or campaign brought them — the links keep working either way, so nothing looks broken. If the pages you just published do not carry it yet, add it and publish again.",
+    "description": "Step 2 of publishing: after every upload PUT completed, make the files under `uploadId` live at the ticket's `host`. The ticket's mode and base apply: `merge` keeps omitted files, the bio page, assets, access rules and references; `replace` removes omitted files and rules. Only changed files are written, `index.html` LAST, so visitors never see a half-swapped site. A `tgf-gate.json` in the bundle sets the access rules of gated pages. A changed base or access policy is 409 SITE_BUNDLE_STALE: request a new ticket, PUT, publish again; another host is refused. Plan size limits are checked on the uploaded bytes; an HTML tag over the fixed size (usually an inlined `data:` image/video/font) is SITE_HTML_TAG_TOO_LARGE with `path`, `tag`, `attr` in `details`: move the data into its own file and publish again. A refusal leaves the live site as it was. Returns written/removed/identical paths, `manifestDigest` and `pageUrls` (only the ticket's HTML pages that went live — open those, do not guess a homepage). Publishing consumes the upload; publish again with fresh upload URLs. `attributionSnippet` is a one-line <script>: paste it into every page that links to the business's bot, or visitors arrive anonymous and the business cannot tell which page brought them (links still work, nothing looks broken). `warnings` (never a refusal, the site is live) name what will not work, each with `path`, `message`, `recovery`, `found`: `FORM_POST_NO_CORS` (opaque answer, no result for the visitor), `FORM_WITHOUT_OFFICIAL_SCRIPT`, `FORM_WITHOUT_PD_CONSENT` (no `tgf_consent_pd` box: every submission is refused), `TRACKER_NEEDS_CONSENT` (an analytics/ad pixel needs consent). Fix and publish again; official form markup comes from `site_form_declare`.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -57480,7 +59268,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "site_request_upload",
@@ -57572,7 +59360,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "submit_form_submission",
@@ -57611,7 +59399,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "support_ticket_create",
@@ -57721,7 +59509,7 @@
     ],
     "risk": "write",
     "domain": "support",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "support_ticket_list",
@@ -57758,7 +59546,7 @@
     ],
     "risk": "read",
     "domain": "support",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "switch_active_bot",
@@ -57793,7 +59581,7 @@
     ],
     "risk": "write",
     "domain": "identity",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "take_chat",
@@ -57828,7 +59616,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "test_funnel_pipeline",
@@ -57868,7 +59656,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_agent_config",
@@ -58278,7 +60066,74 @@
     ],
     "risk": "write",
     "domain": "agents",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
+  },
+  {
+    "name": "update_bot_profile",
+    "title": "Update Bot Profile",
+    "description": "Change the public profile of the business's own Telegram bot (partial: send only what changes). `name` 1-64 characters, `about` up to 120 (the short line in the bot profile), `description` up to 512 (the «What can this bot do?» block); an empty `about` or `description` clears it. `languageCode` (`ru`, `en`, `default`) picks the localization to write; omitted = the business language; `default` is the text for everyone with no dedicated one, so write it too if the audience is mixed. The profile photo: `profilePhotoMediaRef` (a JPEG or PNG, or an MP4 for an animated photo, up to 10 MB, uploaded with media_request_upload and finalized with media_finalize) or `removeProfilePhoto: true`. The start-screen picture or GIF has no Bot API method: passing `startScreenMediaRef` changes nothing and returns it in `refused` with the @BotFather instruction. Telegram limits how often a name can change; if it refuses a field, the error names it and the fields already changed. Returns `botUsername`, `applied` and the profile read back from Telegram; if the read-back fails, `profileReadFailed: true` and `profile: null` — the writes in `applied` still landed, call `get_bot_profile` to see the result. `BOT_TOKEN_REVOKED` means the bot's token was revoked: connect the bot again.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "languageCode": {
+          "type": "string",
+          "enum": [
+            "ru",
+            "en",
+            "default"
+          ],
+          "description": "Value for language Code."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "description": "Value for name."
+        },
+        "about": {
+          "type": "string",
+          "maxLength": 120,
+          "description": "Value for about."
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 512,
+          "description": "Value for description."
+        },
+        "profilePhotoMediaRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512,
+          "description": "Value for profile Photo Media Ref."
+        },
+        "removeProfilePhoto": {
+          "type": "boolean",
+          "description": "Value for remove Profile Photo."
+        },
+        "startScreenMediaRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512,
+          "description": "Value for start Screen Media Ref."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputSchema": null,
+    "scope": "client-config:write",
+    "required_scopes": [
+      "client-config:write"
+    ],
+    "risk": "write",
+    "domain": "client-config",
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_broadcast",
@@ -58892,7 +60747,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_catalog_group",
@@ -58987,7 +60842,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_catalog_item",
@@ -59684,12 +61539,12 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_chain_step",
     "title": "Update Chain Step",
-    "description": "Patch one chain step by `chain_seq_num` plus `step_seq_num`. Steps own title, buttons and targets, timeout and timeout target, entry-point and active state, delay, message lifetime and prior-message deletion. Navigation and timeout targets are step seqNums in the same chain. The chain shell has no stored active state: its graph is computed from steps. The step message is not edited here — replace it with publish_entity (intent REPLACE).",
+    "description": "Patch one chain step by `chain_seq_num` plus `step_seq_num`. Steps own title, buttons and targets, timeout and timeout target, entry-point and active state, delay, message lifetime and prior-message deletion. TRANSITION buttons — a tap moves the customer's run to another step — are `deeplink_buttons: [{title, target_seq_num}]`, the target is a step seqNum of the same chain; `button_target` (kind url / deeplink / web_app) is a LINK that opens a page or the bot, never a transition inside a funnel. Timeout targets are step seqNums in the same chain. The chain shell has no stored active state: its graph is computed from steps. The step message (text, caption, files) is not edited here — a request carrying it is refused by name; replace it with publish_entity (intent REPLACE, targetTopic message_chains, replaceTarget {kind: card, seqId: the step seqNum}).",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -60067,7 +61922,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_client_config",
@@ -60163,7 +62018,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_event",
@@ -60642,12 +62497,12 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_knowledge",
     "title": "Update Knowledge",
-    "description": "Update an operator-authored knowledge-base entry by board (`kb_type`) and tenant-scoped `seq_num`. Send only fields you intend to change. `is_active: false` switches the entry off (the AI agent stops using it, it leaves the graph); `is_active: true` switches it back on and re-indexes it. `is_public: false` keeps it reachable only through its own link. A changed `content` is re-indexed. Optional `prepared_step_seq_nums`: ordered chain step numbers whose ready-made messages are attached to this entry — the business's AI agent reads their text when this entry answers a customer and may send them into the chat, complete with media and buttons; the entry itself stays text. `[]` detaches them all.",
+    "description": "Update an operator-authored knowledge-base entry by board (`kb_type`) and tenant-scoped `seq_num`. Send only fields you intend to change. `is_active: false` switches the entry off (the AI agent stops using it, it leaves the graph); `is_active: true` switches it back on and re-indexes it. `is_public: false` keeps it reachable only through its own link. A changed `content` is re-indexed. Optional `prepared_step_seq_nums`: ordered chain step numbers whose ready-made messages are attached to this entry — the business's AI agent reads their text when this entry answers a customer and may send them into the chat, complete with media and buttons; the entry itself stays text. A standalone step (active, live content, no delay) is sent as one message; a chain entry step starts the whole chain. `[]` detaches them all.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -60736,7 +62591,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_legal_profile",
@@ -61045,7 +62900,7 @@
     ],
     "risk": "write",
     "domain": "legal",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_marketing_campaign",
@@ -61363,7 +63218,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_marketing_link",
@@ -61422,7 +63277,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_menu_button",
@@ -61556,7 +63411,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_menu_group",
@@ -61647,7 +63502,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_message_chain",
@@ -61688,7 +63543,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_order_status",
@@ -61910,7 +63765,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_quick_reply",
@@ -61967,7 +63822,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_saved_segment",
@@ -62358,7 +64213,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_storefront",
@@ -62420,7 +64275,7 @@
     ],
     "risk": "write",
     "domain": "storefront",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "update_team_member",
@@ -62519,7 +64374,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   },
   {
     "name": "walk_in_event_registration",
@@ -62568,6 +64423,6 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.104"
+    "platform_version": "1.0.107"
   }
 ]

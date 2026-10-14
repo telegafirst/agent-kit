@@ -94,6 +94,8 @@
           "PAYMENT_NOT_FOUND",
           "EXPORT_NOT_FOUND",
           "CART_NOT_FOUND",
+          "DIALOG_NOT_FOUND",
+          "REPLY_TARGET_NOT_FOUND",
           "SLUG_TAKEN",
           "SLUG_IMMUTABLE",
           "UNPAID_BOT_LIMIT",
@@ -144,8 +146,16 @@
           "ONBOARDING_FIRST_PAYMENT_NOT_READY",
           "ONBOARDING_JOURNEY_ALREADY_COMPLETED",
           "REPLACE_IN_PROGRESS",
+          "DIALOGS_SWITCHED_OFF",
+          "MEDIA_PREPARING",
+          "MEDIA_UNAVAILABLE",
+          "REPLY_BATCH_DUPLICATE_RECIPIENT",
+          "REPLY_BATCH_PAYLOAD_TOO_LARGE",
+          "REPLY_BATCH_USER_WROTE_AFTER_PREPARE",
+          "BOT_TOKEN_REVOKED",
           "SESSION_EXPIRED",
           "APPROVAL_CODE_EXPIRED",
+          "PREPARED_SCENARIO_UNAVAILABLE",
           "PRECONDITION_FAILED",
           "BOT_CONNECTION_NOT_READY",
           "ETAG_STALE",
@@ -222,6 +232,7 @@
           "MEDIA_MIME_MISMATCH",
           "MEDIA_LENGTH_REQUIRED",
           "MEDIA_TOO_LARGE",
+          "MEDIA_DATA_URI_TOO_LARGE",
           "MEDIA_BATCH_TOO_LARGE",
           "MEDIA_TOO_MANY_FILES",
           "MEDIA_TRANSFER_TIMEOUT",
@@ -230,6 +241,8 @@
           "CONTENT_INVALID_HTML",
           "CONTENT_TOO_LONG",
           "CONTENT_SOURCE_UNREADABLE",
+          "BOT_PROFILE_PHOTO_TYPE",
+          "BOT_PROFILE_PHOTO_TOO_LARGE",
           "PRECONDITION_REQUIRED",
           "PRICING_QUOTE_REQUIRED",
           "ETAG_REQUIRED",
@@ -244,7 +257,8 @@
           "INTERNAL_ERROR",
           "SERVICE_UNAVAILABLE",
           "PRICING_UNAVAILABLE",
-          "MINT_QUOTA_UNAVAILABLE"
+          "MINT_QUOTA_UNAVAILABLE",
+          "REPLY_SEND_FAILED"
         ]
       },
       "PaymentStatus": {
@@ -11786,6 +11800,26 @@
                       "type": "string",
                       "maxLength": 256
                     },
+                    "hint": {
+                      "type": "string",
+                      "maxLength": 256,
+                      "description": "A line under the field; the placeholder stays inside the empty input."
+                    },
+                    "multiple": {
+                      "type": "boolean"
+                    },
+                    "profile_field": {
+                      "type": "string",
+                      "enum": [
+                        "first_name",
+                        "last_name",
+                        "personal_phone",
+                        "personal_email",
+                        "city",
+                        "birth_date"
+                      ],
+                      "description": "Empty profile field of the linked person is filled from this answer once; a filled one is never overwritten."
+                    },
                     "type": {
                       "type": "string",
                       "enum": [
@@ -11824,6 +11858,11 @@
                     "placeholder": {
                       "type": "string",
                       "maxLength": 256
+                    },
+                    "hint": {
+                      "type": "string",
+                      "maxLength": 256,
+                      "description": "A line under the field; the placeholder stays inside the empty input."
                     },
                     "type": {
                       "type": "string",
@@ -11864,6 +11903,26 @@
                       "type": "string",
                       "maxLength": 256
                     },
+                    "hint": {
+                      "type": "string",
+                      "maxLength": 256,
+                      "description": "A line under the field; the placeholder stays inside the empty input."
+                    },
+                    "multiple": {
+                      "type": "boolean"
+                    },
+                    "profile_field": {
+                      "type": "string",
+                      "enum": [
+                        "first_name",
+                        "last_name",
+                        "personal_phone",
+                        "personal_email",
+                        "city",
+                        "birth_date"
+                      ],
+                      "description": "Empty profile field of the linked person is filled from this answer once; a filled one is never overwritten."
+                    },
                     "type": {
                       "type": "string",
                       "enum": [
@@ -11903,6 +11962,26 @@
                       "type": "string",
                       "maxLength": 256
                     },
+                    "hint": {
+                      "type": "string",
+                      "maxLength": 256,
+                      "description": "A line under the field; the placeholder stays inside the empty input."
+                    },
+                    "multiple": {
+                      "type": "boolean"
+                    },
+                    "profile_field": {
+                      "type": "string",
+                      "enum": [
+                        "first_name",
+                        "last_name",
+                        "personal_phone",
+                        "personal_email",
+                        "city",
+                        "birth_date"
+                      ],
+                      "description": "Empty profile field of the linked person is filled from this answer once; a filled one is never overwritten."
+                    },
                     "type": {
                       "type": "string",
                       "enum": [
@@ -11941,6 +12020,11 @@
                     "placeholder": {
                       "type": "string",
                       "maxLength": 256
+                    },
+                    "hint": {
+                      "type": "string",
+                      "maxLength": 256,
+                      "description": "A line under the field; the placeholder stays inside the empty input."
                     },
                     "min": {
                       "type": "number"
@@ -11987,6 +12071,11 @@
                       "type": "string",
                       "maxLength": 256
                     },
+                    "hint": {
+                      "type": "string",
+                      "maxLength": 256,
+                      "description": "A line under the field; the placeholder stays inside the empty input."
+                    },
                     "options": {
                       "type": "array",
                       "items": {
@@ -11996,6 +12085,23 @@
                       },
                       "minItems": 1,
                       "maxItems": 100
+                    },
+                    "multiple": {
+                      "type": "boolean",
+                      "description": "false / absent: one choice (radio); true: several (checkboxes)."
+                    },
+                    "max": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "description": "The most choices a `multiple` list takes."
+                    },
+                    "display": {
+                      "type": "string",
+                      "enum": [
+                        "cards",
+                        "dropdown"
+                      ],
+                      "description": "Overrides the default: cards up to 5 options, a native dropdown above."
                     },
                     "type": {
                       "type": "string",
@@ -12036,6 +12142,11 @@
                     "placeholder": {
                       "type": "string",
                       "maxLength": 256
+                    },
+                    "hint": {
+                      "type": "string",
+                      "maxLength": 256,
+                      "description": "A line under the field; the placeholder stays inside the empty input."
                     },
                     "type": {
                       "type": "string",
@@ -12359,6 +12470,29 @@
               "com"
             ]
           },
+          "legalLinks": {
+            "type": "object",
+            "properties": {
+              "consent": {
+                "type": "string",
+                "format": "uri"
+              },
+              "privacy": {
+                "type": "string",
+                "format": "uri"
+              },
+              "marketingConsent": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "consent",
+              "privacy",
+              "marketingConsent"
+            ],
+            "additionalProperties": false
+          },
           "title": {
             "type": "string"
           },
@@ -12421,6 +12555,9 @@
           "enabled": {
             "type": "boolean"
           },
+          "captchaRequired": {
+            "type": "boolean"
+          },
           "managerFollowUp": {
             "type": "boolean"
           },
@@ -12436,11 +12573,13 @@
           "clientSlug",
           "code",
           "zone",
+          "legalLinks",
           "title",
           "description",
           "submitLabel",
           "afterSubmit",
           "enabled",
+          "captchaRequired",
           "managerFollowUp",
           "created",
           "updatedAt"
@@ -12560,6 +12699,46 @@
               ],
               "additionalProperties": false
             }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "enum": [
+                    "FORM_POST_NO_CORS",
+                    "FORM_WITHOUT_OFFICIAL_SCRIPT",
+                    "FORM_WITHOUT_PD_CONSENT",
+                    "TRACKER_NEEDS_CONSENT"
+                  ]
+                },
+                "path": {
+                  "type": "string"
+                },
+                "found": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "message": {
+                  "type": "string"
+                },
+                "recovery": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "path",
+                "found",
+                "message",
+                "recovery"
+              ],
+              "additionalProperties": false
+            }
           }
         },
         "required": [
@@ -12569,7 +12748,8 @@
           "unchanged",
           "manifestDigest",
           "attributionSnippet",
-          "pageUrls"
+          "pageUrls",
+          "warnings"
         ],
         "additionalProperties": false
       },
@@ -12794,63 +12974,175 @@
           "pages": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "seq_num": {
-                  "type": "integer",
-                  "minimum": 1,
-                  "maximum": 2147483647
-                },
-                "host": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "public_url": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "published": {
-                  "type": "boolean"
-                },
-                "reason": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "enum": [
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "site"
+                      ]
+                    },
+                    "seq_num": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 2147483647
+                    },
+                    "host": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "public_url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "published": {
+                      "type": "boolean"
+                    },
+                    "reason": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "enum": [
+                        "owner_hidden",
+                        "moderation_blocked",
+                        "domain_not_active",
+                        "not_published",
+                        null
+                      ]
+                    },
+                    "owner_hidden": {
+                      "type": "boolean"
+                    },
+                    "protected": {
+                      "type": "boolean"
+                    },
+                    "mini_app_links": {
+                      "$ref": "#/components/schemas/SiteMiniAppLinks"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "seq_num",
+                    "host",
+                    "path",
+                    "public_url",
+                    "published",
+                    "reason",
                     "owner_hidden",
-                    "moderation_blocked",
-                    "domain_not_active",
-                    "not_published",
-                    null
-                  ]
+                    "protected",
+                    "mini_app_links"
+                  ],
+                  "additionalProperties": false
                 },
-                "owner_hidden": {
-                  "type": "boolean"
-                },
-                "protected": {
-                  "type": "boolean"
-                },
-                "mini_app_links": {
-                  "$ref": "#/components/schemas/SiteMiniAppLinks"
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "storefront"
+                      ]
+                    },
+                    "seq_num": {
+                      "type": "null"
+                    },
+                    "section": {
+                      "type": "string",
+                      "enum": [
+                        "shop",
+                        "events",
+                        "booking",
+                        "bio",
+                        "terms",
+                        "privacy",
+                        "product",
+                        "event",
+                        "booking_resource",
+                        "form"
+                      ]
+                    },
+                    "title": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "host": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "public_url": {
+                      "type": "string"
+                    },
+                    "published": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "reason": {
+                      "type": "null"
+                    },
+                    "owner_hidden": {
+                      "type": "boolean",
+                      "enum": [
+                        false
+                      ]
+                    },
+                    "protected": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "mini_app_links": {
+                      "$ref": "#/components/schemas/SiteMiniAppLinks"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "seq_num",
+                    "section",
+                    "title",
+                    "host",
+                    "path",
+                    "public_url",
+                    "published",
+                    "reason",
+                    "owner_hidden",
+                    "protected",
+                    "mini_app_links"
+                  ],
+                  "additionalProperties": false
                 }
-              },
-              "required": [
-                "seq_num",
-                "host",
-                "path",
-                "public_url",
-                "published",
-                "reason",
-                "owner_hidden",
-                "protected",
-                "mini_app_links"
-              ],
-              "additionalProperties": false
+              ]
+            }
+          },
+          "storefront_truncated": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "shop",
+                "events",
+                "booking",
+                "bio",
+                "terms",
+                "privacy",
+                "product",
+                "event",
+                "booking_resource",
+                "form"
+              ]
             }
           },
           "mini_app_home": {
@@ -12860,6 +13152,7 @@
         "required": [
           "hosts",
           "pages",
+          "storefront_truncated",
           "mini_app_home"
         ],
         "additionalProperties": false
@@ -15276,6 +15569,42 @@
           },
           "deleted": {
             "type": "boolean"
+          },
+          "media": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "fileName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "sizeBytes": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "type",
+                "mime",
+                "fileName",
+                "sizeBytes"
+              ],
+              "additionalProperties": false
+            }
           }
         },
         "required": [
@@ -15301,7 +15630,8 @@
           "delayMinutes",
           "messageTtlMinutes",
           "deletePrevIfUnengaged",
-          "deleted"
+          "deleted",
+          "media"
         ],
         "additionalProperties": false
       },
@@ -17841,12 +18171,26 @@
               "completedAt"
             ],
             "additionalProperties": false
+          },
+          "massSendReady": {
+            "type": "boolean"
+          },
+          "massSendState": {
+            "type": "string",
+            "enum": [
+              "ready",
+              "direct",
+              "preparing",
+              "unavailable"
+            ]
           }
         },
         "required": [
           "seqNum",
           "status",
-          "execution"
+          "execution",
+          "massSendReady",
+          "massSendState"
         ],
         "additionalProperties": false
       },
@@ -42397,7 +42741,7 @@
           "site"
         ],
         "summary": "List publishable hosts and registered site pages",
-        "description": "site:read. `hosts` is every host the publication routes accept: the platform site address and each custom domain (live once verified). `pages` is every page ever published, addressed by its tenant seq_num; public_url is null while the page is not served and reason says why. mini_app_links (per page) and mini_app_home (no parameter) open the page or the home AS the Telegram / MAX / VK mini app — paste them into a broadcast text; a channel whose link would not open the mini app gets url null and a reason. Protected platform pages cannot be hidden or deleted one by one.",
+        "description": "site:read. `hosts` is every host the publication routes accept: the platform site address and each custom domain (live once verified). `pages` is every page ever published (kind site), addressed by its tenant seq_num; public_url is null while the page is not served and reason says why. The storefront pages the platform serves on the platform host follow (kind storefront: shop, events, booking, bio, terms, privacy and one page per active product, event, bookable resource and enabled form, with its section and title); they have seq_num null and no visibility, delete or preview controls, and storefront_truncated names a section cut at its cap. mini_app_links (per page) and mini_app_home (no parameter) open the page or the home AS the Telegram / MAX / VK mini app — paste them into a broadcast text; a channel whose link would not open the mini app gets url null and a reason. Protected platform pages cannot be hidden or deleted one by one.",
         "security": [
           {
             "hubApiKey": []
@@ -55564,8 +55908,20 @@
                       "properties": {
                         "url": {
                           "type": "string",
-                          "maxLength": 8192,
-                          "format": "uri"
+                          "minLength": 1,
+                          "maxLength": 1048576,
+                          "description": "An https address, or for a small file (at most 131072 bytes after decoding) data:<mime>;base64,<payload>. A larger file goes through media_request_upload."
+                        },
+                        "byte_length": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "description": "Required with a data: address: the exact number of bytes the base64 payload decodes to."
+                        },
+                        "sha256": {
+                          "type": "string",
+                          "minLength": 64,
+                          "maxLength": 64,
+                          "description": "Optional with a data: address: the SHA-256 of the decoded bytes, 64 hex characters; checked against them."
                         },
                         "mime_type": {
                           "type": "string",
@@ -55592,7 +55948,7 @@
                       "additionalProperties": false
                     },
                     "maxItems": 10,
-                    "description": "HTTPS addresses of files on the business site or an allowed file host. Up to 10 files and sources together."
+                    "description": "HTTPS addresses of files on the business site or an allowed file host, or small files as data: addresses with byte_length. Up to 10 files and sources together."
                   }
                 },
                 "required": [
@@ -55801,6 +56157,18 @@
                     },
                     "albumSendable": {
                       "type": "boolean"
+                    },
+                    "massSendReady": {
+                      "type": "boolean"
+                    },
+                    "massSendState": {
+                      "type": "string",
+                      "enum": [
+                        "ready",
+                        "direct",
+                        "preparing",
+                        "unavailable"
+                      ]
                     }
                   },
                   "required": [
@@ -55864,7 +56232,7 @@
             }
           },
           "422": {
-            "description": "MEDIA_SOURCE_NOT_ALLOWED, MEDIA_SOURCE_UNAVAILABLE, MEDIA_SOURCE_REDIRECT_REFUSED, MEDIA_METHOD_UNSUPPORTED, MEDIA_LENGTH_REQUIRED, MEDIA_TRANSFER_TIMEOUT (details.origin); MEDIA_MIME_MISMATCH, MEDIA_MAGIC_MISMATCH, MEDIA_SIZE_MISMATCH, MEDIA_ABORTED; MEDIA_TOO_LARGE, MEDIA_BATCH_TOO_LARGE (details.limitBytes, details.plan), MEDIA_TOO_MANY_FILES (details.limitFiles); VALIDATION_ERROR: unrecognized media bytes; IDEMPOTENCY_KEY_MISMATCH: different request under the same HTTP key",
+            "description": "MEDIA_SOURCE_NOT_ALLOWED, MEDIA_SOURCE_UNAVAILABLE, MEDIA_SOURCE_REDIRECT_REFUSED, MEDIA_METHOD_UNSUPPORTED, MEDIA_LENGTH_REQUIRED, MEDIA_TRANSFER_TIMEOUT (details.origin); MEDIA_MIME_MISMATCH, MEDIA_MAGIC_MISMATCH, MEDIA_SIZE_MISMATCH, MEDIA_ABORTED; MEDIA_TOO_LARGE, MEDIA_BATCH_TOO_LARGE (details.limitBytes, details.plan), MEDIA_DATA_URI_TOO_LARGE (details.limitBytes: a data: file above the inline ceiling), MEDIA_TOO_MANY_FILES (details.limitFiles); VALIDATION_ERROR: unrecognized media bytes; IDEMPOTENCY_KEY_MISMATCH: different request under the same HTTP key",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -56415,13 +56783,27 @@
                     },
                     "albumSendable": {
                       "type": "boolean"
+                    },
+                    "massSendReady": {
+                      "type": "boolean"
+                    },
+                    "massSendState": {
+                      "type": "string",
+                      "enum": [
+                        "ready",
+                        "direct",
+                        "preparing",
+                        "unavailable"
+                      ]
                     }
                   },
                   "required": [
                     "uploadId",
                     "state",
                     "items",
-                    "albumSendable"
+                    "albumSendable",
+                    "massSendReady",
+                    "massSendState"
                   ],
                   "additionalProperties": false
                 }
@@ -56749,6 +57131,18 @@
                     },
                     "albumSendable": {
                       "type": "boolean"
+                    },
+                    "massSendReady": {
+                      "type": "boolean"
+                    },
+                    "massSendState": {
+                      "type": "string",
+                      "enum": [
+                        "ready",
+                        "direct",
+                        "preparing",
+                        "unavailable"
+                      ]
                     },
                     "failure": {
                       "type": "object",

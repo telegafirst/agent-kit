@@ -1,0 +1,1702 @@
+{
+  "schema": 1,
+  "playbooks": [
+    {
+      "id": "webinar",
+      "title": {
+        "ru": "Вебинар или событие",
+        "en": "Webinar or event"
+      },
+      "goal": {
+        "ru": "Регистрация на эфир → напоминания → эфир → предзаказ записи → для не купивших приглашение на консультацию.",
+        "en": "Registration for a live session → reminders → the session → recording pre-order → an invitation to a consultation for those who did not buy."
+      },
+      "blocks": [
+        {
+          "blockId": "bot_profile",
+          "role": {
+            "ru": "По просьбе владельца: приветствие в профиле бота.",
+            "en": "At the owner's request: the welcome text in the bot profile."
+          }
+        },
+        {
+          "blockId": "chain_step",
+          "role": {
+            "ru": "Входная цепочка (подарок, напоминание) и цепочки вокруг события: напоминания за сутки и за час, старт, после события.",
+            "en": "The entry chain (gift, reminder) and the chains around the event: reminders a day and an hour before, start, after the event."
+          }
+        },
+        {
+          "blockId": "offer",
+          "role": {
+            "ru": "Предзаказ записи с окном и полная цена после эфира.",
+            "en": "The recording pre-order with a window and the full price after the session."
+          }
+        },
+        {
+          "blockId": "event",
+          "role": {
+            "ru": "Событие: дата, часовой пояс, привязка цепочек, открытие регистрации.",
+            "en": "The event: date, timezone, chain bindings, opening registration."
+          }
+        },
+        {
+          "blockId": "booking",
+          "role": {
+            "ru": "Онлайн-запись на консультацию для тех, кто не купил.",
+            "en": "Online booking for a consultation for those who did not buy."
+          }
+        },
+        {
+          "blockId": "kb_prepared",
+          "role": {
+            "ru": "Заготовки: ответы на вопросы про эфир и запись.",
+            "en": "Prepared answers about the session and the recording."
+          }
+        },
+        {
+          "blockId": "site_page",
+          "role": {
+            "ru": "Страница регистрации с кнопкой на вход цепочки.",
+            "en": "The registration page with a button to the chain entry."
+          }
+        }
+      ],
+      "branches": [
+        {
+          "ru": "Купил предзаказ — выдача после эфира; не купил за окно — приглашение на консультацию.",
+          "en": "Bought the pre-order — delivery after the session; no purchase within the window — an invitation to a consultation."
+        },
+        {
+          "ru": "Не пришёл на эфир (`no_show`) — отдельная цепочка с записью.",
+          "en": "Did not attend (`no_show`) — a separate chain with the recording."
+        }
+      ],
+      "finals": [
+        {
+          "ru": "Регистрация на событие.",
+          "en": "Registration for the event."
+        },
+        {
+          "ru": "Оплата (предзаказ или запись).",
+          "en": "Payment (pre-order or recording)."
+        },
+        {
+          "ru": "Запись на консультацию.",
+          "en": "A consultation booking."
+        }
+      ],
+      "pitfalls": [
+        {
+          "ru": "Не создавайте шаги из системных сообщений платформы («Оплата прошла», статусы заказа), реплик покупателя и ответов AI: платформа рисует их сама.",
+          "en": "Do not create steps from platform system messages (\"payment received\", order statuses), buyer replies or AI answers: the platform draws them itself."
+        },
+        {
+          "ru": "Шаг без кнопки-перехода и без таймаута обрывает воронку. Назовите переход каждого шага явно; «сразу после предыдущего» после ветвления — тупик.",
+          "en": "A step with neither a transition button nor a timeout breaks the funnel. Name every step's transition explicitly; \"right after the previous step\" after a branch is a dead end."
+        },
+        {
+          "ru": "Ссылки на сайт, товар, запись и событие берите готовыми из ответов тулов; `t.me/…?start=` и `?startapp=` руками не собирайте.",
+          "en": "Take site, product, booking and event links ready-made from tool answers; never build `t.me/…?start=` or `?startapp=` by hand."
+        },
+        {
+          "ru": "Регистрацию открывайте `set_event_phase` только после привязки всех цепочек.",
+          "en": "Open registration with `set_event_phase` only after every chain is bound."
+        }
+      ],
+      "selfCheck": [
+        {
+          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_seq`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
+          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_seq` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
+        },
+        {
+          "ru": "Прочитайте событие (`get_event`): время, часовой пояс и все привязки цепочек на месте.",
+          "en": "Read the event back (`get_event`): time, timezone and every chain binding are in place."
+        }
+      ],
+      "exampleChain": [
+        {
+          "key": "gift",
+          "kind": "message",
+          "entry": true,
+          "title": {
+            "ru": "Подарок за регистрацию",
+            "en": "Registration gift"
+          },
+          "text": {
+            "ru": "Вот ваш подарок. Эфир скоро — займите место.",
+            "en": "Here is your gift. The live session is soon — take your seat."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Занять место",
+                "en": "Take a seat"
+              },
+              "to": "presale"
+            }
+          ],
+          "timeout": {
+            "minutes": 60,
+            "to": "nudge"
+          }
+        },
+        {
+          "key": "nudge",
+          "kind": "message",
+          "title": {
+            "ru": "Напоминание",
+            "en": "Reminder"
+          },
+          "text": {
+            "ru": "Место ещё свободно. Предзаказ записи — по цене участника.",
+            "en": "Your seat is still free. Pre-order the recording at the attendee price."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Занять место",
+                "en": "Take a seat"
+              },
+              "to": "presale"
+            }
+          ],
+          "timeout": {
+            "minutes": 1440,
+            "to": "presale"
+          }
+        },
+        {
+          "key": "presale",
+          "kind": "offer",
+          "title": {
+            "ru": "Предзаказ записи",
+            "en": "Recording pre-order"
+          },
+          "text": {
+            "ru": "Цена участника действует 30 минут.",
+            "en": "The attendee price holds for 30 minutes."
+          },
+          "timeout": {
+            "minutes": 30,
+            "to": "invite",
+            "condition": "no_paid_purchase_since_offer"
+          }
+        },
+        {
+          "key": "invite",
+          "kind": "message",
+          "outcome": "booking",
+          "title": {
+            "ru": "Бесплатная консультация",
+            "en": "Free consultation"
+          },
+          "text": {
+            "ru": "Не готовы покупать — запишитесь на разбор.",
+            "en": "Not ready to buy — book a walkthrough."
+          }
+        }
+      ]
+    },
+    {
+      "id": "consultation",
+      "title": {
+        "ru": "Консультация",
+        "en": "Consultation"
+      },
+      "goal": {
+        "ru": "Антивебинар → дожимы по таймаутам → квиз → ветки по сегментам → общее приглашение на консультацию → запись на время.",
+        "en": "Anti-webinar → timeout nudges → quiz → segment branches → one shared consultation invitation → a booked time slot."
+      },
+      "blocks": [
+        {
+          "blockId": "bot_profile",
+          "role": {
+            "ru": "По просьбе владельца: описание бота под тему консультации.",
+            "en": "At the owner's request: the bot description matching the consultation topic."
+          }
+        },
+        {
+          "blockId": "chain_step",
+          "role": {
+            "ru": "Входная цепочка: антивебинар, дожимы, ветки и приглашение.",
+            "en": "The entry chain: anti-webinar, nudges, branches and the invitation."
+          }
+        },
+        {
+          "blockId": "crm_form",
+          "role": {
+            "ru": "Форма квиза: поля и ветки по ответам.",
+            "en": "The quiz form: fields and answer-based branches."
+          }
+        },
+        {
+          "blockId": "quiz",
+          "role": {
+            "ru": "Выбор вида квиза и переходы веток в приглашение.",
+            "en": "Choosing the quiz kind and the branch transitions into the invitation."
+          }
+        },
+        {
+          "blockId": "booking",
+          "role": {
+            "ru": "Ресурс, расписание, услуга «Консультация» и напоминания записи.",
+            "en": "The resource, schedule, the \"Consultation\" service and booking reminders."
+          }
+        },
+        {
+          "blockId": "kb_prepared",
+          "role": {
+            "ru": "Заготовки: ответы на частые вопросы и возражения.",
+            "en": "Prepared answers to common questions and objections."
+          }
+        },
+        {
+          "blockId": "site_page",
+          "role": {
+            "ru": "Лендинг с кнопкой на вход цепочки.",
+            "en": "A landing page with a button to the chain entry."
+          }
+        }
+      ],
+      "branches": [
+        {
+          "ru": "Квиз делит юзеров на «горячих», «тёплых» и «холодных»: у каждой ветки свой шаг, но все ведут в одно приглашение.",
+          "en": "The quiz splits users into hot, warm and cold: each branch has its own step but all lead into one invitation."
+        },
+        {
+          "ru": "Не прошёл квиз — таймаут шага с формой ведёт его в «холодную» ветку.",
+          "en": "Skipped the quiz — the timeout of the form step sends the user down the cold branch."
+        }
+      ],
+      "finals": [
+        {
+          "ru": "Запись на время консультации.",
+          "en": "A booked consultation time slot."
+        }
+      ],
+      "pitfalls": [
+        {
+          "ru": "Не создавайте шаги из системных сообщений платформы («Оплата прошла», статусы заказа), реплик покупателя и ответов AI: платформа рисует их сама.",
+          "en": "Do not create steps from platform system messages (\"payment received\", order statuses), buyer replies or AI answers: the platform draws them itself."
+        },
+        {
+          "ru": "Шаг без кнопки-перехода и без таймаута обрывает воронку. Назовите переход каждого шага явно; «сразу после предыдущего» после ветвления — тупик.",
+          "en": "A step with neither a transition button nor a timeout breaks the funnel. Name every step's transition explicitly; \"right after the previous step\" after a branch is a dead end."
+        },
+        {
+          "ru": "Ссылки на сайт, товар, запись и событие берите готовыми из ответов тулов; `t.me/…?start=` и `?startapp=` руками не собирайте.",
+          "en": "Take site, product, booking and event links ready-made from tool answers; never build `t.me/…?start=` or `?startapp=` by hand."
+        },
+        {
+          "ru": "Ветки квиза без общего следующего шага: оффер или приглашение достанется только одной из них.",
+          "en": "Quiz branches without a shared next step: only one branch would ever reach the invitation."
+        }
+      ],
+      "selfCheck": [
+        {
+          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_seq`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
+          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_seq` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
+        },
+        {
+          "ru": "Каждая ветка квиза в итоге ведёт в приглашение; `site_form_declare` читается обратно с `variants` и `defaultStepSeqNum`.",
+          "en": "Every quiz branch eventually leads into the invitation; `site_form_declare` reads back with `variants` and `defaultStepSeqNum`."
+        }
+      ],
+      "exampleChain": [
+        {
+          "key": "antiwebinar",
+          "kind": "message",
+          "entry": true,
+          "title": {
+            "ru": "Антивебинар",
+            "en": "Anti-webinar"
+          },
+          "text": {
+            "ru": "Короткий разбор: как подойти к задаче за 20 минут.",
+            "en": "A short walkthrough: how to approach the task in 20 minutes."
+          },
+          "timeout": {
+            "minutes": 1440,
+            "to": "nudge"
+          }
+        },
+        {
+          "key": "nudge",
+          "kind": "message",
+          "title": {
+            "ru": "Дожим",
+            "en": "Nudge"
+          },
+          "text": {
+            "ru": "Доступ открыт ещё день. Посмотрите и пройдите короткий тест.",
+            "en": "Access stays open one more day. Watch it and take the short test."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Пройти тест",
+                "en": "Take the test"
+              },
+              "to": "quiz"
+            }
+          ],
+          "timeout": {
+            "minutes": 1440,
+            "to": "quiz"
+          }
+        },
+        {
+          "key": "quiz",
+          "kind": "form",
+          "title": {
+            "ru": "Короткий тест",
+            "en": "Short test"
+          },
+          "text": {
+            "ru": "Два вопроса — и мы поймём, что вам подойдёт.",
+            "en": "Two questions and we will know what fits you."
+          },
+          "form": {
+            "variants": [
+              {
+                "when": "hot",
+                "to": "branch_hot"
+              },
+              {
+                "when": "warm",
+                "to": "branch_warm"
+              }
+            ],
+            "defaultTo": "branch_cold"
+          },
+          "timeout": {
+            "minutes": 1440,
+            "to": "branch_cold"
+          }
+        },
+        {
+          "key": "branch_hot",
+          "kind": "message",
+          "title": {
+            "ru": "Вам пора действовать",
+            "en": "Time to act"
+          },
+          "text": {
+            "ru": "Всё готово — разберём вашу ситуацию.",
+            "en": "Everything is ready — let us go through your case."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Записаться",
+                "en": "Book"
+              },
+              "to": "pitch"
+            }
+          ],
+          "timeout": {
+            "minutes": 60,
+            "to": "pitch"
+          }
+        },
+        {
+          "key": "branch_warm",
+          "kind": "message",
+          "title": {
+            "ru": "Нужен понятный план",
+            "en": "You need a clear plan"
+          },
+          "text": {
+            "ru": "Разложим по шагам, что делать первым.",
+            "en": "We will lay out what to do first."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Записаться",
+                "en": "Book"
+              },
+              "to": "pitch"
+            }
+          ],
+          "timeout": {
+            "minutes": 60,
+            "to": "pitch"
+          }
+        },
+        {
+          "key": "branch_cold",
+          "kind": "message",
+          "title": {
+            "ru": "Начнём с основ",
+            "en": "Start with the basics"
+          },
+          "text": {
+            "ru": "Держите короткий материал с базой.",
+            "en": "Here is a short basics guide."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Разобрать вместе",
+                "en": "Go through it together"
+              },
+              "to": "pitch"
+            }
+          ],
+          "timeout": {
+            "minutes": 1440,
+            "to": "pitch"
+          }
+        },
+        {
+          "key": "pitch",
+          "kind": "message",
+          "title": {
+            "ru": "Приглашение на консультацию",
+            "en": "Consultation invitation"
+          },
+          "text": {
+            "ru": "Приглашаю на бесплатную консультацию.",
+            "en": "I invite you to a free consultation."
+          },
+          "timeout": {
+            "minutes": 1440,
+            "to": "last_call"
+          }
+        },
+        {
+          "key": "last_call",
+          "kind": "message",
+          "outcome": "booking",
+          "title": {
+            "ru": "Последнее напоминание",
+            "en": "Last call"
+          },
+          "text": {
+            "ru": "Окна на этой неделе заканчиваются.",
+            "en": "The slots for this week are running out."
+          }
+        }
+      ]
+    },
+    {
+      "id": "tripwire",
+      "title": {
+        "ru": "Трипвайер",
+        "en": "Tripwire"
+      },
+      "goal": {
+        "ru": "Полезный материал → дожимы → квиз → ветки → недорогой оффер с окном «без покупки» → консультация для не купивших.",
+        "en": "A lead magnet → nudges → quiz → branches → a low-price offer with a \"no purchase\" window → a consultation for those who did not buy."
+      },
+      "blocks": [
+        {
+          "blockId": "bot_profile",
+          "role": {
+            "ru": "По просьбе владельца: описание бота под оффер.",
+            "en": "At the owner's request: the bot description matching the offer."
+          }
+        },
+        {
+          "blockId": "chain_step",
+          "role": {
+            "ru": "Входная цепочка: материал, дожимы, ветки, оффер, приглашение.",
+            "en": "The entry chain: magnet, nudges, branches, the offer, the invitation."
+          }
+        },
+        {
+          "blockId": "crm_form",
+          "role": {
+            "ru": "Форма квиза: поля и ветки.",
+            "en": "The quiz form: fields and branches."
+          }
+        },
+        {
+          "blockId": "quiz",
+          "role": {
+            "ru": "Вид квиза и схождение веток в оффер.",
+            "en": "The quiz kind and the branches converging on the offer."
+          }
+        },
+        {
+          "blockId": "offer",
+          "role": {
+            "ru": "Недорогой цифровой товар с автовыдачей и шаг оффера с окном.",
+            "en": "A low-price digital product with auto delivery and the offer step with a window."
+          }
+        },
+        {
+          "blockId": "booking",
+          "role": {
+            "ru": "Консультация для тех, кто не купил за окно.",
+            "en": "A consultation for those who did not buy within the window."
+          }
+        },
+        {
+          "blockId": "kb_prepared",
+          "role": {
+            "ru": "Заготовки: ответы про оффер и выдачу.",
+            "en": "Prepared answers about the offer and delivery."
+          }
+        },
+        {
+          "blockId": "site_page",
+          "role": {
+            "ru": "Страница с кнопкой на вход цепочки.",
+            "en": "A page with a button to the chain entry."
+          }
+        }
+      ],
+      "branches": [
+        {
+          "ru": "Три ветки квиза сходятся в один оффер; ветка «холодных» получает материал с базой перед оффером.",
+          "en": "Three quiz branches converge on one offer; the cold branch gets a basics guide before the offer."
+        },
+        {
+          "ru": "Оффер: купил — выдача; не купил за окно — приглашение на консультацию.",
+          "en": "The offer: bought — delivery; no purchase within the window — a consultation invitation."
+        }
+      ],
+      "finals": [
+        {
+          "ru": "Оплата трипвайера.",
+          "en": "Payment for the tripwire."
+        },
+        {
+          "ru": "Запись на консультацию.",
+          "en": "A consultation booking."
+        }
+      ],
+      "pitfalls": [
+        {
+          "ru": "Не создавайте шаги из системных сообщений платформы («Оплата прошла», статусы заказа), реплик покупателя и ответов AI: платформа рисует их сама.",
+          "en": "Do not create steps from platform system messages (\"payment received\", order statuses), buyer replies or AI answers: the platform draws them itself."
+        },
+        {
+          "ru": "Шаг без кнопки-перехода и без таймаута обрывает воронку. Назовите переход каждого шага явно; «сразу после предыдущего» после ветвления — тупик.",
+          "en": "A step with neither a transition button nor a timeout breaks the funnel. Name every step's transition explicitly; \"right after the previous step\" after a branch is a dead end."
+        },
+        {
+          "ru": "Ссылки на сайт, товар, запись и событие берите готовыми из ответов тулов; `t.me/…?start=` и `?startapp=` руками не собирайте.",
+          "en": "Take site, product, booking and event links ready-made from tool answers; never build `t.me/…?start=` or `?startapp=` by hand."
+        },
+        {
+          "ru": "Оффер без `timeout_condition`: после окна юзер получит следующий шаг даже после покупки.",
+          "en": "An offer without `timeout_condition`: after the window the user gets the next step even after buying."
+        }
+      ],
+      "selfCheck": [
+        {
+          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_seq`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
+          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_seq` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
+        },
+        {
+          "ru": "Прочитайте товар (`get_catalog_item`): цена, валюта и выдача на месте.",
+          "en": "Read the product back (`get_catalog_item`): price, currency and delivery are in place."
+        }
+      ],
+      "exampleChain": [
+        {
+          "key": "magnet",
+          "kind": "message",
+          "entry": true,
+          "title": {
+            "ru": "Полезный материал",
+            "en": "Lead magnet"
+          },
+          "text": {
+            "ru": "Вот материал, который обещали.",
+            "en": "Here is the material we promised."
+          },
+          "timeout": {
+            "minutes": 1440,
+            "to": "nudge"
+          }
+        },
+        {
+          "key": "nudge",
+          "kind": "message",
+          "title": {
+            "ru": "Дожим",
+            "en": "Nudge"
+          },
+          "text": {
+            "ru": "Посмотрели? Тогда короткий тест.",
+            "en": "Did you watch it? Then a short test."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Пройти тест",
+                "en": "Take the test"
+              },
+              "to": "quiz"
+            }
+          ],
+          "timeout": {
+            "minutes": 1440,
+            "to": "quiz"
+          }
+        },
+        {
+          "key": "quiz",
+          "kind": "form",
+          "title": {
+            "ru": "Короткий тест",
+            "en": "Short test"
+          },
+          "text": {
+            "ru": "Поймём, на каком вы этапе.",
+            "en": "Let us see where you are."
+          },
+          "form": {
+            "variants": [
+              {
+                "when": "hot",
+                "to": "branch_hot"
+              },
+              {
+                "when": "warm",
+                "to": "branch_warm"
+              }
+            ],
+            "defaultTo": "branch_cold"
+          },
+          "timeout": {
+            "minutes": 1440,
+            "to": "branch_cold"
+          }
+        },
+        {
+          "key": "branch_hot",
+          "kind": "message",
+          "title": {
+            "ru": "Вам пора действовать",
+            "en": "Time to act"
+          },
+          "text": {
+            "ru": "Для вас есть готовое решение.",
+            "en": "There is a ready solution for you."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Показать",
+                "en": "Show me"
+              },
+              "to": "offer"
+            }
+          ],
+          "timeout": {
+            "minutes": 60,
+            "to": "offer"
+          }
+        },
+        {
+          "key": "branch_warm",
+          "kind": "message",
+          "title": {
+            "ru": "Нужен понятный план",
+            "en": "You need a clear plan"
+          },
+          "text": {
+            "ru": "Покажу материал с планом по шагам.",
+            "en": "I will show a step-by-step plan."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Показать",
+                "en": "Show me"
+              },
+              "to": "offer"
+            }
+          ],
+          "timeout": {
+            "minutes": 60,
+            "to": "offer"
+          }
+        },
+        {
+          "key": "branch_cold",
+          "kind": "message",
+          "title": {
+            "ru": "Начнём с основ",
+            "en": "Start with the basics"
+          },
+          "text": {
+            "ru": "Держите короткую базу, а затем вернёмся к решению.",
+            "en": "Here is a short basics guide, then back to the solution."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Дальше",
+                "en": "Next"
+              },
+              "to": "offer"
+            }
+          ],
+          "timeout": {
+            "minutes": 1440,
+            "to": "offer"
+          }
+        },
+        {
+          "key": "offer",
+          "kind": "offer",
+          "title": {
+            "ru": "Трипвайер",
+            "en": "Tripwire"
+          },
+          "text": {
+            "ru": "Разбор кейсов за небольшую цену, окно 30 минут.",
+            "en": "A case walkthrough at a small price, a 30-minute window."
+          },
+          "timeout": {
+            "minutes": 30,
+            "to": "consult",
+            "condition": "no_paid_purchase_since_offer"
+          }
+        },
+        {
+          "key": "consult",
+          "kind": "message",
+          "outcome": "booking",
+          "title": {
+            "ru": "Бесплатная консультация",
+            "en": "Free consultation"
+          },
+          "text": {
+            "ru": "Не готовы покупать — запишитесь на консультацию.",
+            "en": "Not ready to buy — book a consultation."
+          }
+        }
+      ]
+    },
+    {
+      "id": "marathon",
+      "title": {
+        "ru": "Марафон",
+        "en": "Marathon"
+      },
+      "goal": {
+        "ru": "Регистрация → предзаказ записи → несколько дней эфиров (по событию на день) → продажа записи → индивидуальный разбор.",
+        "en": "Registration → recording pre-order → several live days (one event per day) → recording sale → an individual walkthrough."
+      },
+      "blocks": [
+        {
+          "blockId": "bot_profile",
+          "role": {
+            "ru": "По просьбе владельца: описание бота под марафон.",
+            "en": "At the owner's request: the bot description matching the marathon."
+          }
+        },
+        {
+          "blockId": "chain_step",
+          "role": {
+            "ru": "Входная цепочка и цепочки каждого дня: анонс, напоминания, после эфира.",
+            "en": "The entry chain and each day's chains: announcement, reminders, after the session."
+          }
+        },
+        {
+          "blockId": "offer",
+          "role": {
+            "ru": "Предзаказ записи и полная цена записи после марафона.",
+            "en": "The recording pre-order and the full recording price after the marathon."
+          }
+        },
+        {
+          "blockId": "event",
+          "role": {
+            "ru": "Отдельное событие на каждый день со своими привязками.",
+            "en": "A separate event per day with its own bindings."
+          }
+        },
+        {
+          "blockId": "booking",
+          "role": {
+            "ru": "Индивидуальный разбор после марафона.",
+            "en": "An individual walkthrough after the marathon."
+          }
+        },
+        {
+          "blockId": "kb_prepared",
+          "role": {
+            "ru": "Заготовки: расписание, доступ к записи, вопросы по дням.",
+            "en": "Prepared answers: schedule, recording access, per-day questions."
+          }
+        },
+        {
+          "blockId": "site_page",
+          "role": {
+            "ru": "Страница марафона с кнопкой на вход цепочки.",
+            "en": "The marathon page with a button to the chain entry."
+          }
+        }
+      ],
+      "branches": [
+        {
+          "ru": "Купил предзаказ — выдача после эфира; не купил за окно — расписание марафона и приглашение на разбор.",
+          "en": "Bought the pre-order — delivery after the session; no purchase within the window — the schedule and an invitation to a walkthrough."
+        }
+      ],
+      "finals": [
+        {
+          "ru": "Оплата предзаказа или записи.",
+          "en": "Payment for the pre-order or the recording."
+        },
+        {
+          "ru": "Регистрация на события дней.",
+          "en": "Registration for the day events."
+        },
+        {
+          "ru": "Запись на индивидуальный разбор.",
+          "en": "An individual walkthrough booking."
+        }
+      ],
+      "pitfalls": [
+        {
+          "ru": "Не создавайте шаги из системных сообщений платформы («Оплата прошла», статусы заказа), реплик покупателя и ответов AI: платформа рисует их сама.",
+          "en": "Do not create steps from platform system messages (\"payment received\", order statuses), buyer replies or AI answers: the platform draws them itself."
+        },
+        {
+          "ru": "Шаг без кнопки-перехода и без таймаута обрывает воронку. Назовите переход каждого шага явно; «сразу после предыдущего» после ветвления — тупик.",
+          "en": "A step with neither a transition button nor a timeout breaks the funnel. Name every step's transition explicitly; \"right after the previous step\" after a branch is a dead end."
+        },
+        {
+          "ru": "Ссылки на сайт, товар, запись и событие берите готовыми из ответов тулов; `t.me/…?start=` и `?startapp=` руками не собирайте.",
+          "en": "Take site, product, booking and event links ready-made from tool answers; never build `t.me/…?start=` or `?startapp=` by hand."
+        },
+        {
+          "ru": "Один день — одно событие со своими моментами; не складывайте три эфира в одно событие.",
+          "en": "One day is one event with its own moments; do not fold three sessions into one event."
+        }
+      ],
+      "selfCheck": [
+        {
+          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_seq`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
+          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_seq` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
+        },
+        {
+          "ru": "Для каждого дня прочитайте `get_event`: даты, часовой пояс и привязки цепочек.",
+          "en": "For every day read `get_event`: dates, timezone and chain bindings."
+        }
+      ],
+      "exampleChain": [
+        {
+          "key": "gift",
+          "kind": "message",
+          "entry": true,
+          "title": {
+            "ru": "Подарок за регистрацию",
+            "en": "Registration gift"
+          },
+          "text": {
+            "ru": "Вот подарок. Марафон стартует скоро.",
+            "en": "Here is your gift. The marathon starts soon."
+          },
+          "buttons": [
+            {
+              "title": {
+                "ru": "Занять место",
+                "en": "Take a seat"
+              },
+              "to": "presale"
+            }
+          ],
+          "timeout": {
+            "minutes": 60,
+            "to": "presale"
+          }
+        },
+        {
+          "key": "presale",
+          "kind": "offer",
+          "title": {
+            "ru": "Предзаказ записи",
+            "en": "Recording pre-order"
+          },
+          "text": {
+            "ru": "Цена участника марафона — 30 минут.",
+            "en": "The marathon attendee price — 30 minutes."
+          },
+          "timeout": {
+            "minutes": 30,
+            "to": "schedule",
+            "condition": "no_paid_purchase_since_offer"
+          }
+        },
+        {
+          "key": "schedule",
+          "kind": "message",
+          "title": {
+            "ru": "Расписание марафона",
+            "en": "Marathon schedule"
+          },
+          "text": {
+            "ru": "Вот даты трёх эфиров.",
+            "en": "Here are the dates of the three sessions."
+          },
+          "timeout": {
+            "minutes": 1440,
+            "to": "invite"
+          }
+        },
+        {
+          "key": "invite",
+          "kind": "message",
+          "outcome": "booking",
+          "title": {
+            "ru": "Разбор после марафона",
+            "en": "Post-marathon walkthrough"
+          },
+          "text": {
+            "ru": "Запишитесь на индивидуальный разбор.",
+            "en": "Book an individual walkthrough."
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "bot_profile",
+      "title": {
+        "ru": "Профиль бота",
+        "en": "Bot profile"
+      },
+      "purpose": {
+        "ru": "Имя, About, Description («What can this bot do?») и картинка стартового экрана бота тенанта. Платформа сама профиль не меняет: только по вашему вызову и по просьбе владельца.",
+        "en": "Name, About, Description (the \"What can this bot do?\" block) and the start-screen picture of the tenant bot. The platform never edits the profile on its own: only on your call and at the owner's request."
+      },
+      "tools": [
+        {
+          "name": "get_bot_profile",
+          "order": 1,
+          "requiredFields": [],
+          "note": {
+            "ru": "Сначала прочитайте, что уже стоит.",
+            "en": "Read what is already there first."
+          }
+        },
+        {
+          "name": "update_bot_profile",
+          "order": 2,
+          "requiredFields": [],
+          "note": {
+            "ru": "Передавайте только те поля, которые меняете.",
+            "en": "Send only the fields you change."
+          }
+        }
+      ],
+      "joins": {
+        "in": [
+          "bot_ready"
+        ],
+        "out": []
+      },
+      "settings": [
+        {
+          "ru": "Лимиты Telegram: имя 64, About 120, Description 512 символов. Превышение возвращается ошибкой с именем поля и лимитом.",
+          "en": "Telegram limits: name 64, About 120, Description 512 characters. An overflow comes back as an error naming the field and the limit."
+        },
+        {
+          "ru": "Тексты задаются отдельно для `ru` и `en`. Картинка и фото профиля идут через `mediaRef`; если метода нет, тул скажет, что поле меняется только в @BotFather.",
+          "en": "Texts are set separately for `ru` and `en`. The picture and profile photo go through `mediaRef`; when no method exists the tool says the field is changed only in @BotFather."
+        }
+      ]
+    },
+    {
+      "id": "offer",
+      "title": {
+        "ru": "Товар и оффер",
+        "en": "Product and offer"
+      },
+      "purpose": {
+        "ru": "Товар в каталоге с выдачей после оплаты и шаг цепочки «оффер»: предложение с окном в N минут. Окно закрывается условием «без покупки», а не просто временем.",
+        "en": "A catalog product with a post-payment delivery and the \"offer\" chain step: a proposal with an N-minute window. The window closes on the \"no purchase\" condition, not on time alone."
+      },
+      "tools": [
+        {
+          "name": "get_catalog",
+          "order": 1,
+          "requiredFields": [],
+          "note": {
+            "ru": "Не создавайте дубли: прочитайте каталог.",
+            "en": "Avoid duplicates: read the catalog first."
+          }
+        },
+        {
+          "name": "get_payment_config",
+          "order": 2,
+          "requiredFields": [],
+          "note": {
+            "ru": "Валюта цены — по умолчанию из настроек оплаты.",
+            "en": "Price currency comes from the payment settings default."
+          }
+        },
+        {
+          "name": "publish_entity",
+          "order": 3,
+          "requiredFields": [
+            "items"
+          ],
+          "note": {
+            "ru": "Элемент: `targetTopic: catalog`, `config.title`, `prices`, `item_type`.",
+            "en": "Item: `targetTopic: catalog`, `config.title`, `prices`, `item_type`."
+          }
+        },
+        {
+          "name": "get_content_draft",
+          "order": 4,
+          "requiredFields": [],
+          "note": {
+            "ru": "Дождитесь `published`, затем возьмите номер товара.",
+            "en": "Wait for `published`, then take the product number."
+          }
+        },
+        {
+          "name": "get_catalog_item",
+          "order": 5,
+          "requiredFields": [
+            "seq_id"
+          ],
+          "note": {
+            "ru": "Прочитайте товар и выдачу обратно.",
+            "en": "Read the product and its delivery back."
+          }
+        },
+        {
+          "name": "update_chain_step",
+          "order": 6,
+          "requiredFields": [
+            "chain_seq_num",
+            "step_seq_num"
+          ],
+          "note": {
+            "ru": "Шаг оффера: `timeout_minutes`, `timeout_next_step_seq`, `timeout_condition`.",
+            "en": "The offer step: `timeout_minutes`, `timeout_next_step_seq`, `timeout_condition`."
+          }
+        }
+      ],
+      "joins": {
+        "in": [
+          "steps"
+        ],
+        "out": [
+          "product"
+        ]
+      },
+      "settings": [
+        {
+          "ru": "Первая выдача товара без выдачи: элемент `publish_entity` с `intent: INITIALIZE_DELIVERY` и `initializeTarget: {seqId: номер товара}`; замена существующей — `intent: REPLACE` и `replaceTarget`.",
+          "en": "First delivery of a product without one: a `publish_entity` item with `intent: INITIALIZE_DELIVERY` and `initializeTarget: {seqId: product number}`; replacing an existing one uses `intent: REPLACE` and `replaceTarget`."
+        },
+        {
+          "ru": "Ось 3 на шаге оффера: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` вместе с `timeout_minutes` и `timeout_next_step_seq`. Платная покупка внутри окна гасит таймер; без покупки юзер идёт на следующий шаг (чаще всего — приглашение на консультацию).",
+          "en": "Axis 3 on the offer step: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` together with `timeout_minutes` and `timeout_next_step_seq`. A paid purchase inside the window cancels the timer; with no purchase the user moves to the next step (usually an invitation to a consultation)."
+        },
+        {
+          "ru": "Кнопку «Купить» ведите на готовый `buy_url` товара, а не на собранную руками ссылку. Текст «Оплата прошла» и статусы заказа платформа рисует сама: шаги для них не создавайте.",
+          "en": "Point the \"Buy\" button at the ready `buy_url` of the product, never at a hand-built link. The platform draws \"payment received\" and order statuses itself: do not create steps for them."
+        }
+      ]
+    },
+    {
+      "id": "chain_step",
+      "title": {
+        "ru": "Шаг цепочки",
+        "en": "Chain step"
+      },
+      "purpose": {
+        "ru": "Одно сообщение автоворонки и три оси, по которым юзер идёт дальше: кнопка-переход, таймаут «не перешёл», таймаут «без покупки». Юзер может нажимать кнопки, а может не нажимать — воронка продвигает его в любом случае.",
+        "en": "One auto-funnel message and the three axes that move the user on: a transition button, the \"did not move\" timeout, the \"no purchase\" timeout. The user may or may not tap buttons: the funnel moves them either way."
+      },
+      "tools": [
+        {
+          "name": "list_message_chains",
+          "order": 1,
+          "requiredFields": [],
+          "note": {
+            "ru": "Прочитайте существующее, чтобы не плодить цепочки.",
+            "en": "Read what exists to avoid duplicate chains."
+          }
+        },
+        {
+          "name": "create_message_chain",
+          "order": 2,
+          "requiredFields": [
+            "title"
+          ]
+        },
+        {
+          "name": "create_chain_step",
+          "order": 3,
+          "requiredFields": [
+            "chain_seq_num",
+            "content"
+          ],
+          "note": {
+            "ru": "Сначала создайте все шаги с текстом, затем связывайте их.",
+            "en": "Create every step with its text first, then wire them."
+          }
+        },
+        {
+          "name": "list_chain_steps",
+          "order": 4,
+          "requiredFields": [
+            "chain_seq_num"
+          ],
+          "note": {
+            "ru": "Возьмите номера шагов для переходов.",
+            "en": "Take step numbers for the transitions."
+          }
+        },
+        {
+          "name": "update_chain_step",
+          "order": 5,
+          "requiredFields": [
+            "chain_seq_num",
+            "step_seq_num"
+          ],
+          "note": {
+            "ru": "Кнопки, таймауты, активность, TTL.",
+            "en": "Buttons, timeouts, activity, TTL."
+          }
+        },
+        {
+          "name": "get_chain_step",
+          "order": 6,
+          "requiredFields": [
+            "chain_seq_num",
+            "step_seq_num"
+          ],
+          "note": {
+            "ru": "Проверка после сборки.",
+            "en": "Post-build check."
+          }
+        }
+      ],
+      "joins": {
+        "in": [
+          "bot_ready"
+        ],
+        "out": [
+          "chain",
+          "steps",
+          "entry_link"
+        ]
+      },
+      "settings": [
+        {
+          "ru": "Ось 1, кнопка-переход: `deeplink_buttons: [{title, target_seq_num}]`. После нажатия кнопки перехода гаснут: отправленная карточка не меняется.",
+          "en": "Axis 1, transition button: `deeplink_buttons: [{title, target_seq_num}]`. After a tap the transition buttons go dead: a sent card never changes."
+        },
+        {
+          "ru": "Ось 2, таймаут «не перешёл»: `timeout_minutes` и `timeout_next_step_seq`. Через M минут без перехода платформа сама ведёт юзера на указанный шаг.",
+          "en": "Axis 2, \"did not move\" timeout: `timeout_minutes` and `timeout_next_step_seq`. After M minutes without a transition the platform moves the user to the named step."
+        },
+        {
+          "ru": "Ось 3, таймаут «без покупки»: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` — для оффера и трипвайера (см. блок `offer`).",
+          "en": "Axis 3, \"no purchase\" timeout: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` — for the offer and the tripwire (see block `offer`)."
+        },
+        {
+          "ru": "Автоудаление и таймаут — два независимых таймера. `message_ttl_minutes`: если юзер ничего не сделал с сообщением, убрать его через N минут; нажал кнопку или перешёл дальше — сообщение остаётся. Удалить через 10 минут и дожать через 20 допустимо: ограничения `ttl >= timeout` нет. `delete_prev_if_unengaged` убирает предыдущую карточку в момент таймаута, если реакции не было.",
+          "en": "Auto-delete and timeout are two independent timers. `message_ttl_minutes`: if the user did nothing with the message, remove it after N minutes; a tap or a move keeps it. Deleting after 10 minutes and nudging after 20 is allowed: there is no `ttl >= timeout` rule. `delete_prev_if_unengaged` removes the previous card at timeout time when it got no reaction."
+        },
+        {
+          "ru": "`delay_minutes` — задержка доставки шага после входа, а не таймаут. Шаг без кнопок и таймаута завершает цепочку.",
+          "en": "`delay_minutes` is the delivery delay of the step after entry, not a timeout. A step with no buttons and no timeout ends the chain."
+        },
+        {
+          "ru": "Кнопки на товар, запись и событие подключайте после соответствующих блоков: возьмите их готовые адреса и вернитесь к `update_chain_step`.",
+          "en": "Connect buttons to a product, a booking or an event after the matching blocks exist: take their ready addresses and come back to `update_chain_step`."
+        },
+        {
+          "ru": "Тестовый режим задержек: на проверке поставьте `timeout_minutes: 1` и малые `delay_minutes`, посмотрите прохождение глазами, после «да» владельца верните боевые значения. Флага «ускоренный прогон» в платформе нет.",
+          "en": "Delay test mode: while testing set `timeout_minutes: 1` and small `delay_minutes`, watch the run, and after the owner's \"yes\" restore the production values. The platform has no \"fast run\" flag."
+        }
+      ]
+    },
+    {
+      "id": "quiz",
+      "title": {
+        "ru": "Квиз",
+        "en": "Quiz"
+      },
+      "purpose": {
+        "ru": "Вопросы, по ответам которых юзер попадает в одну из веток. Все ветки сходятся в следующий общий шаг (оффер или приглашение). Вид квиза выбирайте явно и согласуйте с владельцем.",
+        "en": "Questions whose answers send the user down one of several branches. All branches converge on the next shared step (the offer or an invitation). Pick the quiz kind explicitly and agree it with the owner."
+      },
+      "tools": [
+        {
+          "name": "site_form_declare",
+          "order": 1,
+          "requiredFields": [
+            "zone",
+            "title"
+          ],
+          "note": {
+            "ru": "Виды (а) и (б): форма с `variants` и `defaultStepSeqNum`.",
+            "en": "Kinds (a) and (b): a form with `variants` and `defaultStepSeqNum`."
+          }
+        },
+        {
+          "name": "create_chain_step",
+          "order": 2,
+          "requiredFields": [
+            "chain_seq_num",
+            "content"
+          ],
+          "note": {
+            "ru": "Шаги веток и вид (в): кнопки в боте.",
+            "en": "Branch steps, and kind (c): bot buttons."
+          }
+        },
+        {
+          "name": "update_chain_step",
+          "order": 3,
+          "requiredFields": [
+            "chain_seq_num",
+            "step_seq_num"
+          ],
+          "note": {
+            "ru": "Таймаут шага с квизом и переходы веток в общий шаг.",
+            "en": "The quiz step timeout and the branch transitions into the shared step."
+          }
+        }
+      ],
+      "joins": {
+        "in": [
+          "steps"
+        ],
+        "out": [
+          "branches"
+        ]
+      },
+      "settings": [
+        {
+          "ru": "Вид (а): CRM-форма на штатной странице `/f/{code}`. Вид (б): своя страница или мини-приложение плюс официальный скрипт отправки, который возвращает `site_form_declare`. Вид (в): кнопки в боте — только для одного вопроса, подсчёт баллов кнопками не выражается.",
+          "en": "Kind (a): a CRM form on the standard `/f/{code}` page. Kind (b): your own page or mini app plus the official submit script that `site_form_declare` returns. Kind (c): bot buttons — a single question only; scoring with buttons cannot be expressed."
+        },
+        {
+          "ru": "Для (а) и (б): `site_form_declare` с `variants` (по одному на ветку, каждый ведёт на шаг ветки), `defaultStepSeqNum` для остальных ответов, `funnelMode` `deterministic` или `ai_agent`, `managerFollowUp` выключен по умолчанию.",
+          "en": "For (a) and (b): `site_form_declare` with `variants` (one per branch, each leading to the branch step), `defaultStepSeqNum` for every other answer, `funnelMode` `deterministic` or `ai_agent`, `managerFollowUp` off by default."
+        },
+        {
+          "ru": "Шаг с квизом получает ось 2 (`timeout_minutes` → шаг): тот, кто не прошёл тест, всё равно идёт дальше. Ветки обязаны сходиться; фраза «сразу после предыдущего» после ветвления не годится.",
+          "en": "The quiz step gets axis 2 (`timeout_minutes` → a step): whoever skips the test still moves on. Branches must converge; \"right after the previous step\" is not a valid transition after a branch."
+        }
+      ]
+    },
+    {
+      "id": "crm_form",
+      "title": {
+        "ru": "CRM-форма",
+        "en": "CRM form"
+      },
+      "purpose": {
+        "ru": "Форма заявки или анкеты: поля, куда уходят ответы и куда форма ведёт юзера. Форма — это переход: ответы двигают живой прогон на нужный шаг.",
+        "en": "An application or survey form: its fields, where answers go and where the form sends the user. A form is a transition: the answers move the live run to the right step."
+      },
+      "tools": [
+        {
+          "name": "site_form_declare",
+          "order": 1,
+          "requiredFields": [
+            "zone",
+            "title"
+          ],
+          "note": {
+            "ru": "Единственный писатель форм; возвращает адрес и официальный скрипт отправки.",
+            "en": "The one form writer; returns the address and the official submit script."
+          }
+        },
+        {
+          "name": "pull_form_submissions",
+          "order": 2,
+          "requiredFields": [],
+          "note": {
+            "ru": "Прочитать заявки; текст ответов — только по явной просьбе.",
+            "en": "Read submissions; answer text only on explicit request."
+          }
+        },
+        {
+          "name": "get_form_submission",
+          "order": 3,
+          "requiredFields": []
+        },
+        {
+          "name": "set_form_submission_handled",
+          "order": 4,
+          "requiredFields": []
+        }
+      ],
+      "joins": {
+        "in": [
+          "steps"
+        ],
+        "out": [
+          "form"
+        ]
+      },
+      "settings": [
+        {
+          "ru": "`submissionSchema` — поля; `variants` — ветки по ответам, каждая ведёт на шаг цепочки; `defaultStepSeqNum` — шаг для всех остальных ответов; `funnelMode`: `none`, `deterministic` (правила формы) или `ai_agent`.",
+          "en": "`submissionSchema` holds the fields; `variants` are the answer-based branches, each leading to a chain step; `defaultStepSeqNum` is the step for every other answer; `funnelMode`: `none`, `deterministic` (form rules) or `ai_agent`."
+        },
+        {
+          "ru": "`managerFollowUp` по умолчанию выключен: включайте, только если владелец просит, чтобы менеджер связался с заполнившим.",
+          "en": "`managerFollowUp` is off by default: turn it on only when the owner asks for a manager to follow up."
+        },
+        {
+          "ru": "Форма двигает прогон, только если задан следующий шаг. Незаполнение ловит обычный таймаут шага с формой: отдельного «таймаута формы» нет.",
+          "en": "The form moves a run only when a next step is set. A form left unfilled is caught by the ordinary timeout of the step that carries it: there is no separate \"form timeout\"."
+        }
+      ]
+    },
+    {
+      "id": "kb_prepared",
+      "title": {
+        "ru": "Заготовка базы знаний",
+        "en": "Knowledge-base prepared message"
+      },
+      "purpose": {
+        "ru": "Тема базы знаний менеджера (FAQ, возражения) и привязанные к ней заготовки: готовые карточки с видео, файлом или инструкцией, которые AI-менеджер отправляет вместо того, чтобы придумывать текст.",
+        "en": "A manager knowledge-base topic (FAQ, objections) and the prepared messages bound to it: ready cards with a video, a file or instructions that the AI manager sends instead of inventing text."
+      },
+      "tools": [
+        {
+          "name": "create_chain_step",
+          "order": 1,
+          "requiredFields": [
+            "chain_seq_num",
+            "content"
+          ],
+          "note": {
+            "ru": "Заготовка — это шаг цепочки с готовым контентом.",
+            "en": "A prepared message is a chain step with ready content."
+          }
+        },
+        {
+          "name": "list_chain_steps",
+          "order": 2,
+          "requiredFields": [
+            "chain_seq_num"
+          ],
+          "note": {
+            "ru": "Возьмите номера шагов-заготовок.",
+            "en": "Take the numbers of the prepared steps."
+          }
+        },
+        {
+          "name": "create_knowledge",
+          "order": 3,
+          "requiredFields": [
+            "kb_type",
+            "title",
+            "content"
+          ],
+          "note": {
+            "ru": "Привяжите заготовки через `prepared_step_seq_nums`.",
+            "en": "Bind prepared messages through `prepared_step_seq_nums`."
+          }
+        },
+        {
+          "name": "list_knowledge",
+          "order": 4,
+          "requiredFields": []
+        },
+        {
+          "name": "update_knowledge",
+          "order": 5,
+          "requiredFields": []
+        }
+      ],
+      "joins": {
+        "in": [
+          "steps"
+        ],
+        "out": [
+          "knowledge"
+        ]
+      },
+      "settings": [
+        {
+          "ru": "Два режима одной сущности. (а) Отдельное сообщение: шаг активен, контент жив, задержки нет — менеджер шлёт его одним сообщением. (б) Вход в цепочку: менеджер шлёт стартовое сообщение, и запускается вся цепочка.",
+          "en": "Two modes of one entity. (a) A standalone message: the step is active, its content is alive and there is no delay — the manager sends it as one message. (b) A chain entry: the manager sends the start message and the whole chain starts."
+        },
+        {
+          "ru": "Не заводите «служебную цепочку» с `is_active: false`: неактивный шаг менеджер отправить не сможет.",
+          "en": "Do not create a \"service chain\" with `is_active: false`: the manager cannot send an inactive step."
+        },
+        {
+          "ru": "Для каждой темы: заголовок, ответ, теги. Тяжёлый файл загружайте один раз (`media_request_upload` → PUT → `media_finalize`) и переиспользуйте `mediaRef` во всех заготовках.",
+          "en": "Each topic needs a title, an answer and tags. Upload a heavy file once (`media_request_upload` → PUT → `media_finalize`) and reuse its `mediaRef` in every prepared message."
+        }
+      ]
+    },
+    {
+      "id": "booking",
+      "title": {
+        "ru": "Онлайн-запись",
+        "en": "Online booking"
+      },
+      "purpose": {
+        "ru": "Ресурс (специалист, кабинет), расписание, услуга и цепочки напоминаний записи. Финал воронки «запись на время».",
+        "en": "A resource (specialist, room), its schedule, a service and the booking reminder chains. The funnel outcome \"booked a time slot\"."
+      },
+      "tools": [
+        {
+          "name": "booking_list_resources",
+          "order": 1,
+          "requiredFields": []
+        },
+        {
+          "name": "booking_create_resource",
+          "order": 2,
+          "requiredFields": [
+            "name",
+            "idempotency_key"
+          ]
+        },
+        {
+          "name": "booking_create_resource_schedule",
+          "order": 3,
+          "requiredFields": [],
+          "note": {
+            "ru": "Расписание на текущий и следующий месяц.",
+            "en": "A schedule for the current and the next month."
+          }
+        },
+        {
+          "name": "booking_create_service",
+          "order": 4,
+          "requiredFields": [
+            "mode",
+            "duration_value",
+            "resource_seq_nums",
+            "idempotency_key"
+          ]
+        },
+        {
+          "name": "booking_update_resource",
+          "order": 5,
+          "requiredFields": [
+            "resource_seq_num",
+            "etag",
+            "idempotency_key"
+          ],
+          "note": {
+            "ru": "`chain_bindings` — после создания цепочек.",
+            "en": "`chain_bindings` — after the chains exist."
+          }
+        },
+        {
+          "name": "meeting_provider_connect",
+          "order": 6,
+          "requiredFields": [],
+          "note": {
+            "ru": "Zoom или Телемост: подтверждение OAuth делает человек.",
+            "en": "Zoom or Telemost: a human confirms the OAuth."
+          }
+        }
+      ],
+      "joins": {
+        "in": [
+          "chain"
+        ],
+        "out": [
+          "booking"
+        ]
+      },
+      "settings": [
+        {
+          "ru": "`chain_bindings`: `booking_confirmed`, `booking_reminder_24h`, `booking_reminder_1h`, `booking_attended`, `booking_no_show`, `booking_cancelled`. Каждая привязка: `chain_seq_num` и при необходимости `step_seq_num`; `null` отвязывает цепочку.",
+          "en": "`chain_bindings`: `booking_confirmed`, `booking_reminder_24h`, `booking_reminder_1h`, `booking_attended`, `booking_no_show`, `booking_cancelled`. Each binding carries `chain_seq_num` and optionally `step_seq_num`; `null` unbinds the chain."
+        },
+        {
+          "ru": "Кнопка «Записаться» в шагах ведёт на готовый `publicUrl` ресурса. Часы приёма и длительность спросите у владельца.",
+          "en": "The \"Book\" button in steps points at the ready `publicUrl` of the resource. Ask the owner for working hours and duration."
+        }
+      ]
+    },
+    {
+      "id": "event",
+      "title": {
+        "ru": "Событие",
+        "en": "Event"
+      },
+      "purpose": {
+        "ru": "Вебинар, эфир или день марафона: дата, формат и цепочки вокруг него (напоминания, старт, после события). Финал воронки «регистрация на событие».",
+        "en": "A webinar, a live stream or a marathon day: its date, format and the chains around it (reminders, start, after the event). The funnel outcome \"registered for an event\"."
+      },
+      "tools": [
+        {
+          "name": "list_events",
+          "order": 1,
+          "requiredFields": []
+        },
+        {
+          "name": "create_event",
+          "order": 2,
+          "requiredFields": [
+            "title"
+          ],
+          "note": {
+            "ru": "`start_at`, `end_at`, `timezone` (IANA), `is_online`, `address` или `stream_url`.",
+            "en": "`start_at`, `end_at`, `timezone` (IANA), `is_online`, `address` or `stream_url`."
+          }
+        },
+        {
+          "name": "update_event",
+          "order": 3,
+          "requiredFields": [
+            "seq_num"
+          ],
+          "note": {
+            "ru": "Привязка цепочек к моментам — после создания цепочек.",
+            "en": "Bind chains to moments — after the chains exist."
+          }
+        },
+        {
+          "name": "set_event_phase",
+          "order": 4,
+          "requiredFields": [
+            "seq_num",
+            "phase"
+          ],
+          "note": {
+            "ru": "`phase: registration` открывает регистрацию.",
+            "en": "`phase: registration` opens registration."
+          }
+        },
+        {
+          "name": "get_event",
+          "order": 5,
+          "requiredFields": [
+            "seq_num"
+          ],
+          "note": {
+            "ru": "Прочитайте событие обратно.",
+            "en": "Read the event back."
+          }
+        },
+        {
+          "name": "complete_event",
+          "order": 6,
+          "requiredFields": [
+            "seq_num"
+          ]
+        }
+      ],
+      "joins": {
+        "in": [
+          "chain"
+        ],
+        "out": [
+          "event"
+        ]
+      },
+      "settings": [
+        {
+          "ru": "Привязки через `update_event`: `reminder_24h_chain_seq_num`, `reminder_1h_chain_seq_num`, `start_event_chain_seq_num`, `post_event_chain_seq_num`, при необходимости `no_show_chain_seq_num`; конкретный входной шаг — парное поле `{момент}_chain_step_seq`.",
+          "en": "Bindings through `update_event`: `reminder_24h_chain_seq_num`, `reminder_1h_chain_seq_num`, `start_event_chain_seq_num`, `post_event_chain_seq_num`, optionally `no_show_chain_seq_num`; the entry step is the paired `{moment}_chain_step_seq` field."
+        },
+        {
+          "ru": "`reminder_24h_offset_minutes` и `reminder_1h_offset_minutes` — от 5 до 10080 минут ДО старта, первое строго раньше второго. Остальные сообщения вокруг события — задержанные шаги этих цепочек (ось 2).",
+          "en": "`reminder_24h_offset_minutes` and `reminder_1h_offset_minutes` are 5 to 10080 minutes BEFORE the start, the first strictly earlier than the second. Other messages around the event are delayed steps of those chains (axis 2)."
+        },
+        {
+          "ru": "Перенос события и отмена сами участников не уведомляют. Регистрацию открывайте `set_event_phase` после настройки; начавшееся событие закрывает `complete_event`.",
+          "en": "Rescheduling or cancelling an event does not notify attendees by itself. Open registration with `set_event_phase` after setup; a started event is closed with `complete_event`."
+        }
+      ]
+    },
+    {
+      "id": "site_page",
+      "title": {
+        "ru": "Сайт и страница",
+        "en": "Site and page"
+      },
+      "purpose": {
+        "ru": "Публичный сайт тенанта: витрина и страницы, кнопки которых ведут во вход цепочки или в бота. Собирается последним, когда у цепочек уже есть готовые адреса входа.",
+        "en": "The tenant public site: a storefront and pages whose buttons lead into a chain entry or into the bot. Built last, once the chains have ready entry addresses."
+      },
+      "tools": [
+        {
+          "name": "get_storefront",
+          "order": 1,
+          "requiredFields": []
+        },
+        {
+          "name": "create_quick_site",
+          "order": 2,
+          "requiredFields": []
+        },
+        {
+          "name": "update_storefront",
+          "order": 3,
+          "requiredFields": []
+        },
+        {
+          "name": "site_request_upload",
+          "order": 4,
+          "requiredFields": [],
+          "note": {
+            "ru": "Свой сайт: загрузка, затем `site_publish`.",
+            "en": "A custom site: upload, then `site_publish`."
+          }
+        },
+        {
+          "name": "site_publish",
+          "order": 5,
+          "requiredFields": [
+            "host",
+            "uploadId"
+          ]
+        },
+        {
+          "name": "site_list_pages",
+          "order": 6,
+          "requiredFields": [],
+          "note": {
+            "ru": "Готовые ссылки «открыть мини-приложением» — в `mini_app_links`.",
+            "en": "Ready \"open as mini app\" links live in `mini_app_links`."
+          }
+        },
+        {
+          "name": "site_page_preview",
+          "order": 7,
+          "requiredFields": []
+        }
+      ],
+      "joins": {
+        "in": [
+          "bot_ready",
+          "entry_link"
+        ],
+        "out": [
+          "site_url"
+        ]
+      },
+      "settings": [
+        {
+          "ru": "Кнопка входной цепочки берёт её готовый `entryUrl` из `list_message_chains` или `list_chain_steps`; товар — `public_url` и `buy_url`; запись и событие — `publicUrl`. Ссылку из slug, кода или номера, а также `t.me/…?start=` руками не собирайте.",
+          "en": "The entry-chain button takes its ready `entryUrl` from `list_message_chains` or `list_chain_steps`; a product uses `public_url` and `buy_url`; booking and event use `publicUrl`. Never build a link from a slug, a code or a number, nor a `t.me/…?start=` link by hand."
+        },
+        {
+          "ru": "Ссылку «открыть мини-приложением» не выдумывайте (`?startapp=shop` не работает): берите её из `mini_app_links` ответа `site_list_pages`.",
+          "en": "Do not invent a mini-app link (`?startapp=shop` does not work): take it from `mini_app_links` in the `site_list_pages` answer."
+        },
+        {
+          "ru": "Форма на своей странице отправляется официальным скриптом, который вернул `site_form_declare`; страница на другом домене требует разрешённого Origin формы.",
+          "en": "A form on your own page is submitted by the official script that `site_form_declare` returned; a page on another domain needs the form's allowed Origin."
+        }
+      ]
+    }
+  ]
+}

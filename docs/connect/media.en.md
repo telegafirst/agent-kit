@@ -14,7 +14,7 @@ The way depends on the app your agent runs in:
 | Claude on the web, desktop or phone through a connector | Chat attachments are not passed to tools: they have no link. The agent names HTTPS links to the files in `sources`: on your site on the platform or on an allowed file host. The platform reads a file of your published site straight from its storage, with no network request; a link to another business's site is refused. Without a link, upload the file in the web interface or Mini App. |
 | Claude Code, Codex, Cursor, an SDK — anywhere the agent reads files and makes HTTP requests | The agent calls `media_request_upload`, sends each file's bytes with HTTP PUT to its returned URL with the exact declared size, then finishes with `media_finalize`. |
 
-Base64 is not supported, neither in tool parameters nor in message text. A local file path or an invented URL does not work either.
+A small file (up to 128 KiB once decoded) can be passed straight in `sources` as a `data:<mime>;base64,…` address with a required byte_length and an optional `sha256`. A large file is not passed that way: the agent calls `media_request_upload`, sends the bytes with HTTP PUT (a ready `curl` command is in the response) and finishes with `media_finalize`; base64 of a large file is never printed, neither in tool parameters nor in message text. A local file path or an invented URL does not work.
 
 One call carries up to 10 files and links together. A large file imports in the background: `media_import_files` answers `COMMITTED` with mediaRefs, or `IMPORTING` with an `uploadId`. The agent then checks `media_get_status` until it gets `COMMITTED`, or `FAILED` with a reason code. `STAGING` means no import is running: the agent repeats the same call with the same idempotency_key.
 
