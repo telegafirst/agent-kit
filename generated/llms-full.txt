@@ -1,4 +1,4 @@
-Generated: 2026-10-14T23:42:08.932Z
+Generated: 2026-10-15T12:46:57.083Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -134,6 +134,9 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `DELETE /api/v1/tools/site/pages/{seqNum}` _(scopes: site:write)_ — Withdraw one page from the deployed site
 - `POST /api/v1/tools/site/pages/visibility` _(scopes: site:write)_ — Show or hide existing site pages
 - `POST /api/v1/tools/site/pages/{seqNum}/preview` _(scopes: site:write)_ — Open a private preview of one site page
+- `GET /api/v1/tools/site/pages/{seqNum}/nudge` _(scopes: site:read)_ — Read the nudge setting of one site page
+- `PUT /api/v1/tools/site/pages/{seqNum}/nudge` _(scopes: site:write)_ — Replace the nudge setting of one site page
+- `GET /api/v1/tools/site/pages/{seqNum}/nudge/stats` _(scopes: site:read)_ — Read the nudge funnel of one site page
 - `GET /api/v1/tools/storefront` _(scopes: storefront:read)_ — Read tenant storefront settings
 - `PATCH /api/v1/tools/storefront` _(scopes: storefront:write)_ — Update tenant storefront settings
 - `GET /api/v1/tools/catalog-groups` _(scopes: catalog:read)_ — List catalog groups

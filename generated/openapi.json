@@ -118,6 +118,7 @@
           "ORDER_ITEM_VERSION_CONFLICT",
           "ORDER_ALREADY_PAID",
           "ORDER_CLOSED",
+          "ORDER_BOUND_TO_BOOKING",
           "CART_INACTIVE",
           "DRAFT_NOT_PENDING",
           "TENANT_ARCHIVED",
@@ -210,6 +211,7 @@
           "PRODUCT_NOT_CART_ELIGIBLE",
           "OPTION_UNAVAILABLE",
           "QUANTITY_LIMIT",
+          "OUTSIDE_WINDOW",
           "MERGE_REJECTED",
           "BUYER_CONTACT_REQUIRED",
           "DELIVERY_ADDRESS_REQUIRED",
@@ -241,6 +243,12 @@
           "CONTENT_INVALID_HTML",
           "CONTENT_TOO_LONG",
           "CONTENT_SOURCE_UNREADABLE",
+          "SITE_NUDGE_PAGE_NOT_ELIGIBLE",
+          "SITE_NUDGE_DELAY_OUT_OF_RANGE",
+          "SITE_NUDGE_STEP_NOT_FOUND",
+          "SITE_NUDGE_GOAL_LINK_NOT_FOUND",
+          "SITE_NUDGE_AI_NOT_ON_PLAN",
+          "SITE_NUDGE_AI_PROMPT_REQUIRED",
           "BOT_PROFILE_PHOTO_TYPE",
           "BOT_PROFILE_PHOTO_TOO_LARGE",
           "PRECONDITION_REQUIRED",
@@ -1806,6 +1814,17 @@
               "resource_only",
               "open_inquiry"
             ]
+          },
+          "selected_options": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]{1,16}$"
+              },
+              "minItems": 1
+            }
           }
         },
         "required": [
@@ -2203,6 +2222,64 @@
           "bookable"
         ]
       },
+      "BookingAvailabilityLength": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "fixed",
+              "list",
+              "range"
+            ]
+          },
+          "blockValue": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "allowedUnits": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            }
+          },
+          "minUnits": {
+            "type": "integer",
+            "exclusiveMinimum": 0
+          },
+          "maxUnits": {
+            "type": "integer",
+            "exclusiveMinimum": 0
+          },
+          "windowStartMinute": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "windowEndMinute": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          }
+        },
+        "required": [
+          "mode",
+          "blockValue",
+          "allowedUnits",
+          "minUnits",
+          "maxUnits",
+          "windowStartMinute",
+          "windowEndMinute"
+        ]
+      },
       "BookingAvailability": {
         "type": "object",
         "properties": {
@@ -2211,10 +2288,24 @@
             "items": {
               "$ref": "#/components/schemas/BookingSlot"
             }
+          },
+          "length": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BookingAvailabilityLength"
+              },
+              {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              }
+            ]
           }
         },
         "required": [
-          "slots"
+          "slots",
+          "length"
         ]
       },
       "Booking": {
@@ -3078,6 +3169,14 @@
                           },
                           "is_deferred": {
                             "type": "boolean"
+                          },
+                          "charge": {
+                            "type": "string",
+                            "enum": [
+                              "once",
+                              "per_hour",
+                              "per_day"
+                            ]
                           }
                         },
                         "required": [
@@ -3355,6 +3454,105 @@
               "type": "integer",
               "exclusiveMinimum": 0
             }
+          },
+          "length_mode": {
+            "type": "string",
+            "enum": [
+              "fixed",
+              "list",
+              "range"
+            ]
+          },
+          "length_units": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 999
+            }
+          },
+          "min_units": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 999
+          },
+          "max_units": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 999
+          },
+          "window_start_minute": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1439
+          },
+          "window_end_minute": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1440
+          },
+          "price_tiers": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+                "units": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 999
+                },
+                "prices": {
+                  "type": "object",
+                  "properties": {
+                    "rub": {
+                      "type": "string",
+                      "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                    },
+                    "usd": {
+                      "type": "string",
+                      "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                    },
+                    "eur": {
+                      "type": "string",
+                      "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                    },
+                    "stars": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "units",
+                "prices"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 12
           }
         },
         "required": [
@@ -3362,7 +3560,14 @@
           "mode",
           "duration_value",
           "buffer_minutes",
-          "resource_seq_nums"
+          "resource_seq_nums",
+          "length_mode",
+          "length_units",
+          "min_units",
+          "max_units",
+          "window_start_minute",
+          "window_end_minute",
+          "price_tiers"
         ]
       },
       "CatalogTrial": {
@@ -3825,6 +4030,14 @@
                           },
                           "is_deferred": {
                             "type": "boolean"
+                          },
+                          "charge": {
+                            "type": "string",
+                            "enum": [
+                              "once",
+                              "per_hour",
+                              "per_day"
+                            ]
                           }
                         },
                         "required": [
@@ -3923,6 +4136,106 @@
               "type": "integer",
               "exclusiveMinimum": 0
             }
+          },
+          "length_mode": {
+            "type": "string",
+            "enum": [
+              "fixed",
+              "list",
+              "range"
+            ]
+          },
+          "length_units": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 999
+            },
+            "maxItems": 999
+          },
+          "min_units": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 999
+          },
+          "max_units": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 999
+          },
+          "window_start_minute": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1439
+          },
+          "window_end_minute": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1440
+          },
+          "price_tiers": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+                "units": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 999
+                },
+                "prices": {
+                  "type": "object",
+                  "properties": {
+                    "rub": {
+                      "type": "string",
+                      "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                    },
+                    "usd": {
+                      "type": "string",
+                      "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                    },
+                    "eur": {
+                      "type": "string",
+                      "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                    },
+                    "stars": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "units",
+                "prices"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 12
           }
         },
         "additionalProperties": false
@@ -13235,6 +13548,7 @@
                     "unowned",
                     "blocked",
                     "busy",
+                    "free_tier_limit",
                     "failed"
                   ]
                 },
@@ -13269,6 +13583,211 @@
         "required": [
           "url",
           "expires_at"
+        ],
+        "additionalProperties": false
+      },
+      "SiteNudgeSettingsRequest": {
+        "type": "object",
+        "properties": {
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "delayMinutes": {
+            "type": "integer"
+          },
+          "stepSeq": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "exclusiveMinimum": 0
+          },
+          "aiEnabled": {
+            "type": "boolean"
+          },
+          "aiPrompt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "goalLinkCodes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "maxItems": 50
+          }
+        },
+        "required": [
+          "isEnabled",
+          "delayMinutes",
+          "stepSeq",
+          "aiEnabled",
+          "aiPrompt",
+          "goalLinkCodes"
+        ],
+        "additionalProperties": false
+      },
+      "SiteNudgeSettings": {
+        "type": "object",
+        "properties": {
+          "pageSeq": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "delayMinutes": {
+            "type": "integer"
+          },
+          "stepSeq": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "aiEnabled": {
+            "type": "boolean"
+          },
+          "aiPrompt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "goalLinkCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "aiAvailable": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageSeq",
+          "isEnabled",
+          "delayMinutes",
+          "stepSeq",
+          "aiEnabled",
+          "aiPrompt",
+          "goalLinkCodes",
+          "aiAvailable"
+        ],
+        "additionalProperties": false
+      },
+      "SiteNudgeStats": {
+        "type": "object",
+        "properties": {
+          "pageSeq": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "visits": {
+            "type": "integer"
+          },
+          "cooldownVisits": {
+            "type": "integer"
+          },
+          "waits": {
+            "type": "integer"
+          },
+          "pending": {
+            "type": "integer"
+          },
+          "goalBeforeFire": {
+            "type": "integer"
+          },
+          "fired": {
+            "type": "integer"
+          },
+          "goalAfterFire": {
+            "type": "integer"
+          },
+          "superseded": {
+            "type": "integer"
+          },
+          "failed": {
+            "type": "integer"
+          },
+          "stepOutcomes": {
+            "type": "object",
+            "properties": {
+              "sent": {
+                "type": "integer"
+              },
+              "skipped_active_run": {
+                "type": "integer"
+              },
+              "skipped_inactive_chain": {
+                "type": "integer"
+              },
+              "not_configured": {
+                "type": "integer"
+              },
+              "failed": {
+                "type": "integer"
+              }
+            },
+            "additionalProperties": false
+          },
+          "aiOutcomes": {
+            "type": "object",
+            "properties": {
+              "sent": {
+                "type": "integer"
+              },
+              "skipped_no_tokens": {
+                "type": "integer"
+              },
+              "skipped_tariff": {
+                "type": "integer"
+              },
+              "skipped_operator_active": {
+                "type": "integer"
+              },
+              "not_configured": {
+                "type": "integer"
+              },
+              "failed": {
+                "type": "integer"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "pageSeq",
+          "from",
+          "to",
+          "visits",
+          "cooldownVisits",
+          "waits",
+          "pending",
+          "goalBeforeFire",
+          "fired",
+          "goalAfterFire",
+          "superseded",
+          "failed",
+          "stepOutcomes",
+          "aiOutcomes"
         ],
         "additionalProperties": false
       },
@@ -19344,6 +19863,17 @@
           "quantity": {
             "type": "integer",
             "exclusiveMinimum": 0
+          },
+          "selected_options": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]{1,16}$"
+              },
+              "minItems": 1
+            }
           }
         },
         "required": [
@@ -19696,6 +20226,119 @@
           },
           "isPublic": {
             "type": "boolean"
+          },
+          "length": {
+            "type": "object",
+            "properties": {
+              "length_mode": {
+                "type": "string",
+                "enum": [
+                  "fixed",
+                  "list",
+                  "range"
+                ]
+              },
+              "length_units": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 999
+                }
+              },
+              "min_units": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 999
+              },
+              "max_units": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 999
+              },
+              "window_start_minute": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 1439
+              },
+              "window_end_minute": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 1440
+              },
+              "price_tiers": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 32
+                    },
+                    "units": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 999
+                    },
+                    "prices": {
+                      "type": "object",
+                      "properties": {
+                        "rub": {
+                          "type": "string",
+                          "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                        },
+                        "usd": {
+                          "type": "string",
+                          "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                        },
+                        "eur": {
+                          "type": "string",
+                          "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                        },
+                        "stars": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "units",
+                    "prices"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "length_mode",
+              "length_units",
+              "min_units",
+              "max_units",
+              "window_start_minute",
+              "window_end_minute",
+              "price_tiers"
+            ]
           }
         },
         "required": [
@@ -19706,7 +20349,8 @@
           "bufferMinutes",
           "resourceSeqNums",
           "isActive",
-          "isPublic"
+          "isPublic",
+          "length"
         ],
         "additionalProperties": false
       },
@@ -19762,6 +20406,112 @@
           },
           "is_public": {
             "type": "boolean"
+          },
+          "length": {
+            "type": "object",
+            "properties": {
+              "length_mode": {
+                "type": "string",
+                "enum": [
+                  "fixed",
+                  "list",
+                  "range"
+                ]
+              },
+              "length_units": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 999
+                },
+                "maxItems": 999
+              },
+              "min_units": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 999
+              },
+              "max_units": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 999
+              },
+              "window_start_minute": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 1439
+              },
+              "window_end_minute": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 1440
+              },
+              "price_tiers": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 32
+                    },
+                    "units": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 999
+                    },
+                    "prices": {
+                      "type": "object",
+                      "properties": {
+                        "rub": {
+                          "type": "string",
+                          "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                        },
+                        "usd": {
+                          "type": "string",
+                          "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                        },
+                        "eur": {
+                          "type": "string",
+                          "pattern": "^\\d+(?:\\.\\d{1,2})?$"
+                        },
+                        "stars": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "units",
+                    "prices"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "additionalProperties": false
           }
         },
         "required": [
@@ -40573,7 +41323,7 @@
           "site"
         ],
         "summary": "Declare or redeclare a site form",
-        "description": "Owner-only site:write. Uses the canonical complete declaration, not a patch: omitted optionals resolve in the facade. Form and step addresses are tenant sequences; the public form address remains clientSlug plus opaque code. Redeclaration preserves that address. Both ru and com are supported. enabled:false stops acceptance; there is no form DELETE. No secret approval gate. afterSubmit decides what the visitor sees after sending: auto shows the declared title/text (zone defaults when omitted) and the continue action, labelled by buttonLabel (at most 32 characters; zone default when omitted), redirect sends the visitor to redirectUrl, which must lead to the business's own site address, a connected custom domain or an allowedOrigins origin.",
+        "description": "Owner-only site:write. Uses the canonical complete declaration, not a patch: omitted optionals resolve in the facade. Form and step addresses are tenant sequences; the public form address remains clientSlug plus opaque code. Redeclaration preserves that address. Both ru and com are supported. enabled:false stops acceptance; there is no form DELETE. No secret approval gate. afterSubmit decides what the visitor sees after sending: auto shows the declared title/text (zone defaults when omitted) and the continue action, labelled by buttonLabel (at most 32 characters; zone default when omitted), redirect sends the visitor to redirectUrl, which must lead to the business's own site address, a connected custom domain or an allowedOrigins origin. Each variants entry carries exactly one of when (funnelMode deterministic, first match by sort wins) or hint (funnelMode ai_agent). when is a non-empty array of at most 20 predicates that all must match, e.g. [{\"op\":\"eq\",\"field\":\"budget_band\",\"value\":\"high\"}]; op is eq or neq (any text, number or boolean value), gt, gte, lt or lte (number value), contains (text value), in (values list), exists or absent (no value); field is a dotted answer name of at most 5 segments; an OR is another variants entry.",
         "security": [
           {
             "hubApiKey": []
@@ -40738,7 +41488,7 @@
             }
           },
           "422": {
-            "description": "Replay key reused for different input; afterSubmit.redirectUrl leads off the business's own hosts; a webhook or external_api destination has no exact https origin, or its origin is not in the egress origins",
+            "description": "Replay key reused for different input; afterSubmit.redirectUrl leads off the business's own hosts; a webhook or external_api destination has no exact https origin, or its origin is not in the egress origins; or a variants[].when is not a valid predicate array",
             "x-error-codes": [
               "IDEMPOTENCY_KEY_MISMATCH",
               "FORM_REDIRECT_HOST_NOT_ALLOWED",
@@ -43131,7 +43881,7 @@
           "site"
         ],
         "summary": "Show or hide existing site pages",
-        "description": "Owner-only site:write. Selects 1–100 pages by their tenant seq_num (from GET /tools/site/pages) and sets published true or false, without re-uploading the bundle. Answers one result per selected page: applied, not_found, protected (root and platform pages), unowned, blocked, busy or failed. The hidden choice survives redeployment and tariff restore; showing a page does not override a tariff or moderation block. POST body requires Idempotency-Key.",
+        "description": "Owner-only site:write. Selects 1–100 pages by their tenant seq_num (from GET /tools/site/pages) and sets published true or false, without re-uploading the bundle. Answers one result per selected page: applied, not_found, protected (root and platform pages), unowned, blocked, busy, free_tier_limit or failed. The hidden choice survives redeployment and tariff restore; showing a page does not override a moderation block. On the free plan, showing a page succeeds only while the public set stays within 10 pages and 10 MiB; otherwise the result is \"free_tier_limit\": hide another page first. POST body requires Idempotency-Key.",
         "security": [
           {
             "hubApiKey": []
@@ -43533,6 +44283,646 @@
             "description": "Replay key reused for different input",
             "x-error-codes": [
               "IDEMPOTENCY_KEY_MISMATCH"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Resource rate budget exceeded or unavailable",
+            "x-error-codes": [
+              "RATE_LIMIT_EXCEEDED",
+              "RATE_LIMIT_UNAVAILABLE"
+            ],
+            "headers": {
+              "Retry-After": {
+                "description": "Retry delay in seconds, when supplied by the limiter",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected internal failure",
+            "x-error-codes": [
+              "INTERNAL_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tools/site/pages/{seqNum}/nudge": {
+      "get": {
+        "operationId": "getSitePageNudge",
+        "tags": [
+          "site"
+        ],
+        "summary": "Read the nudge setting of one site page",
+        "description": "site:read. The page nudge of one published, visible page of the tenant (seqNum from GET /tools/site/pages): after a visitor opened the page in a mini app and did not reach a goal for delayMinutes, the business sends them its chain step (stepSeq), then the AI Manager task (aiEnabled, aiPrompt). goalLinkCodes are the dl_ links whose tap counts as a goal; any form submission and any order, event registration or booking by the person also count. A page with no setting reads as disabled defaults. aiAvailable false means the plan has no AI Manager. Pages of the platform storefront cannot carry a nudge.",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "x-required-scopes": [
+          "site:read"
+        ],
+        "x-scope-semantics": "ALL",
+        "x-pagination": {
+          "supported": false,
+          "queryParameters": []
+        },
+        "x-idempotency": {
+          "implementation": "none",
+          "required": false,
+          "ttlSeconds": null,
+          "replayStatus": null,
+          "conflictStatus": null,
+          "scope": []
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "required": true,
+            "name": "seqNum",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tenant site control-plane result",
+            "headers": {
+              "X-Client-Slug": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Active tenant slug, when resolved"
+              },
+              "X-Bot-Username": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Active bot username, when resolved"
+              },
+              "X-RateLimit-Limit": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Effective request budget"
+              },
+              "X-RateLimit-Remaining": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Remaining request budget"
+              },
+              "X-RateLimit-Reset": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Unix window reset in seconds"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SiteNudgeSettings"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Page seq_num is not a canonical positive int4",
+            "x-error-codes": [
+              "VALIDATION_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, revoked or conflicting credential; surface JWT is refused",
+            "x-error-codes": [
+              "INVALID_API_KEY"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope, prohibited publishable credential or absent active bot",
+            "x-error-codes": [
+              "INSUFFICIENT_SCOPE",
+              "PUBLISHABLE_KEY_NOT_ALLOWED",
+              "NO_ACTIVE_BOT"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Resource policy size or item-count limit exceeded",
+            "x-error-codes": [
+              "PAYLOAD_TOO_LARGE",
+              "ITEM_COUNT_EXCEEDED"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The page does not exist for the tenant, is not published or is hidden",
+            "x-error-codes": [
+              "SITE_NUDGE_PAGE_NOT_ELIGIBLE"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Resource rate budget exceeded or unavailable",
+            "x-error-codes": [
+              "RATE_LIMIT_EXCEEDED",
+              "RATE_LIMIT_UNAVAILABLE"
+            ],
+            "headers": {
+              "Retry-After": {
+                "description": "Retry delay in seconds, when supplied by the limiter",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected internal failure",
+            "x-error-codes": [
+              "INTERNAL_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "setSitePageNudge",
+        "tags": [
+          "site"
+        ],
+        "summary": "Replace the nudge setting of one site page",
+        "description": "Owner-only site:write. The whole setting, not a patch: all six body fields are required. delayMinutes is 5 to 10080 (seven days); one wait per person at a time: reopening the page restarts the timer, another page replaces the wait only when its nudge is on with a step or AI and the person is not in its 30-day cooldown, and the same person is not nudged again on the same page for 30 days after a nudge. A running wait uses the setting as it was when it started; if the nudge is off or the page hidden or unpublished when the timer fires, the wait is cancelled (superseded, nothing sent), which is also what isEnabled false does to pending waits. A tap on a goal link set on any page of the business ends the wait. stepSeq is the tenant seq_num of a chain step or null; aiEnabled with aiPrompt (1 to 2000 characters; aiEnabled true without one is refused) runs the AI Manager after the step and needs a plan that includes it; goalLinkCodes (at most 50) are codes of links the business owns, bare or with the dl_ prefix. Refusals carry their own code and recipe. No secret approval gate. Idempotency-Key is optional for PUT.",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "description": "Tenant, credential and handler-bound byte-shape replay key",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "required": true,
+            "name": "seqNum",
+            "in": "path"
+          }
+        ],
+        "x-required-scopes": [
+          "site:write"
+        ],
+        "x-scope-semantics": "ALL",
+        "x-pagination": {
+          "supported": false,
+          "queryParameters": []
+        },
+        "x-idempotency": {
+          "implementation": "global-cache",
+          "required": false,
+          "ttlSeconds": 86400,
+          "replayStatus": 200,
+          "conflictStatus": 422,
+          "scope": [
+            "client",
+            "credential",
+            "controller-handler",
+            "key"
+          ]
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SiteNudgeSettingsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tenant site control-plane result",
+            "headers": {
+              "X-Client-Slug": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Active tenant slug, when resolved"
+              },
+              "X-Bot-Username": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Active bot username, when resolved"
+              },
+              "X-RateLimit-Limit": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Effective request budget"
+              },
+              "X-RateLimit-Remaining": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Remaining request budget"
+              },
+              "X-RateLimit-Reset": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Unix window reset in seconds"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SiteNudgeSettings"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid strict body or page seq_num",
+            "x-error-codes": [
+              "VALIDATION_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, revoked or conflicting credential; surface JWT is refused",
+            "x-error-codes": [
+              "INVALID_API_KEY"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope, prohibited publishable credential or absent active bot",
+            "x-error-codes": [
+              "INSUFFICIENT_SCOPE",
+              "PUBLISHABLE_KEY_NOT_ALLOWED",
+              "NO_ACTIVE_BOT"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Typed domain conflict or request in flight",
+            "x-error-codes": [
+              "CONFLICT"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Resource policy size or item-count limit exceeded",
+            "x-error-codes": [
+              "PAYLOAD_TOO_LARGE",
+              "ITEM_COUNT_EXCEEDED"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Replay key reused for different input; the page is not published or is hidden; delayMinutes outside 5..10080; no such chain step; a goal link code of no link of the business; AI enabled on a plan without the AI Manager; AI enabled without an aiPrompt",
+            "x-error-codes": [
+              "IDEMPOTENCY_KEY_MISMATCH",
+              "SITE_NUDGE_PAGE_NOT_ELIGIBLE",
+              "SITE_NUDGE_DELAY_OUT_OF_RANGE",
+              "SITE_NUDGE_STEP_NOT_FOUND",
+              "SITE_NUDGE_GOAL_LINK_NOT_FOUND",
+              "SITE_NUDGE_AI_NOT_ON_PLAN",
+              "SITE_NUDGE_AI_PROMPT_REQUIRED"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Resource rate budget exceeded or unavailable",
+            "x-error-codes": [
+              "RATE_LIMIT_EXCEEDED",
+              "RATE_LIMIT_UNAVAILABLE"
+            ],
+            "headers": {
+              "Retry-After": {
+                "description": "Retry delay in seconds, when supplied by the limiter",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected internal failure",
+            "x-error-codes": [
+              "INTERNAL_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tools/site/pages/{seqNum}/nudge/stats": {
+      "get": {
+        "operationId": "getSitePageNudgeStats",
+        "tags": [
+          "site"
+        ],
+        "summary": "Read the nudge funnel of one site page",
+        "description": "site:read. The funnel over the half-open window [from, to) (ISO-8601 instants; default the last 30 days ending now): visits (mini-app opens of the page), cooldownVisits (opens inside the 30-day cooldown), waits started, pending (still waiting), goalBeforeFire (reached a goal before the timer, no nudge sent), fired, goalAfterFire (fired waits whose person reached a goal afterwards), superseded (replaced by a wait on another page, or cancelled because the nudge was turned off or the page hidden or unpublished), failed (the timer fired and the channel refused), plus stepOutcomes and aiOutcomes of waits whose timer fired (fired or failed; superseded excluded). A page that is unpublished or hidden can still be read.",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "x-required-scopes": [
+          "site:read"
+        ],
+        "x-scope-semantics": "ALL",
+        "x-pagination": {
+          "supported": false,
+          "queryParameters": []
+        },
+        "x-idempotency": {
+          "implementation": "none",
+          "required": false,
+          "ttlSeconds": null,
+          "replayStatus": null,
+          "conflictStatus": null,
+          "scope": []
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "required": true,
+            "name": "seqNum",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "required": false,
+            "name": "from",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "required": false,
+            "name": "to",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tenant site control-plane result",
+            "headers": {
+              "X-Client-Slug": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Active tenant slug, when resolved"
+              },
+              "X-Bot-Username": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Active bot username, when resolved"
+              },
+              "X-RateLimit-Limit": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Effective request budget"
+              },
+              "X-RateLimit-Remaining": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Remaining request budget"
+              },
+              "X-RateLimit-Reset": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Unix window reset in seconds"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SiteNudgeStats"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Page seq_num is not a canonical positive int4, or from/to is not an ISO-8601 instant",
+            "x-error-codes": [
+              "VALIDATION_ERROR"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, revoked or conflicting credential; surface JWT is refused",
+            "x-error-codes": [
+              "INVALID_API_KEY"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope, prohibited publishable credential or absent active bot",
+            "x-error-codes": [
+              "INSUFFICIENT_SCOPE",
+              "PUBLISHABLE_KEY_NOT_ALLOWED",
+              "NO_ACTIVE_BOT"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Resource policy size or item-count limit exceeded",
+            "x-error-codes": [
+              "PAYLOAD_TOO_LARGE",
+              "ITEM_COUNT_EXCEEDED"
+            ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Only a seqNum that matches no page of the tenant is refused (an unpublished or hidden page is still read); or the window is empty (from is not before to)",
+            "x-error-codes": [
+              "SITE_NUDGE_PAGE_NOT_ELIGIBLE",
+              "INVALID_INPUT"
             ],
             "content": {
               "application/problem+json": {
@@ -45325,7 +46715,7 @@
             }
           },
           "409": {
-            "description": "The order is closed (ORDER_CLOSED) or already paid (ORDER_ALREADY_PAID); the recomposed total differs from expected_amount (PRICE_CHANGED); another change to this order is being applied (CONFLICT); or the receipt for this key is still pending (IDEMPOTENCY_KEY_IN_FLIGHT)",
+            "description": "The order is closed (ORDER_CLOSED) or already paid (ORDER_ALREADY_PAID), or it belongs to a booking whose lines are its length and add-ons (ORDER_BOUND_TO_BOOKING); the recomposed total differs from expected_amount (PRICE_CHANGED); another change to this order is being applied (CONFLICT); or the receipt for this key is still pending (IDEMPOTENCY_KEY_IN_FLIGHT)",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -51002,7 +52392,7 @@
             }
           },
           "422": {
-            "description": "INVALID_INPUT: a supplied value breaks a booking rule; IDEMPOTENCY_KEY_MISMATCH: the key was reused with a different body",
+            "description": "INVALID_INPUT: a supplied value breaks a booking rule; QUANTITY_LIMIT: the length is not one the service offers; OUTSIDE_WINDOW: the start or the end falls outside the service pickup and return hours; IDEMPOTENCY_KEY_MISMATCH: the key was reused with a different body",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -51786,7 +53176,7 @@
             }
           },
           "422": {
-            "description": "INVALID_INPUT: a supplied value breaks a booking rule; IDEMPOTENCY_KEY_MISMATCH: the key was reused with a different body",
+            "description": "INVALID_INPUT: a supplied value breaks a booking rule; QUANTITY_LIMIT: the length is not one the service offers; OUTSIDE_WINDOW: the start or the end falls outside the service pickup and return hours; IDEMPOTENCY_KEY_MISMATCH: the key was reused with a different body",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -52168,7 +53558,7 @@
             }
           },
           "422": {
-            "description": "INVALID_INPUT: a supplied value breaks a booking rule; IDEMPOTENCY_KEY_MISMATCH: the key was reused with a different body",
+            "description": "OUTSIDE_WINDOW: the new start puts the booking outside the service pickup and return hours; IDEMPOTENCY_KEY_MISMATCH: the key was reused with a different body",
             "content": {
               "application/problem+json": {
                 "schema": {

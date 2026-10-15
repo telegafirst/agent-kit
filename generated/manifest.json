@@ -1,8 +1,8 @@
 {
-  "version": "1.0.23",
-  "pack_sha": "05f5f1375a0f540a865e7206e3b6514b1f657409e4ea5b8f1f5168fd9e36d807",
-  "generated_at": "2026-10-14T23:31:37.991Z",
-  "platform_version": "1.0.107",
+  "version": "1.0.24",
+  "pack_sha": "b56d62933547ee3f3d53db7db78d890f853c8eff7a8585e9b324d7d9c0e7b982",
+  "generated_at": "2026-10-15T12:35:57.009Z",
+  "platform_version": "1.0.109",
   "skills": [
     {
       "name": "telegafirst-admin",
@@ -10,22 +10,27 @@
         "name": "telegafirst-admin",
         "description": "Use when configuring, operating, or improving a TelegaFirst AI front office: offers, events, funnels, support, partner work, and customer communications.",
         "metadata": {
-          "version": "1.0.23",
-          "sha": "05f5f1375a0f540a865e7206e3b6514b1f657409e4ea5b8f1f5168fd9e36d807"
+          "version": "1.0.24",
+          "sha": "b56d62933547ee3f3d53db7db78d890f853c8eff7a8585e9b324d7d9c0e7b982"
         }
       },
-      "digest": "sha256:c82c3634f8394bde5211ce0caca6b3786490cc7569c1030c19d6f18a7ec5052b",
+      "digest": "sha256:4f358d017cff2c64c5e5208a25b9a22481d7e450a823c09810c40be1671b5d69",
       "zip": "telegafirst-admin.zip",
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "6fb0be34453049eceeaf7fbdebc21c81e669e0cdf1525f0f8f2845bc15f1cca4",
-          "bytes": 11321
+          "sha256": "75599759caad768d90e52b31b9fd80e9d3090584c57f7e8295080be75062ecfa",
+          "bytes": 11604
         },
         {
           "path": "references/auto-funnel.md",
           "sha256": "018c4d104984178cbecde13fe9c1b0f11e51ca82c8f203c3aaf576ae8bd9fa22",
           "bytes": 2832
+        },
+        {
+          "path": "references/booking-service.md",
+          "sha256": "2c746933d86f6b6aaa718da75965db3f690e41c855e4d00b2a3591ff4fa5e4cb",
+          "bytes": 2476
         },
         {
           "path": "references/funnel-event-online-booking.md",
@@ -58,6 +63,11 @@
           "bytes": 1324
         },
         {
+          "path": "references/site-page-nudge.md",
+          "sha256": "992ad3fe82f30a57810c69148c164089dc64416cb301bdaeb4612f1b3903960c",
+          "bytes": 3102
+        },
+        {
           "path": "references/support-and-ops.md",
           "sha256": "61cda8a86cc77c4d4bd9bb236062fcd16a992421f23d8df14c8433965fa48acf",
           "bytes": 1632
@@ -70,16 +80,16 @@
         "name": "telegafirst-onboarding-site-in-a-minute",
         "description": "Use when launching a small TelegaFirst business site quickly: connect a domain, prepare pages, publish a complete bundle, and check the result.",
         "metadata": {
-          "version": "1.0.23",
-          "sha": "05f5f1375a0f540a865e7206e3b6514b1f657409e4ea5b8f1f5168fd9e36d807"
+          "version": "1.0.24",
+          "sha": "b56d62933547ee3f3d53db7db78d890f853c8eff7a8585e9b324d7d9c0e7b982"
         }
       },
-      "digest": "sha256:8d962bdf977acc956bcc2f6438de45988d9aa58214e8255c6652bfb45f18461e",
+      "digest": "sha256:b640083b5a32c8671a3ba682bd194c2617f3554f9df33928db4650731a214bde",
       "zip": "telegafirst-onboarding-site-in-a-minute.zip",
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "9e428a33f7e440cde7d65031e3c64b1145eac528ac482559d835b81634503520",
+          "sha256": "5e4a683bf2f4796c56a7788b076381d11bee974b2b2c71660897a20c37b6c36f",
           "bytes": 4533
         },
         {

@@ -68,7 +68,9 @@ For an AI host that exposes attachments as short-lived HTTPS URLs, use `media_im
 | Diagnose a silent bot, payment, domain, or unanswered conversation | [Support and operations](references/support-and-ops.md)                |
 | Build a registration-to-offer webinar funnel                       | [Webinar funnel](references/funnel-launch-webinar.md)                  |
 | Build an event funnel ending in online booking                     | [Event with online booking](references/funnel-event-online-booking.md) |
+| Set up a bookable service with length, price ladder and add-ons, or place a booking | [Booking service](references/booking-service.md) |
 | Manage partner links, balance, and a payout request                | [Partner programme](references/partner-program.md)                     |
+| Remind visitors of a site page who left without acting             | [Site page nudge](references/site-page-nudge.md)                       |
 | Start a simple business site from scratch                          | Use `telegafirst-onboarding-site-in-a-minute`                          |
 
 ## Completion standard

@@ -2,6 +2,12 @@
 
 ## Agent-facing changes
 
+### 1.0.24 — 2026-10-15
+
+- Онлайн-запись: услуга задаёт длительность (режимы fixed, list, range) и лестницу цен, запись принимает добавки и конец диапазона, `booking_search_availability` возвращает длину услуги; новые отказы OUTSIDE_WINDOW и ORDER_BOUND_TO_BOOKING, QUANTITY_LIMIT описывает длину услуги; рецепт — `references/booking-service.md`, включая «размножить ×N» циклом `booking_create_resource`.
+- Дожим со страницы сайта: `site_page_nudge_get` / `site_page_nudge_set` / `site_page_nudge_stats` (REST `getSitePageNudge` / `setSitePageNudge` / `getSitePageNudgeStats`) — если посетитель страницы не дошёл до цели, бот пишет ему шагом цепочки или ИИ-текстом; разрешение на сообщения мини-приложение спрашивает один раз за открытие; новые отказы SITE_NUDGE_*.
+- Сайт и каталог: на бесплатном уровне страницы выбираются `site_pages_set_visibility` (до 10 страниц и 10 MiB); товар без цены создаётся; условие `when` варианта формы проверяется при записи; отказы несут подсказку `hint`.
+
 ### 1.0.23 — 2026-10-14
 
 - Каталог сценариев и блоков: `list_playbooks`, `get_playbook`, `list_blocks`, `get_block` доступны на любом тарифе с MCP; рядом с `tools.json` публикуется `generated/playbooks.json`, навык планирует воронки, события, запись и базу знаний от сценария (`references/plan-from-playbooks.md`), а проактивную автоворонку с таймаутами и окном оффера описывает `references/auto-funnel.md`.

@@ -1521,6 +1521,18 @@
         {
           "ru": "Кнопка «Записаться» в шагах ведёт на готовый `publicUrl` ресурса. Часы приёма и длительность спросите у владельца.",
           "en": "The \"Book\" button in steps points at the ready `publicUrl` of the resource. Ask the owner for working hours and duration."
+        },
+        {
+          "ru": "Длительность выбирает покупатель в границах `length` услуги: `length_mode` `fixed` — один блок, `list` — одно из `length_units`, `range` — от `min_units` до `max_units` (у почасовой — ещё окно выдачи и возврата `window_start_minute`/`window_end_minute`). Без `length` услуга — `range` с ценой, линейной от цены блока. Лестница `price_tiers` — пакеты: `{id, units, prices}` значит «пакет из `units` блоков стоит `prices`», по возрастанию `units`, нужна базовая цена услуги.",
+          "en": "The buyer picks the length within the service `length`: `length_mode` `fixed` is one block, `list` is one of `length_units`, `range` is from `min_units` to `max_units` (an hourly service also has the pickup and return window `window_start_minute`/`window_end_minute`). Without `length` the service is `range` priced linearly by the block price. The `price_tiers` ladder sells packages: `{id, units, prices}` means \"a package of `units` blocks costs `prices`\", ascending by `units`, and the service needs its base price."
+        },
+        {
+          "ru": "Добавки услуги (`variants`) выбираются при записи в `selected_options`; цену считает расчёт заказа. Длину и добавки существующей записи не правят через строки заказа (`ORDER_BOUND_TO_BOOKING`) — запись переносят или создают заново.",
+          "en": "The add-ons of a service (`variants`) are chosen at booking in `selected_options`; the order quote prices them. The length and add-ons of an existing booking are not edited through the order lines (`ORDER_BOUND_TO_BOOKING`): move the booking or create it again."
+        },
+        {
+          "ru": "«Размножить ×N» (десять одинаковых домиков): `booking_create_resource` в цикле, у каждого свой `idempotency_key` и имя «Домик 1…N», затем одна `booking_create_service` со всеми `resource_seq_nums`.",
+          "en": "\"Multiply ×N\" (ten identical cabins): `booking_create_resource` in a loop, each with its own `idempotency_key` and a name \"Cabin 1…N\", then one `booking_create_service` with every `resource_seq_nums`."
         }
       ]
     },
