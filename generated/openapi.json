@@ -103,7 +103,7 @@
           "ONBOARDING_STEP_OUT_OF_ORDER",
           "BOT_ALREADY_CONNECTED",
           "BOT_RESERVED",
-          "SG_DISCOVERY_STALE",
+          "BOT_SETTINGS_INCOMPLETE",
           "ACTIVE_SUBSCRIPTION_EXISTS",
           "CONFLICT",
           "SITE_BUNDLE_STALE",
@@ -167,6 +167,11 @@
           "SLUG_INVALID",
           "INVALID_BOT_TOKEN",
           "SG_NOT_FORUM",
+          "SG_BIND_LINK_INVALID",
+          "SG_BIND_NOT_OWNER",
+          "SG_BIND_BOT_RIGHTS_MISSING",
+          "SG_ALREADY_BOUND",
+          "SG_BIND_ROLE_BOUND",
           "SA_NOT_MEMBER",
           "SA_NOT_ADMIN",
           "SA_RIGHTS_MISSING",
@@ -1311,8 +1316,6 @@
               "site",
               "bot",
               "supergroups_create",
-              "supergroups_admin",
-              "supergroups_confirm",
               "infrastructure",
               "infrastructure_ready",
               "quest_1",
@@ -13132,7 +13135,6 @@
                     "enum": [
                       "channel_not_connected",
                       "channel_surface_not_native",
-                      "mini_app_not_opened",
                       "page_not_published",
                       "page_not_addressed",
                       "page_on_other_host",
@@ -13177,7 +13179,6 @@
                     "enum": [
                       "channel_not_connected",
                       "channel_surface_not_native",
-                      "mini_app_not_opened",
                       "page_not_published",
                       "page_not_addressed",
                       "page_on_other_host",
@@ -13222,7 +13223,6 @@
                     "enum": [
                       "channel_not_connected",
                       "channel_surface_not_native",
-                      "mini_app_not_opened",
                       "page_not_published",
                       "page_not_addressed",
                       "page_on_other_host",
@@ -59929,8 +59929,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -59963,8 +59961,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -60244,9 +60240,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -60306,9 +60301,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -61196,88 +61189,89 @@
                             "type": "string"
                           }
                         },
-                        "discovery": {
+                        "supergroups": {
                           "type": [
                             "object",
                             "null"
                           ],
                           "properties": {
-                            "kind": {
-                              "type": "string",
-                              "enum": [
-                                "snapshot",
-                                "wait"
-                              ]
-                            },
-                            "wait_for": {
-                              "type": "object",
-                              "properties": {
-                                "reason": {
-                                  "type": "string",
-                                  "enum": [
-                                    "SA_TEMPORARILY_UNAVAILABLE",
-                                    "DISCOVERY_IN_FLIGHT",
-                                    "DISCOVERY_COOLDOWN"
-                                  ]
-                                },
-                                "retry_after_seconds": {
-                                  "type": "integer",
-                                  "exclusiveMinimum": 0
-                                },
-                                "until": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "required": [
-                                "reason",
-                                "retry_after_seconds",
-                                "until"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fingerprint": {
-                              "type": "string",
-                              "pattern": "^[a-f0-9]{64}$"
-                            },
-                            "candidates": {
+                            "roles": {
                               "type": "array",
                               "items": {
                                 "type": "object",
                                 "properties": {
-                                  "ordinal": {
-                                    "type": "integer",
-                                    "exclusiveMinimum": 0
+                                  "role": {
+                                    "type": "string",
+                                    "enum": [
+                                      "SETTINGS",
+                                      "OPERATIONS",
+                                      "OPEN_LINES"
+                                    ]
+                                  },
+                                  "status": {
+                                    "type": "string",
+                                    "enum": [
+                                      "pending",
+                                      "bound"
+                                    ]
                                   },
                                   "title": {
-                                    "type": "string"
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
                                   },
-                                  "issues": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string",
-                                      "enum": [
-                                        "SG_NOT_FORUM",
-                                        "SA_NOT_MEMBER",
-                                        "SA_NOT_ADMIN",
-                                        "SA_RIGHTS_MISSING",
-                                        "SA_ANONYMOUS"
-                                      ]
-                                    }
+                                  "service_account": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
+                                    "enum": [
+                                      "pending",
+                                      "joined",
+                                      null
+                                    ]
+                                  },
+                                  "refusal": {
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "properties": {
+                                      "code": {
+                                        "type": "string",
+                                        "enum": [
+                                          "SG_NOT_FORUM",
+                                          "SG_BIND_BOT_RIGHTS_MISSING",
+                                          "SG_ALREADY_BOUND"
+                                        ]
+                                      },
+                                      "missing": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "code"
+                                    ],
+                                    "additionalProperties": false
                                   }
                                 },
                                 "required": [
-                                  "ordinal",
+                                  "role",
+                                  "status",
                                   "title",
-                                  "issues"
+                                  "service_account",
+                                  "refusal"
                                 ],
                                 "additionalProperties": false
                               }
                             }
                           },
                           "required": [
-                            "fingerprint",
-                            "candidates"
+                            "roles"
                           ],
                           "additionalProperties": false
                         },
@@ -61788,6 +61782,7 @@
                                 "SG_BOT_CAP_REACHED",
                                 "CLIENT_BOT_RIGHTS_MISSING",
                                 "terminal_capability",
+                                "SA_ADMIN_NOT_EDITABLE",
                                 "BOT_TO_BOT_DISABLED",
                                 "RETRY_EXHAUSTED",
                                 null
@@ -61830,7 +61825,7 @@
                         "site_operation",
                         "language",
                         "completedSteps",
-                        "discovery",
+                        "supergroups",
                         "infrastructure"
                       ],
                       "additionalProperties": false
@@ -61953,1129 +61948,6 @@
           },
           "400": {
             "description": "A bounded address string is required.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Operation is not permitted.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/tools/onboarding/supergroups/discovery": {
-      "get": {
-        "operationId": "discoverSupergroups",
-        "x-idempotency": "none",
-        "tags": [
-          "onboarding"
-        ],
-        "security": [
-          {
-            "hubApiKey": []
-          },
-          {
-            "hubBearer": []
-          }
-        ],
-        "x-required-scopes": [
-          "onboarding:read"
-        ],
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "enum": [
-                "0",
-                "1"
-              ]
-            },
-            "required": false,
-            "name": "refresh",
-            "in": "query"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Discovered operator groups and next action.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "journey": {
-                      "type": "object",
-                      "properties": {
-                        "tariff_checkout": {
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "properties": {
-                            "plan": {
-                              "type": "string",
-                              "enum": [
-                                "starter",
-                                "ai_manager",
-                                "ai_coach"
-                              ]
-                            },
-                            "bot_username": {
-                              "type": "string",
-                              "pattern": "^[A-Za-z0-9_]{5,32}$"
-                            },
-                            "card_delivery_state": {
-                              "type": "string",
-                              "enum": [
-                                "pending",
-                                "sent"
-                              ]
-                            },
-                            "requested_at": {
-                              "type": "string",
-                              "format": "date-time"
-                            },
-                            "delivered_at": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "format": "date-time"
-                            }
-                          },
-                          "required": [
-                            "plan",
-                            "bot_username",
-                            "card_delivery_state",
-                            "requested_at",
-                            "delivered_at"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "workspace_guide": {
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "properties": {
-                            "bot": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "format": "uri"
-                            },
-                            "open_lines": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "format": "uri"
-                            },
-                            "operations": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "format": "uri"
-                            },
-                            "settings": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "format": "uri"
-                            }
-                          },
-                          "required": [
-                            "bot",
-                            "open_lines",
-                            "operations",
-                            "settings"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "rewards": {
-                          "type": "object",
-                          "properties": {
-                            "tokens_granted": {
-                              "type": "integer",
-                              "minimum": 0
-                            },
-                            "tokens_remaining": {
-                              "type": "integer",
-                              "minimum": 0
-                            },
-                            "trial_days": {
-                              "type": "number",
-                              "minimum": 0
-                            }
-                          },
-                          "required": [
-                            "tokens_granted",
-                            "tokens_remaining",
-                            "trial_days"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "revision": {
-                          "type": "number",
-                          "enum": [
-                            1
-                          ]
-                        },
-                        "completed": {
-                          "type": "boolean"
-                        },
-                        "completed_at": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "format": "date-time"
-                        },
-                        "infrastructure_ready": {
-                          "type": "boolean"
-                        },
-                        "test_required": {
-                          "type": "boolean"
-                        },
-                        "test_completed": {
-                          "type": "boolean"
-                        },
-                        "bonus_state": {
-                          "type": "string",
-                          "enum": [
-                            "not_eligible",
-                            "pending",
-                            "settled"
-                          ]
-                        },
-                        "ai_preferences": {
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "properties": {
-                            "device": {
-                              "type": "string",
-                              "enum": [
-                                "desktop",
-                                "web",
-                                "phone"
-                              ]
-                            },
-                            "app": {
-                              "type": "string",
-                              "enum": [
-                                "claude",
-                                "chatgpt",
-                                "codex",
-                                "claude-code",
-                                "other"
-                              ]
-                            },
-                            "other_app": {
-                              "type": "string",
-                              "minLength": 1,
-                              "maxLength": 80
-                            },
-                            "subscription": {
-                              "type": "string",
-                              "enum": [
-                                "paid",
-                                "free"
-                              ]
-                            },
-                            "questions_revision": {
-                              "type": "number",
-                              "enum": [
-                                1
-                              ]
-                            },
-                            "confirmed_at": {
-                              "type": "string",
-                              "format": "date-time"
-                            }
-                          },
-                          "required": [
-                            "device",
-                            "app",
-                            "subscription",
-                            "questions_revision",
-                            "confirmed_at"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "decisions": {
-                          "type": "object",
-                          "properties": {
-                            "first_payment_deferred_at": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "format": "date-time"
-                            },
-                            "tariff_deferred_at": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "format": "date-time"
-                            }
-                          },
-                          "required": [
-                            "first_payment_deferred_at",
-                            "tariff_deferred_at"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "provider_readiness": {
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "properties": {
-                            "provider": {
-                              "type": "string",
-                              "enum": [
-                                "robokassa",
-                                "yookassa",
-                                "stars",
-                                "cryptobot",
-                                "stripe",
-                                "paypal",
-                                "paddle",
-                                "tinkoff",
-                                "prodamus"
-                              ]
-                            },
-                            "configuration_fingerprint": {
-                              "type": "string",
-                              "pattern": "^[a-f0-9]{64}$"
-                            },
-                            "checked_at": {
-                              "type": "string",
-                              "format": "date-time"
-                            },
-                            "ready": {
-                              "type": "boolean"
-                            },
-                            "authentication": {
-                              "type": "string",
-                              "enum": [
-                                "verified",
-                                "failed",
-                                "unknown"
-                              ]
-                            },
-                            "production_environment": {
-                              "type": "string",
-                              "enum": [
-                                "verified",
-                                "failed",
-                                "unknown"
-                              ]
-                            },
-                            "checkout_creation": {
-                              "type": "string",
-                              "enum": [
-                                "verified",
-                                "failed",
-                                "unknown"
-                              ]
-                            },
-                            "webhook_configuration": {
-                              "type": "string",
-                              "enum": [
-                                "verified",
-                                "failed",
-                                "unknown"
-                              ]
-                            },
-                            "webhook_configuration_assurance": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "enum": [
-                                "provider_api",
-                                "signed_delivery",
-                                "owner_attested",
-                                null
-                              ]
-                            },
-                            "configuration_confirmation_token": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "pattern": "^[a-f0-9]{64}$"
-                            },
-                            "webhook_delivery": {
-                              "type": "string",
-                              "enum": [
-                                "verified",
-                                "failed",
-                                "unknown"
-                              ]
-                            },
-                            "live_payment": {
-                              "type": "string",
-                              "enum": [
-                                "verified",
-                                "failed",
-                                "unknown"
-                              ]
-                            },
-                            "limitations": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
-                            },
-                            "next_action": {
-                              "type": [
-                                "string",
-                                "null"
-                              ]
-                            }
-                          },
-                          "required": [
-                            "provider",
-                            "configuration_fingerprint",
-                            "checked_at",
-                            "ready",
-                            "authentication",
-                            "production_environment",
-                            "checkout_creation",
-                            "webhook_configuration",
-                            "webhook_delivery",
-                            "live_payment",
-                            "limitations",
-                            "next_action"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "first_payment": {
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "properties": {
-                            "phase": {
-                              "type": "string",
-                              "enum": [
-                                "accepted",
-                                "price_committed",
-                                "card_pending",
-                                "sent"
-                              ]
-                            },
-                            "product_seq_num": {
-                              "type": "integer",
-                              "exclusiveMinimum": 0
-                            },
-                            "title": {
-                              "type": [
-                                "string",
-                                "null"
-                              ]
-                            },
-                            "provider": {
-                              "type": "string",
-                              "enum": [
-                                "robokassa",
-                                "yookassa",
-                                "stars",
-                                "cryptobot",
-                                "stripe",
-                                "paypal",
-                                "paddle",
-                                "tinkoff",
-                                "prodamus"
-                              ]
-                            },
-                            "amount": {
-                              "type": "string",
-                              "maxLength": 32,
-                              "pattern": "^\\d+(?:\\.\\d{1,8})?$"
-                            },
-                            "currency": {
-                              "type": "string",
-                              "minLength": 1,
-                              "maxLength": 16
-                            },
-                            "purchase_zone": {
-                              "type": "string",
-                              "enum": [
-                                "ru",
-                                "com"
-                              ]
-                            },
-                            "is_active": {
-                              "type": "boolean",
-                              "enum": [
-                                true
-                              ]
-                            },
-                            "preparation_id": {
-                              "type": "string",
-                              "minLength": 1,
-                              "maxLength": 128
-                            },
-                            "payload_hash": {
-                              "type": "string",
-                              "pattern": "^[a-f0-9]{64}$"
-                            }
-                          },
-                          "required": [
-                            "phase",
-                            "product_seq_num",
-                            "title",
-                            "provider",
-                            "amount",
-                            "currency",
-                            "purchase_zone",
-                            "is_active",
-                            "preparation_id",
-                            "payload_hash"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "advance": {
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "properties": {
-                            "tokens": {
-                              "type": "integer",
-                              "exclusiveMinimum": 0
-                            },
-                            "days": {
-                              "type": "integer",
-                              "exclusiveMinimum": 0
-                            },
-                            "until": {
-                              "type": "string",
-                              "format": "date-time"
-                            },
-                            "timezone": {
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "tokens",
-                            "days",
-                            "until",
-                            "timezone"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "revision",
-                        "completed",
-                        "completed_at",
-                        "infrastructure_ready",
-                        "test_required",
-                        "test_completed",
-                        "bonus_state",
-                        "ai_preferences",
-                        "decisions",
-                        "provider_readiness"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "active_slug": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "tenant": {
-                      "type": "object",
-                      "properties": {
-                        "slug": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "bot_username": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "slug",
-                        "bot_username"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "owner_onboardings": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "slug": {
-                            "type": "string"
-                          },
-                          "stage": {
-                            "type": "string",
-                            "enum": [
-                              "address",
-                              "site",
-                              "bot",
-                              "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
-                              "infrastructure",
-                              "infrastructure_ready",
-                              "quest_1",
-                              "quest_2",
-                              "warmup",
-                              "quest_product",
-                              "quest_purchase",
-                              "payments",
-                              "first_payment",
-                              "ai_preferences",
-                              "finish",
-                              "completed",
-                              "tariff",
-                              "paid",
-                              "free"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "slug",
-                          "stage"
-                        ],
-                        "additionalProperties": false
-                      }
-                    },
-                    "stage": {
-                      "type": "string",
-                      "enum": [
-                        "address",
-                        "site",
-                        "bot",
-                        "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
-                        "infrastructure",
-                        "infrastructure_ready",
-                        "quest_1",
-                        "quest_2",
-                        "warmup",
-                        "quest_product",
-                        "quest_purchase",
-                        "payments",
-                        "first_payment",
-                        "ai_preferences",
-                        "finish",
-                        "completed",
-                        "tariff",
-                        "paid",
-                        "free"
-                      ]
-                    },
-                    "status": {
-                      "type": "string",
-                      "enum": [
-                        "todo",
-                        "in_progress",
-                        "waiting_owner",
-                        "blocked",
-                        "done"
-                      ]
-                    },
-                    "billing": {
-                      "type": "object",
-                      "properties": {
-                        "status": {
-                          "type": "string",
-                          "enum": [
-                            "free",
-                            "trial",
-                            "active",
-                            "grace",
-                            "expired",
-                            "cancelled"
-                          ]
-                        },
-                        "trial_started_at": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "format": "date-time"
-                        },
-                        "trial_ends_at": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "format": "date-time"
-                        },
-                        "plan": {
-                          "type": "string"
-                        },
-                        "period_end": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "format": "date-time"
-                        },
-                        "auto_renew": {
-                          "type": "boolean"
-                        },
-                        "next_charge_at": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "format": "date-time"
-                        },
-                        "grace_until": {
-                          "type": "string",
-                          "format": "date-time"
-                        }
-                      },
-                      "required": [
-                        "plan",
-                        "period_end",
-                        "auto_renew",
-                        "next_charge_at"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "next_action": {
-                      "type": "object",
-                      "properties": {
-                        "execution": {
-                          "type": "object",
-                          "properties": {
-                            "business_slug": {
-                              "type": [
-                                "string",
-                                "null"
-                              ]
-                            },
-                            "step": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "executor": {
-                              "type": "string",
-                              "enum": [
-                                "agent",
-                                "owner",
-                                "server"
-                              ]
-                            },
-                            "tool": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "minLength": 1
-                            },
-                            "arguments": {
-                              "type": "object",
-                              "additionalProperties": {}
-                            },
-                            "requires": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
-                            },
-                            "success": {
-                              "type": "object",
-                              "properties": {
-                                "fact": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              },
-                              "required": [
-                                "fact"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "wait": {
-                              "type": [
-                                "object",
-                                "null"
-                              ],
-                              "properties": {
-                                "retry_after_seconds": {
-                                  "type": "integer",
-                                  "exclusiveMinimum": 0
-                                },
-                                "stop_when": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              },
-                              "required": [
-                                "retry_after_seconds",
-                                "stop_when"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "recovery": {
-                              "type": [
-                                "object",
-                                "null"
-                              ],
-                              "properties": {
-                                "tool": {
-                                  "type": [
-                                    "string",
-                                    "null"
-                                  ],
-                                  "minLength": 1
-                                },
-                                "arguments": {
-                                  "type": "object",
-                                  "additionalProperties": {}
-                                },
-                                "say_to_user": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "tool",
-                                "arguments",
-                                "say_to_user"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "continue_with": {
-                              "type": "object",
-                              "properties": {
-                                "tool": {
-                                  "type": [
-                                    "string",
-                                    "null"
-                                  ],
-                                  "enum": [
-                                    "get_onboarding_state"
-                                  ]
-                                },
-                                "arguments": {
-                                  "type": "object",
-                                  "additionalProperties": {}
-                                },
-                                "say_to_user": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              },
-                              "required": [
-                                "tool",
-                                "arguments"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "prepared_execute": {
-                              "type": "object",
-                              "properties": {
-                                "tool": {
-                                  "type": "string",
-                                  "enum": [
-                                    "onboarding_execute_first_payment"
-                                  ]
-                                },
-                                "requires_human_review": {
-                                  "type": "boolean",
-                                  "enum": [
-                                    true
-                                  ]
-                                },
-                                "arguments_fields": {
-                                  "type": "array",
-                                  "prefixItems": [
-                                    {
-                                      "type": "string",
-                                      "enum": [
-                                        "preparation_id"
-                                      ]
-                                    },
-                                    {
-                                      "type": "string",
-                                      "enum": [
-                                        "payload_hash"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "tool",
-                                "requires_human_review",
-                                "arguments_fields"
-                              ],
-                              "additionalProperties": false
-                            }
-                          },
-                          "required": [
-                            "business_slug",
-                            "step",
-                            "executor",
-                            "tool",
-                            "arguments",
-                            "requires",
-                            "success",
-                            "wait",
-                            "recovery",
-                            "continue_with"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "goal": {
-                          "type": "string",
-                          "enum": [
-                            "address",
-                            "site",
-                            "bot",
-                            "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
-                            "infrastructure",
-                            "infrastructure_blocked",
-                            "infrastructure_ready",
-                            "quest_product_pending",
-                            "quest_product_ready",
-                            "quest_product_failed",
-                            "payment_provider_alive",
-                            "payment_provider_failed",
-                            "quest_product",
-                            "quest_purchase",
-                            "payments",
-                            "first_payment",
-                            "ai_preferences",
-                            "finish",
-                            "completed",
-                            "tariff",
-                            "paid",
-                            "free",
-                            "address_new_business",
-                            "entry_choose_business",
-                            "entry_work_or_create",
-                            "infrastructure_ready_nth_bot"
-                          ]
-                        },
-                        "say_to_user": {
-                          "type": "string"
-                        },
-                        "collect": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "field": {
-                                "type": "string"
-                              },
-                              "hint": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "field",
-                              "hint"
-                            ],
-                            "additionalProperties": false
-                          }
-                        },
-                        "wait_for": {
-                          "type": "object",
-                          "properties": {
-                            "event": {
-                              "type": "string"
-                            },
-                            "retry_after_seconds": {
-                              "type": "number",
-                              "minimum": 0
-                            },
-                            "reason": {
-                              "type": "string",
-                              "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
-                              ]
-                            },
-                            "until": {
-                              "type": "string",
-                              "format": "date-time"
-                            }
-                          },
-                          "required": [
-                            "event"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "media": {
-                          "type": "object",
-                          "properties": {
-                            "kind": {
-                              "type": "string",
-                              "enum": [
-                                "video",
-                                "image_steps"
-                              ]
-                            },
-                            "url": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "kind",
-                            "url"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "switch_to": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "goal",
-                        "say_to_user",
-                        "collect"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "body": {
-                      "type": "object",
-                      "properties": {
-                        "kind": {
-                          "type": "string",
-                          "enum": [
-                            "snapshot",
-                            "wait"
-                          ]
-                        },
-                        "wait_for": {
-                          "type": "object",
-                          "properties": {
-                            "reason": {
-                              "type": "string",
-                              "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
-                              ]
-                            },
-                            "retry_after_seconds": {
-                              "type": "integer",
-                              "exclusiveMinimum": 0
-                            },
-                            "until": {
-                              "type": "string",
-                              "format": "date-time"
-                            }
-                          },
-                          "required": [
-                            "reason",
-                            "retry_after_seconds",
-                            "until"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "fingerprint": {
-                          "type": "string",
-                          "pattern": "^[a-f0-9]{64}$"
-                        },
-                        "candidates": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "ordinal": {
-                                "type": "integer",
-                                "exclusiveMinimum": 0
-                              },
-                              "title": {
-                                "type": "string"
-                              },
-                              "issues": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string",
-                                  "enum": [
-                                    "SG_NOT_FORUM",
-                                    "SA_NOT_MEMBER",
-                                    "SA_NOT_ADMIN",
-                                    "SA_RIGHTS_MISSING",
-                                    "SA_ANONYMOUS"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": [
-                              "ordinal",
-                              "title",
-                              "issues"
-                            ],
-                            "additionalProperties": false
-                          }
-                        }
-                      },
-                      "required": [
-                        "fingerprint",
-                        "candidates"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "active_slug",
-                    "tenant",
-                    "owner_onboardings",
-                    "stage",
-                    "status",
-                    "next_action",
-                    "body"
-                  ],
-                  "additionalProperties": false
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid refresh value.",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -63663,8 +62535,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -63697,8 +62567,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -63978,9 +62846,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -64040,9 +62907,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -64741,8 +63606,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -64775,8 +63638,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -65056,9 +63917,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -65118,9 +63978,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -65770,8 +64628,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -65804,8 +64660,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -66085,9 +64939,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -66147,9 +65000,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -66832,8 +65683,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -66866,8 +65715,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -67147,9 +65994,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -67209,9 +66055,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -67918,8 +66762,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -67952,8 +66794,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -68233,9 +67073,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -68295,9 +67134,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -69185,88 +68022,89 @@
                             "type": "string"
                           }
                         },
-                        "discovery": {
+                        "supergroups": {
                           "type": [
                             "object",
                             "null"
                           ],
                           "properties": {
-                            "kind": {
-                              "type": "string",
-                              "enum": [
-                                "snapshot",
-                                "wait"
-                              ]
-                            },
-                            "wait_for": {
-                              "type": "object",
-                              "properties": {
-                                "reason": {
-                                  "type": "string",
-                                  "enum": [
-                                    "SA_TEMPORARILY_UNAVAILABLE",
-                                    "DISCOVERY_IN_FLIGHT",
-                                    "DISCOVERY_COOLDOWN"
-                                  ]
-                                },
-                                "retry_after_seconds": {
-                                  "type": "integer",
-                                  "exclusiveMinimum": 0
-                                },
-                                "until": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "required": [
-                                "reason",
-                                "retry_after_seconds",
-                                "until"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fingerprint": {
-                              "type": "string",
-                              "pattern": "^[a-f0-9]{64}$"
-                            },
-                            "candidates": {
+                            "roles": {
                               "type": "array",
                               "items": {
                                 "type": "object",
                                 "properties": {
-                                  "ordinal": {
-                                    "type": "integer",
-                                    "exclusiveMinimum": 0
+                                  "role": {
+                                    "type": "string",
+                                    "enum": [
+                                      "SETTINGS",
+                                      "OPERATIONS",
+                                      "OPEN_LINES"
+                                    ]
+                                  },
+                                  "status": {
+                                    "type": "string",
+                                    "enum": [
+                                      "pending",
+                                      "bound"
+                                    ]
                                   },
                                   "title": {
-                                    "type": "string"
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
                                   },
-                                  "issues": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string",
-                                      "enum": [
-                                        "SG_NOT_FORUM",
-                                        "SA_NOT_MEMBER",
-                                        "SA_NOT_ADMIN",
-                                        "SA_RIGHTS_MISSING",
-                                        "SA_ANONYMOUS"
-                                      ]
-                                    }
+                                  "service_account": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
+                                    "enum": [
+                                      "pending",
+                                      "joined",
+                                      null
+                                    ]
+                                  },
+                                  "refusal": {
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "properties": {
+                                      "code": {
+                                        "type": "string",
+                                        "enum": [
+                                          "SG_NOT_FORUM",
+                                          "SG_BIND_BOT_RIGHTS_MISSING",
+                                          "SG_ALREADY_BOUND"
+                                        ]
+                                      },
+                                      "missing": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "code"
+                                    ],
+                                    "additionalProperties": false
                                   }
                                 },
                                 "required": [
-                                  "ordinal",
+                                  "role",
+                                  "status",
                                   "title",
-                                  "issues"
+                                  "service_account",
+                                  "refusal"
                                 ],
                                 "additionalProperties": false
                               }
                             }
                           },
                           "required": [
-                            "fingerprint",
-                            "candidates"
+                            "roles"
                           ],
                           "additionalProperties": false
                         },
@@ -69777,6 +68615,7 @@
                                 "SG_BOT_CAP_REACHED",
                                 "CLIENT_BOT_RIGHTS_MISSING",
                                 "terminal_capability",
+                                "SA_ADMIN_NOT_EDITABLE",
                                 "BOT_TO_BOT_DISABLED",
                                 "RETRY_EXHAUSTED",
                                 null
@@ -69819,7 +68658,7 @@
                         "site_operation",
                         "language",
                         "completedSteps",
-                        "discovery",
+                        "supergroups",
                         "infrastructure"
                       ],
                       "additionalProperties": false
@@ -70539,8 +69378,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -70573,8 +69410,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -70854,9 +69689,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -70916,9 +69750,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -71640,8 +70472,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -71674,8 +70504,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -71955,9 +70783,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -72017,9 +70844,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -72856,8 +71681,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -72890,8 +71713,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -73171,9 +71992,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -73233,9 +72053,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -74326,8 +73144,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -74360,8 +73176,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -74641,9 +73455,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -74703,9 +73516,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -74836,9 +73647,9 @@
         }
       }
     },
-    "/api/v1/tools/onboarding/supergroups/confirm": {
+    "/api/v1/tools/onboarding/supergroups/bind-links": {
       "post": {
-        "operationId": "confirmSupergroups",
+        "operationId": "issueSupergroupBindLinks",
         "tags": [
           "onboarding"
         ],
@@ -74872,39 +73683,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "fingerprint": {
-                    "type": "string",
-                    "pattern": "^[a-f0-9]{64}$"
-                  },
-                  "roles": {
-                    "type": "object",
-                    "properties": {
-                      "settings": {
-                        "type": "integer",
-                        "exclusiveMinimum": 0
-                      },
-                      "operations": {
-                        "type": "integer",
-                        "exclusiveMinimum": 0
-                      },
-                      "open_lines": {
-                        "type": "integer",
-                        "exclusiveMinimum": 0
-                      }
-                    },
-                    "required": [
-                      "settings",
-                      "operations",
-                      "open_lines"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "fingerprint",
-                  "roles"
-                ],
+                "properties": {},
                 "additionalProperties": false
               }
             }
@@ -75448,8 +74227,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -75482,8 +74259,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -75763,9 +74538,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -75825,9 +74599,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -75874,15 +74646,157 @@
                     "body": {
                       "type": "object",
                       "properties": {
-                        "accepted": {
-                          "type": "boolean",
+                        "kind": {
+                          "type": "string",
                           "enum": [
-                            true
+                            "links",
+                            "wait"
                           ]
+                        },
+                        "links": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "role": {
+                                "type": "string",
+                                "enum": [
+                                  "SETTINGS",
+                                  "OPERATIONS",
+                                  "OPEN_LINES"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "expires_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            },
+                            "required": [
+                              "role",
+                              "url",
+                              "expires_at"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "maxItems": 3
+                        },
+                        "wait_for": {
+                          "type": "object",
+                          "properties": {
+                            "reason": {
+                              "type": "string",
+                              "enum": [
+                                "SA_TEMPORARILY_UNAVAILABLE"
+                              ]
+                            },
+                            "retry_after_seconds": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "until": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          },
+                          "required": [
+                            "reason",
+                            "retry_after_seconds",
+                            "until"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "supergroups": {
+                          "type": "object",
+                          "properties": {
+                            "roles": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "role": {
+                                    "type": "string",
+                                    "enum": [
+                                      "SETTINGS",
+                                      "OPERATIONS",
+                                      "OPEN_LINES"
+                                    ]
+                                  },
+                                  "status": {
+                                    "type": "string",
+                                    "enum": [
+                                      "pending",
+                                      "bound"
+                                    ]
+                                  },
+                                  "title": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "service_account": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
+                                    "enum": [
+                                      "pending",
+                                      "joined",
+                                      null
+                                    ]
+                                  },
+                                  "refusal": {
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "properties": {
+                                      "code": {
+                                        "type": "string",
+                                        "enum": [
+                                          "SG_NOT_FORUM",
+                                          "SG_BIND_BOT_RIGHTS_MISSING",
+                                          "SG_ALREADY_BOUND"
+                                        ]
+                                      },
+                                      "missing": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "code"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "role",
+                                  "status",
+                                  "title",
+                                  "service_account",
+                                  "refusal"
+                                ],
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "required": [
+                            "roles"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
-                        "accepted"
+                        "kind",
+                        "links",
+                        "supergroups"
                       ],
                       "additionalProperties": false
                     }
@@ -75923,26 +74837,6 @@
           },
           "403": {
             "description": "Operation is not permitted.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "SG_DISCOVERY_STALE: the group list changed since discovery; read the discovery again with refresh=1 and confirm its new fingerprint. CONFLICT: the confirmation could not be applied.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "SG_NOT_FORUM, SA_NOT_MEMBER, SA_NOT_ADMIN, SA_RIGHTS_MISSING or SA_ANONYMOUS: a selected group is not ready; fix it in Telegram, refresh the discovery and confirm again.",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -76564,8 +75458,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -76598,8 +75490,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -76879,9 +75769,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -76941,9 +75830,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -77640,8 +76527,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -77674,8 +76559,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -77955,9 +76838,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -78017,9 +76899,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -78907,88 +77787,89 @@
                             "type": "string"
                           }
                         },
-                        "discovery": {
+                        "supergroups": {
                           "type": [
                             "object",
                             "null"
                           ],
                           "properties": {
-                            "kind": {
-                              "type": "string",
-                              "enum": [
-                                "snapshot",
-                                "wait"
-                              ]
-                            },
-                            "wait_for": {
-                              "type": "object",
-                              "properties": {
-                                "reason": {
-                                  "type": "string",
-                                  "enum": [
-                                    "SA_TEMPORARILY_UNAVAILABLE",
-                                    "DISCOVERY_IN_FLIGHT",
-                                    "DISCOVERY_COOLDOWN"
-                                  ]
-                                },
-                                "retry_after_seconds": {
-                                  "type": "integer",
-                                  "exclusiveMinimum": 0
-                                },
-                                "until": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "required": [
-                                "reason",
-                                "retry_after_seconds",
-                                "until"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fingerprint": {
-                              "type": "string",
-                              "pattern": "^[a-f0-9]{64}$"
-                            },
-                            "candidates": {
+                            "roles": {
                               "type": "array",
                               "items": {
                                 "type": "object",
                                 "properties": {
-                                  "ordinal": {
-                                    "type": "integer",
-                                    "exclusiveMinimum": 0
+                                  "role": {
+                                    "type": "string",
+                                    "enum": [
+                                      "SETTINGS",
+                                      "OPERATIONS",
+                                      "OPEN_LINES"
+                                    ]
+                                  },
+                                  "status": {
+                                    "type": "string",
+                                    "enum": [
+                                      "pending",
+                                      "bound"
+                                    ]
                                   },
                                   "title": {
-                                    "type": "string"
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
                                   },
-                                  "issues": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string",
-                                      "enum": [
-                                        "SG_NOT_FORUM",
-                                        "SA_NOT_MEMBER",
-                                        "SA_NOT_ADMIN",
-                                        "SA_RIGHTS_MISSING",
-                                        "SA_ANONYMOUS"
-                                      ]
-                                    }
+                                  "service_account": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
+                                    "enum": [
+                                      "pending",
+                                      "joined",
+                                      null
+                                    ]
+                                  },
+                                  "refusal": {
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "properties": {
+                                      "code": {
+                                        "type": "string",
+                                        "enum": [
+                                          "SG_NOT_FORUM",
+                                          "SG_BIND_BOT_RIGHTS_MISSING",
+                                          "SG_ALREADY_BOUND"
+                                        ]
+                                      },
+                                      "missing": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "code"
+                                    ],
+                                    "additionalProperties": false
                                   }
                                 },
                                 "required": [
-                                  "ordinal",
+                                  "role",
+                                  "status",
                                   "title",
-                                  "issues"
+                                  "service_account",
+                                  "refusal"
                                 ],
                                 "additionalProperties": false
                               }
                             }
                           },
                           "required": [
-                            "fingerprint",
-                            "candidates"
+                            "roles"
                           ],
                           "additionalProperties": false
                         },
@@ -79499,6 +78380,7 @@
                                 "SG_BOT_CAP_REACHED",
                                 "CLIENT_BOT_RIGHTS_MISSING",
                                 "terminal_capability",
+                                "SA_ADMIN_NOT_EDITABLE",
                                 "BOT_TO_BOT_DISABLED",
                                 "RETRY_EXHAUSTED",
                                 null
@@ -79644,7 +78526,7 @@
                         "site_operation",
                         "language",
                         "completedSteps",
-                        "discovery",
+                        "supergroups",
                         "infrastructure",
                         "resume"
                       ],
@@ -80202,8 +79084,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -80236,8 +79116,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -80517,9 +79395,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -80579,9 +79456,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -81469,88 +80344,89 @@
                             "type": "string"
                           }
                         },
-                        "discovery": {
+                        "supergroups": {
                           "type": [
                             "object",
                             "null"
                           ],
                           "properties": {
-                            "kind": {
-                              "type": "string",
-                              "enum": [
-                                "snapshot",
-                                "wait"
-                              ]
-                            },
-                            "wait_for": {
-                              "type": "object",
-                              "properties": {
-                                "reason": {
-                                  "type": "string",
-                                  "enum": [
-                                    "SA_TEMPORARILY_UNAVAILABLE",
-                                    "DISCOVERY_IN_FLIGHT",
-                                    "DISCOVERY_COOLDOWN"
-                                  ]
-                                },
-                                "retry_after_seconds": {
-                                  "type": "integer",
-                                  "exclusiveMinimum": 0
-                                },
-                                "until": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "required": [
-                                "reason",
-                                "retry_after_seconds",
-                                "until"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fingerprint": {
-                              "type": "string",
-                              "pattern": "^[a-f0-9]{64}$"
-                            },
-                            "candidates": {
+                            "roles": {
                               "type": "array",
                               "items": {
                                 "type": "object",
                                 "properties": {
-                                  "ordinal": {
-                                    "type": "integer",
-                                    "exclusiveMinimum": 0
+                                  "role": {
+                                    "type": "string",
+                                    "enum": [
+                                      "SETTINGS",
+                                      "OPERATIONS",
+                                      "OPEN_LINES"
+                                    ]
+                                  },
+                                  "status": {
+                                    "type": "string",
+                                    "enum": [
+                                      "pending",
+                                      "bound"
+                                    ]
                                   },
                                   "title": {
-                                    "type": "string"
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
                                   },
-                                  "issues": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string",
-                                      "enum": [
-                                        "SG_NOT_FORUM",
-                                        "SA_NOT_MEMBER",
-                                        "SA_NOT_ADMIN",
-                                        "SA_RIGHTS_MISSING",
-                                        "SA_ANONYMOUS"
-                                      ]
-                                    }
+                                  "service_account": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
+                                    "enum": [
+                                      "pending",
+                                      "joined",
+                                      null
+                                    ]
+                                  },
+                                  "refusal": {
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "properties": {
+                                      "code": {
+                                        "type": "string",
+                                        "enum": [
+                                          "SG_NOT_FORUM",
+                                          "SG_BIND_BOT_RIGHTS_MISSING",
+                                          "SG_ALREADY_BOUND"
+                                        ]
+                                      },
+                                      "missing": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "code"
+                                    ],
+                                    "additionalProperties": false
                                   }
                                 },
                                 "required": [
-                                  "ordinal",
+                                  "role",
+                                  "status",
                                   "title",
-                                  "issues"
+                                  "service_account",
+                                  "refusal"
                                 ],
                                 "additionalProperties": false
                               }
                             }
                           },
                           "required": [
-                            "fingerprint",
-                            "candidates"
+                            "roles"
                           ],
                           "additionalProperties": false
                         },
@@ -82061,6 +80937,7 @@
                                 "SG_BOT_CAP_REACHED",
                                 "CLIENT_BOT_RIGHTS_MISSING",
                                 "terminal_capability",
+                                "SA_ADMIN_NOT_EDITABLE",
                                 "BOT_TO_BOT_DISABLED",
                                 "RETRY_EXHAUSTED",
                                 null
@@ -82206,7 +81083,7 @@
                         "site_operation",
                         "language",
                         "completedSteps",
-                        "discovery",
+                        "supergroups",
                         "infrastructure",
                         "resume"
                       ],
@@ -82249,16 +81126,6 @@
           },
           "403": {
             "description": "Operation is not permitted.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "SG_DISCOVERY_STALE: the confirmed groups changed; refresh the discovery and confirm again.",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -82860,8 +81727,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -82894,8 +81759,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -83175,9 +82038,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -83237,9 +82099,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -83941,8 +82801,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -83975,8 +82833,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -84256,9 +83112,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -84318,9 +83173,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -84416,6 +83269,16 @@
           },
           "403": {
             "description": "Operation is not permitted.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "BOT_SETTINGS_INCOMPLETE: the bot lacks settings the platform needs; details.missing names them (can_join_groups, has_main_web_app, can_manage_bots). The main Mini App URL is the tenant Mini App origin plus /miniapp, as POST /api/v1/tools/onboarding/mini-app-origin returns for channel telegram. The connection stays reserved: switch them on in @BotFather and call bot-connection/resume without the token. Other 409 codes refuse the connection itself.",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -85007,8 +83870,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -85041,8 +83902,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -85322,9 +84181,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -85384,9 +84242,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -85482,6 +84338,16 @@
           },
           "403": {
             "description": "Operation is not permitted.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "BOT_SETTINGS_INCOMPLETE: the bot lacks settings the platform needs; details.missing names them (can_join_groups, has_main_web_app, can_manage_bots). The main Mini App URL is the tenant Mini App origin plus /miniapp, as POST /api/v1/tools/onboarding/mini-app-origin returns for channel telegram. The connection stays reserved: switch them on in @BotFather and call bot-connection/resume without the token. Other 409 codes refuse the connection itself.",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -86393,8 +85259,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -86427,8 +85291,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -86708,9 +85570,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -86770,9 +85631,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -87632,8 +86491,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -87666,8 +86523,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -87947,9 +86802,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -88009,9 +86863,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -88866,8 +87718,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -88900,8 +87750,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -89181,9 +88029,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -89243,9 +88090,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -90082,8 +88927,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -90116,8 +88959,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -90397,9 +89238,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -90459,9 +89299,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -91178,8 +90016,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -91212,8 +90048,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -91493,9 +90327,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -91555,9 +90388,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -92259,8 +91090,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -92293,8 +91122,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -92574,9 +91401,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -92636,9 +91462,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -93386,8 +92210,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -93420,8 +92242,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -93701,9 +92521,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -93763,9 +92582,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -94516,8 +93333,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -94550,8 +93365,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -94831,9 +93644,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -94893,9 +93705,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -95645,8 +94455,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -95679,8 +94487,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -95960,9 +94766,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -96022,9 +94827,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -96782,8 +95585,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -96816,8 +95617,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -97097,9 +95896,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -97159,9 +95957,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -97923,8 +96719,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -97957,8 +96751,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -98238,9 +97030,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -98300,9 +97091,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -99024,8 +97813,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -99058,8 +97845,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -99339,9 +98124,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -99401,9 +98185,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -100341,8 +99123,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -100375,8 +99155,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -100656,9 +99434,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -100718,9 +99495,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {
@@ -101403,8 +100178,6 @@
                               "site",
                               "bot",
                               "supergroups_create",
-                              "supergroups_admin",
-                              "supergroups_confirm",
                               "infrastructure",
                               "infrastructure_ready",
                               "quest_1",
@@ -101437,8 +100210,6 @@
                         "site",
                         "bot",
                         "supergroups_create",
-                        "supergroups_admin",
-                        "supergroups_confirm",
                         "infrastructure",
                         "infrastructure_ready",
                         "quest_1",
@@ -101718,9 +100489,8 @@
                             "address",
                             "site",
                             "bot",
+                            "bot_settings",
                             "supergroups_create",
-                            "supergroups_admin",
-                            "supergroups_confirm",
                             "infrastructure",
                             "infrastructure_blocked",
                             "infrastructure_ready",
@@ -101780,9 +100550,7 @@
                             "reason": {
                               "type": "string",
                               "enum": [
-                                "SA_TEMPORARILY_UNAVAILABLE",
-                                "DISCOVERY_IN_FLIGHT",
-                                "DISCOVERY_COOLDOWN"
+                                "SA_TEMPORARILY_UNAVAILABLE"
                               ]
                             },
                             "until": {

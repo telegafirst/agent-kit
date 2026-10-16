@@ -2,6 +2,13 @@
 
 ## Agent-facing changes
 
+### 1.0.25 — 2026-10-16
+
+- Привязка операторских групп идёт по ссылкам `startgroup`: `issue_supergroup_bind_links` выдаёт владельцу по одной одноразовой ссылке на каждую ещё не привязанную роль (Settings, Operations, Open Lines); владелец открывает ссылку в Telegram, выбирает или создаёт форум-супергруппу, бот сам привязывает её к роли и добавляет технический аккаунт. Статус по ролям читается в `get_onboarding_state` (`body.supergroups.roles`); новые отказы `SG_BIND_LINK_INVALID`, `SG_BIND_NOT_OWNER`, `SG_BIND_ROLE_BOUND`, `SG_ALREADY_BOUND`, `SG_NOT_FORUM`, `SG_BIND_BOT_RIGHTS_MISSING`, `SA_ADMIN_NOT_EDITABLE`.
+- Удалены тулы обнаружения и подтверждения операторских групп (discover_supergroups и confirm_supergroups, REST discoverSupergroups и confirmSupergroups), шаги онбординга supergroups_admin и supergroups_confirm, отказы DISCOVERY_IN_FLIGHT и DISCOVERY_COOLDOWN; совместимости нет — до посадки клиентов публичный контракт меняется сразу.
+- Проверка настроек бота: после подключения бота Hub сверяет его мини-приложение с адресом сайта и отказывает `BOT_SETTINGS_INCOMPLETE` с перечнем недостающего; в онбординге появился шаг bot_settings, а признак mini_app_not_opened убран.
+- `list_connections` показывает поле client_declared_name — имя, которым клиент назвался при регистрации (не проверено: клиент может назваться любым именем).
+
 ### 1.0.24 — 2026-10-15
 
 - Онлайн-запись: услуга задаёт длительность (режимы fixed, list, range) и лестницу цен, запись принимает добавки и конец диапазона, `booking_search_availability` возвращает длину услуги; новые отказы OUTSIDE_WINDOW и ORDER_BOUND_TO_BOOKING, QUANTITY_LIMIT описывает длину услуги; рецепт — `references/booking-service.md`, включая «размножить ×N» циклом `booking_create_resource`.

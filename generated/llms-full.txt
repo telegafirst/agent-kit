@@ -1,4 +1,4 @@
-Generated: 2026-10-15T12:46:57.083Z
+Generated: 2026-10-16T06:44:48.834Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -156,7 +156,6 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `GET /api/v1/tools/onboarding/catalog-topic-link` _(scopes: onboarding:read)_ — getCatalogTopicLink
 - `GET /api/v1/tools/onboarding/state` _(scopes: onboarding:read)_ — getOnboardingState
 - `GET /api/v1/tools/onboarding/slug-availability` _(scopes: onboarding:read)_ — checkSlugAvailability
-- `GET /api/v1/tools/onboarding/supergroups/discovery` _(scopes: onboarding:read)_ — discoverSupergroups
 - `GET /api/v1/tools/onboarding/billing` _(scopes: onboarding:read)_ — getBillingState
 - `GET /api/v1/tools/onboarding/existing-bot/instructions` _(scopes: onboarding:read)_ — getExistingBotInstructions
 - `GET /api/v1/tools/onboarding/quest-product/check` _(scopes: onboarding:read)_ — checkTestProduct
@@ -166,7 +165,7 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/tools/onboarding/payment-provider/probe` _(scopes: payments:config)_ — probePaymentProvider
 - `POST /api/v1/tools/onboarding/billing/cancel-auto-renew` _(scopes: onboarding:write)_ — cancelAutoRenew
 - `POST /api/v1/tools/onboarding/quest-product` _(scopes: onboarding:write)_ — createQuestProduct
-- `POST /api/v1/tools/onboarding/supergroups/confirm` _(scopes: onboarding:write)_ — confirmSupergroups
+- `POST /api/v1/tools/onboarding/supergroups/bind-links` _(scopes: onboarding:write)_ — issueSupergroupBindLinks
 - `POST /api/v1/tools/onboarding/supergroups/manual-request` _(scopes: onboarding:write)_ — requestManualSupergroups
 - `POST /api/v1/tools/onboarding/infrastructure/resume` _(scopes: onboarding:write)_ — resumeInfrastructure
 - `POST /api/v1/tools/onboarding/managed-bot` _(scopes: onboarding:write)_ — initManagedBot
