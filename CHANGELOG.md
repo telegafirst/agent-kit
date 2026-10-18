@@ -2,6 +2,12 @@
 
 ## Agent-facing changes
 
+### 1.0.26 — 2026-10-18
+
+- Ссылки для публикации: `get_share_links` отдаёт готовые ссылки и QR на товар, событие, запись, форму, страницу, цепочку или кампанию по `{content_type, seq_num}` — универсальную ссылку `landing`, переход в бота по каждому включённому каналу и ссылку мини-приложения у контента со страницей; ссылку руками из slug, кода или номера не собирайте.
+- Чтение заказов: `list_orders` и `get_order` (скоуп `pull:orders`; REST `listOrders` принимает фильтр is_paid, любое другое значение отвергается как INVALID_FILTER); отказ `ORDER_ALREADY_PAID` несёт подсказку `hint`.
+- Проверка настроек бота: для бота, созданного владельцем в @BotFather, шаг bot_settings теперь требует и выключенный Group Privacy (can_read_all_group_messages); перечень недостающего приходит в `BOT_SETTINGS_INCOMPLETE`, подключение продолжается через `resume_bot_connection`.
+
 ### 1.0.25 — 2026-10-16
 
 - Привязка операторских групп идёт по ссылкам `startgroup`: `issue_supergroup_bind_links` выдаёт владельцу по одной одноразовой ссылке на каждую ещё не привязанную роль (Settings, Operations, Open Lines); владелец открывает ссылку в Telegram, выбирает или создаёт форум-супергруппу, бот сам привязывает её к роли и добавляет технический аккаунт. Статус по ролям читается в `get_onboarding_state` (`body.supergroups.roles`); новые отказы `SG_BIND_LINK_INVALID`, `SG_BIND_NOT_OWNER`, `SG_BIND_ROLE_BOUND`, `SG_ALREADY_BOUND`, `SG_NOT_FORUM`, `SG_BIND_BOT_RIGHTS_MISSING`, `SA_ADMIN_NOT_EDITABLE`.

@@ -1684,6 +1684,17 @@
           "name": "site_page_preview",
           "order": 7,
           "requiredFields": []
+        },
+        {
+          "name": "get_share_links",
+          "order": 8,
+          "requiredFields": [
+            "items"
+          ],
+          "note": {
+            "ru": "Готовые ссылки и QR на товар, событие, запись, форму, страницу, цепочку или кампанию.",
+            "en": "Ready links and QR for a product, event, booking, form, page, chain or campaign."
+          }
         }
       ],
       "joins": {
@@ -1703,6 +1714,10 @@
         {
           "ru": "Ссылку «открыть мини-приложением» не выдумывайте (`?startapp=shop` не работает): берите её из `mini_app_links` ответа `site_list_pages`.",
           "en": "Do not invent a mini-app link (`?startapp=shop` does not work): take it from `mini_app_links` in the `site_list_pages` answer."
+        },
+        {
+          "ru": "Чтобы поделиться контентом, вызовите `get_share_links` с `{content_type, seq_num}`: `landing` работает в любом мессенджере и браузере, `channels` — переход в бота по каждому включённому каналу, ссылка мини-приложения — только у контента со страницей, QR — по `with_qr: true`.",
+          "en": "To share content call `get_share_links` with `{content_type, seq_num}`: `landing` works in any messenger and browser, `channels` is the way into the bot per enabled channel, a mini-app link exists only for content with a page, a QR comes with `with_qr: true`."
         },
         {
           "ru": "Форма на своей странице отправляется официальным скриптом, который вернул `site_form_declare`; страница на другом домене требует разрешённого Origin формы.",

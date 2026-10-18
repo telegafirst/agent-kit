@@ -45952,6 +45952,19 @@
             "description": "Scalar or comma-separated IN list of at most 100 positive int4 User sequences. Each value is checked against 1..2147483647 and resolved through the authenticated tenant User relation. Legacy user_id is rejected."
           },
           {
+            "name": "is_paid",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ]
+            },
+            "description": "Only paid (true) or only unpaid (false) orders. Any other value is rejected as INVALID_FILTER."
+          },
+          {
             "schema": {
               "type": "string"
             },
