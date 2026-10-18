@@ -1885,11 +1885,15 @@
           "isPublic": {
             "type": "boolean"
           },
-          "slotIntervalMinutes": {
-            "type": "integer",
-            "exclusiveMinimum": 0
+          "kind": {
+            "type": "string",
+            "enum": [
+              "person",
+              "place"
+            ],
+            "description": "person = who (a specialist), place = where (a room, a cabin, equipment)"
           },
-          "maxActiveUserBookings": {
+          "slotIntervalMinutes": {
             "type": "integer",
             "exclusiveMinimum": 0
           },
@@ -1928,14 +1932,6 @@
           },
           "hasPhoto": {
             "type": "boolean"
-          },
-          "slotHoldPolicy": {
-            "type": "string",
-            "enum": [
-              "on_confirmation",
-              "on_payment_window",
-              "on_payment"
-            ]
           },
           "chainBindings": {
             "type": "object",
@@ -2127,15 +2123,14 @@
           "description",
           "isActive",
           "isPublic",
+          "kind",
           "slotIntervalMinutes",
-          "maxActiveUserBookings",
           "minLeadTimeMinutes",
           "maxAdvanceDays",
           "catalogItemSeqNums",
           "publicUrl",
           "messageContentSeqNum",
           "hasPhoto",
-          "slotHoldPolicy",
           "chainBindings",
           "calendar",
           "etag"
@@ -19156,15 +19151,18 @@
           "is_public": {
             "type": "boolean"
           },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "person",
+              "place"
+            ],
+            "description": "person = who (a specialist), place = where (a room, a cabin, equipment)"
+          },
           "slot_interval_minutes": {
             "type": "integer",
             "exclusiveMinimum": 0,
             "maximum": 1440
-          },
-          "max_active_user_bookings": {
-            "type": "integer",
-            "exclusiveMinimum": 0,
-            "maximum": 1000
           },
           "min_lead_time_minutes": {
             "type": "integer",
@@ -19178,14 +19176,6 @@
             ],
             "exclusiveMinimum": 0,
             "maximum": 3650
-          },
-          "slot_hold_policy": {
-            "type": "string",
-            "enum": [
-              "on_confirmation",
-              "on_payment_window",
-              "on_payment"
-            ]
           },
           "chain_bindings": {
             "type": "object",
@@ -19370,15 +19360,18 @@
           "is_public": {
             "type": "boolean"
           },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "person",
+              "place"
+            ],
+            "description": "person = who (a specialist), place = where (a room, a cabin, equipment)"
+          },
           "slot_interval_minutes": {
             "type": "integer",
             "exclusiveMinimum": 0,
             "maximum": 1440
-          },
-          "max_active_user_bookings": {
-            "type": "integer",
-            "exclusiveMinimum": 0,
-            "maximum": 1000
           },
           "min_lead_time_minutes": {
             "type": "integer",
@@ -19392,14 +19385,6 @@
             ],
             "exclusiveMinimum": 0,
             "maximum": 3650
-          },
-          "slot_hold_policy": {
-            "type": "string",
-            "enum": [
-              "on_confirmation",
-              "on_payment_window",
-              "on_payment"
-            ]
           },
           "chain_bindings": {
             "type": "object",
@@ -19800,12 +19785,22 @@
           },
           "currency": {
             "type": "string"
+          },
+          "paymentCard": {
+            "type": "string",
+            "enum": [
+              "none",
+              "reissued",
+              "reissue_failed"
+            ],
+            "description": "The payment card the client may already hold. `none`: no card was out, or a manual one was redrawn with the new sum. `reissued`: a new card replaced it. `reissue_failed`: the price is saved but the client still holds the card with the OLD sum; agree the same price again to send a new one."
           }
         },
         "required": [
           "booking",
           "amount",
-          "currency"
+          "currency",
+          "paymentCard"
         ],
         "additionalProperties": false
       },
