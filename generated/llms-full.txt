@@ -1,4 +1,4 @@
-Generated: 2026-10-18T21:55:19.276Z
+Generated: 2026-10-20T11:03:17.398Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -171,6 +171,7 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/tools/onboarding/managed-bot` _(scopes: onboarding:write)_ — initManagedBot
 - `POST /api/v1/tools/onboarding/existing-bot` _(scopes: onboarding:write)_ — registerExistingBot
 - `POST /api/v1/tools/onboarding/bot-connection/resume` _(scopes: onboarding:write)_ — resumeBotConnection
+- `POST /api/v1/tools/onboarding/bot-connection/disconnect` _(scopes: onboarding:write)_ — disconnectBot
 - `POST /api/v1/tools/onboarding/payment-provider/connect` _(scopes: payments:config)_ — connectPaymentProvider
 - `POST /api/v1/tools/onboarding/payment-provider/webhook/confirm` _(scopes: payments:config)_ — confirmPaymentWebhook
 - `POST /api/v1/tools/onboarding/payment-provider/check` _(scopes: payments:config)_ — checkPaymentProvider
