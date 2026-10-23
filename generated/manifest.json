@@ -1,8 +1,8 @@
 {
-  "version": "1.0.27",
-  "pack_sha": "ebd43efe430e877cdfb695f0bfaa83cfe1b207f8b95f88eba99d7ca15c32f768",
-  "generated_at": "2026-10-23T02:53:01.338Z",
-  "platform_version": "1.0.123",
+  "version": "1.0.28",
+  "pack_sha": "dd3b0b1ab06a77d4d466a3974c54c1301cdae45bc9c7242f8b37f7dc540811ea",
+  "generated_at": "2026-10-23T18:41:49.345Z",
+  "platform_version": "1.0.124",
   "skills": [
     {
       "name": "telegafirst-admin",
@@ -10,16 +10,16 @@
         "name": "telegafirst-admin",
         "description": "Use when configuring, operating, or improving a TelegaFirst AI front office: offers, events, funnels, support, partner work, and customer communications.",
         "metadata": {
-          "version": "1.0.27",
-          "sha": "ebd43efe430e877cdfb695f0bfaa83cfe1b207f8b95f88eba99d7ca15c32f768"
+          "version": "1.0.28",
+          "sha": "dd3b0b1ab06a77d4d466a3974c54c1301cdae45bc9c7242f8b37f7dc540811ea"
         }
       },
-      "digest": "sha256:4ebb6b181f3fbf6fdbcdad3cb57607153a01bf765d9133fec8544c17cd3e1f4a",
+      "digest": "sha256:592d056e2c98a88ac086f8009e179279b502ffb59f1836774798b2457926f30e",
       "zip": "telegafirst-admin.zip",
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "f975890bb9d1c32a3e43c95c893fa66215111c0aaf58ba12e0ea8f19f5e06184",
+          "sha256": "ae0bbc87a7bab0b9adf02b05b52d86fed5020eb0c2072f050ca83a32d27f84be",
           "bytes": 12431
         },
         {
@@ -80,16 +80,16 @@
         "name": "telegafirst-onboarding-site-in-a-minute",
         "description": "Use when launching a small TelegaFirst business site quickly: connect a domain, prepare pages, publish a complete bundle, and check the result.",
         "metadata": {
-          "version": "1.0.27",
-          "sha": "ebd43efe430e877cdfb695f0bfaa83cfe1b207f8b95f88eba99d7ca15c32f768"
+          "version": "1.0.28",
+          "sha": "dd3b0b1ab06a77d4d466a3974c54c1301cdae45bc9c7242f8b37f7dc540811ea"
         }
       },
-      "digest": "sha256:05b1cd01fc28770f5a196ab90a933999fefbb1a42e4cc8cd86d023fa5707491a",
+      "digest": "sha256:000c62ff4695f734c7c474c5ba5c2aaf97f79d7024008c3d00239916c6e5a6cd",
       "zip": "telegafirst-onboarding-site-in-a-minute.zip",
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "7efa414398de78ea417d5ef09656711571712a7f63784484a44a3d2f9373eda9",
+          "sha256": "5a16f8b216da37e07eda86f4fc036774c8122b0162965cd3431f9c2ea71815dd",
           "bytes": 5360
         },
         {
