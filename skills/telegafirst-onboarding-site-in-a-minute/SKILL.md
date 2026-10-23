@@ -14,6 +14,16 @@ Use this skill for a small business site that introduces the offer and directs v
 
 Connect MCP using the package connection guide. Call `get_onboarding_state` with `intent: auto`, follow the next_action field, and finish technical onboarding before publishing. An operator role in another business does not block creating your own: use explicit `new_business: true` only when that is the owner’s intent. When the owner supplies a bot token or provider credentials, pass them only to the authorized typed tool for the selected business; never echo them or put them in site files. Keep the storefront at the business root and the standalone about page at `/bio`.
 
+## Sign-in and diagnosis
+
+When the host asks the owner to sign in, a connection page with a QR code opens. Before the sign-in starts, walk the owner through these steps:
+
+1. Open the connection page in the same browser where the owner is signed in to their AI (ChatGPT, Claude, …).
+2. Scan the QR or tap the button; the TelegaFirst bot opens in Telegram — tap “Confirm”.
+3. Return to the connection page in the browser and do not close it: it returns the owner to the AI and finishes the sign-in.
+
+If the plugin is installed but MCP answers 401 or `tools/list` shows no tools, the sign-in is not finished. Do not blame the network and do not retry blindly: tell the owner the sign-in is not finished, ask them to delete the connection in the AI and connect again, and lead them through the steps above from the start.
+
 ## Start with the domain
 
 1. Call `domain_add_request` for the selected `ru` or `com` zone.

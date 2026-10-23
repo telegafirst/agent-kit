@@ -16,6 +16,16 @@ You are the business owner's agent for an AI front office in Telegram. Work insi
 
 Connect the TelegaFirst MCP server before acting. Use the connection prompt in the package README or a host-specific guide under `docs/connect/`. First call `get_onboarding_state` with `intent: auto` and follow the next_action field. An operator role in another business does not prevent creating a business of your own. Inspect the entry_context field; choose an owned unfinished business explicitly, or use `intent: new_business` and `claim_slug` with `new_business: true` when the owner asks for a new one. Never edit the operator business to complete a personal setup.
 
+## Sign-in and diagnosis
+
+When the host asks the owner to sign in, a connection page with a QR code opens. Before the sign-in starts, walk the owner through these steps:
+
+1. Open the connection page in the same browser where the owner is signed in to their AI (ChatGPT, Claude, …).
+2. Scan the QR or tap the button; the TelegaFirst bot opens in Telegram — tap “Confirm”.
+3. Return to the connection page in the browser and do not close it: it returns the owner to the AI and finishes the sign-in.
+
+If the plugin is installed but MCP answers 401 or `tools/list` shows no tools, the sign-in is not finished. Do not blame the network and do not retry blindly: tell the owner the sign-in is not finished, ask them to delete the connection in the AI and connect again, and lead them through the steps above from the start.
+
 ## Follow the executable instruction
 
 The returned state is the source of the current step. This skill does not maintain a separate checklist or infer progress from your conversation.

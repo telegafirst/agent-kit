@@ -25,3 +25,5 @@ Antigravity registers its OAuth client dynamically, so a repeated click or retry
 2. Click Authenticate once and wait for the browser window; do not click again while the dialog is open.
 3. If the error remains, test the endpoint independently with the curl diagnostics and keep the HTTP status and traceId from the response.
 4. Do not substitute an integration key or another application's token for the sign-in.
+
+Sign-in: when your AI asks you to sign in, a connection page with a QR code opens. Open it in the same browser where you are signed in to your AI, scan the QR or tap the button, then tap “Confirm” in the TelegaFirst bot in Telegram. After that, return to the connection page in the browser and do not close it: it returns you to your AI and finishes the sign-in. If the tab was closed, or the AI says “connected” but you have no tools or get 401 after sign-in, the sign-in is not finished: delete the connection in your AI and connect again.
