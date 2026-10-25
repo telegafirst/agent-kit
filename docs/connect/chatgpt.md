@@ -16,7 +16,7 @@ https://mcp.telegafirst.com/api/v1/mcp
 
 ## Инструменты и бизнес
 
-После OAuth обновите `tools/list`. У нового владельца без бизнеса доступны три dedicated-инструмента: `get_onboarding_state`, `check_slug_availability` и `claim_slug`, а также пять scoped meta-tools: `search_admin_tools`, `load_domain`, `describe_tool`, `execute_admin_read` и `execute_admin_write`. До создания бизнеса их targets ограничены состоянием, проверкой адреса и claim своего бизнеса; документационные MCP-инструменты пока недоступны. Сначала прочитайте состояние и `body.entry_context`, согласуйте адрес и язык, затем выполните claim. Следуйте `response.next_action` и проверкам готовности, а после их изменения снова обновите список. До появления бота не требуйте identity или каталог. Полный порядок — [новый бизнес](/docs/getting-started#new-business).
+После OAuth обновите `tools/list`. У нового владельца без бизнеса доступны три dedicated-инструмента: `get_onboarding_state`, `check_slug_availability` и `claim_slug`, а также шесть scoped meta-tools: `search_admin_tools`, `load_domain`, `describe_tool`, `execute_admin_read`, `execute_admin_write` и `prepare_admin_action`. До создания бизнеса их targets ограничены состоянием, проверкой адреса и claim своего бизнеса; документационные MCP-инструменты пока недоступны. Сначала прочитайте состояние и `body.entry_context`, согласуйте адрес и язык, затем выполните claim. Следуйте `response.next_action` и проверкам готовности, а после их изменения снова обновите список. До появления бота не требуйте identity или каталог. Полный порядок — [новый бизнес](/docs/getting-started#new-business).
 
 Для существующего бизнеса проверьте доступные бизнесы, их `role` (`owner` или `operator`) и активный контекст. Если нужен другой, переключайте общий контекст человека только разрешённым инструментом и снова читайте `tools/list`; это меняет контекст и в других подключениях. API key без человека не переключает этот указатель. Порядок — [существующий бизнес](/docs/getting-started#existing-business).
 
@@ -31,7 +31,7 @@ https://mcp.telegafirst.com/api/v1/mcp
 Сокращённая обезличенная проекция `get_onboarding_state` до первого бизнеса. Это пример серверного контракта, а не запись успешного входа из данного хоста. Текст `response.next_action.say_to_user` и подсказки `hint` опущены; реальный ответ используйте целиком.
 
 ```json
-{"tenant":{"slug":null,"bot_username":null},"active_slug":null,"stage":"address","status":"todo","next_action":{"goal":"address","collect":[{"field":"slug"},{"field":"language"}]},"body":{"entry_context":{"intent":"auto","active_business":null,"owned_businesses":[],"recommended_business_slug":null,"action":"create_business"},"completedSteps":[],"site_operation":null,"language":"ru"}}
+{"tenant":{"slug":null,"bot_username":null},"active_slug":null,"stage":"address","status":"todo","next_action":{"goal":"address","collect":[{"field":"slug"},{"field":"language"}]},"body":{"entry_context":{"intent":"auto","active_business":null,"owned_businesses":[],"recommended_business_slug":null,"action":"create_business"},"completed_steps":[],"site_operation":null,"language":"ru"}}
 ```
 
 После `claim_slug` следующий шаг определяется новым ответом; опубликованный сайт сам по себе не означает готовый бот. При попытке сменить уже выданный адрес сервер возвращает `SLUG_IMMUTABLE`; сохраните исходный адрес и продолжайте readiness.

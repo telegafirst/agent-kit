@@ -1,4 +1,4 @@
-Generated: 2026-10-24T12:43:14.259Z
+Generated: 2026-10-25T12:35:11.915Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -34,21 +34,21 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 
 ## Endpoints
 ### /api/v1/users
-- `GET /api/v1/users` _(scopes: pull:users)_ — List tenant users by their local sequence
-- `GET /api/v1/users/{seq_id}` _(scopes: pull:users)_ — Read a tenant user and permitted relation projections
+- `GET /api/v1/users` _(scopes: pull:users)_ — List tenant users as full cards by their local sequence
+- `GET /api/v1/users/{id}` _(scopes: pull:users)_ — Read a tenant user and permitted relation projections
 
 ### /api/v1/payments
-- `GET /api/v1/payments` _(scopes: pull:payments)_ — List tenant payments using safe related sequences
-- `GET /api/v1/payments/{seq_id}` _(scopes: pull:payments)_ — Read a tenant payment by its local sequence
+- `GET /api/v1/payments` _(scopes: pull:payments)_ — List tenant payments with their related user and order ids
+- `GET /api/v1/payments/{id}` _(scopes: pull:payments)_ — Read a tenant payment by its id
 
 ### /api/v1/tools
-- `POST /api/v1/tools/sales/manual-sales` _(scopes: orders:write)_ — Create a manual sale from either buyer/catalogue sequences or one registration sequence. REST retains catalogue pricing; it does not accept MCP price overrides. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
-- `GET /api/v1/tools/external-content-publish/{draftHandle}` _(scopes: content:read)_ — Read the full draft lifecycle and finalized media
-- `DELETE /api/v1/tools/external-content-publish/{draftHandle}` _(scopes: content:write)_ — Cancel a pending content draft
+- `POST /api/v1/tools/sales/manual-sales` _(scopes: orders:write)_ — Create a manual sale from either a buyer user_id with a catalog_id or one registration_id. REST retains catalogue pricing; it does not accept MCP price overrides. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
+- `GET /api/v1/tools/external-content-publish/{draft_handle}` _(scopes: content:read)_ — Read the full draft lifecycle and finalized media
+- `DELETE /api/v1/tools/external-content-publish/{draft_handle}` _(scopes: content:write)_ — Cancel a pending content draft
 - `GET /api/v1/tools/statuses` _(scopes: statuses:read)_ — List the tenant order-status set
 - `POST /api/v1/tools/statuses` _(scopes: statuses:write)_ — Create an order status
-- `PATCH /api/v1/tools/statuses` _(scopes: statuses:write)_ — Update an order status by tenant sequence
-- `POST /api/v1/tools/statuses/delete` _(scopes: statuses:write)_ — Soft-delete an order status by tenant sequence
+- `PATCH /api/v1/tools/statuses` _(scopes: statuses:write)_ — Update an order status by its id
+- `POST /api/v1/tools/statuses/delete` _(scopes: statuses:write)_ — Soft-delete an order status by its id
 - `GET /api/v1/tools/quick-replies` _(scopes: quick-replies:read)_ — List the tenant’s operator quick replies
 - `POST /api/v1/tools/quick-replies` _(scopes: quick-replies:write)_ — Create an operator quick reply
 - `PATCH /api/v1/tools/quick-replies` _(scopes: quick-replies:write)_ — Update an operator quick reply by tenant sequence
@@ -59,18 +59,18 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/tools/team/revoke` _(scopes: team:write)_ — Revoke a tenant team member
 - `GET /api/v1/tools/legal` _(scopes: legal:read)_ — Read tenant legal settings
 - `PATCH /api/v1/tools/legal` _(scopes: legal:write)_ — Update tenant legal settings
-- `GET /api/v1/tools/marketing` _(scopes: marketing:read)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
-- `POST /api/v1/tools/marketing` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
-- `PATCH /api/v1/tools/marketing` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
-- `POST /api/v1/tools/marketing/delete` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
-- `GET /api/v1/tools/marketing/links` _(scopes: marketing:read)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
-- `POST /api/v1/tools/marketing/links` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
-- `PATCH /api/v1/tools/marketing/links` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
-- `POST /api/v1/tools/marketing/links/delete` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Sequences resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `GET /api/v1/tools/marketing` _(scopes: marketing:read)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `POST /api/v1/tools/marketing` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `PATCH /api/v1/tools/marketing` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `POST /api/v1/tools/marketing/delete` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `GET /api/v1/tools/marketing/links` _(scopes: marketing:read)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `POST /api/v1/tools/marketing/links` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `PATCH /api/v1/tools/marketing/links` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `POST /api/v1/tools/marketing/links/delete` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
 - `GET /api/v1/tools/chains` _(scopes: chains:read)_ — List message chain shells
 - `POST /api/v1/tools/chains` _(scopes: chains:write)_ — Create a message chain shell
-- `PATCH /api/v1/tools/chains` _(scopes: chains:write)_ — Update a chain shell by tenant sequence
-- `POST /api/v1/tools/chains/delete` _(scopes: chains:write)_ — Soft-delete a chain shell by tenant sequence
+- `PATCH /api/v1/tools/chains` _(scopes: chains:write)_ — Update a chain shell by tenant id
+- `POST /api/v1/tools/chains/delete` _(scopes: chains:write)_ — Soft-delete a chain shell by tenant id
 - `POST /api/v1/tools/chains/steps` _(scopes: chains:write)_ — Add a step with its message to a chain
 - `GET /api/v1/tools/chains/steps` _(scopes: chains:read)_ — listChainSteps
 - `PATCH /api/v1/tools/chains/steps` _(scopes: chains:write)_ — updateChainStep
@@ -84,29 +84,29 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/tools/events/phase` _(scopes: events:write)_ — setEventPhase
 - `POST /api/v1/tools/events/cancel` _(scopes: events:write)_ — cancelEvent
 - `POST /api/v1/tools/events/complete` _(scopes: events:write)_ — completeEvent
-- `GET /api/v1/tools/broadcasts` _(scopes: broadcasts:read)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
-- `POST /api/v1/tools/broadcasts` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
-- `PATCH /api/v1/tools/broadcasts` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
-- `POST /api/v1/tools/broadcasts/delete` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
-- `POST /api/v1/tools/broadcasts/prepare-launch` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
-- `POST /api/v1/tools/broadcasts/execute-launch` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
-- `POST /api/v1/tools/broadcasts/status` _(scopes: broadcasts:read)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local sequences resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `GET /api/v1/tools/broadcasts` _(scopes: broadcasts:read)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local ids resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `POST /api/v1/tools/broadcasts` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local ids resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `PATCH /api/v1/tools/broadcasts` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local ids resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `POST /api/v1/tools/broadcasts/delete` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local ids resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `POST /api/v1/tools/broadcasts/prepare-launch` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local ids resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `POST /api/v1/tools/broadcasts/execute-launch` _(scopes: broadcasts:write)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local ids resolve only under authenticated client metadata. Operator work stays in Telegram.
+- `POST /api/v1/tools/broadcasts/status` _(scopes: broadcasts:read)_ — X-Api-Key OR Authorization: Bearer tgf_* are alternative API-key transports. Surface-session JWT is refused. Every required scope must be present. Tenant-local ids resolve only under authenticated client metadata. Operator work stays in Telegram.
 - `GET /api/v1/tools/segments/axes` _(scopes: broadcasts:read)_ — Describe the broadcast audience taxonomy
 - `POST /api/v1/tools/segments/targets` _(scopes: broadcasts:read)_ — List a segmentation kind’s targets
 - `POST /api/v1/tools/segments/reach` _(scopes: broadcasts:read)_ — Preview audience reach without sending
-- `POST /api/v1/tools/segments/sample` _(scopes: dialogs:read)_ — Sample a valid audience by tenant user sequence
+- `POST /api/v1/tools/segments/sample` _(scopes: dialogs:read)_ — Sample a valid audience by tenant user id
 - `GET /api/v1/tools/segments/saved` _(scopes: broadcasts:read)_ — List saved audience filters
 - `POST /api/v1/tools/segments/saved` _(scopes: broadcasts:write)_ — Create a saved audience filter
-- `GET /api/v1/tools/segments/saved/{seqNum}` _(scopes: broadcasts:read)_ — Read a saved audience filter
-- `PATCH /api/v1/tools/segments/saved/{seqNum}` _(scopes: broadcasts:write)_ — Update a saved filter with optimistic version
-- `DELETE /api/v1/tools/segments/saved/{seqNum}` _(scopes: broadcasts:write)_ — Delete an unreferenced saved filter with optimistic version
+- `GET /api/v1/tools/segments/saved/{id}` _(scopes: broadcasts:read)_ — Read a saved audience filter
+- `PATCH /api/v1/tools/segments/saved/{id}` _(scopes: broadcasts:write)_ — Update a saved filter with optimistic version
+- `DELETE /api/v1/tools/segments/saved/{id}` _(scopes: broadcasts:write)_ — Delete an unreferenced saved filter with optimistic version
 - `GET /api/v1/tools/agents` _(scopes: agents:read)_ — Read the tenant AI agent configuration
 - `PATCH /api/v1/tools/agents` _(scopes: agents:write)_ — Update the tenant AI agent configuration
 - `GET /api/v1/tools/kb` _(scopes: kb:read)_ — List tenant knowledge across both boards
 - `POST /api/v1/tools/kb` _(scopes: kb:write)_ — Create tenant knowledge and enqueue indexing
-- `PATCH /api/v1/tools/kb` _(scopes: kb:write)_ — Edit tenant knowledge by board and tenant sequence
-- `POST /api/v1/tools/kb/get` _(scopes: kb:read)_ — Read knowledge by board and tenant sequence
-- `POST /api/v1/tools/kb/delete` _(scopes: kb:write)_ — Delete tenant knowledge by board and tenant sequence
+- `PATCH /api/v1/tools/kb` _(scopes: kb:write)_ — Edit tenant knowledge by board and tenant id
+- `POST /api/v1/tools/kb/get` _(scopes: kb:read)_ — Read knowledge by board and tenant id
+- `POST /api/v1/tools/kb/delete` _(scopes: kb:write)_ — Delete tenant knowledge by board and tenant id
 - `GET /api/v1/tools/integrations` _(scopes: integrations:read)_ — List tenant CRM connectors
 - `POST /api/v1/tools/integrations` _(scopes: integrations:write)_ — Configure tenant CRM connector
 - `POST /api/v1/tools/integrations/delete` _(scopes: integrations:write)_ — Disconnect tenant CRM connector
@@ -131,27 +131,35 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `PUT /api/v1/tools/site/secrets/{name}` _(scopes: site:write)_ — Request approval or rotate a stored secret
 - `DELETE /api/v1/tools/site/secrets/{name}` _(scopes: site:write)_ — Request approval or delete a stored secret
 - `GET /api/v1/tools/site/pages` _(scopes: site:read)_ — List publishable hosts and registered site pages
-- `DELETE /api/v1/tools/site/pages/{seqNum}` _(scopes: site:write)_ — Withdraw one page from the deployed site
+- `DELETE /api/v1/tools/site/pages/{id}` _(scopes: site:write)_ — Withdraw one page from the deployed site
 - `POST /api/v1/tools/site/pages/visibility` _(scopes: site:write)_ — Show or hide existing site pages
-- `POST /api/v1/tools/site/pages/{seqNum}/preview` _(scopes: site:write)_ — Open a private preview of one site page
-- `GET /api/v1/tools/site/pages/{seqNum}/nudge` _(scopes: site:read)_ — Read the nudge setting of one site page
-- `PUT /api/v1/tools/site/pages/{seqNum}/nudge` _(scopes: site:write)_ — Replace the nudge setting of one site page
-- `GET /api/v1/tools/site/pages/{seqNum}/nudge/stats` _(scopes: site:read)_ — Read the nudge funnel of one site page
+- `POST /api/v1/tools/site/pages/{id}/preview` _(scopes: site:write)_ — Open a private preview of one site page
+- `GET /api/v1/tools/site/pages/{id}/nudge` _(scopes: site:read)_ — Read the nudge setting of one site page
+- `PUT /api/v1/tools/site/pages/{id}/nudge` _(scopes: site:write)_ — Replace the nudge setting of one site page
+- `GET /api/v1/tools/site/pages/{id}/nudge/stats` _(scopes: site:read)_ — Read the nudge funnel of one site page
+- `PUT /api/v1/tools/site/access-rules` _(scopes: site:write)_ — Open a page or a block of a page only to part of the audience
+- `GET /api/v1/tools/site/access-rules` _(scopes: site:read)_ — List the access rules of the site
+- `DELETE /api/v1/tools/site/access-rules/{id}` _(scopes: site:write)_ — Delete one access rule
+- `GET /api/v1/tools/site/access-rules/tree` _(scopes: site:read)_ — Show the access rules on the published pages of a host
+- `PUT /api/v1/tools/site/passwords` _(scopes: site:write)_ — Create or change a named password for closed sections of the site
+- `GET /api/v1/tools/site/passwords` _(scopes: site:read)_ — List the passwords of the site
+- `POST /api/v1/tools/site/passwords/{id}/reveal` _(scopes: site:read)_ — Show the value of one password
+- `DELETE /api/v1/tools/site/passwords/{id}` _(scopes: site:write)_ — Delete one password
 - `GET /api/v1/tools/storefront` _(scopes: storefront:read)_ — Read tenant storefront settings
 - `PATCH /api/v1/tools/storefront` _(scopes: storefront:write)_ — Update tenant storefront settings
 - `GET /api/v1/tools/catalog-groups` _(scopes: catalog:read)_ — List catalog groups
 - `POST /api/v1/tools/catalog-groups` _(scopes: catalog:write)_ — Create a catalog group
-- `GET /api/v1/tools/catalog-groups/{seqNum}` _(scopes: catalog:read)_ — Read one catalog group
-- `PATCH /api/v1/tools/catalog-groups/{seqNum}` _(scopes: catalog:write)_ — Update a catalog group
-- `DELETE /api/v1/tools/catalog-groups/{seqNum}` _(scopes: catalog:write)_ — Delete a catalog group
-- `PUT /api/v1/tools/catalog-groups/{seqNum}/items/{itemSeqId}` _(scopes: catalog:write)_ — Put a catalog item into a group
-- `DELETE /api/v1/tools/catalog-groups/{seqNum}/items/{itemSeqId}` _(scopes: catalog:write)_ — Take a catalog item out of a group
+- `GET /api/v1/tools/catalog-groups/{id}` _(scopes: catalog:read)_ — Read one catalog group
+- `PATCH /api/v1/tools/catalog-groups/{id}` _(scopes: catalog:write)_ — Update a catalog group
+- `DELETE /api/v1/tools/catalog-groups/{id}` _(scopes: catalog:write)_ — Delete a catalog group
+- `PUT /api/v1/tools/catalog-groups/{id}/items/{item_id}` _(scopes: catalog:write)_ — Put a catalog item into a group
+- `DELETE /api/v1/tools/catalog-groups/{id}/items/{item_id}` _(scopes: catalog:write)_ — Take a catalog item out of a group
 - `GET /api/v1/tools/event-registrations` _(scopes: events:read)_ — listEventRegistrations
 - `POST /api/v1/tools/event-registrations` _(scopes: events:write)_ — createEventRegistration
-- `GET /api/v1/tools/event-registrations/{seqNum}` _(scopes: events:read)_ — getEventRegistration
-- `POST /api/v1/tools/event-registrations/{seqNum}/cancel` _(scopes: events:write)_ — cancelEventRegistration
-- `POST /api/v1/tools/event-registrations/{seqNum}/check-in` _(scopes: events:write)_ — checkInEventRegistration
-- `POST /api/v1/tools/event-registrations/{seqNum}/check-out` _(scopes: events:write)_ — checkOutEventRegistration
+- `GET /api/v1/tools/event-registrations/{id}` _(scopes: events:read)_ — getEventRegistration
+- `POST /api/v1/tools/event-registrations/{id}/cancel` _(scopes: events:write)_ — cancelEventRegistration
+- `POST /api/v1/tools/event-registrations/{id}/check-in` _(scopes: events:write)_ — checkInEventRegistration
+- `POST /api/v1/tools/event-registrations/{id}/check-out` _(scopes: events:write)_ — checkOutEventRegistration
 - `POST /api/v1/tools/event-registrations/walk-ins` _(scopes: events:write)_ — walkInEventRegistration
 - `GET /api/v1/tools/onboarding/catalog-topic-link` _(scopes: onboarding:read)_ — getCatalogTopicLink
 - `GET /api/v1/tools/onboarding/state` _(scopes: onboarding:read)_ — getOnboardingState
@@ -189,12 +197,12 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/tools/onboarding/mini-app-origin` _(scopes: onboarding:write)_ — registerMiniAppOrigin
 
 ### /api/v1/sales
-- `POST /api/v1/sales/orders/{orderSeqNum}/invoice` _(scopes: orders:write)_ — Queue the transaction-bound invoice dispatch plan for a tenant-local order. queued acknowledges the durable plan; buyer delivery is outbox-owned. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
-- `POST /api/v1/sales/orders/{orderSeqNum}/mark-paid` _(scopes: orders:write)_ — Record an actual cash, bank transfer or transfer settlement after an explicit switch to manual payment. paymentSeqNum is null when no new payment was recorded. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
+- `POST /api/v1/sales/orders/{order_id}/invoice` _(scopes: orders:write)_ — Queue the transaction-bound invoice dispatch plan for a tenant-local order. queued acknowledges the durable plan; buyer delivery is outbox-owned. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
+- `POST /api/v1/sales/orders/{order_id}/mark-paid` _(scopes: orders:write)_ — Record an actual cash, bank transfer or transfer settlement after an explicit switch to manual payment. payment_id is null when no new payment was recorded. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
 
 ### /api/v1/content
 - `POST /api/v1/content/publish` _(scopes: content:write)_ — Write a pack of content cards into Settings topics
-- `GET /api/v1/content/publish/{draftHandle}` _(scopes: content:read)_ — Poll the unified content write outcome
+- `GET /api/v1/content/publish/{draft_handle}` _(scopes: content:read)_ — Poll the unified content write outcome
 
 ### /api/v1/storefront
 - `POST /api/v1/storefront/checkout` _(scopes: orders)_ — Start anonymous checkout for an admitted public form
@@ -212,7 +220,7 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `GET /api/v1/orders/{id}` _(scopes: pull:orders)_ — getOrder
 - `POST /api/v1/orders/{id}/refresh-payment-urls` _(scopes: orders)_ — refreshPaymentUrls
 - `POST /api/v1/orders/{id}/link-user` _(scopes: orders)_ — linkOrderUser
-- `POST /api/v1/orders/{seqNum}/composition` _(scopes: orders:write)_ — Apply one change to the composition of an open, unpaid order: remove_line, set_quantity, set_line_price or add_line (a variant change is a remove plus an add). Prices are recalculated by the platform under its pricing rules; an unpaid payment link is reissued for the new amount and the old one no longer pays the order. MCP agents prepare the same change with prepare_order_composition_change first.
+- `POST /api/v1/orders/{order_id}/composition` _(scopes: orders:write)_ — Apply one change to the composition of an open, unpaid order: remove_line, set_quantity, set_line_price or add_line (a variant change is a remove plus an add). Prices are recalculated by the platform under its pricing rules; an unpaid payment link is reissued for the new amount and the old one no longer pays the order. MCP agents prepare the same change with prepare_order_composition_change first.
 
 ### /api/v1/carts
 - `POST /api/v1/carts` _(scopes: orders)_ — createCart
@@ -224,36 +232,36 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 
 ### /api/v1/catalog
 - `GET /api/v1/catalog` _(scopes: catalog:read)_ — listCatalog
-- `GET /api/v1/catalog/{seq_id}` _(scopes: catalog:read)_ — getCatalogItem
-- `PATCH /api/v1/catalog/{seq_id}` _(scopes: catalog:write)_ — Requires an API key credential, supplied in X-Api-Key or Authorization: Bearer tgf_*. Surface-session JWT credentials are not accepted for this operation.
-- `DELETE /api/v1/catalog/{seq_id}` _(scopes: catalog:write)_ — Soft delete: the item leaves the showcase, storefront and listings and can no longer be bought; existing orders keep their own item snapshot. A repeat answers deleted:true again. Undo with content publish intent RESTORE; to pause sales only, PATCH is_active:false. Requires an API key credential, supplied in X-Api-Key or Authorization: Bearer tgf_*.
+- `GET /api/v1/catalog/{id}` _(scopes: catalog:read)_ — getCatalogItem
+- `PATCH /api/v1/catalog/{id}` _(scopes: catalog:write)_ — Requires an API key credential, supplied in X-Api-Key or Authorization: Bearer tgf_*. Surface-session JWT credentials are not accepted for this operation.
+- `DELETE /api/v1/catalog/{id}` _(scopes: catalog:write)_ — Soft delete: the item leaves the showcase, storefront and listings and can no longer be bought; existing orders keep their own item snapshot. A repeat answers deleted:true again. Undo with content publish intent RESTORE; to pause sales only, PATCH is_active:false. Requires an API key credential, supplied in X-Api-Key or Authorization: Bearer tgf_*.
 
 ### /api/v1/booking
-- `POST /api/v1/booking/resources/{resourceSeqNum}/calendar/connect` _(scopes: booking:write)_ — connectBookingResourceCalendar
-- `DELETE /api/v1/booking/resources/{resourceSeqNum}/calendar` _(scopes: booking:write)_ — disconnectBookingResourceCalendar
+- `POST /api/v1/booking/resources/{resource_id}/calendar/connect` _(scopes: booking:write)_ — connectBookingResourceCalendar
+- `DELETE /api/v1/booking/resources/{resource_id}/calendar` _(scopes: booking:write)_ — disconnectBookingResourceCalendar
 - `GET /api/v1/booking/resources` _(scopes: booking:read)_ — listBookingResources
 - `POST /api/v1/booking/resources` _(scopes: booking:write)_ — createBookingResource
-- `GET /api/v1/booking/resources/{seqNum}` _(scopes: booking:read)_ — getBookingResource
-- `PATCH /api/v1/booking/resources/{seqNum}` _(scopes: booking:write)_ — updateBookingResource
-- `DELETE /api/v1/booking/resources/{seqNum}` _(scopes: booking:write)_ — deleteBookingResource
+- `GET /api/v1/booking/resources/{id}` _(scopes: booking:read)_ — getBookingResource
+- `PATCH /api/v1/booking/resources/{id}` _(scopes: booking:write)_ — updateBookingResource
+- `DELETE /api/v1/booking/resources/{id}` _(scopes: booking:write)_ — deleteBookingResource
 - `GET /api/v1/booking/resource-schedules` _(scopes: booking:read)_ — listBookingResourceSchedules
 - `POST /api/v1/booking/resource-schedules` _(scopes: booking:write)_ — createBookingResourceSchedule
-- `GET /api/v1/booking/resource-schedules/{seqNum}` _(scopes: booking:read)_ — getBookingResourceSchedule
-- `PATCH /api/v1/booking/resource-schedules/{seqNum}` _(scopes: booking:write)_ — updateBookingResourceSchedule
-- `DELETE /api/v1/booking/resource-schedules/{seqNum}` _(scopes: booking:write)_ — deleteBookingResourceSchedule
+- `GET /api/v1/booking/resource-schedules/{id}` _(scopes: booking:read)_ — getBookingResourceSchedule
+- `PATCH /api/v1/booking/resource-schedules/{id}` _(scopes: booking:write)_ — updateBookingResourceSchedule
+- `DELETE /api/v1/booking/resource-schedules/{id}` _(scopes: booking:write)_ — deleteBookingResourceSchedule
 - `GET /api/v1/booking/availability` _(scopes: booking:read)_ — searchBookingAvailability
 - `POST /api/v1/booking/bookings` _(scopes: booking:write)_ — createBooking
 - `GET /api/v1/booking/bookings` _(scopes: booking:read)_ — listBookings
-- `POST /api/v1/booking/bookings/{seqNum}/cancel` _(scopes: booking:write)_ — cancelBooking
-- `POST /api/v1/booking/bookings/{seqNum}/price` _(scopes: booking:write, orders:write)_ — agreeBookingPrice
+- `POST /api/v1/booking/bookings/{id}/cancel` _(scopes: booking:write)_ — cancelBooking
+- `POST /api/v1/booking/bookings/{id}/price` _(scopes: booking:write, orders:write)_ — agreeBookingPrice
 - `POST /api/v1/booking/overbookings` _(scopes: booking:write)_ — createBookingOverbooking
-- `POST /api/v1/booking/bookings/{seqNum}/attendance` _(scopes: booking:write)_ — markBookingAttendance
-- `POST /api/v1/booking/bookings/{seqNum}/reschedule` _(scopes: booking:write)_ — rescheduleBooking
-- `POST /api/v1/booking/bookings/{seqNum}/assign` _(scopes: booking:write)_ — assignBookingResource
-- `POST /api/v1/booking/bookings/{seqNum}/notes` _(scopes: booking:write)_ — addBookingOperatorNote
+- `POST /api/v1/booking/bookings/{id}/attendance` _(scopes: booking:write)_ — markBookingAttendance
+- `POST /api/v1/booking/bookings/{id}/reschedule` _(scopes: booking:write)_ — rescheduleBooking
+- `POST /api/v1/booking/bookings/{id}/assign` _(scopes: booking:write)_ — assignBookingResource
+- `POST /api/v1/booking/bookings/{id}/notes` _(scopes: booking:write)_ — addBookingOperatorNote
 - `GET /api/v1/booking/reviews` _(scopes: booking:read)_ — listBookingReviews
-- `POST /api/v1/booking/reviews/{bookingSeqNum}/visibility` _(scopes: booking:write)_ — setBookingReviewVisibility
-- `PUT /api/v1/booking/resources/{seqNum}/meeting-provider` _(scopes: booking:write)_ — setBookingResourceMeetingProvider
+- `POST /api/v1/booking/reviews/{booking_id}/visibility` _(scopes: booking:write)_ — setBookingReviewVisibility
+- `PUT /api/v1/booking/resources/{id}/meeting-provider` _(scopes: booking:write)_ — setBookingResourceMeetingProvider
 - `POST /api/v1/booking/resource-schedules/copy-month` _(scopes: booking:write)_ — copyBookingResourceScheduleMonth
 - `POST /api/v1/booking/services` _(scopes: booking:write)_ — createBookingService
 - `GET /api/v1/booking/meeting-providers` _(scopes: booking:read)_ — getMeetingProviderStatus
@@ -264,13 +272,13 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 
 ### /api/v1/form-submissions
 - `POST /api/v1/form-submissions` _(scopes: push:form_submissions)_ — submitFormSubmission
-- `PATCH /api/v1/form-submissions/{seqNum}` _(scopes: push:form_submissions)_ — Mark a submission handled, or back to new
+- `PATCH /api/v1/form-submissions/{id}` _(scopes: push:form_submissions)_ — Mark a submission handled, or back to new
 
 ### /api/v1/media
 - `POST /api/v1/media/import` _(scopes: content:write)_ — importMediaFiles
 - `POST /api/v1/media/uploads` _(scopes: content:write)_ — requestMediaUpload
-- `POST /api/v1/media/uploads/{uploadId}/finalize` _(scopes: content:write)_ — finalizeMediaUpload
-- `GET /api/v1/media/uploads/{uploadId}` _(scopes: content:read)_ — getMediaUploadStatus
+- `POST /api/v1/media/uploads/{upload_id}/finalize` _(scopes: content:write)_ — finalizeMediaUpload
+- `GET /api/v1/media/uploads/{upload_id}` _(scopes: content:read)_ — getMediaUploadStatus
 - `GET /api/v1/media/download-link` _(scopes: content:read)_ — getMediaDownloadLink
 
 ### /api/v1/notifications
@@ -298,26 +306,18 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 ## Events
 Domain events are delivered via webhook (HMAC-SHA256 signed) and SSE.
 - `order.created` — Order was created (paid or pending).
-- `order.updated` — Order status transitioned.
+- `order.updated` — Order was amended, its payment links were refreshed, or a user was linked.
 - `order.linked` — Anonymous order linked to a user.
 - `order.expired` — Order expired without payment.
 - `payment.succeeded` — Payment reached succeeded state.
 - `payment.failed` — Payment moved to failed.
-- `payment.refunded` — Payment refunded (full or partial).
-- `subscription.updated` — Subscription state changed.
-- `subscription.canceled` — Subscription canceled by user or provider.
-- `subscription.renewed` — Subscription auto-renewed.
-- `subscription.expired` — Subscription expired.
-- `catalog.created` — Catalog entry created.
-- `catalog.updated` — Catalog entry updated (any field).
-- `catalog.deleted` — Catalog entry deleted. Includes soft-delete (is_deleted=true) — the item stops being purchasable, which is what a subscriber cares about.
-- `user.created` — User registered.
+- `payment.expired` — Payment expired without being paid.
+- `subscription.updated` — Subscription was canceled, expired or renewed; `state` names which.
 - `user.session.approved` — Approval session approved by user in Telegram.
 - `user.session.denied` — Approval session denied.
 - `user.session.expired` — Approval session expired.
-- `button.clicked` — Interactive button clicked inside Telegram.
+- `button.clicked` — Interactive button clicked inside the messenger.
 - `webhook.auto_disabled` — App webhook auto-disabled after consecutive failures.
-- `support.escalated` — Support session escalated to human operator.
 
 ## Rate limits
 Rate limits are per API key. Tiers: free (60 rpm), starter (300), pro (600), enterprise (1200+). Headers `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` and `Retry-After` indicate current state.

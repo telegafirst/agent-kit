@@ -4,9 +4,9 @@ Build a funnel that keeps moving the user whether or not they press buttons. Sta
 
 ## Three axes on every step
 
-1. Transition button. `update_chain_step` with deeplink_buttons: a list of title plus target_seq_num. The user goes on by their own choice. After a tap the transition buttons of that card go dead.
-2. Timeout "did not move". timeout_minutes plus timeout_next_step_seq: after M minutes without a transition the platform moves the user to that step itself.
-3. Timeout "no purchase". timeout_condition with kind no_paid_purchase_since_offer, together with timeout_minutes and timeout_next_step_seq. Use it on every offer and tripwire step ("a one-time offer for N minutes"). A paid purchase inside the window cancels the timer.
+1. Transition button. `update_chain_step` with deeplink_buttons: a list of title plus target_id. The user goes on by their own choice. After a tap the transition buttons of that card go dead.
+2. Timeout "did not move". timeout_minutes plus timeout_next_step_id: after M minutes without a transition the platform moves the user to that step itself.
+3. Timeout "no purchase". timeout_condition with kind no_paid_purchase_since_offer, together with timeout_minutes and timeout_next_step_id. Use it on every offer and tripwire step ("a one-time offer for N minutes"). A paid purchase inside the window cancels the timer.
 
 A step with no button and no timeout ends the chain. That is right only for a final step.
 
@@ -21,7 +21,7 @@ They are two independent timers.
 
 ## A form is a transition
 
-A CRM form bound to a step moves the run into a branch by the answers (`site_form_declare` with variants and defaultStepSeqNum). It works only when the form has a next step. A user who never fills the form is caught by the ordinary timeout of the step that carries the form; there is no separate form timeout.
+A CRM form bound to a step moves the run into a branch by the answers (`site_form_declare` with variants and default_step_id). It works only when the form has a next step. A user who never fills the form is caught by the ordinary timeout of the step that carries the form; there is no separate form timeout.
 
 ## Template: warm-up, quiz, branches, tripwire, nudge
 

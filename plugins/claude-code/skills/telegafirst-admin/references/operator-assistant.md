@@ -17,7 +17,9 @@ Use this when the owner or an operator asks: who is waiting for an answer, who w
 5. A batch holds at most 50 items. A user who wrote after the preparation is refused with REPLY_BATCH_USER_WROTE_AFTER_PREPARE: the draft answered another conversation, so read the new message and prepare that user again. The other items still go out. Repeating execute for the same preparation sends only the items that failed.
 6. Read the outcome per item. A failed item is reported with its code; never claim the batch went out when only part of it did.
 
-A heavy file shared by many users is uploaded once and reused: see the heavy-file recipe.
+To write first instead of answering (a greeting, an offer, a follow-up), pass `reply_to_message_id: null` on the item: it goes out as a new message and answers nothing, and a user who writes after the preparation does not refuse it. A mailing to many users is the same batch.
+
+A heavy file shared by many users is uploaded once and reused: see the mailing recipe.
 
 ## Operator report
 

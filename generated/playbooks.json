@@ -106,8 +106,8 @@
       ],
       "selfCheck": [
         {
-          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_seq`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
-          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_seq` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
+          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_id`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
+          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_id` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
         },
         {
           "ru": "Прочитайте событие (`get_event`): время, часовой пояс и все привязки цепочек на месте.",
@@ -295,12 +295,12 @@
       ],
       "selfCheck": [
         {
-          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_seq`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
-          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_seq` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
+          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_id`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
+          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_id` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
         },
         {
-          "ru": "Каждая ветка квиза в итоге ведёт в приглашение; `site_form_declare` читается обратно с `variants` и `defaultStepSeqNum`.",
-          "en": "Every quiz branch eventually leads into the invitation; `site_form_declare` reads back with `variants` and `defaultStepSeqNum`."
+          "ru": "Каждая ветка квиза в итоге ведёт в приглашение; `site_form_declare` читается обратно с `variants` и `default_step_id`.",
+          "en": "Every quiz branch eventually leads into the invitation; `site_form_declare` reads back with `variants` and `default_step_id`."
         }
       ],
       "exampleChain": [
@@ -589,8 +589,8 @@
       ],
       "selfCheck": [
         {
-          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_seq`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
-          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_seq` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
+          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_id`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
+          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_id` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
         },
         {
           "ru": "Прочитайте товар (`get_catalog_item`): цена, валюта и выдача на месте.",
@@ -877,8 +877,8 @@
       ],
       "selfCheck": [
         {
-          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_seq`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
-          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_seq` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
+          "ru": "Прочитайте шаги (`list_chain_steps`) и сверьте три оси на каждом: у шага есть путь дальше (кнопка-переход или таймаут `timeout_next_step_id`) либо он финальный; у оффера есть `timeout_condition`; у шага с формой есть таймаут.",
+          "en": "Read the steps back (`list_chain_steps`) and check the three axes on every one: the step has a way forward (a transition button or a `timeout_next_step_id` timeout) or is final; the offer has a `timeout_condition`; a step with a form has a timeout."
         },
         {
           "ru": "Для каждого дня прочитайте `get_event`: даты, часовой пояс и привязки цепочек.",
@@ -1004,8 +1004,8 @@
           "en": "Telegram limits: name 64, About 120, Description 512 characters. An overflow comes back as an error naming the field and the limit."
         },
         {
-          "ru": "Тексты задаются отдельно для `ru` и `en`. Картинка и фото профиля идут через `mediaRef`; если метода нет, тул скажет, что поле меняется только в @BotFather.",
-          "en": "Texts are set separately for `ru` and `en`. The picture and profile photo go through `mediaRef`; when no method exists the tool says the field is changed only in @BotFather."
+          "ru": "Тексты задаются отдельно для `ru` и `en`. Картинка и фото профиля идут через `media_ref`; если метода нет, тул скажет, что поле меняется только в @BotFather.",
+          "en": "Texts are set separately for `ru` and `en`. The picture and profile photo go through `media_ref`; when no method exists the tool says the field is changed only in @BotFather."
         }
       ]
     },
@@ -1045,8 +1045,8 @@
             "items"
           ],
           "note": {
-            "ru": "Элемент: `targetTopic: catalog`, `config.title`, `prices`, `item_type`.",
-            "en": "Item: `targetTopic: catalog`, `config.title`, `prices`, `item_type`."
+            "ru": "Элемент: `target_topic: catalog`, `config.title`, `prices`, `item_type`.",
+            "en": "Item: `target_topic: catalog`, `config.title`, `prices`, `item_type`."
           }
         },
         {
@@ -1054,15 +1054,15 @@
           "order": 4,
           "requiredFields": [],
           "note": {
-            "ru": "Дождитесь `published`, затем возьмите номер товара.",
-            "en": "Wait for `published`, then take the product number."
+            "ru": "Дождитесь `published`, затем возьмите `id` товара.",
+            "en": "Wait for `published`, then take the product `id`."
           }
         },
         {
           "name": "get_catalog_item",
           "order": 5,
           "requiredFields": [
-            "seq_id"
+            "id"
           ],
           "note": {
             "ru": "Прочитайте товар и выдачу обратно.",
@@ -1073,12 +1073,12 @@
           "name": "update_chain_step",
           "order": 6,
           "requiredFields": [
-            "chain_seq_num",
-            "step_seq_num"
+            "chain_id",
+            "step_id"
           ],
           "note": {
-            "ru": "Шаг оффера: `timeout_minutes`, `timeout_next_step_seq`, `timeout_condition`.",
-            "en": "The offer step: `timeout_minutes`, `timeout_next_step_seq`, `timeout_condition`."
+            "ru": "Шаг оффера: `timeout_minutes`, `timeout_next_step_id`, `timeout_condition`.",
+            "en": "The offer step: `timeout_minutes`, `timeout_next_step_id`, `timeout_condition`."
           }
         }
       ],
@@ -1092,12 +1092,12 @@
       },
       "settings": [
         {
-          "ru": "Первая выдача товара без выдачи: элемент `publish_entity` с `intent: INITIALIZE_DELIVERY` и `initializeTarget: {seqId: номер товара}`; замена существующей — `intent: REPLACE` и `replaceTarget`.",
-          "en": "First delivery of a product without one: a `publish_entity` item with `intent: INITIALIZE_DELIVERY` and `initializeTarget: {seqId: product number}`; replacing an existing one uses `intent: REPLACE` and `replaceTarget`."
+          "ru": "Первая выдача товара без выдачи: элемент `publish_entity` с `intent: INITIALIZE_DELIVERY` и `initialize_target: {id: <id товара>}`; замена существующей — `intent: REPLACE` и `replace_target`.",
+          "en": "First delivery of a product without one: a `publish_entity` item with `intent: INITIALIZE_DELIVERY` and `initialize_target: {id: <product id>}`; replacing an existing one uses `intent: REPLACE` and `replace_target`."
         },
         {
-          "ru": "Ось 3 на шаге оффера: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` вместе с `timeout_minutes` и `timeout_next_step_seq`. Платная покупка внутри окна гасит таймер; без покупки юзер идёт на следующий шаг (чаще всего — приглашение на консультацию).",
-          "en": "Axis 3 on the offer step: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` together with `timeout_minutes` and `timeout_next_step_seq`. A paid purchase inside the window cancels the timer; with no purchase the user moves to the next step (usually an invitation to a consultation)."
+          "ru": "Ось 3 на шаге оффера: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` вместе с `timeout_minutes` и `timeout_next_step_id`. Платная покупка внутри окна гасит таймер; без покупки юзер идёт на следующий шаг (чаще всего — приглашение на консультацию).",
+          "en": "Axis 3 on the offer step: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` together with `timeout_minutes` and `timeout_next_step_id`. A paid purchase inside the window cancels the timer; with no purchase the user moves to the next step (usually an invitation to a consultation)."
         },
         {
           "ru": "Кнопку «Купить» ведите на готовый `buy_url` товара, а не на собранную руками ссылку. Текст «Оплата прошла» и статусы заказа платформа рисует сама: шаги для них не создавайте.",
@@ -1136,7 +1136,7 @@
           "name": "create_chain_step",
           "order": 3,
           "requiredFields": [
-            "chain_seq_num",
+            "chain_id",
             "content"
           ],
           "note": {
@@ -1148,19 +1148,19 @@
           "name": "list_chain_steps",
           "order": 4,
           "requiredFields": [
-            "chain_seq_num"
+            "chain_id"
           ],
           "note": {
-            "ru": "Возьмите номера шагов для переходов.",
-            "en": "Take step numbers for the transitions."
+            "ru": "Возьмите `id` шагов для переходов.",
+            "en": "Take the step `id`s for the transitions."
           }
         },
         {
           "name": "update_chain_step",
           "order": 5,
           "requiredFields": [
-            "chain_seq_num",
-            "step_seq_num"
+            "chain_id",
+            "step_id"
           ],
           "note": {
             "ru": "Кнопки, таймауты, активность, TTL.",
@@ -1171,8 +1171,8 @@
           "name": "get_chain_step",
           "order": 6,
           "requiredFields": [
-            "chain_seq_num",
-            "step_seq_num"
+            "chain_id",
+            "step_id"
           ],
           "note": {
             "ru": "Проверка после сборки.",
@@ -1192,12 +1192,12 @@
       },
       "settings": [
         {
-          "ru": "Ось 1, кнопка-переход: `deeplink_buttons: [{title, target_seq_num}]`. После нажатия кнопки перехода гаснут: отправленная карточка не меняется.",
-          "en": "Axis 1, transition button: `deeplink_buttons: [{title, target_seq_num}]`. After a tap the transition buttons go dead: a sent card never changes."
+          "ru": "Ось 1, кнопка-переход: `deeplink_buttons: [{title, target_id}]`. После нажатия кнопки перехода гаснут: отправленная карточка не меняется.",
+          "en": "Axis 1, transition button: `deeplink_buttons: [{title, target_id}]`. After a tap the transition buttons go dead: a sent card never changes."
         },
         {
-          "ru": "Ось 2, таймаут «не перешёл»: `timeout_minutes` и `timeout_next_step_seq`. Через M минут без перехода платформа сама ведёт юзера на указанный шаг.",
-          "en": "Axis 2, \"did not move\" timeout: `timeout_minutes` and `timeout_next_step_seq`. After M minutes without a transition the platform moves the user to the named step."
+          "ru": "Ось 2, таймаут «не перешёл»: `timeout_minutes` и `timeout_next_step_id`. Через M минут без перехода платформа сама ведёт юзера на указанный шаг.",
+          "en": "Axis 2, \"did not move\" timeout: `timeout_minutes` and `timeout_next_step_id`. After M minutes without a transition the platform moves the user to the named step."
         },
         {
           "ru": "Ось 3, таймаут «без покупки»: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` — для оффера и трипвайера (см. блок `offer`).",
@@ -1240,15 +1240,15 @@
             "title"
           ],
           "note": {
-            "ru": "Виды (а) и (б): форма с `variants` и `defaultStepSeqNum`.",
-            "en": "Kinds (a) and (b): a form with `variants` and `defaultStepSeqNum`."
+            "ru": "Виды (а) и (б): форма с `variants` и `default_step_id`.",
+            "en": "Kinds (a) and (b): a form with `variants` and `default_step_id`."
           }
         },
         {
           "name": "create_chain_step",
           "order": 2,
           "requiredFields": [
-            "chain_seq_num",
+            "chain_id",
             "content"
           ],
           "note": {
@@ -1260,8 +1260,8 @@
           "name": "update_chain_step",
           "order": 3,
           "requiredFields": [
-            "chain_seq_num",
-            "step_seq_num"
+            "chain_id",
+            "step_id"
           ],
           "note": {
             "ru": "Таймаут шага с квизом и переходы веток в общий шаг.",
@@ -1283,8 +1283,8 @@
           "en": "Kind (a): a CRM form on the standard `/f/{code}` page. Kind (b): your own page or mini app plus the official submit script that `site_form_declare` returns. Kind (c): bot buttons — a single question only; scoring with buttons cannot be expressed."
         },
         {
-          "ru": "Для (а) и (б): `site_form_declare` с `variants` (по одному на ветку, каждый ведёт на шаг ветки), `defaultStepSeqNum` для остальных ответов, `funnelMode` `deterministic` или `ai_agent`, `managerFollowUp` выключен по умолчанию.",
-          "en": "For (a) and (b): `site_form_declare` with `variants` (one per branch, each leading to the branch step), `defaultStepSeqNum` for every other answer, `funnelMode` `deterministic` or `ai_agent`, `managerFollowUp` off by default."
+          "ru": "Для (а) и (б): `site_form_declare` с `variants` (по одному на ветку, каждый ведёт на шаг ветки), `default_step_id` для остальных ответов, `funnel_mode` `deterministic` или `ai_agent`, `manager_follow_up` выключен по умолчанию.",
+          "en": "For (a) and (b): `site_form_declare` with `variants` (one per branch, each leading to the branch step), `default_step_id` for every other answer, `funnel_mode` `deterministic` or `ai_agent`, `manager_follow_up` off by default."
         },
         {
           "ru": "Шаг с квизом получает ось 2 (`timeout_minutes` → шаг): тот, кто не прошёл тест, всё равно идёт дальше. Ветки обязаны сходиться; фраза «сразу после предыдущего» после ветвления не годится.",
@@ -1345,12 +1345,12 @@
       },
       "settings": [
         {
-          "ru": "`submissionSchema` — поля; `variants` — ветки по ответам, каждая ведёт на шаг цепочки; `defaultStepSeqNum` — шаг для всех остальных ответов; `funnelMode`: `none`, `deterministic` (правила формы) или `ai_agent`.",
-          "en": "`submissionSchema` holds the fields; `variants` are the answer-based branches, each leading to a chain step; `defaultStepSeqNum` is the step for every other answer; `funnelMode`: `none`, `deterministic` (form rules) or `ai_agent`."
+          "ru": "`submission_schema` — поля; `variants` — ветки по ответам, каждая ведёт на шаг цепочки; `default_step_id` — шаг для всех остальных ответов; `funnel_mode`: `none`, `deterministic` (правила формы) или `ai_agent`.",
+          "en": "`submission_schema` holds the fields; `variants` are the answer-based branches, each leading to a chain step; `default_step_id` is the step for every other answer; `funnel_mode`: `none`, `deterministic` (form rules) or `ai_agent`."
         },
         {
-          "ru": "`managerFollowUp` по умолчанию выключен: включайте, только если владелец просит, чтобы менеджер связался с заполнившим.",
-          "en": "`managerFollowUp` is off by default: turn it on only when the owner asks for a manager to follow up."
+          "ru": "`manager_follow_up` по умолчанию выключен: включайте, только если владелец просит, чтобы менеджер связался с заполнившим.",
+          "en": "`manager_follow_up` is off by default: turn it on only when the owner asks for a manager to follow up."
         },
         {
           "ru": "Форма двигает прогон, только если задан следующий шаг. Незаполнение ловит обычный таймаут шага с формой: отдельного «таймаута формы» нет.",
@@ -1373,7 +1373,7 @@
           "name": "create_chain_step",
           "order": 1,
           "requiredFields": [
-            "chain_seq_num",
+            "chain_id",
             "content"
           ],
           "note": {
@@ -1385,11 +1385,11 @@
           "name": "list_chain_steps",
           "order": 2,
           "requiredFields": [
-            "chain_seq_num"
+            "chain_id"
           ],
           "note": {
-            "ru": "Возьмите номера шагов-заготовок.",
-            "en": "Take the numbers of the prepared steps."
+            "ru": "Возьмите `id` шагов-заготовок.",
+            "en": "Take the `id`s of the prepared steps."
           }
         },
         {
@@ -1401,8 +1401,8 @@
             "content"
           ],
           "note": {
-            "ru": "Привяжите заготовки через `prepared_step_seq_nums`.",
-            "en": "Bind prepared messages through `prepared_step_seq_nums`."
+            "ru": "Привяжите заготовки через `prepared_step_ids`.",
+            "en": "Bind prepared messages through `prepared_step_ids`."
           }
         },
         {
@@ -1434,8 +1434,8 @@
           "en": "Do not create a \"service chain\" with `is_active: false`: the manager cannot send an inactive step."
         },
         {
-          "ru": "Для каждой темы: заголовок, ответ, теги. Тяжёлый файл загружайте один раз (`media_request_upload` → PUT → `media_finalize`) и переиспользуйте `mediaRef` во всех заготовках.",
-          "en": "Each topic needs a title, an answer and tags. Upload a heavy file once (`media_request_upload` → PUT → `media_finalize`) and reuse its `mediaRef` in every prepared message."
+          "ru": "Для каждой темы: заголовок, ответ, теги. Тяжёлый файл загружайте один раз (`media_request_upload` → PUT → `media_finalize`) и переиспользуйте `media_ref` во всех заготовках.",
+          "en": "Each topic needs a title, an answer and tags. Upload a heavy file once (`media_request_upload` → PUT → `media_finalize`) and reuse its `media_ref` in every prepared message."
         }
       ]
     },
@@ -1478,7 +1478,7 @@
           "requiredFields": [
             "mode",
             "duration_value",
-            "resource_seq_nums",
+            "resource_ids",
             "idempotency_key"
           ]
         },
@@ -1486,7 +1486,7 @@
           "name": "booking_update_resource",
           "order": 5,
           "requiredFields": [
-            "resource_seq_num",
+            "resource_id",
             "etag",
             "idempotency_key"
           ],
@@ -1515,12 +1515,12 @@
       },
       "settings": [
         {
-          "ru": "`chain_bindings`: `booking_confirmed`, `booking_reminder_24h`, `booking_reminder_1h`, `booking_attended`, `booking_no_show`, `booking_cancelled`. Каждая привязка: `chain_seq_num` и при необходимости `step_seq_num`; `null` отвязывает цепочку.",
-          "en": "`chain_bindings`: `booking_confirmed`, `booking_reminder_24h`, `booking_reminder_1h`, `booking_attended`, `booking_no_show`, `booking_cancelled`. Each binding carries `chain_seq_num` and optionally `step_seq_num`; `null` unbinds the chain."
+          "ru": "`chain_bindings`: `booking_confirmed`, `booking_reminder_24h`, `booking_reminder_1h`, `booking_attended`, `booking_no_show`, `booking_cancelled`. Каждая привязка: `chain_id` и при необходимости `step_id`; `null` отвязывает цепочку.",
+          "en": "`chain_bindings`: `booking_confirmed`, `booking_reminder_24h`, `booking_reminder_1h`, `booking_attended`, `booking_no_show`, `booking_cancelled`. Each binding carries `chain_id` and optionally `step_id`; `null` unbinds the chain."
         },
         {
-          "ru": "Кнопка «Записаться» в шагах ведёт на готовый `publicUrl` ресурса. Часы приёма и длительность спросите у владельца.",
-          "en": "The \"Book\" button in steps points at the ready `publicUrl` of the resource. Ask the owner for working hours and duration."
+          "ru": "Кнопка «Записаться» в шагах ведёт на готовый `public_url` ресурса. Часы приёма и длительность спросите у владельца.",
+          "en": "The \"Book\" button in steps points at the ready `public_url` of the resource. Ask the owner for working hours and duration."
         },
         {
           "ru": "Длительность выбирает покупатель в границах `length` услуги: `length_mode` `fixed` — один блок, `list` — одно из `length_units`, `range` — от `min_units` до `max_units` (у почасовой — ещё окно выдачи и возврата `window_start_minute`/`window_end_minute`). Без `length` услуга — `range` с ценой, линейной от цены блока. Лестница `price_tiers` — пакеты: `{id, units, prices}` значит «пакет из `units` блоков стоит `prices`», по возрастанию `units`, нужна базовая цена услуги.",
@@ -1531,8 +1531,8 @@
           "en": "The add-ons of a service (`variants`) are chosen at booking in `selected_options`; the order quote prices them. The length and add-ons of an existing booking are not edited through the order lines (`ORDER_BOUND_TO_BOOKING`): move the booking or create it again."
         },
         {
-          "ru": "«Размножить ×N» (десять одинаковых домиков): `booking_create_resource` в цикле, у каждого свой `idempotency_key` и имя «Домик 1…N», затем одна `booking_create_service` со всеми `resource_seq_nums`.",
-          "en": "\"Multiply ×N\" (ten identical cabins): `booking_create_resource` in a loop, each with its own `idempotency_key` and a name \"Cabin 1…N\", then one `booking_create_service` with every `resource_seq_nums`."
+          "ru": "«Размножить ×N» (десять одинаковых домиков): `booking_create_resource` в цикле, у каждого свой `idempotency_key` и имя «Домик 1…N», затем одна `booking_create_service` со всеми `resource_ids`.",
+          "en": "\"Multiply ×N\" (ten identical cabins): `booking_create_resource` in a loop, each with its own `idempotency_key` and a name \"Cabin 1…N\", then one `booking_create_service` with every `resource_ids`."
         }
       ]
     },
@@ -1567,7 +1567,7 @@
           "name": "update_event",
           "order": 3,
           "requiredFields": [
-            "seq_num"
+            "id"
           ],
           "note": {
             "ru": "Привязка цепочек к моментам — после создания цепочек.",
@@ -1578,7 +1578,7 @@
           "name": "set_event_phase",
           "order": 4,
           "requiredFields": [
-            "seq_num",
+            "id",
             "phase"
           ],
           "note": {
@@ -1590,7 +1590,7 @@
           "name": "get_event",
           "order": 5,
           "requiredFields": [
-            "seq_num"
+            "id"
           ],
           "note": {
             "ru": "Прочитайте событие обратно.",
@@ -1601,7 +1601,7 @@
           "name": "complete_event",
           "order": 6,
           "requiredFields": [
-            "seq_num"
+            "id"
           ]
         }
       ],
@@ -1615,8 +1615,8 @@
       },
       "settings": [
         {
-          "ru": "Привязки через `update_event`: `reminder_24h_chain_seq_num`, `reminder_1h_chain_seq_num`, `start_event_chain_seq_num`, `post_event_chain_seq_num`, при необходимости `no_show_chain_seq_num`; конкретный входной шаг — парное поле `{момент}_chain_step_seq`.",
-          "en": "Bindings through `update_event`: `reminder_24h_chain_seq_num`, `reminder_1h_chain_seq_num`, `start_event_chain_seq_num`, `post_event_chain_seq_num`, optionally `no_show_chain_seq_num`; the entry step is the paired `{moment}_chain_step_seq` field."
+          "ru": "Привязки через `update_event`: поле `{moment}_chain_id` для моментов `reminder_24h`, `reminder_1h`, `start_event`, `post_event`, при необходимости `no_show`; конкретный входной шаг — парное поле `{moment}_chain_step_id`.",
+          "en": "Bindings through `update_event`: the `{moment}_chain_id` field for the moments `reminder_24h`, `reminder_1h`, `start_event`, `post_event`, optionally `no_show`; the entry step is the paired `{moment}_chain_step_id` field."
         },
         {
           "ru": "`reminder_24h_offset_minutes` и `reminder_1h_offset_minutes` — от 5 до 10080 минут ДО старта, первое строго раньше второго. Остальные сообщения вокруг события — задержанные шаги этих цепочек (ось 2).",
@@ -1668,7 +1668,7 @@
           "order": 5,
           "requiredFields": [
             "host",
-            "uploadId"
+            "upload_id"
           ]
         },
         {
@@ -1708,16 +1708,16 @@
       },
       "settings": [
         {
-          "ru": "Кнопка входной цепочки берёт её готовый `entryUrl` из `list_message_chains` или `list_chain_steps`; товар — `public_url` и `buy_url`; запись и событие — `publicUrl`. Ссылку из slug, кода или номера, а также `t.me/…?start=` руками не собирайте.",
-          "en": "The entry-chain button takes its ready `entryUrl` from `list_message_chains` or `list_chain_steps`; a product uses `public_url` and `buy_url`; booking and event use `publicUrl`. Never build a link from a slug, a code or a number, nor a `t.me/…?start=` link by hand."
+          "ru": "Кнопка входной цепочки берёт её готовый `entry_url` из `list_message_chains` или `list_chain_steps`; товар — `public_url` и `buy_url`; запись и событие — `public_url`. Ссылку из slug, кода или номера, а также `t.me/…?start=` руками не собирайте.",
+          "en": "The entry-chain button takes its ready `entry_url` from `list_message_chains` or `list_chain_steps`; a product uses `public_url` and `buy_url`; booking and event use `public_url`. Never build a link from a slug, a code or a number, nor a `t.me/…?start=` link by hand."
         },
         {
           "ru": "Ссылку «открыть мини-приложением» не выдумывайте (`?startapp=shop` не работает): берите её из `mini_app_links` ответа `site_list_pages`.",
           "en": "Do not invent a mini-app link (`?startapp=shop` does not work): take it from `mini_app_links` in the `site_list_pages` answer."
         },
         {
-          "ru": "Чтобы поделиться контентом, вызовите `get_share_links` с `{content_type, seq_num}`: `landing` работает в любом мессенджере и браузере, `channels` — переход в бота по каждому включённому каналу, ссылка мини-приложения — только у контента со страницей, QR — по `with_qr: true`.",
-          "en": "To share content call `get_share_links` with `{content_type, seq_num}`: `landing` works in any messenger and browser, `channels` is the way into the bot per enabled channel, a mini-app link exists only for content with a page, a QR comes with `with_qr: true`."
+          "ru": "Чтобы поделиться контентом, вызовите `get_share_links` с `{content_type, id}`: `landing` работает в любом мессенджере и браузере, `channels` — переход в бота по каждому включённому каналу, ссылка мини-приложения — только у контента со страницей, QR — по `with_qr: true`.",
+          "en": "To share content call `get_share_links` with `{content_type, id}`: `landing` works in any messenger and browser, `channels` is the way into the bot per enabled channel, a mini-app link exists only for content with a page, a QR comes with `with_qr: true`."
         },
         {
           "ru": "Форма на своей странице отправляется официальным скриптом, который вернул `site_form_declare`; страница на другом домене требует разрешённого Origin формы.",

@@ -1,8 +1,8 @@
 {
-  "version": "1.0.28",
-  "pack_sha": "dd3b0b1ab06a77d4d466a3974c54c1301cdae45bc9c7242f8b37f7dc540811ea",
-  "generated_at": "2026-10-24T12:33:14.777Z",
-  "platform_version": "1.0.125",
+  "version": "1.0.30",
+  "pack_sha": "19443609fdcaf25809de6784f78c6476b22ce5a183f40a133033c3040491a16c",
+  "generated_at": "2026-10-25T12:23:47.313Z",
+  "platform_version": "1.0.126",
   "skills": [
     {
       "name": "telegafirst-admin",
@@ -10,22 +10,22 @@
         "name": "telegafirst-admin",
         "description": "Use when configuring, operating, or improving a TelegaFirst AI front office: offers, events, funnels, support, partner work, and customer communications.",
         "metadata": {
-          "version": "1.0.28",
-          "sha": "dd3b0b1ab06a77d4d466a3974c54c1301cdae45bc9c7242f8b37f7dc540811ea"
+          "version": "1.0.30",
+          "sha": "19443609fdcaf25809de6784f78c6476b22ce5a183f40a133033c3040491a16c"
         }
       },
-      "digest": "sha256:592d056e2c98a88ac086f8009e179279b502ffb59f1836774798b2457926f30e",
+      "digest": "sha256:9b486b5c40c60f4669827cbc1612127623bb0be513c5e488dc4897d2f66b3638",
       "zip": "telegafirst-admin.zip",
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "ae0bbc87a7bab0b9adf02b05b52d86fed5020eb0c2072f050ca83a32d27f84be",
-          "bytes": 12431
+          "sha256": "a53942f53bb6f6013a7ff4abf640e57de0137e085cda9ee691e35ed3be559fdd",
+          "bytes": 12508
         },
         {
           "path": "references/auto-funnel.md",
-          "sha256": "018c4d104984178cbecde13fe9c1b0f11e51ca82c8f203c3aaf576ae8bd9fa22",
-          "bytes": 2832
+          "sha256": "c78c67be19228b1daa8c3c380a7e284e6648639b9ae3f4e21fe4892586148c60",
+          "bytes": 2823
         },
         {
           "path": "references/booking-service.md",
@@ -44,13 +44,13 @@
         },
         {
           "path": "references/heavy-file-broadcast.md",
-          "sha256": "7bc4cbcfc0eab8c272fa49761d8aa11a361069e99e96a83b0164f4cc69bbe2b9",
-          "bytes": 1251
+          "sha256": "7e0fe336af19ecbbc10b1cff82fd375974ce66011c9ac215bbda9c668860e600",
+          "bytes": 3476
         },
         {
           "path": "references/operator-assistant.md",
-          "sha256": "5291f1c91c34020b7ebf1cb077d848a710b69b4b152157f84c9d978587c007c5",
-          "bytes": 2896
+          "sha256": "4f0a9458a28564de76c50a43ceeb7c680ab847e2d247fe66b34cb3c449c4d049",
+          "bytes": 3170
         },
         {
           "path": "references/partner-program.md",
@@ -69,8 +69,8 @@
         },
         {
           "path": "references/support-and-ops.md",
-          "sha256": "61cda8a86cc77c4d4bd9bb236062fcd16a992421f23d8df14c8433965fa48acf",
-          "bytes": 1632
+          "sha256": "23f9f74e727c465064dc3f913d601e75d04feb0473709af6828bcc161a4fb2f8",
+          "bytes": 2747
         }
       ]
     },
@@ -80,22 +80,32 @@
         "name": "telegafirst-onboarding-site-in-a-minute",
         "description": "Use when launching a small TelegaFirst business site quickly: connect a domain, prepare pages, publish a complete bundle, and check the result.",
         "metadata": {
-          "version": "1.0.28",
-          "sha": "dd3b0b1ab06a77d4d466a3974c54c1301cdae45bc9c7242f8b37f7dc540811ea"
+          "version": "1.0.30",
+          "sha": "19443609fdcaf25809de6784f78c6476b22ce5a183f40a133033c3040491a16c"
         }
       },
-      "digest": "sha256:000c62ff4695f734c7c474c5ba5c2aaf97f79d7024008c3d00239916c6e5a6cd",
+      "digest": "sha256:e27f205d2cde83fde81beea9f801a99fb11204d81243ab9e2eadb89bc752c184",
       "zip": "telegafirst-onboarding-site-in-a-minute.zip",
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "5a16f8b216da37e07eda86f4fc036774c8122b0162965cd3431f9c2ea71815dd",
-          "bytes": 5360
+          "sha256": "883495cc828e8c90e273fa1d1aa5e1889b139825d7b98db851d1eb44100655f3",
+          "bytes": 7557
+        },
+        {
+          "path": "references/mini-app-practicum.md",
+          "sha256": "bb0cd952cf923ba1b988ffc78dfb493c05641c5ea9315efe9fcffcff4bb3da1a",
+          "bytes": 4726
+        },
+        {
+          "path": "references/password-protected-section.md",
+          "sha256": "9ac6557b2f62bea04ffb1ea061c812374f87a685eae1fba9697c13f5f57aed6b",
+          "bytes": 6910
         },
         {
           "path": "references/site-launch-checklist.md",
-          "sha256": "85138c7c10d4a55a07cc0f329f598f69607b1411f578381c3956ff188d2d3ccf",
-          "bytes": 363
+          "sha256": "6b077926e5c081c9d6c3b2c9865faa0863815461481dca6136c36cec71df2734",
+          "bytes": 718
         }
       ]
     }

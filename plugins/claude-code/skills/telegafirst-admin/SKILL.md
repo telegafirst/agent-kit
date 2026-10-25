@@ -74,7 +74,7 @@ For an AI host that exposes attachments as short-lived HTTPS URLs, use `media_im
 | Plan any funnel, event, booking or knowledge setup from the typical scenarios | [Plan from the playbook catalog](references/plan-from-playbooks.md) |
 | Make a funnel that moves users without button presses, with timeouts and an offer window | [Proactive auto-funnel](references/auto-funnel.md) |
 | Triage unanswered dialogs, draft replies for approval, report on operators | [Operator assistant](references/operator-assistant.md) |
-| Send one heavy file to many users | [Heavy file to many users](references/heavy-file-broadcast.md) |
+| Send a mailing, greeting or offer to many users: a personal text for each by default; one heavy file to many users | [Personal batch first](references/heavy-file-broadcast.md) |
 | Diagnose a silent bot, payment, domain, or unanswered conversation | [Support and operations](references/support-and-ops.md)                |
 | Build a registration-to-offer webinar funnel                       | [Webinar funnel](references/funnel-launch-webinar.md)                  |
 | Build an event funnel ending in online booking                     | [Event with online booking](references/funnel-event-online-booking.md) |
