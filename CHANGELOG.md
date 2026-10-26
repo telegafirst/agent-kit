@@ -2,6 +2,12 @@
 
 ## Agent-facing changes
 
+### 1.0.31 — 2026-10-25
+
+- Ответы инструментов описаны схемой: у каждого инструмента, кроме `execute_admin_read` и `execute_admin_write`, есть `outputSchema`, и `structuredContent` ей соответствует. Если ответ записи или денежной операции разошёлся со схемой, операция всё равно выполнена: результат приходит текстом без `structuredContent` — не повторяйте вызов. `search_admin_tools` и `load_domain` тоже отдают ответ по схеме.
+- Состав заказа: товары с разными партнёрскими ставками нельзя объединить в одном заказе — создание заказа, котировка, корзина и добавление позиции отказывают `MIXED_PARTNER_RATES`; оформите такой товар отдельным заказом. Разные валюты отказывают `MIXED_CURRENCY`, товары без общего платёжного провайдера — `NO_COMMON_PAYMENT_PROVIDER`, неполный адрес доставки — `INVALID_DELIVERY_ADDRESS`. Удаление позиции и смена количества у уже собранного заказа работают как раньше.
+- Идентификаторы в ответах: поля tool_id и preparation_id подготовки — непрозрачные строки, передавайте их как есть.
+
 ### 1.0.30 — 2026-10-25
 
 - Закрытые разделы сайта: `site_gate_set`, `site_gate_list`, `site_gate_remove` и `site_gate_tree` задают, показывают и снимают правила доступа к папке сайта (пароль, подписка на канал, товар или сохранённый сегмент). Пароль раздела заводится через `site_password_set`, смотрится через `site_password_list`, снимается через `site_password_remove`, а `site_password_reveal` показывает владельцу значение одного пароля. REST: PUT, GET и DELETE на /api/v1/tools/site/access-rules и /api/v1/tools/site/passwords. Файл tgf-gate.json доступ больше не задаёт: публикация с ним отказывает `SITE_GATE_FILE_RETIRED`. Новые отказы несут рецепт в hint: SITE_ACCESS_RULE_INVALID, SITE_ACCESS_CATALOG_NOT_FOUND, SITE_ACCESS_CHANNEL_NOT_CONNECTED, SITE_ACCESS_SAVED_SEGMENT_NOT_FOUND, SITE_ACCESS_SEGMENT_INVALID, SITE_ACCESS_RULE_LIMIT, SITE_PASSWORD_NOT_FOUND, SITE_PASSWORD_IN_USE, SITE_PASSWORD_TOO_SHORT, SITE_PASSWORD_LIMIT, SITE_ACCESS_LOGIN_PATH_GATED и SITE_ACCESS_LOGIN_PATH_WITHOUT_PASSWORD. Рецепт «раздел за паролем» лежит в навыке сайта: пароль в самой странице не проверяют.
