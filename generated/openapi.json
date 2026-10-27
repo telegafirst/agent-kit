@@ -200,7 +200,6 @@
           "QUANTITY_LIMIT",
           "OUTSIDE_WINDOW",
           "MERGE_REJECTED",
-          "BUYER_CONTACT_REQUIRED",
           "DELIVERY_ADDRESS_REQUIRED",
           "POSTAL_CODE_REQUIRED",
           "INVALID_DELIVERY_ADDRESS",
@@ -78768,7 +78767,7 @@
             }
           },
           "422": {
-            "description": "The basket, product selection or receipt-contact policy is invalid; the lines resolve to more than one currency (MIXED_CURRENCY), share no payment provider (NO_COMMON_PAYMENT_PROVIDER) or carry different partner rates (MIXED_PARTNER_RATES)",
+            "description": "The basket or product selection is invalid; the lines resolve to more than one currency (MIXED_CURRENCY), share no payment provider (NO_COMMON_PAYMENT_PROVIDER) or carry different partner rates (MIXED_PARTNER_RATES)",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -79035,7 +79034,7 @@
             }
           },
           "422": {
-            "description": "The basket is invalid — its lines resolve to more than one currency (MIXED_CURRENCY), share no payment provider (NO_COMMON_PAYMENT_PROVIDER) or carry different partner rates (MIXED_PARTNER_RATES) — or a RU fiscal route requires a valid buyer email or phone (YooKassa requires email)",
+            "description": "The basket is invalid — its lines resolve to more than one currency (MIXED_CURRENCY), share no payment provider (NO_COMMON_PAYMENT_PROVIDER) or carry different partner rates (MIXED_PARTNER_RATES)",
             "content": {
               "application/problem+json": {
                 "schema": {
