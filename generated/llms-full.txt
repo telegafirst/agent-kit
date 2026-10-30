@@ -1,4 +1,4 @@
-Generated: 2026-10-27T08:58:20.413Z
+Generated: 2026-10-30T20:28:15.778Z
 
 ## Connect TelegaFirst MCP
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -94,7 +94,7 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `GET /api/v1/tools/segments/axes` _(scopes: broadcasts:read)_ — Describe the broadcast audience taxonomy
 - `POST /api/v1/tools/segments/targets` _(scopes: broadcasts:read)_ — List a segmentation kind’s targets
 - `POST /api/v1/tools/segments/reach` _(scopes: broadcasts:read)_ — Preview audience reach without sending
-- `POST /api/v1/tools/segments/sample` _(scopes: dialogs:read)_ — Sample a valid audience by tenant user id
+- `POST /api/v1/tools/segments/sample` _(scopes: broadcasts:read)_ — Sample a valid audience by tenant user id
 - `GET /api/v1/tools/segments/saved` _(scopes: broadcasts:read)_ — List saved audience filters
 - `POST /api/v1/tools/segments/saved` _(scopes: broadcasts:write)_ — Create a saved audience filter
 - `GET /api/v1/tools/segments/saved/{id}` _(scopes: broadcasts:read)_ — Read a saved audience filter

@@ -165,6 +165,9 @@
           "SITE_CONSENT_BANNER_HAS_SCRIPT",
           "SITE_PRIVACY_COOKIE_SECTION_MISSING",
           "SITE_TRACKER_NOT_GATEABLE",
+          "SITE_INVITE_PAGE_REFERRAL_SCRIPT_MISSING",
+          "SITE_INVITE_PAGE_BOT_LINK_MISSING",
+          "SITE_INVITE_PAGE_BOT_LINK_FALLBACK_MISSING",
           "INVALID_PROVIDER_CURRENCY",
           "PROVIDER_NOT_CONFIGURED",
           "CATALOG_FIELD_READ_ONLY",
@@ -3880,7 +3883,7 @@
           "callback_data": {
             "type": "string",
             "maxLength": 64,
-            "description": "An integration mechanism of an ExternalApp key: when the user taps the button, the value is delivered by the button.clicked webhook to the server of the app that sent the push, so the app must have been subscribed to the button.clicked webhook when it was provisioned, otherwise the button is refused with INVALID_BUTTON_CONFIG. Sent with any other credential (an OAuth grant or an M2M credential) a callback button is refused with INVALID_BUTTON_CONFIG; the MCP send_notification tool carries url buttons only. The platform prefixes it with ext:{app}:, and the prefixed value must fit 64 bytes. Answered only for a Telegram user: for a MAX or VK user a callback button is refused with INVALID_BUTTON_CONFIG — use a url button."
+            "description": "An integration mechanism of an ExternalApp key: when the user taps the button, the value is delivered by the button.clicked webhook to the server of the app that sent the push, so the app must have been subscribed to the button.clicked webhook when it was provisioned, otherwise the button is refused with INVALID_BUTTON_CONFIG. Sent with any other credential (an OAuth grant or an M2M credential) a callback button is refused with INVALID_BUTTON_CONFIG. The platform prefixes it with ext:{app}:, and the prefixed value must fit 64 bytes. Answered only for a Telegram user: for a MAX or VK user a callback button is refused with INVALID_BUTTON_CONFIG — use a url button."
           }
         },
         "required": [
@@ -5258,7 +5261,7 @@
               ],
               "additionalProperties": false
             },
-            "description": "The site home page on behalf of this user: one invite code in the ref parameter of the page address, the universal link, the mini app and the bot of each connected messenger. Present with include=invite_links."
+            "description": "The site invite page (invite/index.html) on behalf of this user: one invite code in the ref parameter of the page address, the universal link, the mini app and the bot of each connected messenger. Present with include=invite_links."
           },
           "invite_links_recovery": {
             "type": [
@@ -14115,6 +14118,22 @@
                     "kind": {
                       "type": "string",
                       "enum": [
+                        "signed_in"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Any signed-in customer of this business."
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
                         "segment"
                       ]
                     },
@@ -14517,6 +14536,22 @@
                   ],
                   "additionalProperties": false,
                   "description": "The password was deleted: this condition admits nobody. Set the rule again with another password, or remove it."
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "signed_in"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Any visitor signed in to this site opens it; an anonymous one is sent to the sign-in page."
                 }
               ]
             },
@@ -14974,6 +15009,21 @@
                     "password"
                   ],
                   "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "signed_in"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "additionalProperties": false
                 }
               ]
             },
@@ -15323,6 +15373,87 @@
               "null"
             ],
             "maxLength": 256
+          },
+          "account_links": {
+            "type": "object",
+            "properties": {
+              "buttons": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 40
+                    },
+                    "subtitle": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80
+                    },
+                    "url": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "maxLength": 512,
+                          "pattern": "^\\/(?![/\\\\])[^\\s\\\\]*$"
+                        },
+                        {
+                          "type": "string",
+                          "maxLength": 2048,
+                          "format": "uri"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "url"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 5
+              },
+              "menu": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 24
+                    },
+                    "url": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "maxLength": 512,
+                          "pattern": "^\\/(?![/\\\\])[^\\s\\\\]*$"
+                        },
+                        {
+                          "type": "string",
+                          "maxLength": 2048,
+                          "format": "uri"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "url"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 5
+              }
+            },
+            "required": [
+              "buttons",
+              "menu"
+            ],
+            "additionalProperties": false
           }
         },
         "additionalProperties": false
@@ -15365,6 +15496,87 @@
               "string",
               "null"
             ]
+          },
+          "account_links": {
+            "type": "object",
+            "properties": {
+              "buttons": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 40
+                    },
+                    "subtitle": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80
+                    },
+                    "url": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "maxLength": 512,
+                          "pattern": "^\\/(?![/\\\\])[^\\s\\\\]*$"
+                        },
+                        {
+                          "type": "string",
+                          "maxLength": 2048,
+                          "format": "uri"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "url"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 5
+              },
+              "menu": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 24
+                    },
+                    "url": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "maxLength": 512,
+                          "pattern": "^\\/(?![/\\\\])[^\\s\\\\]*$"
+                        },
+                        {
+                          "type": "string",
+                          "maxLength": 2048,
+                          "format": "uri"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "url"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 5
+              }
+            },
+            "required": [
+              "buttons",
+              "menu"
+            ],
+            "additionalProperties": false
           }
         },
         "required": [
@@ -15372,7 +15584,8 @@
           "enabled",
           "slug",
           "title",
-          "subtitle"
+          "subtitle",
+          "account_links"
         ],
         "additionalProperties": false
       },
@@ -22399,6 +22612,1149 @@
               "period_end",
               "auto_renew",
               "next_charge_at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "active_slug",
+          "tenant",
+          "owner_onboardings",
+          "stage",
+          "status",
+          "next_action",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "OnboardingBillingStateResponse": {
+        "type": "object",
+        "properties": {
+          "journey": {
+            "type": "object",
+            "properties": {
+              "tariff_checkout": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "plan": {
+                    "type": "string",
+                    "enum": [
+                      "starter",
+                      "ai_manager",
+                      "ai_coach"
+                    ]
+                  },
+                  "bot_username": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_]{5,32}$"
+                  },
+                  "card_delivery_state": {
+                    "type": "string",
+                    "enum": [
+                      "pending",
+                      "sent"
+                    ]
+                  },
+                  "requested_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "delivered_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "plan",
+                  "bot_username",
+                  "card_delivery_state",
+                  "requested_at",
+                  "delivered_at"
+                ],
+                "additionalProperties": false
+              },
+              "workspace_guide": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "bot": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "open_lines": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "operations": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "settings": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "bot",
+                  "open_lines",
+                  "operations",
+                  "settings"
+                ],
+                "additionalProperties": false
+              },
+              "rewards": {
+                "type": "object",
+                "properties": {
+                  "tokens_granted": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "tokens_remaining": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "trial_days": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "tokens_granted",
+                  "tokens_remaining",
+                  "trial_days"
+                ],
+                "additionalProperties": false
+              },
+              "revision": {
+                "type": "number",
+                "enum": [
+                  1
+                ]
+              },
+              "completed": {
+                "type": "boolean"
+              },
+              "completed_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "infrastructure_ready": {
+                "type": "boolean"
+              },
+              "test_required": {
+                "type": "boolean"
+              },
+              "test_completed": {
+                "type": "boolean"
+              },
+              "bonus_state": {
+                "type": "string",
+                "enum": [
+                  "not_eligible",
+                  "pending",
+                  "settled"
+                ]
+              },
+              "ai_preferences": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "device": {
+                    "type": "string",
+                    "enum": [
+                      "desktop",
+                      "web",
+                      "phone"
+                    ]
+                  },
+                  "app": {
+                    "type": "string",
+                    "enum": [
+                      "claude",
+                      "chatgpt",
+                      "codex",
+                      "claude-code",
+                      "other"
+                    ]
+                  },
+                  "other_app": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  },
+                  "subscription": {
+                    "type": "string",
+                    "enum": [
+                      "paid",
+                      "free"
+                    ]
+                  },
+                  "questions_revision": {
+                    "type": "number",
+                    "enum": [
+                      1
+                    ]
+                  },
+                  "confirmed_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "device",
+                  "app",
+                  "subscription",
+                  "questions_revision",
+                  "confirmed_at"
+                ],
+                "additionalProperties": false
+              },
+              "decisions": {
+                "type": "object",
+                "properties": {
+                  "first_payment_deferred_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  },
+                  "tariff_deferred_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "first_payment_deferred_at",
+                  "tariff_deferred_at"
+                ],
+                "additionalProperties": false
+              },
+              "provider_readiness": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "enum": [
+                      "robokassa",
+                      "yookassa",
+                      "stars",
+                      "cryptobot",
+                      "stripe",
+                      "paypal",
+                      "paddle",
+                      "tinkoff",
+                      "prodamus"
+                    ]
+                  },
+                  "configuration_fingerprint": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "checked_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ready": {
+                    "type": "boolean"
+                  },
+                  "authentication": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "production_environment": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "checkout_creation": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "webhook_configuration": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "webhook_configuration_assurance": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "enum": [
+                      "provider_api",
+                      "signed_delivery",
+                      "owner_attested",
+                      null
+                    ]
+                  },
+                  "configuration_confirmation_token": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "webhook_delivery": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "live_payment": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "limitations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "next_action": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "provider",
+                  "configuration_fingerprint",
+                  "checked_at",
+                  "ready",
+                  "authentication",
+                  "production_environment",
+                  "checkout_creation",
+                  "webhook_configuration",
+                  "webhook_delivery",
+                  "live_payment",
+                  "limitations",
+                  "next_action"
+                ],
+                "additionalProperties": false
+              },
+              "first_payment": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "phase": {
+                    "type": "string",
+                    "enum": [
+                      "accepted",
+                      "price_committed",
+                      "card_pending",
+                      "sent"
+                    ]
+                  },
+                  "product_id": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "title": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "provider": {
+                    "type": "string",
+                    "enum": [
+                      "robokassa",
+                      "yookassa",
+                      "stars",
+                      "cryptobot",
+                      "stripe",
+                      "paypal",
+                      "paddle",
+                      "tinkoff",
+                      "prodamus"
+                    ]
+                  },
+                  "amount": {
+                    "type": "string",
+                    "maxLength": 32,
+                    "pattern": "^\\d+(?:\\.\\d{1,8})?$"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 16
+                  },
+                  "purchase_zone": {
+                    "type": "string",
+                    "enum": [
+                      "ru",
+                      "com"
+                    ]
+                  },
+                  "is_active": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "preparation_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "payload_hash": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "phase",
+                  "product_id",
+                  "title",
+                  "provider",
+                  "amount",
+                  "currency",
+                  "purchase_zone",
+                  "is_active",
+                  "preparation_id",
+                  "payload_hash"
+                ],
+                "additionalProperties": false
+              },
+              "advance": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "tokens": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                  },
+                  "days": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                  },
+                  "until": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "timezone": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "tokens",
+                  "days",
+                  "until",
+                  "timezone"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "revision",
+              "completed",
+              "completed_at",
+              "infrastructure_ready",
+              "test_required",
+              "test_completed",
+              "bonus_state",
+              "ai_preferences",
+              "decisions",
+              "provider_readiness"
+            ],
+            "additionalProperties": false
+          },
+          "active_slug": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tenant": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "bot_username": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "slug",
+              "bot_username"
+            ],
+            "additionalProperties": false
+          },
+          "owner_onboardings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "slug": {
+                  "type": "string"
+                },
+                "stage": {
+                  "type": "string",
+                  "enum": [
+                    "address",
+                    "site",
+                    "bot",
+                    "supergroups_create",
+                    "infrastructure",
+                    "infrastructure_ready",
+                    "quest_1",
+                    "quest_2",
+                    "warmup",
+                    "quest_product",
+                    "quest_purchase",
+                    "payments",
+                    "first_payment",
+                    "ai_preferences",
+                    "finish",
+                    "completed",
+                    "tariff",
+                    "paid",
+                    "free"
+                  ]
+                }
+              },
+              "required": [
+                "slug",
+                "stage"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "address",
+              "site",
+              "bot",
+              "supergroups_create",
+              "infrastructure",
+              "infrastructure_ready",
+              "quest_1",
+              "quest_2",
+              "warmup",
+              "quest_product",
+              "quest_purchase",
+              "payments",
+              "first_payment",
+              "ai_preferences",
+              "finish",
+              "completed",
+              "tariff",
+              "paid",
+              "free"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "todo",
+              "in_progress",
+              "waiting_owner",
+              "blocked",
+              "done"
+            ]
+          },
+          "billing": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "free",
+                  "trial",
+                  "active",
+                  "grace",
+                  "expired",
+                  "cancelled"
+                ]
+              },
+              "trial_started_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "trial_ends_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "plan": {
+                "type": "string"
+              },
+              "period_end": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "auto_renew": {
+                "type": "boolean"
+              },
+              "next_charge_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "grace_until": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "plan",
+              "period_end",
+              "auto_renew",
+              "next_charge_at"
+            ],
+            "additionalProperties": false
+          },
+          "next_action": {
+            "type": "object",
+            "properties": {
+              "execution": {
+                "type": "object",
+                "properties": {
+                  "business_slug": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "step": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "executor": {
+                    "type": "string",
+                    "enum": [
+                      "agent",
+                      "owner",
+                      "server"
+                    ]
+                  },
+                  "tool": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "minLength": 1
+                  },
+                  "arguments": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "requires": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "success": {
+                    "type": "object",
+                    "properties": {
+                      "fact": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "fact"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "wait": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "retry_after_seconds": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0
+                      },
+                      "stop_when": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "retry_after_seconds",
+                      "stop_when"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "recovery": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "tool": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "minLength": 1
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      },
+                      "say_to_user": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "tool",
+                      "arguments",
+                      "say_to_user"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "continue_with": {
+                    "type": "object",
+                    "properties": {
+                      "tool": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "enum": [
+                          "get_onboarding_state"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      },
+                      "say_to_user": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "tool",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "prepared_execute": {
+                    "type": "object",
+                    "properties": {
+                      "tool": {
+                        "type": "string",
+                        "enum": [
+                          "onboarding_execute_first_payment"
+                        ]
+                      },
+                      "requires_human_review": {
+                        "type": "boolean",
+                        "enum": [
+                          true
+                        ]
+                      },
+                      "arguments_fields": {
+                        "type": "array",
+                        "prefixItems": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "preparation_id"
+                            ]
+                          },
+                          {
+                            "type": "string",
+                            "enum": [
+                              "payload_hash"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "tool",
+                      "requires_human_review",
+                      "arguments_fields"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "business_slug",
+                  "step",
+                  "executor",
+                  "tool",
+                  "arguments",
+                  "requires",
+                  "success",
+                  "wait",
+                  "recovery",
+                  "continue_with"
+                ],
+                "additionalProperties": false
+              },
+              "goal": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "bot_settings",
+                  "supergroups_create",
+                  "infrastructure",
+                  "infrastructure_blocked",
+                  "infrastructure_ready",
+                  "quest_product_pending",
+                  "quest_product_ready",
+                  "quest_product_failed",
+                  "payment_provider_alive",
+                  "payment_provider_failed",
+                  "quest_product",
+                  "quest_purchase",
+                  "payments",
+                  "first_payment",
+                  "ai_preferences",
+                  "finish",
+                  "completed",
+                  "tariff",
+                  "paid",
+                  "free",
+                  "address_new_business",
+                  "entry_choose_business",
+                  "entry_work_or_create",
+                  "infrastructure_ready_nth_bot"
+                ]
+              },
+              "say_to_user": {
+                "type": "string"
+              },
+              "collect": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "field": {
+                      "type": "string"
+                    },
+                    "hint": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "field",
+                    "hint"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "wait_for": {
+                "type": "object",
+                "properties": {
+                  "event": {
+                    "type": "string"
+                  },
+                  "retry_after_seconds": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "reason": {
+                    "type": "string",
+                    "enum": [
+                      "SA_TEMPORARILY_UNAVAILABLE"
+                    ]
+                  },
+                  "until": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "event"
+                ],
+                "additionalProperties": false
+              },
+              "media": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "video",
+                      "image_steps"
+                    ]
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "url"
+                ],
+                "additionalProperties": false
+              },
+              "switch_to": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "goal",
+              "say_to_user",
+              "collect"
+            ],
+            "additionalProperties": false
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "free",
+                  "trial",
+                  "active",
+                  "grace",
+                  "expired",
+                  "cancelled"
+                ]
+              },
+              "trial_started_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "trial_ends_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "plan": {
+                "type": "string"
+              },
+              "period_end": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "auto_renew": {
+                "type": "boolean"
+              },
+              "next_charge_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "grace_until": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "effective_plan": {
+                "type": "string"
+              },
+              "usage": {
+                "type": "object",
+                "properties": {
+                  "thresholds_apply": {
+                    "type": "boolean"
+                  },
+                  "resets_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "tokens": {
+                    "type": "object",
+                    "properties": {
+                      "used": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "limit": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "exclusiveMinimum": 0
+                      },
+                      "percent": {
+                        "type": [
+                          "number",
+                          "null"
+                        ],
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "used",
+                      "limit",
+                      "percent"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "ai_users": {
+                    "type": "object",
+                    "properties": {
+                      "used": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "limit": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "exclusiveMinimum": 0
+                      },
+                      "percent": {
+                        "type": [
+                          "number",
+                          "null"
+                        ],
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "used",
+                      "limit",
+                      "percent"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "outbound": {
+                    "type": "object",
+                    "properties": {
+                      "used": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "limit": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "exclusiveMinimum": 0
+                      },
+                      "percent": {
+                        "type": [
+                          "number",
+                          "null"
+                        ],
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "used",
+                      "limit",
+                      "percent"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "thresholds_apply",
+                  "resets_at",
+                  "tokens",
+                  "ai_users",
+                  "outbound"
+                ],
+                "additionalProperties": false
+              },
+              "topup_available": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              }
+            },
+            "required": [
+              "plan",
+              "period_end",
+              "auto_renew",
+              "next_charge_at",
+              "effective_plan",
+              "usage",
+              "topup_available"
             ],
             "additionalProperties": false
           }
@@ -67764,7 +69120,7 @@
           "segments"
         ],
         "summary": "Sample a valid audience by tenant user id",
-        "description": "The outer body accepts a filter object; the real facade validates SegmentFilter before asking the engine for contacts. Malformed filters are 422 INVALID_INPUT. People who refused advertising are in the sample with marketing_consent=false: a personal message is not a mass broadcast, and sending them advertising is at the client's own risk. limit defaults to 20 and cannot exceed 50. The mounted REST route requires dialogs:read, returns POST 201 and requires Idempotency-Key.",
+        "description": "The outer body accepts a filter object; the real facade validates SegmentFilter before asking the engine for contacts. Malformed filters are 422 INVALID_INPUT. People who refused advertising are in the sample with marketing_consent=false: a personal message is not a mass broadcast, and sending them advertising is at the client's own risk. limit defaults to 20 and cannot exceed 50. The mounted REST route requires broadcasts:read, returns POST 201 and requires Idempotency-Key.",
         "security": [
           {
             "hubApiKey": []
@@ -67774,7 +69130,7 @@
           }
         ],
         "x-required-scopes": [
-          "dialogs:read"
+          "broadcasts:read"
         ],
         "x-pagination": {
           "kind": "none"
@@ -73419,7 +74775,7 @@
           "site"
         ],
         "summary": "Publish a staged site bundle",
-        "description": "Owner-only site:write. host plus the upload_id of the ticket; no action_id. Staging is scoped to credential tenant. Server-side object sizes govern the live cap before download; staged declaration must match. Ticket host/mode/base cannot be rebound or reinterpreted. Merge preserves omitted files; replace is a complete snapshot of files. A publish never changes the access rules (PUT /api/v1/tools/site/access-rules sets them). A ticket that lists tgf-gate.json is refused with SITE_GATE_FILE_RETIRED and keeps the file, so publishing it again fails the same way: request a new ticket without it, PUT its files and publish with the new upload_id. A changed base or access policy yields SITE_BUNDLE_STALE 409: request a new ticket, PUT its files and publish again. Delta Sync returns uploaded, deleted and unchanged paths plus manifest_digest, attribution_snippet and page_urls for only ticket HTML paths actually finished published. Each page_urls entry carries `url` and `links`, the whole set of the page: web, universal and one mini_app per connected channel, each with a description in the language of the owner; give the owner every link. An empty page_urls carries page_urls_reason and page_urls_recovery. Use the exact returned URLs. The full effective site quota and the per-video size are checked again on server sizes. An HTML tag longer than the publisher reads (details.limit_bytes; usually an image, video or font inlined as a data: URL) is SITE_HTML_TAG_TOO_LARGE naming the page, element and attribute; move that data into its own bundle file. Every refusal leaves the live site unchanged. Successful publication clears staging; failed staging remains retryable. No secret approval gate.",
+        "description": "Owner-only site:write. host plus the upload_id of the ticket; no action_id. Staging is scoped to credential tenant. Server-side object sizes govern the live cap before download; staged declaration must match. Ticket host/mode/base cannot be rebound or reinterpreted. Merge preserves omitted files; replace is a complete snapshot of files. A publish never changes the access rules (PUT /api/v1/tools/site/access-rules sets them). A ticket that lists tgf-gate.json is refused with SITE_GATE_FILE_RETIRED and keeps the file, so publishing it again fails the same way: request a new ticket without it, PUT its files and publish with the new upload_id. A changed base or access policy yields SITE_BUNDLE_STALE 409: request a new ticket, PUT its files and publish again. Delta Sync returns uploaded, deleted and unchanged paths plus manifest_digest, attribution_snippet and page_urls for only ticket HTML paths actually finished published. Each page_urls entry carries `url` and `links`, the whole set of the page: web, universal and one mini_app per connected channel, each with a description in the language of the owner; give the owner every link. An empty page_urls carries page_urls_reason and page_urls_recovery. Use the exact returned URLs. The full effective site quota and the per-video size are checked again on server sizes. An HTML tag longer than the publisher reads (details.limit_bytes; usually an image, video or font inlined as a data: URL) is SITE_HTML_TAG_TOO_LARGE naming the page, element and attribute; move that data into its own bundle file. The invite page invite/index.html must load /widget/referral.v1.js, carry an element marked data-tgf-link=\"bot\" and give every bot link an href: SITE_INVITE_PAGE_REFERRAL_SCRIPT_MISSING, SITE_INVITE_PAGE_BOT_LINK_MISSING or SITE_INVITE_PAGE_BOT_LINK_FALLBACK_MISSING. Every refusal leaves the live site unchanged. Successful publication clears staging; failed staging remains retryable. No secret approval gate.",
         "security": [
           {
             "hubApiKey": []
@@ -73598,7 +74954,7 @@
             }
           },
           "422": {
-            "description": "Replay mismatch; a path outside the permitted publication prefix or reserved on a tenant site host; an HTML tag over the parser bound (details.path, details.limit_bytes, details.tag, details.attr); a video over the per-video size of the plan (details.path, details.limit_bytes); a bundle over the site size of the plan (details.limit_bytes) or the file count of a site, the same on every plan (details.limit_files); a cookie banner page without a required control or with script, an overridden privacy policy without a cookie section, or a known tracker that cannot be put under cookie consent (the message names the file or tracker); a ticket that lists tgf-gate.json (access rules are not a file of the bundle: request a new ticket without it)",
+            "description": "Replay mismatch; a path outside the permitted publication prefix or reserved on a tenant site host; an HTML tag over the parser bound (details.path, details.limit_bytes, details.tag, details.attr); a video over the per-video size of the plan (details.path, details.limit_bytes); a bundle over the site size of the plan (details.limit_bytes) or the file count of a site, the same on every plan (details.limit_files); a cookie banner page without a required control or with script, an overridden privacy policy without a cookie section, or a known tracker that cannot be put under cookie consent (the message names the file or tracker); an invite page (invite/index.html) without the /widget/referral.v1.js script, without an element marked data-tgf-link=\"bot\", or with a bot link that has no href (the message names the file); a ticket that lists tgf-gate.json (access rules are not a file of the bundle: request a new ticket without it)",
             "x-error-codes": [
               "IDEMPOTENCY_KEY_MISMATCH",
               "SITE_PATH_OUTSIDE_PUBLISHABLE_PREFIX",
@@ -73607,6 +74963,9 @@
               "SITE_CONSENT_BANNER_HAS_SCRIPT",
               "SITE_PRIVACY_COOKIE_SECTION_MISSING",
               "SITE_TRACKER_NOT_GATEABLE",
+              "SITE_INVITE_PAGE_REFERRAL_SCRIPT_MISSING",
+              "SITE_INVITE_PAGE_BOT_LINK_MISSING",
+              "SITE_INVITE_PAGE_BOT_LINK_FALLBACK_MISSING",
               "SITE_HTML_TAG_TOO_LARGE",
               "SITE_VIDEO_TOO_LARGE",
               "SITE_BUNDLE_TOO_LARGE",
@@ -76216,7 +77575,7 @@
           "site"
         ],
         "summary": "Open a page or a block of a page only to part of the audience",
-        "description": "Owner-only site:write. One rule per target: path (a mask of the path the page is served at, such as /pricing.html, /lessons/ or /lessons/*, * only last; /pricing does not match pricing.html) plus an optional block (a name of letters, digits and hyphens; the block is the bundle file __telegafirst/blocks/{block}.html and the page holds only a data-tgf-block placeholder). Setting a target again updates its rule. any_of (1 to 10 conditions) is who gets in, and one of the conditions is enough: a product (catalog_id, a 0-price product counts), the business public channel, a saved segment (saved_segment_id), an inline segment filter, or a password by its name ({\"kind\":\"password\",\"password\":\"acme\"}, made with PUT /api/v1/tools/site/passwords). Where several masks match a path, the most specific mask decides and overrides the general one (/kp/acme/* over /kp/*); a block follows the most specific mask of its page. The platform keeps passwords. Never put a password in HTML or JS. The default sign-in page is ready; an own page is login_path (open: outside every closed mask) plus /widget/gate.v1.js. Data for the admitted is a JSON file under the closed mask; a third-party API key is a site secret. mode is hide (default, the block is absent) or lock (a stub with the condition); without a block the whole page is closed and a visitor who fails goes to sign-in. is_active false pauses the rule. Effective at once, no republish, and a republish keeps it; unprojected_hosts above 0 counts hosts whose edge catches up on the next reconciliation. At most 200 rules per business, paused ones included. Idempotency-Key is optional for PUT.",
+        "description": "Owner-only site:write. One rule per target: path (a mask of the path the page is served at, such as /pricing.html, /lessons/ or /lessons/*, * only last; /pricing does not match pricing.html) plus an optional block (a name of letters, digits and hyphens; the block is the bundle file __telegafirst/blocks/{block}.html and the page holds only a data-tgf-block placeholder). Setting a target again updates its rule. any_of (1 to 10 conditions) is who gets in, and one of the conditions is enough: a product (catalog_id, a 0-price product counts), the business public channel, any signed-in customer of this business ({\"kind\":\"signed_in\"}), a saved segment (saved_segment_id), an inline segment filter, or a password by its name ({\"kind\":\"password\",\"password\":\"acme\"}, made with PUT /api/v1/tools/site/passwords). Where several masks match a path, the most specific mask decides and overrides the general one (/kp/acme/* over /kp/*); a block follows the most specific mask of its page. The platform keeps passwords. Never put a password in HTML or JS. The default sign-in page is ready; an own page is login_path (open: outside every closed mask) plus /widget/gate.v1.js. Data for the admitted is a JSON file under the closed mask; a third-party API key is a site secret. mode is hide (default, the block is absent) or lock (a stub with the condition); without a block the whole page is closed and a visitor who fails goes to sign-in. is_active false pauses the rule. Effective at once, no republish, and a republish keeps it; unprojected_hosts above 0 counts hosts whose edge catches up on the next reconciliation. At most 200 rules per business, paused ones included. Idempotency-Key is optional for PUT.",
         "security": [
           {
             "hubApiKey": []
@@ -77977,7 +79336,7 @@
         ],
         "operationId": "updateStorefront",
         "summary": "Update tenant storefront settings",
-        "description": "P3 strict partial settings patch. Omitted members remain unchanged; title/subtitle null clears them. The stored slug is a no-op; a different slug returns SLUG_IMMUTABLE. Writes use the existing context mutator. Idempotency-Key is optional; when supplied, tenant/credential/handler replay retains the result for 24 hours. Surface-session JWT and publishable keys are refused.",
+        "description": "P3 strict partial settings patch. Omitted members remain unchanged; title/subtitle null clears them; account_links replaces both buyer-cabinet lists (buttons ≤5, menu ≤5; url is an own path starting with a single slash or an external https address). The stored slug is a no-op; a different slug returns SLUG_IMMUTABLE. Writes use the existing context mutator. Idempotency-Key is optional; when supplied, tenant/credential/handler replay retains the result for 24 hours. Surface-session JWT and publishable keys are refused.",
         "x-required-scopes": [
           "storefront:write"
         ],
@@ -91653,11 +93012,11 @@
         ],
         "responses": {
           "200": {
-            "description": "Current billing state and next action.",
+            "description": "Current billing state, effective tier, this month's usage against the Enterprise thresholds, top-up headroom and next action.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OnboardingBillingResponse"
+                  "$ref": "#/components/schemas/OnboardingBillingStateResponse"
                 }
               }
             }
