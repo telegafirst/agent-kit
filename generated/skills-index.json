@@ -2,16 +2,16 @@
   {
     "name": "telegafirst-admin",
     "description": "Use when configuring, operating, or improving a TelegaFirst AI front office: offers, events, funnels, support, partner work, and customer communications.",
-    "version": "1.0.32",
-    "digest": "sha256:34fa123152e69a0e232fd62b0ab039ef21d006b7634e24f79230c00e48caea71",
+    "version": "1.0.33",
+    "digest": "sha256:db5eeebad6025cb86bd7bcd480832a78ef31cc0b481175c7375ca0584733c5eb",
     "type": "archive",
     "url": "https://mcp.telegafirst.com/api/v1/external/skills/telegafirst-admin.zip"
   },
   {
     "name": "telegafirst-onboarding-site-in-a-minute",
     "description": "Use when launching a small TelegaFirst business site quickly: connect a domain, prepare pages, publish a complete bundle, and check the result.",
-    "version": "1.0.32",
-    "digest": "sha256:79beb85029765e87f52e47d57b48d0c6900ff4434d99ef2703cd35bd3516788d",
+    "version": "1.0.33",
+    "digest": "sha256:a37eb187fe89061b6fab06771ecff80ce8f37eeb610b9accc45ff572ccd9b2b2",
     "type": "archive",
     "url": "https://mcp.telegafirst.com/api/v1/external/skills/telegafirst-onboarding-site-in-a-minute.zip"
   }

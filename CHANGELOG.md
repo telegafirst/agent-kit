@@ -2,6 +2,12 @@
 
 ## Agent-facing changes
 
+### 1.0.33 — 2026-11-01
+
+- Онбординг без тарифного этапа: настройка завершается выбором приложения ИИ — сохраните его через `onboarding_save_ai_preferences({app, questions_revision})`; ответы об устройстве, платной подписке и предложение тарифа больше не спрашиваются. Инструменты onboarding_defer_tariff и onboarding_send_tariff_checkout_card сняты: карточку оплаты выбранного тарифа владельцу отправляет `send_tariff_checkout_card`, например когда кончился пробный период. Прямую ссылку мини-приложения бота проверяет `check_direct_app`.
+- Имя подключения в ИИ-клиентах — «TelegaFirst CRM» (`telegafirst-crm` в командах и конфигах); в руководствах подключения имя обновлено.
+- Сайт: подвал каждой страницы ссылается на `/terms`, `/privacy` и `/legal`; юридических страниц в комплекте сайта нет — их строит платформа по реквизитам бизнеса.
+
 ### 1.0.32 — 2026-10-30
 
 - Сообщения клиентам: send_card, send_entity_card, manage_message и MCP-инструмент send_notification сняты. Новое сообщение клиенту, в том числе карточку сущности (поле entity_card элемента пакета), отправляйте через `prepare_reply_batch` и `execute_reply_batch`, а правку или удаление уже отправленного сообщения — через `prepare_message_changes` и `execute_message_changes`. Результат каждого сообщения несёт статус доставки: delivered значит доставлено, queued и unknown не повторяйте. Новые отказы: `ENTITY_CARD_NOT_FOUND`, `ENTITY_CARD_NOT_OPENED`, `ENTITY_CARD_UNAVAILABLE`, `MESSAGE_NOT_FOUND`, `MESSAGE_CHANGE_FAILED`, `MESSAGE_CHANGE_INVALID`, `MESSAGE_CHANGE_UNCONFIRMED`, `DIALOGS_SWITCHED_OFF`.

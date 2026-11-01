@@ -32,7 +32,7 @@ If the plugin is installed but MCP answers 401 or `tools/list` shows no tools, t
 
 ## Build and publish
 
-1. Prepare a complete initial bundle whose pages explain the offer, show a clear next action, and link to the business bot. The bundle is the HTML pages plus every image, video, font, CSS and JS file they use, each as its own file. No storage account of the owner is needed: the upload URLs are the platform's.
+1. Prepare a complete initial bundle whose pages explain the offer, show a clear next action, and link to the business bot. The bundle is the HTML pages plus every image, video, font, CSS and JS file they use, each as its own file. No storage account of the owner is needed: the upload URLs are the platform's. The legal documents are the platform's, built from the business requisites: in the footer of every page link `/terms`, `/privacy` and `/legal`, and do not write your own offer, policy, consent, cookie or requisites pages.
 2. Call `site_request_upload` with every file in the complete bundle and retain the returned `uploadId`.
 3. Upload each declared file to its returned URL with the exact declared byte size.
 4. Call `site_publish` with the same host and `uploadId`, then retain its returned `attributionSnippet`.

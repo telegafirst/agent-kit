@@ -1192,8 +1192,16 @@
       },
       "settings": [
         {
-          "ru": "Ось 1, кнопка-переход: `deeplink_buttons: [{title, target_id}]`. После нажатия кнопки перехода гаснут: отправленная карточка не меняется.",
-          "en": "Axis 1, transition button: `deeplink_buttons: [{title, target_id}]`. After a tap the transition buttons go dead: a sent card never changes."
+          "ru": "Ось 1, кнопка-переход: `deeplink_buttons: [{title, target_id}]`. После нажатия на карточке остаётся только выбранный переход (зелёная «✅»), остальные исчезают; смысл отправленной карточки не меняется.",
+          "en": "Axis 1, transition button: `deeplink_buttons: [{title, target_id}]`. After a tap only the chosen transition stays on the card (a green \"✅\"), the others disappear; the meaning of a sent card never changes."
+        },
+        {
+          "ru": "Правило «3 + 1»: у шага не больше 3 переходов (`deeplink_buttons`) и 1 кнопка цели (`button_target` — ссылка на страницу, бота или мини-приложение). Четвёртый переход отклоняется кодом `CHAIN_STEP_TOO_MANY_TRANSITIONS`: разбейте выбор на два шага или вынесите вариант в кнопку цели.",
+          "en": "The \"3 + 1\" rule: a step has at most 3 transitions (`deeplink_buttons`) and 1 goal button (`button_target` — a link to a page, the bot or a mini app). A fourth transition is refused with the code `CHAIN_STEP_TOO_MANY_TRANSITIONS`: split the choice into two steps or move one option into the goal button."
+        },
+        {
+          "ru": "Курс: цепочка идёт линейно или ветвится и сливается обратно (урок 1 → 2.1 / 2.2 → урок 3); не больше 3 переходов + 1 цель на шаг. Меню курса и прогресс живут на странице курса, а кнопка цели каждого урока — «Все материалы» с ссылкой на неё. Прогресс по пользователям бот не ведёт.",
+          "en": "A course: the chain runs linearly or branches and merges back (lesson 1 → 2.1 / 2.2 → lesson 3); at most 3 transitions + 1 goal per step. The course menu and progress live on a course page, and each lesson's goal button is \"All materials\" linking to it. The bot keeps no per-user progress."
         },
         {
           "ru": "Ось 2, таймаут «не перешёл»: `timeout_minutes` и `timeout_next_step_id`. Через M минут без перехода платформа сама ведёт юзера на указанный шаг.",
