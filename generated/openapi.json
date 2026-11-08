@@ -927,7 +927,6 @@
         "enum": [
           "active",
           "converted",
-          "abandoned",
           "expired"
         ]
       },
