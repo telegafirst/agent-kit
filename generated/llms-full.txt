@@ -1,4 +1,4 @@
-Generated: 2026-11-02T07:33:13.147Z
+Generated: 2026-11-08T17:33:43.461Z
 
 ## Connect TelegaFirst CRM
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -41,10 +41,10 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 ### /api/v1/payments
 - `GET /api/v1/payments` _(scopes: pull:payments)_ — List tenant payments with their related user and order ids
 - `GET /api/v1/payments/{id}` _(scopes: pull:payments)_ — Read a tenant payment by its id
-- `POST /api/v1/payments/credential-links` _(scopes: payments:config)_ — A one-time CRM link where the owner enters the provider secrets; valid 5 minutes. No secret travels through this API.
+- `POST /api/v1/payments/credential-links` _(scopes: payments:config)_ — A one-time CRM link where the owner enters the provider secrets; valid 5 minutes. The answer also carries webhook_setup (what the owner sets in the provider cabinet first, with our address) and say_to_user. No secret travels through this API.
 
 ### /api/v1/tools
-- `POST /api/v1/tools/sales/manual-sales` _(scopes: orders:write)_ — Create an unpaid CRM order in the in-progress (taken) stage: a buyer user_id with lines (catalog_id, optional combination_key, quantity, optional unit price; an event ticket line may name ticket_holders, one per ticket or null; a booking service line names its booking_slot: resource_id, start_at, optional end_at), or one registration_id. payment_mode is manual, invoice or deferred; the buyer receives the order card in chat. settlement records a sale already paid outside the platform as a paid order. delivery_method_id is refused until delivery reaches this path. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
+- `POST /api/v1/tools/sales/manual-sales` _(scopes: orders:write)_ — Create an unpaid CRM order in the in-progress (taken) stage: a buyer user_id with lines (catalog_id, optional combination_key, quantity, optional unit price; an event ticket line may name ticket_holders, one per ticket or null; a booking service line names its booking_slot: resource_id, start_at, optional end_at, optional guests; its add-ons go in selected_options, an add-on taken more than once with its pieces in option_quantities), or one registration_id. payment_mode is manual, invoice or deferred; the buyer receives the order card in chat. settlement records a sale already paid outside the platform as a paid order. delivery_method_id is refused until delivery reaches this path. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
 - `GET /api/v1/tools/external-content-publish/{draft_handle}` _(scopes: content:read)_ — Read the full draft lifecycle and finalized media
 - `DELETE /api/v1/tools/external-content-publish/{draft_handle}` _(scopes: content:write)_ — Cancel a pending content draft
 - `GET /api/v1/tools/statuses` _(scopes: statuses:read)_ — List the tenant order-status set
@@ -147,6 +147,9 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `GET /api/v1/tools/site/passwords` _(scopes: site:read)_ — List the passwords of the site
 - `POST /api/v1/tools/site/passwords/{id}/reveal` _(scopes: site:read)_ — Show the value of one password
 - `DELETE /api/v1/tools/site/passwords/{id}` _(scopes: site:write)_ — Delete one password
+- `GET /api/v1/tools/public-channels` _(scopes: public-channel:read)_ — List and check the public channel of each messenger
+- `POST /api/v1/tools/public-channels/{channel}` _(scopes: public-channel:write)_ — Bind the public channel of one messenger
+- `DELETE /api/v1/tools/public-channels/{channel}` _(scopes: public-channel:write)_ — Unbind the public channel of one messenger
 - `GET /api/v1/tools/storefront` _(scopes: storefront:read)_ — Read tenant storefront settings
 - `PATCH /api/v1/tools/storefront` _(scopes: storefront:write)_ — Update tenant storefront settings
 - `GET /api/v1/tools/catalog-groups` _(scopes: catalog:read)_ — List catalog groups
@@ -198,8 +201,10 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/tools/onboarding/mini-app-origin` _(scopes: onboarding:write)_ — registerMiniAppOrigin
 
 ### /api/v1/sales
-- `POST /api/v1/sales/orders/{order_id}/invoice` _(scopes: orders:write)_ — Issue payment for a tenant-local unpaid order. An order with its own payment mode gets the provider links on its order card when the buyer has a receipt contact (delivery queued); without one the answer is delivery order_page — the Pay button on the order card opens the order page, which asks for the contact. Manual, invoice, deferred and online-prepay orders are issued; an order paid on site or owing nothing is refused with FAILED_PRECONDITION. A one-product chat order queues its invoice card. queued acknowledges the durable effect; buyer delivery is outbox-owned. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
+- `POST /api/v1/sales/orders/{order_id}/invoice` _(scopes: orders:write)_ — Issue payment for a tenant-local unpaid order. An order with its own payment mode gets the provider links on its order card when the buyer has a receipt contact (delivery queued); without one the answer is delivery order_page — the Pay button on the order card opens the order page, which asks for the contact. Manual, invoice, deferred and online-prepay orders are issued; an order paid on site or owing nothing is refused with FAILED_PRECONDITION. A one-product chat order queues its invoice card. An order whose invoice is already out is refused with ALREADY_SENT unless the body is {"reissue": true}: then the invoice is reissued for the current sum, the buyer gets a new one and the earlier payment links stop working. queued acknowledges the durable effect; buyer delivery is outbox-owned. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
 - `POST /api/v1/sales/orders/{order_id}/mark-paid` _(scopes: orders:write)_ — Record an actual cash, bank transfer or transfer settlement after an explicit switch to manual payment. payment_id is null when no new payment was recorded. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.
+- `POST /api/v1/sales/orders/{order_id}/unmark-paid` _(scopes: orders:write)_ — Reverse a manual settlement: payment_id is the number of the payment recorded by hand (mark-paid or a manual sale), as the order lists it. That payment is cancelled by a compensating entry, never edited; the order is open and unpaid again, and the private access that payment opened is taken back unless another payment keeps it. confirm_reversal must be true. A provider payment is refused: it is a refund. Needs the refund right of the person behind the credential (ACTION_FLAG_MISSING). A repeat with the same payment_id answers outcome already_cancelled and changes nothing.
+- `POST /api/v1/sales/orders/{order_id}/payment-type` _(scopes: orders:write)_ — Switch how the buyer pays an open, unpaid order: manual (the buyer's card loses the payment-provider buttons; record the payment with mark-paid) or online (the provider links are issued again; needs a connected payment provider and an order card sent to the buyer, else ORDER_NOT_PAYABLE). An order already on that branch answers outcome unchanged. A card of several items is refused with FAILED_PRECONDITION; a paid order with ORDER_ALREADY_PAID.
 
 ### /api/v1/delivery-methods
 - `GET /api/v1/delivery-methods` _(scopes: orders:write)_ — The tenant delivery methods.
@@ -241,7 +246,7 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `DELETE /api/v1/catalog/{id}` _(scopes: catalog:write)_ — Soft delete: the item leaves the showcase, storefront and listings and can no longer be bought; existing orders keep their own item snapshot. A repeat answers deleted:true again. Undo with content publish intent RESTORE; to pause sales only, PATCH is_active:false. Requires an API key credential, supplied in X-Api-Key or Authorization: Bearer tgf_*.
 
 ### /api/v1/events
-- `PUT /api/v1/events/{event_id}/capacity` _(scopes: events:write)_ — Set the seats of an event, sold ones included; null removes the limit.
+- `PUT /api/v1/events/{event_id}/capacity` _(scopes: events:write)_ — Set the seats of an event, sold ones included. The seats on sale are the smaller of capacity and target_registrations, and the capacity in the response is that limit; null leaves target_registrations as the limit, and with neither set the event has no limit. The same write as capacity in updateEvent: a limit at or below the seats sold closes the sale and cancels no sold seat; 409 EVENT_SEATS_BELOW_HELD when buyers hold more seats in checkout than the new limit leaves free; 422 INVALID_INPUT when capacity exceeds target_registrations.
 
 ### /api/v1/promo-codes
 - `GET /api/v1/promo-codes` _(scopes: pricing:write)_ — Promo codes, paginated by after_id.

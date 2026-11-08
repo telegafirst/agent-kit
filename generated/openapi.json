@@ -59,6 +59,9 @@
           "NO_ACTIVE_BOT",
           "PUBLISHABLE_KEY_NOT_ALLOWED",
           "PLAN_UPGRADE_REQUIRED",
+          "ACTION_FLAG_MISSING",
+          "ACTION_OWNER_ONLY",
+          "ACTION_FORBIDDEN_FOR_ACTOR",
           "NOT_FOUND",
           "RESOURCE_NOT_FOUND",
           "SESSION_NOT_FOUND",
@@ -103,6 +106,12 @@
           "VARIANT_KEY_REUSED",
           "CATEGORY_HAS_CHILDREN",
           "EVENT_SEATS_BELOW_HELD",
+          "EVENT_HALL_CONFLICT",
+          "SEAT_TAKEN",
+          "SEAT_GROUP_PARTIAL",
+          "ONE_VISIT_PER_ORDER",
+          "VISIT_SLOT_UNAVAILABLE",
+          "ORDER_NOT_PAYABLE",
           "ORDER_NOT_REFRESHABLE",
           "ORDER_ALREADY_LINKED",
           "DUPLICATE_ORDER",
@@ -134,7 +143,6 @@
           "BOT_TOKEN_REVOKED",
           "STOCK_EXHAUSTED",
           "PURCHASE_LIMIT_REACHED",
-          "CART_SCENARIO_CONFLICT",
           "DELIVERY_QUOTE_PENDING",
           "SESSION_EXPIRED",
           "APPROVAL_CODE_EXPIRED",
@@ -186,6 +194,12 @@
           "MEDIA_SLOT_NOT_FOUND",
           "CATALOG_BOOKING_CONFIG_INVALID",
           "CATALOG_BOOKING_RESOURCE_NOT_FOUND",
+          "BOOKING_GUESTS_OVER_CAPACITY",
+          "SALE_CONFIG_INVALID",
+          "PRICE_OVERRIDE_INVALID",
+          "EVENT_APPROVAL_PENDING",
+          "PAYMENT_ATTEMPT_ACTIVE",
+          "EVENT_SOLD_OUT",
           "TEXT_TOO_LONG",
           "INVALID_BUTTON_CONFIG",
           "INVALID_MEDIA",
@@ -205,6 +219,9 @@
           "NO_COMMON_PAYMENT_PROVIDER",
           "SINGLETON_ORDER_REQUIRED",
           "MIXED_PARTNER_RATES",
+          "MIXED_EVENTS",
+          "ALREADY_SENT",
+          "INVOICE_CHANGED",
           "PRODUCT_NOT_CART_ELIGIBLE",
           "OPTION_UNAVAILABLE",
           "QUANTITY_LIMIT",
@@ -255,6 +272,7 @@
           "SITE_ACCESS_SAVED_SEGMENT_NOT_FOUND",
           "SITE_ACCESS_SEGMENT_INVALID",
           "SITE_ACCESS_RULE_LIMIT",
+          "PUBLIC_CHANNEL_BOT_NOT_ADMIN",
           "SITE_PASSWORD_NOT_FOUND",
           "SITE_PASSWORD_IN_USE",
           "SITE_PASSWORD_TOO_SHORT",
@@ -284,6 +302,10 @@
           "PROMO_CODE_USAGE_EXHAUSTED",
           "PROMO_CODE_NOT_APPLICABLE",
           "CATALOG_PUBLICATION_MODE_INCOMPATIBLE",
+          "HOLDER_INCOMPLETE",
+          "EVENT_TIER_REQUIRED",
+          "EVENT_APPLICATION_PENDING",
+          "EVENT_APPLICATION_SELECTION_INVALID",
           "PRECONDITION_REQUIRED",
           "PRICING_QUOTE_REQUIRED",
           "ETAG_REQUIRED",
@@ -544,6 +566,9 @@
               },
               "is_reports_allowed": {
                 "type": "boolean"
+              },
+              "is_price_override_allowed": {
+                "type": "boolean"
               }
             },
             "additionalProperties": false
@@ -616,6 +641,9 @@
                 "type": "boolean"
               },
               "is_reports_allowed": {
+                "type": "boolean"
+              },
+              "is_price_override_allowed": {
                 "type": "boolean"
               }
             },
@@ -710,6 +738,9 @@
               },
               "is_reports_allowed": {
                 "type": "boolean"
+              },
+              "is_price_override_allowed": {
+                "type": "boolean"
               }
             },
             "required": [
@@ -724,7 +755,8 @@
               "is_catalog_write_allowed",
               "is_settings_access_allowed",
               "is_ai_settings_allowed",
-              "is_reports_allowed"
+              "is_reports_allowed",
+              "is_price_override_allowed"
             ],
             "additionalProperties": false
           }
@@ -813,6 +845,9 @@
                     },
                     "is_reports_allowed": {
                       "type": "boolean"
+                    },
+                    "is_price_override_allowed": {
+                      "type": "boolean"
                     }
                   },
                   "required": [
@@ -827,7 +862,8 @@
                     "is_catalog_write_allowed",
                     "is_settings_access_allowed",
                     "is_ai_settings_allowed",
-                    "is_reports_allowed"
+                    "is_reports_allowed",
+                    "is_price_override_allowed"
                   ],
                   "additionalProperties": false
                 }
@@ -965,30 +1001,169 @@
         "additionalProperties": false
       },
       "CartNotice": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "enum": [
+                  "PRICE_CHANGED"
+                ]
+              },
+              "line_no": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "before": {
+                "$ref": "#/components/schemas/CartLineMoney"
+              },
+              "after": {
+                "$ref": "#/components/schemas/CartLineMoney"
+              }
+            },
+            "required": [
+              "code",
+              "line_no",
+              "before",
+              "after"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "enum": [
+                  "LINE_UNAVAILABLE"
+                ]
+              },
+              "line_no": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "reason": {
+                "type": "string",
+                "enum": [
+                  "PRODUCT_UNAVAILABLE",
+                  "VISIT_UNAVAILABLE"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "product_id": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "code",
+              "line_no",
+              "reason",
+              "title",
+              "product_id",
+              "quantity"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CartVisit": {
         "type": "object",
         "properties": {
-          "code": {
-            "type": "string",
-            "enum": [
-              "PRICE_CHANGED"
-            ]
-          },
-          "line_no": {
+          "resource_id": {
             "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "resource_title": {
+            "type": "string"
+          },
+          "start_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "guests": {
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 1
           },
-          "before": {
-            "$ref": "#/components/schemas/CartLineMoney"
+          "option_quantities": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 1
+            }
           },
-          "after": {
-            "$ref": "#/components/schemas/CartLineMoney"
+          "state": {
+            "type": "string",
+            "enum": [
+              "bookable",
+              "pick_again"
+            ]
           }
         },
         "required": [
-          "code",
-          "line_no",
-          "before",
-          "after"
+          "resource_id",
+          "resource_title",
+          "start_at",
+          "end_at",
+          "guests",
+          "option_quantities",
+          "state"
+        ],
+        "additionalProperties": false
+      },
+      "CartVisitRequest": {
+        "type": "object",
+        "properties": {
+          "resource_id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "start_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "guests": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "option_quantities": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "required": [
+          "resource_id",
+          "start_at"
         ],
         "additionalProperties": false
       },
@@ -1058,6 +1233,9 @@
           },
           "requires_postal_code": {
             "type": "boolean"
+          },
+          "visit": {
+            "$ref": "#/components/schemas/CartVisit"
           }
         },
         "required": [
@@ -1182,6 +1360,9 @@
           "note": {
             "type": "string",
             "maxLength": 500
+          },
+          "visit": {
+            "$ref": "#/components/schemas/CartVisitRequest"
           }
         },
         "required": [
@@ -1558,6 +1739,18 @@
               },
               "minItems": 1
             }
+          },
+          "option_quantities": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          "guests": {
+            "type": "integer",
+            "minimum": 1
           }
         },
         "required": [
@@ -2093,6 +2286,12 @@
               "$ref": "#/components/schemas/CatalogAvailableProvider"
             }
           },
+          "recurring_enabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
           "item_type": {
             "type": "string",
             "enum": [
@@ -2250,6 +2449,29 @@
                               "per_hour",
                               "per_day"
                             ]
+                          },
+                          "quantity": {
+                            "type": "object",
+                            "properties": {
+                              "min": {
+                                "type": "integer",
+                                "minimum": 1
+                              },
+                              "max": {
+                                "type": "integer",
+                                "minimum": 1
+                              }
+                            },
+                            "required": [
+                              "min",
+                              "max"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "duration_delta": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1440
                           }
                         },
                         "required": [
@@ -2296,13 +2518,11 @@
           "delivery": {
             "$ref": "#/components/schemas/CatalogDelivery"
           },
-          "after_purchase_step_id": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": 1,
-            "maximum": 2147483647
+          "related": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CatalogRelatedItem"
+            }
           },
           "updated_at": {
             "type": "string",
@@ -2699,6 +2919,28 @@
         ],
         "additionalProperties": false
       },
+      "CatalogRelatedItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "title": {
+            "type": "string"
+          },
+          "is_visible": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "is_visible"
+        ],
+        "additionalProperties": false
+      },
       "CatalogItem": {
         "type": "object",
         "properties": {
@@ -2733,6 +2975,12 @@
             "items": {
               "$ref": "#/components/schemas/CatalogAvailableProvider"
             }
+          },
+          "recurring_enabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
           },
           "item_type": {
             "type": "string",
@@ -3132,6 +3380,29 @@
                               "per_hour",
                               "per_day"
                             ]
+                          },
+                          "quantity": {
+                            "type": "object",
+                            "properties": {
+                              "min": {
+                                "type": "integer",
+                                "minimum": 1
+                              },
+                              "max": {
+                                "type": "integer",
+                                "minimum": 1
+                              }
+                            },
+                            "required": [
+                              "min",
+                              "max"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "duration_delta": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1440
                           }
                         },
                         "required": [
@@ -3195,14 +3466,6 @@
               "boolean",
               "null"
             ]
-          },
-          "after_purchase_step_id": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": 1,
-            "maximum": 2147483647
           }
         },
         "additionalProperties": false
@@ -4190,6 +4453,12 @@
           "details": {},
           "hint": {
             "$ref": "#/components/schemas/ErrorHint"
+          },
+          "violations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SaleConfigViolation"
+            }
           }
         },
         "required": [
@@ -4259,6 +4528,73 @@
         "required": [
           "reason",
           "recovery"
+        ],
+        "additionalProperties": false
+      },
+      "SaleConfigViolation": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "SALE_DAILY_WITH_MINUTES_LENGTH",
+              "SALE_OPTION_CHARGE_MISMATCH",
+              "SALE_OPTION_QUANTITY_RANGE",
+              "SALE_OPTION_DURATION_DELTA_NOT_BOOKING",
+              "RELATED_SELF",
+              "RELATED_NOT_SALE_READY",
+              "HALL_LAYOUT_ON_NON_PLACE",
+              "ZONE_WITHOUT_TICKET_TYPE",
+              "SEAT_KEY_DUPLICATE",
+              "STANDING_WITH_SEATS",
+              "SERVICE_WITHOUT_RESOURCE",
+              "RESOURCE_WITHOUT_SCHEDULE",
+              "RESOURCE_NOT_IN_LOCATION",
+              "EVENT_SEATS_WITHOUT_HALL",
+              "EVENT_HALL_CONFLICT",
+              "ITEM_WITHOUT_PAYMENT_METHOD",
+              "SECTION_WITHOUT_ITEMS"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            }
+          },
+          "recipe": {
+            "type": "object",
+            "properties": {
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "recovery": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "reason",
+              "recovery"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "code",
+          "recipe"
         ],
         "additionalProperties": false
       },
@@ -5308,9 +5644,12 @@
           "status": {
             "type": "string",
             "enum": [
+              "pending",
               "registered",
               "attended",
-              "cancelled"
+              "rejected",
+              "cancelled",
+              "approved"
             ]
           },
           "checked_in_at": {
@@ -10684,9 +11023,6 @@
           "attribution_llm_enabled": {
             "type": "boolean"
           },
-          "allow_operator_price_override": {
-            "type": "boolean"
-          },
           "is_cookie_opt_in_enabled": {
             "type": "boolean",
             "description": "Run cookie consent opt-in on this tenant's sites: analytics and advertising stay off until the visitor decides. Sites in the .com zone are always opt-in; this cannot relax a platform-wide opt-in."
@@ -10957,7 +11293,7 @@
               "null"
             ],
             "maxLength": 4000,
-            "description": "Your own greeting for a bare /start in every channel, as Telegram-HTML: b, i, u, s, a href, code, blockquote, tg-spoiler. Up to 600 visible characters; no pictures, buttons or variables. The platform adds its own italic line about the menu below it. Send null or an empty string to go back to the platform greeting; the read value is the same HTML, null while the default is in use."
+            "description": "Your own greeting for a bare /start in every channel, as Telegram-HTML: b, i, u, s, a href, code, blockquote, tg-spoiler. Up to 600 visible characters; no pictures, buttons or variables. MAX shows all of it except tg-spoiler, VK shows b, i, u and links, the rest arrives there as plain text. The platform adds its own italic line about the menu below it. Send null or an empty string to go back to the platform greeting; the read value is the same HTML, null while the default is in use."
           },
           "commerce_payment_window_min": {
             "type": "integer",
@@ -11018,9 +11354,6 @@
             "type": "number"
           },
           "attribution_llm_enabled": {
-            "type": "boolean"
-          },
-          "allow_operator_price_override": {
             "type": "boolean"
           },
           "is_cookie_opt_in_enabled": {
@@ -11297,7 +11630,7 @@
               "string",
               "null"
             ],
-            "description": "Your own greeting for a bare /start in every channel, as Telegram-HTML: b, i, u, s, a href, code, blockquote, tg-spoiler. Up to 600 visible characters; no pictures, buttons or variables. The platform adds its own italic line about the menu below it. Send null or an empty string to go back to the platform greeting; the read value is the same HTML, null while the default is in use."
+            "description": "Your own greeting for a bare /start in every channel, as Telegram-HTML: b, i, u, s, a href, code, blockquote, tg-spoiler. Up to 600 visible characters; no pictures, buttons or variables. MAX shows all of it except tg-spoiler, VK shows b, i, u and links, the rest arrives there as plain text. The platform adds its own italic line about the menu below it. Send null or an empty string to go back to the platform greeting; the read value is the same HTML, null while the default is in use."
           },
           "commerce_payment_window_min": {
             "type": "integer"
@@ -11323,7 +11656,6 @@
           "operator_attribution_window_hours",
           "dialog_auto_close_days",
           "attribution_llm_enabled",
-          "allow_operator_price_override",
           "is_cookie_opt_in_enabled",
           "tokens_weekly_limit_per_user",
           "tokens_5h_limit_per_user",
@@ -14270,18 +14602,13 @@
                       "enum": [
                         "channel"
                       ]
-                    },
-                    "channel_chat_id": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 128
                     }
                   },
                   "required": [
-                    "kind",
-                    "channel_chat_id"
+                    "kind"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "description": "The business's public channel, on every messenger it is connected on."
                 },
                 {
                   "type": "object",
@@ -15621,6 +15948,183 @@
         ],
         "additionalProperties": false,
         "description": "One password with its value, for the owner to pass on."
+      },
+      "PublicChannel": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "enum": [
+              "telegram",
+              "max",
+              "vk"
+            ]
+          },
+          "channel_chat_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "handle": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The @handle without the @; null when the channel has none."
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The address a customer opens to join; null when the messenger did not answer."
+          },
+          "ready": {
+            "type": "boolean",
+            "description": "true: the bot reads the channel now and subscription checks work; false: see reason."
+          },
+          "reason": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "no_token",
+              "timeout",
+              "provider_error",
+              null
+            ],
+            "description": "Why the messenger could not be asked: the bot has no token, it did not answer in time, or it answered with an error."
+          }
+        },
+        "required": [
+          "channel",
+          "channel_chat_id",
+          "title",
+          "handle",
+          "url",
+          "ready",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "PublicChannelList": {
+        "type": "object",
+        "properties": {
+          "channels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicChannel"
+            },
+            "maxItems": 3
+          }
+        },
+        "required": [
+          "channels"
+        ],
+        "additionalProperties": false
+      },
+      "PublicChannelSetBody": {
+        "type": "object",
+        "properties": {
+          "channel_ref": {
+            "type": "string",
+            "pattern": "^(?:-?[1-9]\\d{0,18}|@[A-Za-z0-9_]{5,32})$",
+            "description": "The channel: its numeric id in that messenger as a string (a Telegram channel id starts with -100), or, for Telegram only, the @handle of a public channel."
+          }
+        },
+        "required": [
+          "channel_ref"
+        ],
+        "additionalProperties": false
+      },
+      "PublicChannelSetResult": {
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "connected",
+              "unchanged",
+              "unavailable"
+            ],
+            "description": "unavailable: the messenger did not answer, nothing changed; repeat the call."
+          },
+          "channel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PublicChannel"
+              },
+              {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "description": "The channel bound after the call; null when outcome is unavailable."
+              }
+            ]
+          },
+          "replaced_channel_chat_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "maxLength": 128,
+            "description": "The channel this one replaced on the same messenger; null when none was bound."
+          },
+          "reason": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "no_token",
+              "timeout",
+              "provider_error",
+              null
+            ],
+            "description": "Why the messenger could not be asked: the bot has no token, it did not answer in time, or it answered with an error."
+          }
+        },
+        "required": [
+          "outcome",
+          "channel",
+          "replaced_channel_chat_id",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "PublicChannelRemoveResult": {
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "disconnected",
+              "not_connected"
+            ]
+          },
+          "channel": {
+            "type": "string",
+            "enum": [
+              "telegram",
+              "max",
+              "vk"
+            ]
+          }
+        },
+        "required": [
+          "outcome",
+          "channel"
+        ],
+        "additionalProperties": false
       },
       "StorefrontUpdateRequest": {
         "type": "object",
@@ -17668,6 +18172,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -19081,6 +19588,63 @@
         ],
         "additionalProperties": false
       },
+      "PaymentWebhookSetup": {
+        "type": "object",
+        "properties": {
+          "delivery": {
+            "type": "string",
+            "enum": [
+              "cabinet",
+              "per_payment",
+              "none"
+            ]
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "method": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "POST",
+              null
+            ]
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "optional_steps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "delivery",
+          "url",
+          "method",
+          "events",
+          "steps",
+          "optional_steps"
+        ],
+        "additionalProperties": false
+      },
       "OnboardingResumeResponse": {
         "type": "object",
         "properties": {
@@ -19948,6 +20512,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -22332,6 +22899,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -23281,6 +23851,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -24350,6 +24923,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -25268,6 +25844,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -26168,6 +26747,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -27101,6 +27683,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -28034,6 +28619,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -28954,6 +29542,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -29113,18 +29704,15 @@
                   "null"
                 ]
               },
-              "webhook_url": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
               "provider",
               "alive",
               "test_mode",
-              "webhook_url"
+              "webhook_setup"
             ],
             "additionalProperties": false
           }
@@ -30007,6 +30595,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -30935,6 +31526,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -31980,6 +32574,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -32883,6 +33480,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -33791,6 +34391,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -34694,6 +35297,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -35594,6 +36200,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -36507,6 +37116,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -37440,6 +38052,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -38348,6 +38963,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -39279,6 +39897,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -40243,6 +40864,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -41157,6 +41781,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -42273,6 +42900,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -43184,6 +43814,9 @@
               },
               "switch_to": {
                 "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
               }
             },
             "required": [
@@ -43343,35 +43976,7 @@
                     "ticket_holders": {
                       "type": "array",
                       "items": {
-                        "type": [
-                          "object",
-                          "null"
-                        ],
-                        "properties": {
-                          "first_name": {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 64
-                          },
-                          "last_name": {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 64
-                          },
-                          "fields": {
-                            "type": "object",
-                            "additionalProperties": {
-                              "type": "string",
-                              "maxLength": 256
-                            },
-                            "default": {}
-                          }
-                        },
-                        "required": [
-                          "first_name",
-                          "last_name"
-                        ],
-                        "additionalProperties": false
+                        "$ref": "#/components/schemas/RegistrationHolder"
                       },
                       "minItems": 1,
                       "maxItems": 10
@@ -43391,6 +43996,10 @@
                         "end_at": {
                           "type": "string",
                           "format": "date-time"
+                        },
+                        "guests": {
+                          "type": "integer",
+                          "minimum": 1
                         }
                       },
                       "required": [
@@ -43398,6 +44007,25 @@
                         "start_at"
                       ],
                       "additionalProperties": false
+                    },
+                    "selected_options": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9_]{1,16}$"
+                        },
+                        "minItems": 1
+                      }
+                    },
+                    "option_quantities": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 1000
+                      }
                     }
                   },
                   "required": [
@@ -43527,6 +44155,37 @@
           }
         ]
       },
+      "RegistrationHolder": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "last_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "maxLength": 256
+            },
+            "default": {}
+          }
+        },
+        "required": [
+          "first_name",
+          "last_name"
+        ],
+        "additionalProperties": false
+      },
       "SendSalesInvoiceResponse": {
         "type": "object",
         "properties": {
@@ -43555,7 +44214,14 @@
       },
       "SendSalesInvoiceRequest": {
         "type": "object",
-        "properties": {},
+        "properties": {
+          "reissue": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        },
         "additionalProperties": false
       },
       "MarkOrderPaidResponse": {
@@ -43611,6 +44277,109 @@
         "required": [
           "settlement_type",
           "switch_to_manual"
+        ],
+        "additionalProperties": false
+      },
+      "UnmarkOrderPaidResponse": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "payment_id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "cancelled",
+              "already_cancelled"
+            ]
+          }
+        },
+        "required": [
+          "order_id",
+          "payment_id",
+          "outcome"
+        ],
+        "additionalProperties": false
+      },
+      "UnmarkOrderPaidRequest": {
+        "type": "object",
+        "properties": {
+          "payment_id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "reversal_note": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "confirm_reversal": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        },
+        "required": [
+          "payment_id",
+          "confirm_reversal"
+        ],
+        "additionalProperties": false
+      },
+      "SetOrderPaymentTypeResponse": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "payment_type": {
+            "type": "string",
+            "enum": [
+              "online",
+              "manual"
+            ]
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "switched",
+              "unchanged"
+            ]
+          }
+        },
+        "required": [
+          "order_id",
+          "payment_type",
+          "outcome"
+        ],
+        "additionalProperties": false
+      },
+      "SetOrderPaymentTypeRequest": {
+        "type": "object",
+        "properties": {
+          "payment_type": {
+            "type": "string",
+            "enum": [
+              "online",
+              "manual"
+            ]
+          }
+        },
+        "required": [
+          "payment_type"
         ],
         "additionalProperties": false
       },
@@ -45722,12 +46491,20 @@
             "enum": [
               "active"
             ]
+          },
+          "webhook_setup": {
+            "$ref": "#/components/schemas/PaymentWebhookSetup"
+          },
+          "say_to_user": {
+            "type": "string"
           }
         },
         "required": [
           "url",
           "expires_at",
-          "status"
+          "status",
+          "webhook_setup",
+          "say_to_user"
         ],
         "additionalProperties": false
       },
@@ -45756,11 +46533,18 @@
       "PreselectionCardSent": {
         "type": "object",
         "properties": {
-          "sent": {
-            "type": "boolean",
+          "delivery": {
+            "type": "string",
             "enum": [
-              true
+              "delivered",
+              "undeliverable",
+              "deduped"
             ]
+          },
+          "id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
           },
           "user_id": {
             "type": "integer",
@@ -45771,12 +46555,20 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 64
+          },
+          "expires_at": {
+            "type": [
+              "string",
+              "null"
+            ]
           }
         },
         "required": [
-          "sent",
+          "delivery",
+          "id",
           "user_id",
-          "code"
+          "code",
+          "expires_at"
         ],
         "additionalProperties": false
       },
@@ -45788,31 +46580,71 @@
             "minimum": 1,
             "maximum": 2147483647
           },
-          "catalog_id": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 2147483647
-          },
-          "combination_key": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 256
-          },
-          "selected_options": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "pattern": "^[a-z0-9_]{1,16}$"
+          "lines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "catalog_id": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2147483647
+                },
+                "combination_key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+                "selected_options": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9_]{1,16}$"
+                    },
+                    "minItems": 1
+                  }
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 999
+                },
+                "unit_price": {
+                  "type": "string",
+                  "pattern": "^(?:0|[1-9]\\d{0,17})(?:\\.\\d{1,8})?$"
+                },
+                "currency": {
+                  "type": "string",
+                  "enum": [
+                    "RUB",
+                    "USD",
+                    "EUR",
+                    "XTR",
+                    "USDT",
+                    "TON",
+                    "BTC",
+                    "ETH",
+                    "LTC",
+                    "BNB",
+                    "TRX",
+                    "USDC"
+                  ]
+                }
               },
-              "minItems": 1
-            }
+              "required": [
+                "catalog_id",
+                "quantity"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 50
           },
-          "quantity": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 999
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
           },
           "text": {
             "type": "string",
@@ -45829,8 +46661,7 @@
         },
         "required": [
           "user_id",
-          "catalog_id",
-          "quantity",
+          "lines",
           "text"
         ],
         "additionalProperties": false
@@ -47872,6 +48703,17 @@
           "is_cancel_only_via_manager": {
             "type": "boolean"
           },
+          "requires_approval": {
+            "type": "boolean"
+          },
+          "approval_hold_hours": {
+            "type": "integer",
+            "exclusiveMinimum": 0
+          },
+          "sale_cutoff_minutes": {
+            "type": "integer",
+            "minimum": 0
+          },
           "capacity": {
             "type": [
               "integer",
@@ -48093,6 +48935,12 @@
               "maximum": 2147483647
             }
           },
+          "holder_field_keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "deeplink_code": {
             "type": "string",
             "minLength": 1,
@@ -48159,11 +49007,15 @@
           "is_marketing_view",
           "auto_notify",
           "is_cancel_only_via_manager",
+          "requires_approval",
+          "approval_hold_hours",
+          "sale_cutoff_minutes",
           "capacity",
           "seats_available",
           "target_registrations",
           "chains",
           "catalog_ids",
+          "holder_field_keys",
           "deeplink_code",
           "start_at",
           "end_at",
@@ -48235,6 +49087,17 @@
           },
           "is_cancel_only_via_manager": {
             "type": "boolean"
+          },
+          "requires_approval": {
+            "type": "boolean"
+          },
+          "approval_hold_hours": {
+            "type": "integer",
+            "exclusiveMinimum": 0
+          },
+          "sale_cutoff_minutes": {
+            "type": "integer",
+            "minimum": 0
           },
           "capacity": {
             "type": [
@@ -48455,6 +49318,12 @@
               "type": "integer",
               "minimum": 1,
               "maximum": 2147483647
+            }
+          },
+          "holder_field_keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           },
           "deeplink_code": {
@@ -48624,11 +49493,15 @@
           "is_marketing_view",
           "auto_notify",
           "is_cancel_only_via_manager",
+          "requires_approval",
+          "approval_hold_hours",
+          "sale_cutoff_minutes",
           "capacity",
           "seats_available",
           "target_registrations",
           "chains",
           "catalog_ids",
+          "holder_field_keys",
           "deeplink_code",
           "start_at",
           "end_at",
@@ -51910,6 +52783,29 @@
                               "per_hour",
                               "per_day"
                             ]
+                          },
+                          "quantity": {
+                            "type": "object",
+                            "properties": {
+                              "min": {
+                                "type": "integer",
+                                "minimum": 1
+                              },
+                              "max": {
+                                "type": "integer",
+                                "minimum": 1
+                              }
+                            },
+                            "required": [
+                              "min",
+                              "max"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "duration_delta": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1440
                           }
                         },
                         "required": [
@@ -52075,6 +52971,21 @@
             "minimum": 0
           },
           "max_advance_days": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "exclusiveMinimum": 0
+          },
+          "location_id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "capacity": {
             "type": [
               "integer",
               "null"
@@ -52321,6 +53232,8 @@
           "slot_interval_minutes",
           "min_lead_time_minutes",
           "max_advance_days",
+          "location_id",
+          "capacity",
           "catalog_item_ids",
           "public_url",
           "message_content_id",
@@ -52377,6 +53290,24 @@
             ],
             "exclusiveMinimum": 0,
             "maximum": 3650
+          },
+          "location_id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 2147483647,
+            "description": "The business point number (seq_num); null unbinds"
+          },
+          "capacity": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 10000,
+            "description": "Guests the place holds; null clears"
           },
           "chain_bindings": {
             "type": "object",
@@ -52586,6 +53517,24 @@
             ],
             "exclusiveMinimum": 0,
             "maximum": 3650
+          },
+          "location_id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 2147483647,
+            "description": "The business point number (seq_num); null unbinds"
+          },
+          "capacity": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 10000,
+            "description": "Guests the place holds; null clears"
           },
           "chain_bindings": {
             "type": "object",
@@ -53187,6 +54136,18 @@
               },
               "minItems": 1
             }
+          },
+          "option_quantities": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          "guests": {
+            "type": "integer",
+            "minimum": 1
           }
         },
         "required": [
@@ -53935,7 +54896,8 @@
             "type": "string",
             "enum": [
               "registered",
-              "payment_required"
+              "payment_required",
+              "pending"
             ]
           },
           "registration": {
@@ -53969,6 +54931,35 @@
             "type": "integer",
             "minimum": 1,
             "maximum": 2147483647
+          },
+          "holder": {
+            "$ref": "#/components/schemas/RegistrationHolder"
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "description": "How many tickets, 1…10; with seat_keys — as many as the seats named."
+          },
+          "seat_keys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9_-]{1,16}:(?:[1-9][0-9]{0,2}|g[1-9][0-9]{0,2}):[1-9][0-9]{0,2}$",
+              "description": "A seat key of the event hall: `zone:row:seat`, or `zone:g1:seat` for a seat of a sofa or a box."
+            },
+            "minItems": 1,
+            "maxItems": 10,
+            "description": "The seats of a seated ticket type (get_hall_layout lists them): each seat once, one per ticket."
+          },
+          "ticket_holders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RegistrationHolder"
+            },
+            "minItems": 1,
+            "maxItems": 10,
+            "description": "One holder per ticket asked, in order: { first_name, last_name, fields } with `fields` holding exactly the event’s holder_field_keys."
           }
         },
         "required": [
@@ -54979,7 +55970,7 @@
         "tags": [
           "sales"
         ],
-        "description": "Create an unpaid CRM order in the in-progress (taken) stage: a buyer user_id with lines (catalog_id, optional combination_key, quantity, optional unit price; an event ticket line may name ticket_holders, one per ticket or null; a booking service line names its booking_slot: resource_id, start_at, optional end_at), or one registration_id. payment_mode is manual, invoice or deferred; the buyer receives the order card in chat. settlement records a sale already paid outside the platform as a paid order. delivery_method_id is refused until delivery reaches this path. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.",
+        "description": "Create an unpaid CRM order in the in-progress (taken) stage: a buyer user_id with lines (catalog_id, optional combination_key, quantity, optional unit price; an event ticket line may name ticket_holders, one per ticket or null; a booking service line names its booking_slot: resource_id, start_at, optional end_at, optional guests; its add-ons go in selected_options, an add-on taken more than once with its pieces in option_quantities), or one registration_id. payment_mode is manual, invoice or deferred; the buyer receives the order card in chat. settlement records a sale already paid outside the platform as a paid order. delivery_method_id is refused until delivery reaches this path. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.",
         "security": [
           {
             "hubApiKey": []
@@ -55066,7 +56057,7 @@
             }
           },
           "409": {
-            "description": "The durable receipt is pending and its effect cannot be recovered (IDEMPOTENCY_KEY_IN_FLIGHT), or a line cannot be held (STOCK_EXHAUSTED)",
+            "description": "The durable receipt is pending and its effect cannot be recovered (IDEMPOTENCY_KEY_IN_FLIGHT), a line cannot be held (STOCK_EXHAUSTED), or the order's invoice is already out and the body does not ask for a reissue (ALREADY_SENT)",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -55133,7 +56124,7 @@
         "tags": [
           "sales"
         ],
-        "description": "Issue payment for a tenant-local unpaid order. An order with its own payment mode gets the provider links on its order card when the buyer has a receipt contact (delivery queued); without one the answer is delivery order_page — the Pay button on the order card opens the order page, which asks for the contact. Manual, invoice, deferred and online-prepay orders are issued; an order paid on site or owing nothing is refused with FAILED_PRECONDITION. A one-product chat order queues its invoice card. queued acknowledges the durable effect; buyer delivery is outbox-owned. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.",
+        "description": "Issue payment for a tenant-local unpaid order. An order with its own payment mode gets the provider links on its order card when the buyer has a receipt contact (delivery queued); without one the answer is delivery order_page — the Pay button on the order card opens the order page, which asks for the contact. Manual, invoice, deferred and online-prepay orders are issued; an order paid on site or owing nothing is refused with FAILED_PRECONDITION. A one-product chat order queues its invoice card. An order whose invoice is already out is refused with ALREADY_SENT unless the body is {\"reissue\": true}: then the invoice is reissued for the current sum, the buyer gets a new one and the earlier payment links stop working. queued acknowledges the durable effect; buyer delivery is outbox-owned. Idempotency-Key must contain a non-whitespace character. The durable 30-day receipt is keyed by client, operation and key; replay rechecks actor admission and returns the stored result with replayed=true.",
         "security": [
           {
             "hubApiKey": []
@@ -55230,7 +56221,7 @@
             }
           },
           "409": {
-            "description": "The durable receipt is pending and its effect cannot be recovered (IDEMPOTENCY_KEY_IN_FLIGHT), or a line cannot be held (STOCK_EXHAUSTED)",
+            "description": "The durable receipt is pending and its effect cannot be recovered (IDEMPOTENCY_KEY_IN_FLIGHT), a line cannot be held (STOCK_EXHAUSTED), or the order's invoice is already out and the body does not ask for a reissue (ALREADY_SENT)",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -55394,7 +56385,335 @@
             }
           },
           "409": {
-            "description": "The durable receipt is pending and its effect cannot be recovered (IDEMPOTENCY_KEY_IN_FLIGHT), or a line cannot be held (STOCK_EXHAUSTED)",
+            "description": "The durable receipt is pending and its effect cannot be recovered (IDEMPOTENCY_KEY_IN_FLIGHT), a line cannot be held (STOCK_EXHAUSTED), or the order's invoice is already out and the body does not ask for a reissue (ALREADY_SENT)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "The per-tool resource policy rejects the request size",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Divergent receipt-key reuse (IDEMPOTENCY_KEY_MISMATCH), declared unit prices in two currencies (MIXED_CURRENCY), or invalid current money preconditions such as a buyer without a receipt contact for an invoice",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "The per-tool rate limit is exceeded or its subsystem is unavailable",
+            "headers": {
+              "Retry-After": {
+                "description": "Retry delay in seconds when supplied by the resource limiter",
+                "required": false,
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected money failure",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sales/orders/{order_id}/unmark-paid": {
+      "post": {
+        "operationId": "unmarkOrderPaid",
+        "tags": [
+          "sales"
+        ],
+        "description": "Reverse a manual settlement: payment_id is the number of the payment recorded by hand (mark-paid or a manual sale), as the order lists it. That payment is cancelled by a compensating entry, never edited; the order is open and unpaid again, and the private access that payment opened is taken back unless another payment keeps it. confirm_reversal must be true. A provider payment is refused: it is a refund. Needs the refund right of the person behind the credential (ACTION_FLAG_MISSING). A repeat with the same payment_id answers outcome already_cancelled and changes nothing.",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "x-required-scopes": [
+          "orders:write"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "required": true,
+            "name": "order_id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Required; a repeat with the same key within 24 hours replays the stored answer."
+            },
+            "required": true,
+            "description": "Required; a repeat with the same key within 24 hours replays the stored answer.",
+            "name": "Idempotency-Key",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnmarkOrderPaidRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The order after the call",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnmarkOrderPaidResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid strict body or path (VALIDATION_ERROR/INVALID_REQUEST), missing/blank Idempotency-Key (IDEMPOTENCY_KEY_REQUIRED), or missing credential provenance (INVALID_REQUEST)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key; a surface-session JWT is not accepted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing orders:write scope (INSUFFICIENT_SCOPE), a credential not admitted to this tenant (FORBIDDEN), or the person behind the credential lacks the refund right (ACTION_FLAG_MISSING)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The tenant-local buyer, catalogue, registration or order was not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The durable receipt is pending and its effect cannot be recovered (IDEMPOTENCY_KEY_IN_FLIGHT), a line cannot be held (STOCK_EXHAUSTED), or the order's invoice is already out and the body does not ask for a reissue (ALREADY_SENT)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "The per-tool resource policy rejects the request size",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Divergent receipt-key reuse (IDEMPOTENCY_KEY_MISMATCH), declared unit prices in two currencies (MIXED_CURRENCY), or invalid current money preconditions such as a buyer without a receipt contact for an invoice",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "The per-tool rate limit is exceeded or its subsystem is unavailable",
+            "headers": {
+              "Retry-After": {
+                "description": "Retry delay in seconds when supplied by the resource limiter",
+                "required": false,
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected money failure",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sales/orders/{order_id}/payment-type": {
+      "post": {
+        "operationId": "setOrderPaymentType",
+        "tags": [
+          "sales"
+        ],
+        "description": "Switch how the buyer pays an open, unpaid order: manual (the buyer's card loses the payment-provider buttons; record the payment with mark-paid) or online (the provider links are issued again; needs a connected payment provider and an order card sent to the buyer, else ORDER_NOT_PAYABLE). An order already on that branch answers outcome unchanged. A card of several items is refused with FAILED_PRECONDITION; a paid order with ORDER_ALREADY_PAID.",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "x-required-scopes": [
+          "orders:write"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "required": true,
+            "name": "order_id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Required; a repeat with the same key within 24 hours replays the stored answer."
+            },
+            "required": true,
+            "description": "Required; a repeat with the same key within 24 hours replays the stored answer.",
+            "name": "Idempotency-Key",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetOrderPaymentTypeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The order after the call",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetOrderPaymentTypeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid strict body or path (VALIDATION_ERROR/INVALID_REQUEST), missing/blank Idempotency-Key (IDEMPOTENCY_KEY_REQUIRED), or missing credential provenance (INVALID_REQUEST)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key; a surface-session JWT is not accepted",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing orders:write scope (INSUFFICIENT_SCOPE) or a credential not admitted to this tenant (FORBIDDEN)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The tenant-local buyer, catalogue, registration or order was not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The durable receipt is pending and its effect cannot be recovered (IDEMPOTENCY_KEY_IN_FLIGHT), a line cannot be held (STOCK_EXHAUSTED), or the order's invoice is already out and the body does not ask for a reissue (ALREADY_SENT)",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -57832,7 +59151,7 @@
         "tags": [
           "events"
         ],
-        "description": "Set the seats of an event, sold ones included; null removes the limit.",
+        "description": "Set the seats of an event, sold ones included. The seats on sale are the smaller of capacity and target_registrations, and the capacity in the response is that limit; null leaves target_registrations as the limit, and with neither set the event has no limit. The same write as capacity in updateEvent: a limit at or below the seats sold closes the sale and cancels no sold seat; 409 EVENT_SEATS_BELOW_HELD when buyers hold more seats in checkout than the new limit leaves free; 422 INVALID_INPUT when capacity exceeds target_registrations.",
         "security": [
           {
             "hubApiKey": []
@@ -57879,7 +59198,7 @@
         },
         "responses": {
           "200": {
-            "description": "Set the seats of an event, sold ones included; null removes the limit.",
+            "description": "Set the seats of an event, sold ones included. The seats on sale are the smaller of capacity and target_registrations, and the capacity in the response is that limit; null leaves target_registrations as the limit, and with neither set the event has no limit. The same write as capacity in updateEvent: a limit at or below the seats sold closes the sale and cancels no sold seat; 409 EVENT_SEATS_BELOW_HELD when buyers hold more seats in checkout than the new limit leaves free; 422 INVALID_INPUT when capacity exceeds target_registrations.",
             "content": {
               "application/json": {
                 "schema": {
@@ -59228,7 +60547,7 @@
         "tags": [
           "payments-config"
         ],
-        "description": "A one-time CRM link where the owner enters the provider secrets; valid 5 minutes. No secret travels through this API.",
+        "description": "A one-time CRM link where the owner enters the provider secrets; valid 5 minutes. The answer also carries webhook_setup (what the owner sets in the provider cabinet first, with our address) and say_to_user. No secret travels through this API.",
         "security": [
           {
             "hubApiKey": []
@@ -59265,7 +60584,7 @@
         },
         "responses": {
           "201": {
-            "description": "A one-time CRM link where the owner enters the provider secrets; valid 5 minutes. No secret travels through this API.",
+            "description": "A one-time CRM link where the owner enters the provider secrets; valid 5 minutes. The answer also carries webhook_setup (what the owner sets in the provider cabinet first, with our address) and say_to_user. No secret travels through this API.",
             "content": {
               "application/json": {
                 "schema": {
@@ -69029,6 +70348,21 @@
                   "is_cancel_only_via_manager": {
                     "type": "boolean"
                   },
+                  "requires_approval": {
+                    "type": "boolean"
+                  },
+                  "approval_hold_hours": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 168,
+                    "description": "Hours an approved application's order holds its seats for the payment (1..168, 48 by default); never past the start."
+                  },
+                  "sale_cutoff_minutes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10080,
+                    "description": "The sale and the applications close this many minutes before the start (0..10080; 0 = until the start)."
+                  },
                   "is_active": {
                     "type": "boolean"
                   },
@@ -69119,7 +70453,7 @@
             }
           },
           "409": {
-            "description": "EVENT_SEATS_BELOW_HELD: the capacity is below the seats buyers hold in checkout; CONFLICT: idempotency request still processing",
+            "description": "EVENT_SEATS_BELOW_HELD: the capacity is below the seats buyers hold in checkout; EVENT_HALL_CONFLICT: a booking or another event holds the hall at that time; CONFLICT: idempotency request still processing",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -69293,6 +70627,21 @@
                   },
                   "is_cancel_only_via_manager": {
                     "type": "boolean"
+                  },
+                  "requires_approval": {
+                    "type": "boolean"
+                  },
+                  "approval_hold_hours": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 168,
+                    "description": "Hours an approved application's order holds its seats for the payment (1..168, 48 by default); never past the start."
+                  },
+                  "sale_cutoff_minutes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10080,
+                    "description": "The sale and the applications close this many minutes before the start (0..10080; 0 = until the start)."
                   },
                   "is_active": {
                     "type": "boolean"
@@ -69549,7 +70898,7 @@
             }
           },
           "409": {
-            "description": "EVENT_SEATS_BELOW_HELD: the capacity is below the seats buyers hold in checkout; CONFLICT: idempotency request still processing",
+            "description": "EVENT_SEATS_BELOW_HELD: the capacity is below the seats buyers hold in checkout; EVENT_HALL_CONFLICT: a booking or another event holds the hall at that time; CONFLICT: idempotency request still processing",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -70001,7 +71350,7 @@
             }
           },
           "409": {
-            "description": "CONFLICT: idempotency request still processing",
+            "description": "EVENT_HALL_CONFLICT: publishing takes the hall and a booking or another event holds it at that time; CONFLICT: idempotency request still processing",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -82510,7 +83859,7 @@
           "site"
         ],
         "summary": "Open a page or a block of a page only to part of the audience",
-        "description": "Owner-only site:write. One rule per target: path (a mask of the path the page is served at, such as /pricing.html, /lessons/ or /lessons/*, * only last; /pricing does not match pricing.html) plus an optional block (a name of letters, digits and hyphens; the block is the bundle file __telegafirst/blocks/{block}.html and the page holds only a data-tgf-block placeholder). Setting a target again updates its rule. any_of (1 to 10 conditions) is who gets in, and one of the conditions is enough: a product (catalog_id, a 0-price product counts), a live subscription ({\"kind\":\"subscription\"}: any paid one, a trial and a 0-price subscription do not count; with catalog_id: to that subscription item, a trial and a 0-price one count, and a cancelled one counts until its paid period ends), the business public channel, any signed-in customer of this business ({\"kind\":\"signed_in\"}), a saved segment (saved_segment_id), an inline segment filter, or a password by its name ({\"kind\":\"password\",\"password\":\"acme\"}, made with PUT /api/v1/tools/site/passwords). Where several masks match a path, the most specific mask decides and overrides the general one (/kp/acme/* over /kp/*); a block follows the most specific mask of its page. The platform keeps passwords. Never put a password in HTML or JS. The default sign-in page is ready; an own page is login_path (open: outside every closed mask) plus /widget/gate.v1.js. Data for the admitted is a JSON file under the closed mask; a third-party API key is a site secret. mode is hide (default, the block is absent) or lock (a stub with the condition); without a block the whole page is closed and a visitor who fails goes to sign-in. is_active false pauses the rule. Effective at once, no republish, and a republish keeps it; unprojected_hosts above 0 counts hosts whose edge catches up on the next reconciliation. At most 200 rules per business, paused ones included. Idempotency-Key is optional for PUT.",
+        "description": "Owner-only site:write. One rule per target: path (a mask of the path the page is served at, such as /pricing.html, /lessons/ or /lessons/*, * only last; /pricing does not match pricing.html) plus an optional block (a name of letters, digits and hyphens; the block is the bundle file __telegafirst/blocks/{block}.html and the page holds only a data-tgf-block placeholder). Setting a target again updates its rule. any_of (1 to 10 conditions) is who gets in, and one of the conditions is enough: a product (catalog_id, a 0-price product counts), a live subscription ({\"kind\":\"subscription\"}: any paid one, a trial and a 0-price subscription do not count; with catalog_id: to that subscription item, a trial and a 0-price one count, and a cancelled one counts until its paid period ends), the business public channel (a member of it on the messenger the visitor came in through: Telegram, MAX or VK; none connected there means no way in from it), any signed-in customer of this business ({\"kind\":\"signed_in\"}), a saved segment (saved_segment_id), an inline segment filter, or a password by its name ({\"kind\":\"password\",\"password\":\"acme\"}, made with PUT /api/v1/tools/site/passwords). Where several masks match a path, the most specific mask decides and overrides the general one (/kp/acme/* over /kp/*); a block follows the most specific mask of its page. The platform keeps passwords. Never put a password in HTML or JS. The default sign-in page is ready; an own page is login_path (open: outside every closed mask) plus /widget/gate.v1.js. Data for the admitted is a JSON file under the closed mask; a third-party API key is a site secret. mode is hide (default, the block is absent) or lock (a stub with the condition); without a block the whole page is closed and a visitor who fails goes to sign-in. is_active false pauses the rule. Effective at once, no republish, and a republish keeps it; unprojected_hosts above 0 counts hosts whose edge catches up on the next reconciliation. At most 200 rules per business, paused ones included. Idempotency-Key is optional for PUT.",
         "security": [
           {
             "hubApiKey": []
@@ -84108,6 +85457,263 @@
             "x-error-codes": [
               "INTERNAL_ERROR"
             ],
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tools/public-channels": {
+      "get": {
+        "operationId": "listPublicChannels",
+        "tags": [
+          "public-channels"
+        ],
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "summary": "List and check the public channel of each messenger",
+        "description": "For each bound channel: whether the business bot reads it now (`ready`) and, when not, why (`reason`). A messenger with no bound channel is absent.",
+        "x-required-scopes": [
+          "public-channel:read"
+        ],
+        "responses": {
+          "200": {
+            "description": "The bound channels",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicChannelList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "INVALID_API_KEY",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "INSUFFICIENT_SCOPE: public-channel:* (a member needs the settings permission)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "RATE_LIMIT_EXCEEDED or RATE_LIMIT_UNAVAILABLE",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tools/public-channels/{channel}": {
+      "post": {
+        "operationId": "setPublicChannel",
+        "tags": [
+          "public-channels"
+        ],
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "summary": "Bind the public channel of one messenger",
+        "description": "`channel_ref` is the numeric id of the channel or, for Telegram, the @handle of a public channel; a handle is resolved once to the id and only the id is stored. The business bot of that messenger must be an administrator of the channel; it is checked before anything changes. `outcome: unavailable` — the messenger did not answer and nothing changed. The owner and the Settings group are notified of a change.",
+        "x-required-scopes": [
+          "public-channel:write"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "telegram",
+                "max",
+                "vk"
+              ]
+            },
+            "required": true,
+            "name": "channel",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublicChannelSetBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Bound, unchanged or not checked",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicChannelSetResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "VALIDATION_ERROR: unknown messenger, or a channel_ref that is neither a signed decimal id nor an @handle",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "INVALID_API_KEY",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "INSUFFICIENT_SCOPE: public-channel:* (a member needs the settings permission)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "PUBLIC_CHANNEL_BOT_NOT_ADMIN: the bot is not an administrator of the channel, or no such channel exists (the id or @handle names none); INVALID_INPUT: the messenger is not enabled, or it addresses a channel by id only and channel_ref is an @handle",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "RATE_LIMIT_EXCEEDED or RATE_LIMIT_UNAVAILABLE",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "removePublicChannel",
+        "tags": [
+          "public-channels"
+        ],
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "summary": "Unbind the public channel of one messenger",
+        "description": "Access rules that require the channel are kept and admit nobody on that messenger until a channel is bound again. `not_connected` — nothing was bound.",
+        "x-required-scopes": [
+          "public-channel:write"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "telegram",
+                "max",
+                "vk"
+              ]
+            },
+            "required": true,
+            "name": "channel",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Unbound or nothing to unbind",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicChannelRemoveResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "VALIDATION_ERROR: unknown messenger",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "INVALID_API_KEY",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "INSUFFICIENT_SCOPE: public-channel:* (a member needs the settings permission)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "RATE_LIMIT_EXCEEDED or RATE_LIMIT_UNAVAILABLE",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -86281,10 +87887,12 @@
             }
           },
           "409": {
-            "description": "Cart is inactive or the idempotency request hash differs",
+            "description": "Cart is inactive, the idempotency request hash differs, the Cart already holds a visit, or the visit`s hour is no longer free",
             "x-error-codes": [
               "CART_INACTIVE",
-              "IDEMPOTENCY_KEY_MISMATCH"
+              "IDEMPOTENCY_KEY_MISMATCH",
+              "ONE_VISIT_PER_ORDER",
+              "VISIT_SLOT_UNAVAILABLE"
             ],
             "content": {
               "application/problem+json": {
@@ -86315,7 +87923,7 @@
             }
           },
           "422": {
-            "description": "Cart item is not purchasable or violates Cart business rules",
+            "description": "Cart item is not purchasable, a booking service names no visit or an unknown resource, or the line violates Cart business rules",
             "content": {
               "application/problem+json": {
                 "schema": {

@@ -1631,8 +1631,8 @@
           "en": "`reminder_24h_offset_minutes` and `reminder_1h_offset_minutes` are 5 to 10080 minutes BEFORE the start, the first strictly earlier than the second. Other messages around the event are delayed steps of those chains (axis 2)."
         },
         {
-          "ru": "Перенос события и отмена сами участников не уведомляют. Регистрацию открывайте `set_event_phase` после настройки; начавшееся событие закрывает `complete_event`.",
-          "en": "Rescheduling or cancelling an event does not notify attendees by itself. Open registration with `set_event_phase` after setup; a started event is closed with `complete_event`."
+          "ru": "Перенос события участников не уведомляет; отмена перерисовывает их билеты и карточки заказов на месте и один раз сообщает покупателю каждого заказа. Регистрацию открывайте `set_event_phase` после настройки; начавшееся событие закрывает `complete_event`.",
+          "en": "Rescheduling an event does not notify attendees; cancelling redraws their tickets and order cards in place and tells the buyer of each order once. Open registration with `set_event_phase` after setup; a started event is closed with `complete_event`."
         }
       ]
     },
