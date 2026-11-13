@@ -16,6 +16,7 @@ They are two independent timers.
 
 - message_ttl_minutes removes a message the user did nothing with after N minutes. A tap or a move to the next step keeps the message: the user saw it and acted.
 - timeout_minutes moves the user to the next step after M minutes without a transition.
+- timeout_minutes 0 with timeout_next_step_id is an instant continuation: the next step is sent right after this one, as a reply to it. Use it to follow a media card (caption up to 1024) with a long text step. The instant step carries no buttons and no timeout_condition; at most 3 instant steps in a row, no loop (code CHAIN_INSTANT_STEP_INVALID). Put the buttons and timers on the last step.
 - Example: delete after 10 minutes, nudge after 20. There is no rule that the lifetime must be at least the timeout.
 - delete_prev_if_unengaged removes the previous card at the moment the timeout fires, if that card got no reaction.
 

@@ -293,6 +293,7 @@
           "VOICE_SETTING_CONFLICT",
           "SITE_LEGAL_REQUIRED_LINKS_MISSING",
           "CHAIN_STEP_TOO_MANY_TRANSITIONS",
+          "CHAIN_INSTANT_STEP_INVALID",
           "LINE_LIMIT_EXCEEDED",
           "RECURRING_CONSENT_REQUIRED",
           "DELIVERY_TAX_PROFILE_INCOMPLETE",
@@ -5925,7 +5926,7 @@
                     "text": {
                       "type": "string",
                       "maxLength": 4096,
-                      "description": "Message text with Telegram HTML formatting. Up to 4096 characters, or 1024 when the card has media."
+                      "description": "Message text with Telegram HTML formatting. Up to 4096 characters, or 1024 when the card has media; for a longer text with media, put the text in a next chain step joined with timeout_minutes 0."
                     },
                     "media_refs": {
                       "type": "array",
@@ -48080,7 +48081,7 @@
               "text": {
                 "type": "string",
                 "maxLength": 4096,
-                "description": "Message text with Telegram HTML formatting. Up to 4096 characters, or 1024 when the card has media."
+                "description": "Message text with Telegram HTML formatting. Up to 4096 characters, or 1024 when the card has media; for a longer text with media, put the text in a next chain step joined with timeout_minutes 0."
               },
               "media_refs": {
                 "type": "array",
@@ -69527,7 +69528,7 @@
                       "integer",
                       "null"
                     ],
-                    "exclusiveMinimum": 0
+                    "minimum": 0
                   },
                   "timeout_next_step_id": {
                     "type": [
@@ -69703,10 +69704,11 @@
             }
           },
           "422": {
-            "description": "Same key reused with a different request; or the step would carry more than 3 transition buttons (deeplink_buttons): split the choice into two steps or move one option to the goal button",
+            "description": "Same key reused with a different request; or the step would carry more than 3 transition buttons (deeplink_buttons): split the choice into two steps or move one option to the goal button; or a step with timeout_minutes 0 would break a rule of an instant continuation",
             "x-error-codes": [
               "IDEMPOTENCY_KEY_MISMATCH",
-              "CHAIN_STEP_TOO_MANY_TRANSITIONS"
+              "CHAIN_STEP_TOO_MANY_TRANSITIONS",
+              "CHAIN_INSTANT_STEP_INVALID"
             ],
             "content": {
               "application/problem+json": {

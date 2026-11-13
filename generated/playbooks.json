@@ -1208,6 +1208,10 @@
           "en": "Axis 2, \"did not move\" timeout: `timeout_minutes` and `timeout_next_step_id`. After M minutes without a transition the platform moves the user to the named step."
         },
         {
+          "ru": "Баннер и длинный текст — два шага. На первом (баннер, подпись до 1024 знаков) поставьте `timeout_minutes: 0` и `timeout_next_step_id` второго шага: второй уйдёт сразу после баннера ответом на него. Кнопки, `timeout_condition` и таймеры ставьте на втором шаге: у шага с нулём их быть не может (код `CHAIN_INSTANT_STEP_INVALID`), и таких переходов подряд не больше 3 без петли.",
+          "en": "A banner and a long text are two steps. On the first one (the banner, a caption up to 1024 characters) set `timeout_minutes: 0` and the `timeout_next_step_id` of the second step: the second is sent right after the banner as a reply to it. Put buttons, `timeout_condition` and timers on the second step: a step with 0 cannot carry them (code `CHAIN_INSTANT_STEP_INVALID`), and at most 3 such transitions may follow one another without a loop."
+        },
+        {
           "ru": "Ось 3, таймаут «без покупки»: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` — для оффера и трипвайера (см. блок `offer`).",
           "en": "Axis 3, \"no purchase\" timeout: `timeout_condition: {kind: \"no_paid_purchase_since_offer\"}` — for the offer and the tripwire (see block `offer`)."
         },
