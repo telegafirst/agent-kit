@@ -235,6 +235,7 @@
           "FISCAL_PROVIDER_BASIS_UNSUPPORTED",
           "MEETING_PROVIDER_NOT_CONNECTED",
           "MEETING_PROVIDER_UNAVAILABLE",
+          "INTEGRATION_NOT_CONFIGURED",
           "INVALID_INPUT",
           "FAILED_PRECONDITION",
           "FORM_REDIRECT_HOST_NOT_ALLOWED",
@@ -1232,6 +1233,9 @@
           },
           "requires_postal_code": {
             "type": "boolean"
+          },
+          "variant_label": {
+            "type": "string"
           },
           "visit": {
             "$ref": "#/components/schemas/CartVisit"
@@ -3257,6 +3261,9 @@
             "type": "boolean"
           },
           "is_public": {
+            "type": "boolean"
+          },
+          "is_create_order_on_click": {
             "type": "boolean"
           },
           "prices": {
