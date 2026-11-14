@@ -7,6 +7,7 @@ A practicum is a few step pages a visitor walks through inside Telegram, MAX or 
 - Your own code goes into a FILE of the bundle and is included with `src`. An inline script is reported in the `warnings` of `site_publish` with the recipe "put it in a file", and a stricter page policy will block it later. Publishing is not refused; fix the warning and publish again.
 - Include the platform scripts with a relative `src` (`/widget/miniapp.v1.js`): it works on every host of the site.
 - Never write the messenger close protocol yourself. `window.TelegaMiniApp.close()` closes the window in Telegram, MAX and VK and returns false outside a mini app; any element with `data-tgf-close` does the same on click.
+- Never call the messenger SDK to open a channel or a chat either. `<a data-tgf-open-link href="https://t.me/CHANNEL">` opens the link inside Telegram (a `https://max.ru/…` link inside MAX) and stays an ordinary link outside a mini app; a link the messenger cannot open is opened by the browser. `window.TelegaMiniApp.openLink(url)` is the same as a promise.
 - Progress kept with `window.TelegaMiniApp.progress` lives in the visitor's browser. It is a hint for navigation (which step to open next), not something the business can see. A fact the business must see is a form submission.
 
 ## Variation A: a Next button and browser progress
