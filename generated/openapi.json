@@ -2266,6 +2266,9 @@
           "is_public": {
             "type": "boolean"
           },
+          "is_create_order_on_click": {
+            "type": "boolean"
+          },
           "is_free": {
             "type": "boolean"
           },
@@ -2539,6 +2542,7 @@
           "description",
           "is_active",
           "is_public",
+          "is_create_order_on_click",
           "is_free",
           "groups",
           "editable_config",
@@ -2965,6 +2969,9 @@
           "is_public": {
             "type": "boolean"
           },
+          "is_create_order_on_click": {
+            "type": "boolean"
+          },
           "editable_config": {
             "$ref": "#/components/schemas/CatalogEditableConfig"
           },
@@ -3033,6 +3040,7 @@
           "title",
           "is_active",
           "is_public",
+          "is_create_order_on_click",
           "prices",
           "item_type",
           "sku_code",
