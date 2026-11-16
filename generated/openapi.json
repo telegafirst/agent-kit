@@ -77151,7 +77151,7 @@
           "kb"
         ],
         "summary": "Create tenant knowledge and enqueue indexing",
-        "description": "Title is 1–200 characters and content 1–4000 (one knowledge item; split longer material into several items). Tags are at most 50 strings of 1–64 characters. Optional prepared_step_ids is an ordered unique list of up to 50 numeric positive-int4 tenant ids (1–2147483647); [] clears binding. The existing writer queues asynchronous indexing and returns lifecycle state; completion is not implied by HTTP 201. Source type is api_import. Read-only graph counts/status and money commands are not accepted. No pagination or ETag.",
+        "description": "Title is 1–200 characters and content 1–4000 (one knowledge item; split longer material into several items). Tags are at most 50 strings of 1–64 characters. Optional prepared_step_ids is an ordered unique list of up to 50 numeric positive-int4 tenant ids (1–2147483647); [] clears binding. The existing writer queues asynchronous indexing and returns lifecycle state; completion is not implied by HTTP 201. A later status awaiting_subscription means indexing is postponed until the tenant has an active AI plan and tokens: stop polling and tell the owner; it is indexed by itself after the payment. Source type is api_import. Read-only graph counts/status and money commands are not accepted. No pagination or ETag.",
         "security": [
           {
             "hubApiKey": []
@@ -77357,7 +77357,7 @@
           "kb"
         ],
         "summary": "Edit tenant knowledge by board and tenant id",
-        "description": "kb_type plus numeric positive-int4 id (1–2147483647) addresses the entry inside the authenticated tenant. patch carries at least one of title (1–200), content (1–4000), tags, prepared_step_ids ([] clears binding), is_active, is_public. A text change or switching the entry back on queues re-indexing and returns status indexing; switching it off takes it out of the agent search and returns status pending with null graph statistics. Idempotency-Key is optional on PATCH. 409 CONFLICT means the entry changed while it was being written (for example the indexer finished): read it again and retry. No If-Match or ETag contract.",
+        "description": "kb_type plus numeric positive-int4 id (1–2147483647) addresses the entry inside the authenticated tenant. patch carries at least one of title (1–200), content (1–4000), tags, prepared_step_ids ([] clears binding), is_active, is_public. A text change or switching the entry back on queues re-indexing and returns status indexing (a later awaiting_subscription means the re-indexing waits for an active AI plan and tokens and runs by itself after the payment); switching it off takes it out of the agent search and returns status pending with null graph statistics. Idempotency-Key is optional on PATCH. 409 CONFLICT means the entry changed while it was being written (for example the indexer finished): read it again and retry. No If-Match or ETag contract.",
         "security": [
           {
             "hubApiKey": []
@@ -77576,7 +77576,7 @@
           "kb"
         ],
         "summary": "Read knowledge by board and tenant id",
-        "description": "kb_type plus numeric positive-int4 id (1–2147483647) resolves inside the authenticated tenant; wrong board, deleted or foreign-only entries are not found. This read uses POST and retains the actual Nest 201 status and global required Idempotency-Key behavior. No pagination or ETag.",
+        "description": "kb_type plus numeric positive-int4 id (1–2147483647) resolves inside the authenticated tenant; wrong board, deleted or foreign-only entries are not found. status is the index lifecycle: pending, indexing, indexed, failed, or awaiting_subscription — indexing is postponed until the tenant has an active AI plan and tokens; that state does not change by waiting, so stop polling and tell the owner a plan is needed, after the payment the entry is indexed by itself. This read uses POST and retains the actual Nest 201 status and global required Idempotency-Key behavior. No pagination or ETag.",
         "security": [
           {
             "hubApiKey": []
