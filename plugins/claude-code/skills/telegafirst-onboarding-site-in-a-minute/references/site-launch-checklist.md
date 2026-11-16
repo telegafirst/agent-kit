@@ -2,6 +2,7 @@
 
 - Confirm the owner chose the right jurisdiction zone for the domain.
 - Keep the complete site bundle available before requesting uploads.
+- Check the plan's published HTML page limit separately from the bundle byte limit and the technical cap of 10 000 files on every plan. Hidden pages, assets, private HTML fragments and automatic platform pages do not consume the page limit; excess pages stay `published:false`. Each host has independent limits; publishing does not copy the site to `.com`.
 - Verify the public call to action leads to the intended TelegaFirst bot.
 - Declare any form before publishing its page.
 - Every page footer links `/terms`, `/privacy` and `/legal`; the bundle has no legal pages of its own.
