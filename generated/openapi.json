@@ -99,6 +99,8 @@
           "ORDER_ALREADY_PAID",
           "ORDER_CLOSED",
           "ORDER_BOUND_TO_BOOKING",
+          "TEAM_MEMBER_NOT_BOUND",
+          "TEAM_MEMBER_ALREADY_INVITED",
           "CART_INACTIVE",
           "DRAFT_NOT_PENDING",
           "TENANT_ARCHIVED",
@@ -702,6 +704,12 @@
               "revoked"
             ]
           },
+          "activation_hint": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "permissions": {
             "type": "object",
             "properties": {
@@ -769,6 +777,7 @@
           "email",
           "display_name",
           "status",
+          "activation_hint",
           "permissions"
         ],
         "additionalProperties": false
@@ -807,6 +816,12 @@
                     "invited",
                     "active",
                     "revoked"
+                  ]
+                },
+                "activation_hint": {
+                  "type": [
+                    "string",
+                    "null"
                   ]
                 },
                 "permissions": {
@@ -876,6 +891,7 @@
                 "email",
                 "display_name",
                 "status",
+                "activation_hint",
                 "permissions"
               ],
               "additionalProperties": false
@@ -11042,6 +11058,10 @@
             "type": "boolean",
             "description": "Run cookie consent opt-in on this tenant's sites: analytics and advertising stay off until the visitor decides. Sites in the .com zone are always opt-in; this cannot relax a platform-wide opt-in."
           },
+          "is_ai_agents_enabled": {
+            "type": "boolean",
+            "description": "Master switch of every AI agent that talks to buyers: the qualifier, the manager and the coach. Off: none of them answers and their chats go to the plain bot status; transcription of voice messages stays on. The switch sits over the plan: on does not give AI to a plan that has none."
+          },
           "tokens_weekly_limit_per_user": {
             "type": [
               "integer",
@@ -11375,6 +11395,10 @@
             "type": "boolean",
             "description": "Run cookie consent opt-in on this tenant's sites: analytics and advertising stay off until the visitor decides. Sites in the .com zone are always opt-in; this cannot relax a platform-wide opt-in."
           },
+          "is_ai_agents_enabled": {
+            "type": "boolean",
+            "description": "Master switch of every AI agent that talks to buyers: the qualifier, the manager and the coach. Off: none of them answers and their chats go to the plain bot status; transcription of voice messages stays on. The switch sits over the plan: on does not give AI to a plan that has none."
+          },
           "tokens_weekly_limit_per_user": {
             "type": [
               "number",
@@ -11672,6 +11696,7 @@
           "dialog_auto_close_days",
           "attribution_llm_enabled",
           "is_cookie_opt_in_enabled",
+          "is_ai_agents_enabled",
           "tokens_weekly_limit_per_user",
           "tokens_5h_limit_per_user",
           "tokens_available_subscription",
@@ -63918,9 +63943,10 @@
             }
           },
           "409": {
-            "description": "Request with the same key is in flight, or a typed domain conflict",
+            "description": "Request with the same key is in flight, a typed domain conflict, or this tg_username already has an invitation or membership",
             "x-error-codes": [
-              "CONFLICT"
+              "CONFLICT",
+              "TEAM_MEMBER_ALREADY_INVITED"
             ],
             "content": {
               "application/problem+json": {
@@ -64149,9 +64175,10 @@
             }
           },
           "409": {
-            "description": "Request with the same key is in flight, or a typed domain conflict",
+            "description": "Request with the same key is in flight, a typed domain conflict, or status active for a member who has not signed in yet",
             "x-error-codes": [
-              "CONFLICT"
+              "CONFLICT",
+              "TEAM_MEMBER_NOT_BOUND"
             ],
             "content": {
               "application/problem+json": {
