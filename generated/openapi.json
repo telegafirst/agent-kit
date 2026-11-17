@@ -11844,6 +11844,44 @@
                   "provider": {
                     "type": "string",
                     "enum": [
+                      "tochka"
+                    ]
+                  },
+                  "jwt": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096,
+                    "writeOnly": true
+                  },
+                  "tochka_client_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "customer_code": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 9
+                  },
+                  "merchant_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 15
+                  }
+                },
+                "required": [
+                  "provider",
+                  "jwt",
+                  "tochka_client_id"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "enum": [
                       "prodamus"
                     ]
                   },
@@ -12042,7 +12080,8 @@
               "paypal",
               "paddle",
               "tinkoff",
-              "prodamus"
+              "prodamus",
+              "tochka"
             ]
           }
         },
@@ -12065,7 +12104,8 @@
               "paypal",
               "paddle",
               "tinkoff",
-              "prodamus"
+              "prodamus",
+              "tochka"
             ]
           }
         },
@@ -12088,7 +12128,8 @@
               "paypal",
               "paddle",
               "tinkoff",
-              "prodamus"
+              "prodamus",
+              "tochka"
             ]
           },
           "enabled": {
@@ -12166,7 +12207,8 @@
               "paypal",
               "paddle",
               "tinkoff",
-              "prodamus"
+              "prodamus",
+              "tochka"
             ]
           },
           "disabled": {
@@ -12193,7 +12235,8 @@
               "paypal",
               "paddle",
               "tinkoff",
-              "prodamus"
+              "prodamus",
+              "tochka"
             ]
           },
           "enabled": {
@@ -17497,7 +17540,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -17644,7 +17688,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -18382,7 +18427,8 @@
                           "paypal",
                           "paddle",
                           "tinkoff",
-                          "prodamus"
+                          "prodamus",
+                          "tochka"
                         ]
                       },
                       "configuration_fingerprint": {
@@ -18529,7 +18575,8 @@
                           "paypal",
                           "paddle",
                           "tinkoff",
-                          "prodamus"
+                          "prodamus",
+                          "tochka"
                         ]
                       },
                       "amount": {
@@ -19611,6 +19658,7 @@
             "enum": [
               "cabinet",
               "per_payment",
+              "platform_registered",
               "none"
             ]
           },
@@ -19837,7 +19885,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -19984,7 +20033,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -20722,7 +20772,8 @@
                           "paypal",
                           "paddle",
                           "tinkoff",
-                          "prodamus"
+                          "prodamus",
+                          "tochka"
                         ]
                       },
                       "configuration_fingerprint": {
@@ -20869,7 +20920,8 @@
                           "paypal",
                           "paddle",
                           "tinkoff",
-                          "prodamus"
+                          "prodamus",
+                          "tochka"
                         ]
                       },
                       "amount": {
@@ -22224,7 +22276,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -22371,7 +22424,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -23176,7 +23230,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -23323,7 +23378,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -24248,7 +24304,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -24395,7 +24452,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -25169,7 +25227,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -25316,7 +25375,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -26072,7 +26132,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -26219,7 +26280,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -27008,7 +27070,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -27155,7 +27218,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -27944,7 +28008,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -28091,7 +28156,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -28867,7 +28933,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -29014,7 +29081,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -29586,7 +29654,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -29707,7 +29776,8 @@
                   "paypal",
                   "paddle",
                   "tinkoff",
-                  "prodamus"
+                  "prodamus",
+                  "tochka"
                 ]
               },
               "alive": {
@@ -29920,7 +29990,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -30067,7 +30138,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -30851,7 +30923,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -30998,7 +31071,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -31899,7 +31973,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -32046,7 +32121,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -32805,7 +32881,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -32952,7 +33029,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -33716,7 +33794,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -33863,7 +33942,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -34622,7 +34702,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -34769,7 +34850,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -35525,7 +35607,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -35672,7 +35755,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -36441,7 +36525,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -36588,7 +36673,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -37377,7 +37463,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -37524,7 +37611,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -38288,7 +38376,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -38435,7 +38524,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -39222,7 +39312,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -39369,7 +39460,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -39943,7 +40035,8 @@
                   "paypal",
                   "paddle",
                   "tinkoff",
-                  "prodamus"
+                  "prodamus",
+                  "tochka"
                 ]
               },
               "amount": {
@@ -40189,7 +40282,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -40336,7 +40430,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -41106,7 +41201,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -41253,7 +41349,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -42225,7 +42322,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -42372,7 +42470,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -43139,7 +43238,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -43286,7 +43386,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
@@ -46536,7 +46637,8 @@
               "paypal",
               "paddle",
               "tinkoff",
-              "prodamus"
+              "prodamus",
+              "tochka"
             ]
           }
         },
@@ -100228,7 +100330,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   }
                 },
@@ -101712,6 +101815,44 @@
                               "provider": {
                                 "type": "string",
                                 "enum": [
+                                  "tochka"
+                                ]
+                              },
+                              "jwt": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 4096,
+                                "writeOnly": true
+                              },
+                              "tochka_client_id": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 128
+                              },
+                              "customer_code": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 9
+                              },
+                              "merchant_id": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 15
+                              }
+                            },
+                            "required": [
+                              "provider",
+                              "jwt",
+                              "tochka_client_id"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "provider": {
+                                "type": "string",
+                                "enum": [
                                   "prodamus"
                                 ]
                               },
@@ -102007,7 +102148,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "configuration_confirmation_token": {
@@ -102116,7 +102258,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   }
                 },
@@ -102769,7 +102912,8 @@
                       "paypal",
                       "paddle",
                       "tinkoff",
-                      "prodamus"
+                      "prodamus",
+                      "tochka"
                     ]
                   },
                   "amount": {
