@@ -49,7 +49,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "add_comment",
@@ -181,7 +181,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "analyze_business_performance",
@@ -222,7 +222,7 @@
     ],
     "risk": "read",
     "domain": "analytics",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "approve_event_registration",
@@ -327,7 +327,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "assign_catalog_item_to_group",
@@ -399,7 +399,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_assign_resource",
@@ -582,7 +582,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_cancel",
@@ -763,7 +763,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_connect_resource_calendar",
@@ -824,7 +824,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_copy_resource_schedule_month",
@@ -919,7 +919,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_create",
@@ -1183,7 +1183,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_create_resource",
@@ -1949,7 +1949,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_create_resource_schedule",
@@ -2183,7 +2183,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_create_service",
@@ -2766,7 +2766,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_delete_resource",
@@ -2826,7 +2826,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_delete_resource_schedule",
@@ -2975,7 +2975,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_disconnect_resource_calendar",
@@ -3036,7 +3036,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_execute_attendance",
@@ -3209,7 +3209,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_execute_confirm",
@@ -3382,7 +3382,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_execute_overbooking",
@@ -3568,7 +3568,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_execute_price",
@@ -3771,7 +3771,7 @@
     ],
     "risk": "money",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_get_resource",
@@ -4337,7 +4337,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_get_resource_schedule",
@@ -4467,7 +4467,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_get_user_list",
@@ -4640,7 +4640,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_list",
@@ -4861,7 +4861,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_list_pending",
@@ -5047,7 +5047,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_list_resource_schedules",
@@ -5208,7 +5208,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_list_resources",
@@ -5776,7 +5776,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_list_reviews",
@@ -5952,7 +5952,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_prepare_attendance",
@@ -6039,7 +6039,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_prepare_confirm",
@@ -6117,7 +6117,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_prepare_overbooking",
@@ -6343,7 +6343,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_prepare_price",
@@ -6440,7 +6440,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_reschedule",
@@ -6614,7 +6614,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_search_availability",
@@ -6800,7 +6800,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_set_review_visibility",
@@ -6940,7 +6940,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_share_recording",
@@ -7114,7 +7114,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_update_resource",
@@ -7892,7 +7892,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_update_resource_schedule",
@@ -8135,7 +8135,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "booking_withhold_recording",
@@ -8302,7 +8302,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "cancel_auto_renew",
@@ -8532,7 +8532,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -8692,7 +8693,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -9464,7 +9466,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "cancel_event",
@@ -9985,7 +9987,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "cancel_event_registration",
@@ -10141,7 +10143,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "cancel_subscription",
@@ -10251,7 +10253,7 @@
     ],
     "risk": "destructive",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "check_approval",
@@ -10309,7 +10311,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "check_direct_app",
@@ -10385,7 +10387,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "check_free_conditions",
@@ -10608,7 +10610,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -10768,7 +10771,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -11478,7 +11482,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "check_in_event_registration",
@@ -11613,7 +11617,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "check_out_event_registration",
@@ -11748,7 +11752,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "check_slug_availability",
@@ -11807,7 +11811,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "claim_slug",
@@ -12065,7 +12069,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -12225,7 +12230,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -13161,7 +13167,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "complete_event",
@@ -13695,12 +13701,12 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "configure_integration",
     "title": "Configure Integration",
-    "description": "Configure (upsert) a CRM connector for the tenant. Provide `credentials` — bitrix24 {type,webhook_url} or getcourse {type,account,api_key} — plus optional settings, subscribed_events (any of order.created, payment.succeeded, payment.refunded, subscription.updated; an empty list means all of them), is_active. Credentials are encrypted at rest and never returned. Idempotent: reconfiguring reactivates a deleted connector. OWNER-ONLY (data-egress).",
+    "description": "Configure (upsert) a CRM connector for the tenant. Provide `credentials` — bitrix24 {type,webhook_url}, getcourse {type,account,api_key} or amocrm {type,subdomain,access_token} (the long-lived token: amoMarket → Create integration → Keys and access) — plus optional settings (`pipeline_id`, `default_stage_id`, `paid_stage_id` from `list_crm_pipelines`; GetCourse `gc_funnel_id` / `gc_funnel_stage_id`), subscribed_events (any of order.created, payment.succeeded, payment.refunded, subscription.updated; an empty list means all of them), is_active. The credentials are checked against the CRM before anything is saved (a refusal names the CRM's answer) and its custom fields are set up; they are encrypted at rest and never returned. Idempotent: reconfiguring reactivates a deleted connector, and a new token lifts an auto-disable the old one caused. OWNER-ONLY (data-egress).",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -13757,6 +13763,36 @@
               ],
               "additionalProperties": false,
               "description": "Value for credentials option."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "amocrm",
+                  "description": "Value for type."
+                },
+                "subdomain": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 50,
+                  "pattern": "^[a-z0-9-]+$",
+                  "description": "Value for subdomain."
+                },
+                "access_token": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096,
+                  "description": "Value for access token."
+                }
+              },
+              "required": [
+                "type",
+                "subdomain",
+                "access_token"
+              ],
+              "additionalProperties": false,
+              "description": "Value for credentials option."
             }
           ],
           "description": "Value for credentials."
@@ -13793,6 +13829,18 @@
               "minLength": 1,
               "maxLength": 64,
               "description": "Value for subscription expired status id."
+            },
+            "gc_funnel_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "description": "Value for gc funnel id."
+            },
+            "gc_funnel_stage_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "description": "Value for gc funnel stage id."
             },
             "offer_code": {
               "type": "string",
@@ -13896,6 +13944,16 @@
               "minLength": 1,
               "maxLength": 64
             },
+            "gc_funnel_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "gc_funnel_stage_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
             "offer_code": {
               "type": "string",
               "minLength": 1,
@@ -13966,12 +14024,12 @@
     ],
     "risk": "write",
     "domain": "integrations",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "configure_payment_credentials",
     "title": "Configure Payment Credentials",
-    "description": "Configure (upsert) ONE payment provider for the tenant. Provide `credentials` — discriminated by `provider` (e.g. yookassa {shop_id, api_key}; stripe {secret_key, webhook_secret, currency?}; tochka {jwt, tochka_client_id, customer_code?, merchant_id?} — the Tochka webhook is registered by the platform, the owner pastes no address) — plus optional `enabled` (default true), `default_currency` and `recurring_enabled` — set true only after the provider has switched autopayments on for the shop; while it is false a subscription product is not sold through this provider (one-off payments are unaffected), and the platform sets it back to false when the provider refuses a renewal for that reason. Credentials are stored server-side and NEVER returned by a read. Idempotent upsert on the tenant. The answer includes webhook_setup: relay its steps to the owner. OWNER-ONLY money-config: call it directly, or prepare_admin_action then execute_admin_write (secrets are passed again at execute, never held).",
+    "description": "Configure (upsert) ONE payment provider for the tenant. Provide `credentials` — discriminated by `provider` (e.g. yookassa {shop_id, api_key}; stripe {secret_key, webhook_secret, currency?}; tochka {jwt, tochka_client_id, customer_code?, merchant_id?} — the Tochka webhook is registered by the platform, the owner pastes no address; getcourse {account, api_key} — the platform issues the callback secret and the answer carries the full callback address for the GetCourse «Вызвать URL» process; {rotate_callback_secret: true} alone issues a new address and the old one answers 401 at once) — plus optional `enabled` (default true), `default_currency` and `recurring_enabled` — set true only after the provider has switched autopayments on for the shop; while it is false a subscription product is not sold through this provider (one-off payments are unaffected), and the platform sets it back to false when the provider refuses a renewal for that reason. Credentials are stored server-side and NEVER returned by a read. Idempotent upsert on the tenant. The answer includes webhook_setup: relay its steps to the owner. OWNER-ONLY money-config: call it directly, or prepare_admin_action then execute_admin_write (secrets are passed again at execute, never held).",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -14174,6 +14232,39 @@
                 "provider",
                 "jwt",
                 "tochka_client_id"
+              ],
+              "additionalProperties": false,
+              "description": "Value for credentials option."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "provider": {
+                  "type": "string",
+                  "const": "getcourse",
+                  "description": "Value for provider."
+                },
+                "account": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 63,
+                  "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?$",
+                  "description": "Value for account."
+                },
+                "api_key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1024,
+                  "writeOnly": true,
+                  "description": "Value for api key."
+                },
+                "rotate_callback_secret": {
+                  "type": "boolean",
+                  "description": "Value for rotate callback secret."
+                }
+              },
+              "required": [
+                "provider"
               ],
               "additionalProperties": false,
               "description": "Value for credentials option."
@@ -14585,7 +14676,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -14745,7 +14837,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -15435,7 +15528,8 @@
                     "paddle",
                     "tinkoff",
                     "prodamus",
-                    "tochka"
+                    "tochka",
+                    "getcourse"
                   ]
                 },
                 "configuration_fingerprint": {
@@ -15565,7 +15659,8 @@
                 "paddle",
                 "tinkoff",
                 "prodamus",
-                "tochka"
+                "tochka",
+                "getcourse"
               ]
             },
             "alive": {
@@ -15669,7 +15764,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "confirm_booking",
@@ -15836,12 +15931,12 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "connect_channel",
     "title": "Connect Channel",
-    "description": "Connect an additional customer channel using its credentials. Never echo credentials in results.",
+    "description": "Connect an additional customer channel using its credentials. Never echo credentials in results. A failed status carries one reason: credentials_invalid, registration_failed, reconciliation_required or channel_not_available.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "oneOf": [
@@ -16135,7 +16230,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -16295,7 +16391,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -17000,7 +17097,8 @@
               "enum": [
                 "credentials_invalid",
                 "registration_failed",
-                "reconciliation_required"
+                "reconciliation_required",
+                "channel_not_available"
               ]
             }
           },
@@ -17029,7 +17127,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_broadcast",
@@ -18128,6 +18226,8 @@
                       "SITE_INVITE_PAGE_BOT_LINK_FALLBACK_MISSING",
                       "INVALID_PROVIDER_CURRENCY",
                       "PROVIDER_NOT_CONFIGURED",
+                      "PAYMENT_PROVIDER_NOT_AVAILABLE",
+                      "CRM_CONNECTION_FAILED",
                       "PAYMENT_CREDENTIALS_REJECTED",
                       "CATALOG_FIELD_READ_ONLY",
                       "MEDIA_ABORTED",
@@ -18183,6 +18283,8 @@
                       "INVALID_INPUT",
                       "FAILED_PRECONDITION",
                       "FORM_REDIRECT_HOST_NOT_ALLOWED",
+                      "FORM_ORDER_MODE_NEEDS_CATALOG",
+                      "FORM_ORDER_MODE_CONFLICTS_CHECKOUT",
                       "SITE_HTML_TAG_TOO_LARGE",
                       "SITE_VIDEO_TOO_LARGE",
                       "SITE_BUNDLE_TOO_LARGE",
@@ -18332,7 +18434,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_catalog_group",
@@ -18486,7 +18588,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_chain_step",
@@ -18777,7 +18879,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_event",
@@ -19398,7 +19500,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_event_registration",
@@ -19674,7 +19776,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_export",
@@ -19763,7 +19865,7 @@
     ],
     "risk": "write",
     "domain": "export",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_forum_topic",
@@ -19848,7 +19950,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_knowledge",
@@ -20046,7 +20148,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_location",
@@ -20561,7 +20663,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_marketing_campaign",
@@ -21335,7 +21437,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_marketing_link",
@@ -21507,7 +21609,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_menu_button",
@@ -21657,7 +21759,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_menu_group",
@@ -21783,7 +21885,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_message_chain",
@@ -21881,7 +21983,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_order",
@@ -22272,7 +22374,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_order_status",
@@ -22634,7 +22736,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_quest_product",
@@ -23284,7 +23386,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -23444,7 +23547,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -24178,7 +24282,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_quick_reply",
@@ -24266,7 +24370,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_quick_site",
@@ -24560,7 +24664,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -24720,7 +24825,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -25433,7 +25539,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_saved_segment",
@@ -26159,7 +26265,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "create_session",
@@ -26285,7 +26391,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "debug_chain_run",
@@ -26538,7 +26644,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_broadcast",
@@ -26591,7 +26697,7 @@
     ],
     "risk": "destructive",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_catalog_group",
@@ -26639,7 +26745,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_catalog_item",
@@ -26693,7 +26799,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_chain_step",
@@ -26754,7 +26860,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_comment",
@@ -26808,7 +26914,7 @@
     ],
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_event",
@@ -26861,7 +26967,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_forum_topic_message",
@@ -26932,12 +27038,12 @@
     ],
     "risk": "destructive",
     "domain": "topics",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_integration",
     "title": "Delete Integration",
-    "description": "Soft-delete (disconnect) a CRM connector by `crm_type` (bitrix24 / getcourse). Idempotent — deleting an absent/already-deleted connector returns deleted:true. OWNER-ONLY.",
+    "description": "Soft-delete (disconnect) a CRM connector by `crm_type` (bitrix24 / getcourse / amocrm). Idempotent — deleting an absent/already-deleted connector returns deleted:true. OWNER-ONLY.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -26946,7 +27052,8 @@
           "type": "string",
           "enum": [
             "bitrix24",
-            "getcourse"
+            "getcourse",
+            "amocrm"
           ],
           "description": "Value for crm type."
         },
@@ -26970,7 +27077,8 @@
           "type": "string",
           "enum": [
             "bitrix24",
-            "getcourse"
+            "getcourse",
+            "amocrm"
           ]
         },
         "deleted": {
@@ -26989,7 +27097,7 @@
     ],
     "risk": "destructive",
     "domain": "integrations",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_knowledge",
@@ -27059,7 +27167,7 @@
     ],
     "risk": "destructive",
     "domain": "kb",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_location",
@@ -27113,7 +27221,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_marketing_campaign",
@@ -27166,7 +27274,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_marketing_link",
@@ -27219,7 +27327,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_menu_button",
@@ -27267,7 +27375,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_menu_group",
@@ -27315,7 +27423,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_message_chain",
@@ -27368,7 +27476,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_order_status",
@@ -27421,7 +27529,7 @@
     ],
     "risk": "destructive",
     "domain": "statuses",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_quick_reply",
@@ -27474,7 +27582,7 @@
     ],
     "risk": "destructive",
     "domain": "quick-replies",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "delete_saved_segment",
@@ -27535,7 +27643,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "describe_segment_axes",
@@ -27707,7 +27815,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "describe_tool",
@@ -27904,7 +28012,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "disable_payment_provider",
@@ -27926,7 +28034,8 @@
             "paddle",
             "tinkoff",
             "prodamus",
-            "tochka"
+            "tochka",
+            "getcourse"
           ],
           "description": "Value for provider."
         },
@@ -27958,7 +28067,8 @@
             "paddle",
             "tinkoff",
             "prodamus",
-            "tochka"
+            "tochka",
+            "getcourse"
           ]
         },
         "disabled": {
@@ -27977,7 +28087,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "disconnect_bot",
@@ -28207,7 +28317,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -28367,7 +28478,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -29069,7 +29181,1124 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
+  },
+  {
+    "name": "disconnect_channel",
+    "title": "Disconnect Channel",
+    "description": "Take a connected MAX or VK channel off the current business: the callback is removed and the channel stops receiving. status not_connected means the channel was not connected and nothing changed; the call is safe to repeat.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "channel": {
+          "type": "string",
+          "enum": [
+            "max",
+            "vk"
+          ],
+          "description": "Value for channel."
+        },
+        "bot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Optional slug of the bot you expect to act on (get_active_bot). If the active bot differs, the call is refused with ACTIVE_BOT_CHANGED and nothing runs."
+        }
+      },
+      "required": [
+        "channel"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "journey": {
+          "type": "object",
+          "properties": {
+            "workspace_guide": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "bot": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "open_lines": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "operations": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "settings": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "bot",
+                    "open_lines",
+                    "operations",
+                    "settings"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "rewards": {
+              "type": "object",
+              "properties": {
+                "tokens_granted": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "tokens_remaining": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "trial_days": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "tokens_granted",
+                "tokens_remaining",
+                "trial_days"
+              ],
+              "additionalProperties": false
+            },
+            "revision": {
+              "type": "number",
+              "const": 1
+            },
+            "completed": {
+              "type": "boolean"
+            },
+            "completed_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "infrastructure_ready": {
+              "type": "boolean"
+            },
+            "test_required": {
+              "type": "boolean"
+            },
+            "test_completed": {
+              "type": "boolean"
+            },
+            "bonus_state": {
+              "type": "string",
+              "enum": [
+                "not_eligible",
+                "pending",
+                "settled"
+              ]
+            },
+            "ai_preferences": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "app": {
+                      "type": "string",
+                      "enum": [
+                        "claude",
+                        "chatgpt",
+                        "codex",
+                        "claude-code",
+                        "other"
+                      ]
+                    },
+                    "other_app": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80
+                    },
+                    "questions_revision": {
+                      "type": "number",
+                      "const": 1
+                    },
+                    "confirmed_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                    }
+                  },
+                  "required": [
+                    "app",
+                    "questions_revision",
+                    "confirmed_at"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "decisions": {
+              "type": "object",
+              "properties": {
+                "first_payment_deferred_at": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "first_payment_deferred_at"
+              ],
+              "additionalProperties": false
+            },
+            "provider_readiness": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "provider": {
+                      "type": "string",
+                      "enum": [
+                        "robokassa",
+                        "yookassa",
+                        "stars",
+                        "cryptobot",
+                        "stripe",
+                        "paypal",
+                        "paddle",
+                        "tinkoff",
+                        "prodamus",
+                        "tochka",
+                        "getcourse"
+                      ]
+                    },
+                    "configuration_fingerprint": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "checked_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                    },
+                    "ready": {
+                      "type": "boolean"
+                    },
+                    "authentication": {
+                      "type": "string",
+                      "enum": [
+                        "verified",
+                        "failed",
+                        "unknown"
+                      ]
+                    },
+                    "production_environment": {
+                      "type": "string",
+                      "enum": [
+                        "verified",
+                        "failed",
+                        "unknown"
+                      ]
+                    },
+                    "checkout_creation": {
+                      "type": "string",
+                      "enum": [
+                        "verified",
+                        "failed",
+                        "unknown"
+                      ]
+                    },
+                    "webhook_configuration": {
+                      "type": "string",
+                      "enum": [
+                        "verified",
+                        "failed",
+                        "unknown"
+                      ]
+                    },
+                    "webhook_configuration_assurance": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "provider_api",
+                            "signed_delivery",
+                            "owner_attested"
+                          ]
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "configuration_confirmation_token": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "webhook_delivery": {
+                      "type": "string",
+                      "enum": [
+                        "verified",
+                        "failed",
+                        "unknown"
+                      ]
+                    },
+                    "live_payment": {
+                      "type": "string",
+                      "enum": [
+                        "verified",
+                        "failed",
+                        "unknown"
+                      ]
+                    },
+                    "limitations": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "next_action": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "provider",
+                    "configuration_fingerprint",
+                    "checked_at",
+                    "ready",
+                    "authentication",
+                    "production_environment",
+                    "checkout_creation",
+                    "webhook_configuration",
+                    "webhook_delivery",
+                    "live_payment",
+                    "limitations",
+                    "next_action"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "first_payment": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "phase": {
+                      "type": "string",
+                      "enum": [
+                        "accepted",
+                        "price_committed",
+                        "card_pending",
+                        "sent"
+                      ]
+                    },
+                    "product_id": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 2147483647
+                    },
+                    "title": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "provider": {
+                      "type": "string",
+                      "enum": [
+                        "robokassa",
+                        "yookassa",
+                        "stars",
+                        "cryptobot",
+                        "stripe",
+                        "paypal",
+                        "paddle",
+                        "tinkoff",
+                        "prodamus",
+                        "tochka",
+                        "getcourse"
+                      ]
+                    },
+                    "amount": {
+                      "type": "string",
+                      "maxLength": 32,
+                      "pattern": "^\\d+(?:\\.\\d{1,8})?$"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 16
+                    },
+                    "purchase_zone": {
+                      "type": "string",
+                      "enum": [
+                        "ru",
+                        "com"
+                      ]
+                    },
+                    "is_active": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "preparation_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128
+                    },
+                    "payload_hash": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  },
+                  "required": [
+                    "phase",
+                    "product_id",
+                    "title",
+                    "provider",
+                    "amount",
+                    "currency",
+                    "purchase_zone",
+                    "is_active",
+                    "preparation_id",
+                    "payload_hash"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "advance": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "days": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "until": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "days",
+                    "until",
+                    "timezone"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "revision",
+            "completed",
+            "completed_at",
+            "infrastructure_ready",
+            "test_required",
+            "test_completed",
+            "bonus_state",
+            "ai_preferences",
+            "decisions",
+            "provider_readiness"
+          ],
+          "additionalProperties": false
+        },
+        "active_slug": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tenant": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "bot_username": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "slug",
+            "bot_username"
+          ],
+          "additionalProperties": false
+        },
+        "owner_onboardings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "supergroups_create",
+                  "infrastructure",
+                  "infrastructure_ready",
+                  "quest_1",
+                  "quest_2",
+                  "warmup",
+                  "quest_product",
+                  "quest_purchase",
+                  "payments",
+                  "first_payment",
+                  "ai_preferences",
+                  "finish",
+                  "completed",
+                  "paid",
+                  "free"
+                ]
+              }
+            },
+            "required": [
+              "slug",
+              "stage"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "address",
+            "site",
+            "bot",
+            "supergroups_create",
+            "infrastructure",
+            "infrastructure_ready",
+            "quest_1",
+            "quest_2",
+            "warmup",
+            "quest_product",
+            "quest_purchase",
+            "payments",
+            "first_payment",
+            "ai_preferences",
+            "finish",
+            "completed",
+            "paid",
+            "free"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "todo",
+            "in_progress",
+            "waiting_owner",
+            "blocked",
+            "done"
+          ]
+        },
+        "billing": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "free",
+                "trial",
+                "active",
+                "grace",
+                "expired",
+                "cancelled"
+              ]
+            },
+            "trial_started_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "trial_ends_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "plan": {
+              "type": "string"
+            },
+            "period_end": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "auto_renew": {
+              "type": "boolean"
+            },
+            "next_charge_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "grace_until": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+            }
+          },
+          "required": [
+            "plan",
+            "period_end",
+            "auto_renew",
+            "next_charge_at"
+          ],
+          "additionalProperties": false
+        },
+        "next_action": {
+          "type": "object",
+          "properties": {
+            "execution": {
+              "type": "object",
+              "properties": {
+                "business_slug": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "step": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "executor": {
+                  "type": "string",
+                  "enum": [
+                    "agent",
+                    "owner",
+                    "server"
+                  ]
+                },
+                "tool": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "arguments": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                },
+                "requires": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "success": {
+                  "type": "object",
+                  "properties": {
+                    "fact": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "fact"
+                  ],
+                  "additionalProperties": false
+                },
+                "wait": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "retry_after_seconds": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "stop_when": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "retry_after_seconds",
+                        "stop_when"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "recovery": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tool": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "arguments": {
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {}
+                        },
+                        "say_to_user": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "tool",
+                        "arguments",
+                        "say_to_user"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "continue_with": {
+                  "type": "object",
+                  "properties": {
+                    "tool": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "const": "get_onboarding_state"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "arguments": {
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {}
+                    },
+                    "say_to_user": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "tool",
+                    "arguments"
+                  ],
+                  "additionalProperties": false
+                },
+                "prepared_execute": {
+                  "type": "object",
+                  "properties": {
+                    "tool": {
+                      "type": "string",
+                      "const": "onboarding_execute_first_payment"
+                    },
+                    "requires_human_review": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "arguments_fields": {
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "string",
+                          "const": "preparation_id"
+                        },
+                        {
+                          "type": "string",
+                          "const": "payload_hash"
+                        }
+                      ],
+                      "items": false,
+                      "minItems": 2,
+                      "maxItems": 2
+                    }
+                  },
+                  "required": [
+                    "tool",
+                    "requires_human_review",
+                    "arguments_fields"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "business_slug",
+                "step",
+                "executor",
+                "tool",
+                "arguments",
+                "requires",
+                "success",
+                "wait",
+                "recovery",
+                "continue_with"
+              ],
+              "additionalProperties": false
+            },
+            "goal": {
+              "type": "string",
+              "enum": [
+                "address",
+                "site",
+                "bot",
+                "bot_settings",
+                "supergroups_create",
+                "infrastructure",
+                "infrastructure_blocked",
+                "infrastructure_ready",
+                "quest_product_pending",
+                "quest_product_ready",
+                "quest_product_failed",
+                "payment_provider_alive",
+                "payment_provider_failed",
+                "quest_product",
+                "quest_purchase",
+                "payments",
+                "first_payment",
+                "ai_preferences",
+                "finish",
+                "completed",
+                "paid",
+                "free",
+                "address_new_business",
+                "entry_choose_business",
+                "entry_work_or_create",
+                "infrastructure_ready_nth_bot"
+              ]
+            },
+            "say_to_user": {
+              "type": "string"
+            },
+            "collect": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "hint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "hint"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "wait_for": {
+              "type": "object",
+              "properties": {
+                "event": {
+                  "type": "string"
+                },
+                "retry_after_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "SA_TEMPORARILY_UNAVAILABLE"
+                  ]
+                },
+                "until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                }
+              },
+              "required": [
+                "event"
+              ],
+              "additionalProperties": false
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "video",
+                    "image_steps"
+                  ]
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "url"
+              ],
+              "additionalProperties": false
+            },
+            "switch_to": {
+              "type": "string"
+            },
+            "webhook_setup": {
+              "type": "object",
+              "properties": {
+                "delivery": {
+                  "type": "string",
+                  "enum": [
+                    "cabinet",
+                    "per_payment",
+                    "platform_registered",
+                    "none"
+                  ]
+                },
+                "url": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "method": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "POST"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "events": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "steps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "optional_steps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "delivery",
+                "url",
+                "method",
+                "events",
+                "steps",
+                "optional_steps"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "goal",
+            "say_to_user",
+            "collect"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "channel": {
+              "type": "string",
+              "enum": [
+                "max",
+                "vk"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "disconnected",
+                "not_connected"
+              ]
+            }
+          },
+          "required": [
+            "channel",
+            "status"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "active_slug",
+        "tenant",
+        "owner_onboardings",
+        "stage",
+        "status",
+        "next_action",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "scope": "client-config:write",
+    "required_scopes": [
+      "client-config:write"
+    ],
+    "risk": "write",
+    "domain": "client-config",
+    "platform_version": "1.0.165"
   },
   {
     "name": "domain_add_request",
@@ -29269,7 +30498,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "domain_execute_unlink",
@@ -29398,7 +30627,7 @@
     ],
     "risk": "destructive",
     "domain": "domain",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "domain_prepare_unlink",
@@ -29478,7 +30707,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "domain_status",
@@ -29606,7 +30835,7 @@
     ],
     "risk": "read",
     "domain": "domain",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "domain_verify",
@@ -29783,7 +31012,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "edit_forum_topic_message",
@@ -29938,7 +31167,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "enable_payment_provider",
@@ -29960,7 +31189,8 @@
             "paddle",
             "tinkoff",
             "prodamus",
-            "tochka"
+            "tochka",
+            "getcourse"
           ],
           "description": "Value for provider."
         },
@@ -29992,7 +31222,8 @@
             "paddle",
             "tinkoff",
             "prodamus",
-            "tochka"
+            "tochka",
+            "getcourse"
           ]
         },
         "enabled": {
@@ -30015,7 +31246,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "exchange_session_approval_code",
@@ -30092,7 +31323,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_admin_read",
@@ -30131,7 +31362,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_admin_write",
@@ -30170,7 +31401,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_broadcast_launch",
@@ -30230,7 +31461,7 @@
     ],
     "risk": "money",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_chain_batch_entry",
@@ -30297,7 +31528,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_delivery_quote",
@@ -30422,7 +31653,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_manual_sale",
@@ -30481,7 +31712,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_message_changes",
@@ -30661,7 +31892,7 @@
     ],
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_order_composition_change",
@@ -30733,7 +31964,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_order_status_change",
@@ -30794,7 +32025,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_preselection_card",
@@ -30877,7 +32108,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_refund",
@@ -30951,7 +32182,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_reply_batch",
@@ -31128,7 +32359,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "execute_send_invoice",
@@ -31195,7 +32426,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "export_form_submissions_normalized",
@@ -31274,7 +32505,7 @@
     ],
     "risk": "write",
     "domain": "pull",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "extend_personal_offer",
@@ -31412,7 +32643,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_active_bot",
@@ -31453,7 +32684,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_agent_config",
@@ -31779,7 +33010,7 @@
     ],
     "risk": "read",
     "domain": "agents",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_billing_state",
@@ -32002,7 +33233,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -32162,7 +33394,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -33090,7 +34323,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_block",
@@ -33251,7 +34484,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_bot_profile",
@@ -33369,7 +34602,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_broadcast_status",
@@ -33502,7 +34735,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_catalog",
@@ -34027,7 +35260,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_catalog_group",
@@ -34102,12 +35335,12 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_catalog_item",
     "title": "Get Catalog Item",
-    "description": "Read one catalog item by its `id`; the response carries the `etag` you pass to update it, its `groups`, `is_create_order_on_click` (whether a click on the item creates the order at once), `public_url` (storefront page, null while off or link-only), `mini_app_links` (the same page as the Telegram / MAX / VK mini app: copy, never build) and `delivery` — what the buyer receives after payment: `{message_content_id, kind}` or null. To set or replace the delivery (text, a file via media_refs, or a link in the text) call publish_entity with target_topic 'catalog', intent 'REPLACE', replace_target {kind:'delivery', id}. `related` is its «С этим берут» list in carousel order — `{id, title, is_visible}`, `is_visible:false` on an offered item the buyer does not see now; set it with set_related_items. `zone` (ru/com) selects price presentation, default ru.",
+    "description": "Read one catalog item by its `id`; the response carries the `etag` you pass to update it, its `groups`, `is_create_order_on_click` (whether a click on the item creates the order at once), `public_url` (storefront page, null while off or link-only), `mini_app_links` (the same page as the Telegram / MAX / VK mini app: copy, never build) and `delivery` — what the buyer receives after payment: `{message_content_id, kind}` or null. To set or replace the delivery (text, a file via media_refs, or a link in the text) call publish_entity with target_topic 'catalog', intent 'REPLACE', replace_target {kind:'delivery', id}. `external_refs` is its ids in outside systems (`{getcourse: {offer_id}}`) or null. `related` is its «С этим берут» list in carousel order — `{id, title, is_visible}`, `is_visible:false` on an offered item the buyer does not see now; set it with set_related_items. `zone` (ru/com) selects price presentation, default ru.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -34793,6 +36026,32 @@
             }
           ]
         },
+        "external_refs": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "getcourse": {
+                  "type": "object",
+                  "properties": {
+                    "offer_id": {
+                      "type": "string",
+                      "pattern": "^\\d{1,20}$"
+                    }
+                  },
+                  "required": [
+                    "offer_id"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "public_url": {
           "anyOf": [
             {
@@ -35054,7 +36313,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_catalog_topic_link",
@@ -35092,7 +36351,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_chain_step",
@@ -35533,7 +36792,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_client_config",
@@ -35900,7 +37159,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_content_draft",
@@ -36310,6 +37569,8 @@
                     "SITE_INVITE_PAGE_BOT_LINK_FALLBACK_MISSING",
                     "INVALID_PROVIDER_CURRENCY",
                     "PROVIDER_NOT_CONFIGURED",
+                    "PAYMENT_PROVIDER_NOT_AVAILABLE",
+                    "CRM_CONNECTION_FAILED",
                     "PAYMENT_CREDENTIALS_REJECTED",
                     "CATALOG_FIELD_READ_ONLY",
                     "MEDIA_ABORTED",
@@ -36365,6 +37626,8 @@
                     "INVALID_INPUT",
                     "FAILED_PRECONDITION",
                     "FORM_REDIRECT_HOST_NOT_ALLOWED",
+                    "FORM_ORDER_MODE_NEEDS_CATALOG",
+                    "FORM_ORDER_MODE_CONFLICTS_CHECKOUT",
                     "SITE_HTML_TAG_TOO_LARGE",
                     "SITE_VIDEO_TOO_LARGE",
                     "SITE_BUNDLE_TOO_LARGE",
@@ -36505,7 +37768,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_conversation",
@@ -36585,7 +37848,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_customer",
@@ -37281,7 +38544,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_data_dictionary",
@@ -37374,7 +38637,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_doc",
@@ -37483,7 +38746,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_entitlements",
@@ -37599,7 +38862,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_event",
@@ -38373,7 +39636,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_event_registration",
@@ -38495,7 +39758,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_form_submission",
@@ -38700,7 +39963,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_hall_layout",
@@ -38969,7 +40232,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_knowledge",
@@ -39132,7 +40395,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_legal_profile",
@@ -39330,7 +40593,7 @@
     ],
     "risk": "read",
     "domain": "legal",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_location",
@@ -39585,7 +40848,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_menu_button",
@@ -39684,7 +40947,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_menu_group",
@@ -39775,7 +41038,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_message_stats",
@@ -39830,7 +41093,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_mini_app_links",
@@ -40011,7 +41274,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_onboarding_state",
@@ -40253,7 +41516,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -40413,7 +41677,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -41301,7 +42566,8 @@
                             "paddle",
                             "tinkoff",
                             "prodamus",
-                            "tochka"
+                            "tochka",
+                            "getcourse"
                           ]
                         },
                         "configuration_fingerprint": {
@@ -41461,7 +42727,8 @@
                             "paddle",
                             "tinkoff",
                             "prodamus",
-                            "tochka"
+                            "tochka",
+                            "getcourse"
                           ]
                         },
                         "amount": {
@@ -42646,7 +43913,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_operator_report",
@@ -42918,7 +44185,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_order",
@@ -43218,12 +44485,12 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_payment_config",
     "title": "Get Payment Config",
-    "description": "Read the tenant payment-provider config: each of the 10 providers (yookassa / stripe / robokassa / tinkoff / tochka / prodamus / paypal / paddle / cryptobot / stars) with `enabled`, `has_credentials` (whether a secret is on file — the secret itself is NEVER returned), `recurring_enabled` (whether autopayments are confirmed for subscriptions; null where nothing is switched on) and `currency`, plus the tenant `default_currency`. OWNER-ONLY. 0-cost read.",
+    "description": "Read the tenant payment-provider config: each of the 11 providers (yookassa / stripe / robokassa / tinkoff / tochka / getcourse / prodamus / paypal / paddle / cryptobot / stars) with `enabled`, `has_credentials` (whether a secret is on file — the secret itself is NEVER returned), `recurring_enabled` (whether autopayments are confirmed for subscriptions; null where nothing is switched on) and `currency`, plus the tenant `default_currency`. OWNER-ONLY. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -43269,7 +44536,8 @@
                   "paddle",
                   "tinkoff",
                   "prodamus",
-                  "tochka"
+                  "tochka",
+                  "getcourse"
                 ]
               },
               "enabled": {
@@ -43292,6 +44560,15 @@
                   "string",
                   "null"
                 ]
+              },
+              "webhook_url": {
+                "type": "string"
+              },
+              "webhook_steps": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             },
             "required": [
@@ -43318,7 +44595,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_personal_offer",
@@ -43443,7 +44720,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_plan_checkout_link",
@@ -43474,7 +44751,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_playbook",
@@ -43777,7 +45054,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_public_channels",
@@ -43877,7 +45154,7 @@
     ],
     "risk": "read",
     "domain": "public-channel",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_saved_segment",
@@ -44243,7 +45520,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_session_status",
@@ -44328,7 +45605,7 @@
     ],
     "risk": "read",
     "domain": "sessions",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_share_links",
@@ -44755,7 +46032,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_skill",
@@ -44818,7 +46095,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_storefront",
@@ -44955,7 +46232,7 @@
     ],
     "risk": "read",
     "domain": "storefront",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_subscription_status",
@@ -45041,7 +46318,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_token_billing",
@@ -45125,7 +46402,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_token_topup_link",
@@ -45156,7 +46433,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "get_user_timeline",
@@ -45413,7 +46690,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "hold_event_seats",
@@ -45482,7 +46759,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "init_managed_bot",
@@ -45712,7 +46989,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -45872,7 +47150,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -46582,7 +47861,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "invite_team_member",
@@ -46789,7 +48068,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "issue_api_key",
@@ -46915,7 +48194,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "issue_provider_credential_link",
@@ -46936,7 +48215,8 @@
             "paddle",
             "tinkoff",
             "prodamus",
-            "tochka"
+            "tochka",
+            "getcourse"
           ],
           "description": "Value for provider."
         },
@@ -47051,7 +48331,7 @@
     ],
     "risk": "write",
     "domain": "payments",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "issue_supergroup_bind_links",
@@ -47281,7 +48561,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -47441,7 +48722,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -48300,7 +49582,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "link_anonymous_order",
@@ -48455,7 +49737,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_accessible_bots",
@@ -48524,7 +49806,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_blocks",
@@ -48603,7 +49885,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_broadcasts",
@@ -49307,7 +50589,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_catalog_groups",
@@ -49384,7 +50666,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_chain_runs",
@@ -49475,7 +50757,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_chain_steps",
@@ -49932,7 +51214,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_comments",
@@ -50084,7 +51366,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_connections",
@@ -50160,7 +51442,100 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
+  },
+  {
+    "name": "list_crm_pipelines",
+    "title": "List Crm Pipelines",
+    "description": "List the pipelines and their stages of a CONNECTED CRM (bitrix24 / amocrm), read live from it, by the CRM's own ids: the values `configure_integration` settings take as `pipeline_id` (the pipeline a new deal lands in), `default_stage_id` (the stage of a new deal) and `paid_stage_id` (the stage a deal moves to once the order is paid). getcourse has no list to read: it returns an empty `pipelines`, and its optional sales board is set by `gc_funnel_id` / `gc_funnel_stage_id` (the numbers in the board's address). Refused when that CRM is not connected or does not answer. OWNER-ONLY. 0-cost read.",
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "crm_type": {
+          "type": "string",
+          "enum": [
+            "bitrix24",
+            "getcourse",
+            "amocrm"
+          ],
+          "description": "Value for crm type."
+        }
+      },
+      "required": [
+        "crm_type"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "crm_type": {
+          "type": "string",
+          "enum": [
+            "bitrix24",
+            "getcourse",
+            "amocrm"
+          ]
+        },
+        "pipelines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              "name": {
+                "type": "string"
+              },
+              "stages": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "stages"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "crm_type",
+        "pipelines"
+      ],
+      "additionalProperties": false
+    },
+    "scope": "integrations:read",
+    "required_scopes": [
+      "integrations:read"
+    ],
+    "risk": "read",
+    "domain": "integrations",
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_customers",
@@ -50485,7 +51860,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_delivery_method_versions",
@@ -50693,7 +52068,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_delivery_quote_requests",
@@ -50834,7 +52209,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_dialogs",
@@ -51147,7 +52522,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_event_registrations",
@@ -51302,7 +52677,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_events",
@@ -51966,7 +53341,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_forum_topics",
@@ -52028,12 +53403,12 @@
     ],
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_integrations",
     "title": "List Integrations",
-    "description": "List the tenant CRM connectors (bitrix24 / getcourse / amocrm): each with `crm_type`, `is_active`, `has_credentials` (the secret itself is never returned), `subscribed_events`, non-secret settings (pipeline/stage/offer), auto-disable status and push stats. OWNER-ONLY. 0-cost read.",
+    "description": "List the tenant CRM connectors (bitrix24 / getcourse / amocrm): each with `crm_type`, `is_active`, `has_credentials` (the secret itself is never returned), `subscribed_events`, non-secret settings (pipeline/stage/offer; pick pipeline and stage ids with `list_crm_pipelines`), auto-disable status and push stats. OWNER-ONLY. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -52093,6 +53468,16 @@
                     "maxLength": 64
                   },
                   "subscription_expired_status_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "gc_funnel_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "gc_funnel_stage_id": {
                     "type": "string",
                     "minLength": 1,
                     "maxLength": 64
@@ -52174,7 +53559,7 @@
     ],
     "risk": "read",
     "domain": "integrations",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_knowledge",
@@ -52330,7 +53715,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_locations",
@@ -52617,7 +54002,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_marketing_campaigns",
@@ -53076,7 +54461,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_marketing_links",
@@ -53203,7 +54588,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_menu_buttons",
@@ -53321,7 +54706,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_menu_groups",
@@ -53431,7 +54816,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_message_chains",
@@ -53525,7 +54910,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_order_statuses",
@@ -53728,7 +55113,7 @@
     ],
     "risk": "read",
     "domain": "statuses",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_orders",
@@ -53899,7 +55284,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_payment_rows",
@@ -54084,7 +55469,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_personal_offers",
@@ -54257,7 +55642,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_playbooks",
@@ -54336,7 +55721,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_promo_code_versions",
@@ -54540,7 +55925,7 @@
     ],
     "risk": "read",
     "domain": "pricing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_quick_replies",
@@ -54607,7 +55992,7 @@
     ],
     "risk": "read",
     "domain": "quick-replies",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_saved_segments",
@@ -55005,7 +56390,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_segment_targets",
@@ -55100,7 +56485,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_team_members",
@@ -55240,7 +56625,7 @@
     ],
     "risk": "read",
     "domain": "team",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "list_variant_combinations",
@@ -55386,7 +56771,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "load_domain",
@@ -55599,7 +56984,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "manage_delivery_methods",
@@ -56216,7 +57601,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "manage_pricing_rules",
@@ -59458,7 +60843,7 @@
     ],
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "manage_promo_codes",
@@ -60242,7 +61627,7 @@
     ],
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "manage_variant_combinations",
@@ -60443,7 +61828,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "mark_paid",
@@ -60538,7 +61923,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "media_finalize",
@@ -60759,7 +62144,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "media_get_download_link",
@@ -60807,7 +62192,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "media_get_status",
@@ -61170,6 +62555,8 @@
                 "SITE_INVITE_PAGE_BOT_LINK_FALLBACK_MISSING",
                 "INVALID_PROVIDER_CURRENCY",
                 "PROVIDER_NOT_CONFIGURED",
+                "PAYMENT_PROVIDER_NOT_AVAILABLE",
+                "CRM_CONNECTION_FAILED",
                 "PAYMENT_CREDENTIALS_REJECTED",
                 "CATALOG_FIELD_READ_ONLY",
                 "MEDIA_ABORTED",
@@ -61225,6 +62612,8 @@
                 "INVALID_INPUT",
                 "FAILED_PRECONDITION",
                 "FORM_REDIRECT_HOST_NOT_ALLOWED",
+                "FORM_ORDER_MODE_NEEDS_CATALOG",
+                "FORM_ORDER_MODE_CONFLICTS_CHECKOUT",
                 "SITE_HTML_TAG_TOO_LARGE",
                 "SITE_VIDEO_TOO_LARGE",
                 "SITE_BUNDLE_TOO_LARGE",
@@ -61367,7 +62756,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "media_import_files",
@@ -61691,7 +63080,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "media_request_upload",
@@ -61833,7 +63222,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "meeting_provider_connect",
@@ -61897,7 +63286,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "meeting_provider_status",
@@ -61981,7 +63370,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "move_user_in_chain",
@@ -62065,7 +63454,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_check_payment_provider",
@@ -62087,7 +63476,8 @@
             "paddle",
             "tinkoff",
             "prodamus",
-            "tochka"
+            "tochka",
+            "getcourse"
           ],
           "description": "Value for provider."
         },
@@ -62314,7 +63704,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -62474,7 +63865,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -63164,7 +64556,8 @@
                     "paddle",
                     "tinkoff",
                     "prodamus",
-                    "tochka"
+                    "tochka",
+                    "getcourse"
                   ]
                 },
                 "configuration_fingerprint": {
@@ -63294,7 +64687,8 @@
                 "paddle",
                 "tinkoff",
                 "prodamus",
-                "tochka"
+                "tochka",
+                "getcourse"
               ]
             },
             "alive": {
@@ -63398,7 +64792,7 @@
     ],
     "risk": "write",
     "domain": "payments",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_check_test_product",
@@ -63621,7 +65015,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -63781,7 +65176,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -64523,7 +65919,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_check_test_purchase",
@@ -64746,7 +66142,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -64906,7 +66303,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -65642,7 +67040,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_complete",
@@ -65886,7 +67284,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -66046,7 +67445,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -66755,7 +68155,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_confirm_payment_webhook",
@@ -66777,7 +68177,8 @@
             "paddle",
             "tinkoff",
             "prodamus",
-            "tochka"
+            "tochka",
+            "getcourse"
           ],
           "description": "Value for provider."
         },
@@ -67010,7 +68411,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -67170,7 +68572,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -67860,7 +69263,8 @@
                     "paddle",
                     "tinkoff",
                     "prodamus",
-                    "tochka"
+                    "tochka",
+                    "getcourse"
                   ]
                 },
                 "configuration_fingerprint": {
@@ -67990,7 +69394,8 @@
                 "paddle",
                 "tinkoff",
                 "prodamus",
-                "tochka"
+                "tochka",
+                "getcourse"
               ]
             },
             "alive": {
@@ -68094,12 +69499,12 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_connect_channel",
     "title": "Onboarding Connect Channel",
-    "description": "Connect an additional customer channel using its credentials. Never echo credentials in results.",
+    "description": "Connect an additional customer channel using its credentials. Never echo credentials in results. A failed status carries one reason: credentials_invalid, registration_failed, reconciliation_required or channel_not_available.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "oneOf": [
@@ -68393,7 +69798,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -68553,7 +69959,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -69258,7 +70665,8 @@
               "enum": [
                 "credentials_invalid",
                 "registration_failed",
-                "reconciliation_required"
+                "reconciliation_required",
+                "channel_not_available"
               ]
             }
           },
@@ -69287,7 +70695,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_connect_payment_provider",
@@ -69497,6 +70905,39 @@
                     "provider",
                     "jwt",
                     "tochka_client_id"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Value for credentials option."
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "provider": {
+                      "type": "string",
+                      "const": "getcourse",
+                      "description": "Value for provider."
+                    },
+                    "account": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 63,
+                      "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?$",
+                      "description": "Value for account."
+                    },
+                    "api_key": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 1024,
+                      "writeOnly": true,
+                      "description": "Value for api key."
+                    },
+                    "rotate_callback_secret": {
+                      "type": "boolean",
+                      "description": "Value for rotate callback secret."
+                    }
+                  },
+                  "required": [
+                    "provider"
                   ],
                   "additionalProperties": false,
                   "description": "Value for credentials option."
@@ -69951,7 +71392,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -70111,7 +71553,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -70801,7 +72244,8 @@
                     "paddle",
                     "tinkoff",
                     "prodamus",
-                    "tochka"
+                    "tochka",
+                    "getcourse"
                   ]
                 },
                 "configuration_fingerprint": {
@@ -70931,7 +72375,8 @@
                 "paddle",
                 "tinkoff",
                 "prodamus",
-                "tochka"
+                "tochka",
+                "getcourse"
               ]
             },
             "alive": {
@@ -71035,7 +72480,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_defer_first_payment",
@@ -71265,7 +72710,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -71425,7 +72871,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -72145,7 +73592,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_execute_first_payment",
@@ -72390,7 +73837,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -72550,7 +73998,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -73267,7 +74716,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_prepare_first_payment",
@@ -73295,7 +74744,8 @@
             "paddle",
             "tinkoff",
             "prodamus",
-            "tochka"
+            "tochka",
+            "getcourse"
           ],
           "description": "Value for provider."
         },
@@ -73545,7 +74995,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -73705,7 +75156,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -74397,7 +75849,8 @@
                 "paddle",
                 "tinkoff",
                 "prodamus",
-                "tochka"
+                "tochka",
+                "getcourse"
               ]
             },
             "amount": {
@@ -74472,7 +75925,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "onboarding_save_ai_preferences",
@@ -74728,7 +76181,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -74888,7 +76342,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -75622,7 +77077,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "partner_get_balance",
@@ -75662,7 +77117,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "partner_get_invite_links",
@@ -75733,7 +77188,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "partner_request_payout",
@@ -75778,7 +77233,7 @@
     ],
     "risk": "money",
     "domain": "partner",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_admin_action",
@@ -75920,7 +77375,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_broadcast_launch",
@@ -76072,7 +77527,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_chain_batch_entry",
@@ -76198,7 +77653,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_delivery_quote",
@@ -76353,7 +77808,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_manual_sale",
@@ -76999,7 +78454,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_message_changes",
@@ -77780,7 +79235,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_order_composition_change",
@@ -78391,7 +79846,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_order_status_change",
@@ -78476,7 +79931,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_preselection_card",
@@ -78821,7 +80276,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_refund",
@@ -78948,7 +80403,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_reply_batch",
@@ -79610,7 +81065,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "prepare_send_invoice",
@@ -79695,7 +81150,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "preview_segment_reach",
@@ -79851,7 +81306,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "publish_entity",
@@ -82247,6 +83702,8 @@
                       "SITE_INVITE_PAGE_BOT_LINK_FALLBACK_MISSING",
                       "INVALID_PROVIDER_CURRENCY",
                       "PROVIDER_NOT_CONFIGURED",
+                      "PAYMENT_PROVIDER_NOT_AVAILABLE",
+                      "CRM_CONNECTION_FAILED",
                       "PAYMENT_CREDENTIALS_REJECTED",
                       "CATALOG_FIELD_READ_ONLY",
                       "MEDIA_ABORTED",
@@ -82302,6 +83759,8 @@
                       "INVALID_INPUT",
                       "FAILED_PRECONDITION",
                       "FORM_REDIRECT_HOST_NOT_ALLOWED",
+                      "FORM_ORDER_MODE_NEEDS_CATALOG",
+                      "FORM_ORDER_MODE_CONFLICTS_CHECKOUT",
                       "SITE_HTML_TAG_TOO_LARGE",
                       "SITE_VIDEO_TOO_LARGE",
                       "SITE_BUNDLE_TOO_LARGE",
@@ -82427,7 +83886,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "pull_form_submissions",
@@ -82707,7 +84166,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "put_hall_layout",
@@ -83128,7 +84587,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "query_form_submission_segment",
@@ -83254,7 +84713,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "quote_order",
@@ -83546,7 +85005,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "read_forum_topic_messages",
@@ -83646,7 +85105,7 @@
     ],
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "refresh_payment_urls",
@@ -83726,7 +85185,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "register_existing_bot",
@@ -83966,7 +85425,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -84126,7 +85586,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -84829,7 +86290,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "register_mini_app_origin",
@@ -84952,7 +86413,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "reject_event_registration",
@@ -85034,7 +86495,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "release_chat",
@@ -85087,7 +86548,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "release_event_seats",
@@ -85156,7 +86617,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "remove_catalog_item_from_group",
@@ -85222,7 +86683,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "remove_public_channel",
@@ -85285,7 +86746,7 @@
     ],
     "risk": "destructive",
     "domain": "public-channel",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "request_access_link",
@@ -85418,7 +86879,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "request_manual_supergroups",
@@ -85688,7 +87149,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -85848,7 +87310,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -86551,7 +88014,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "resource_set_meeting_provider",
@@ -86619,7 +88082,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "restore_delivery_method_version",
@@ -86897,7 +88360,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "restore_promo_code_version",
@@ -87275,7 +88738,7 @@
     ],
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "resume_bot_connection",
@@ -87505,7 +88968,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -87665,7 +89129,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -88368,7 +89833,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "resume_infrastructure",
@@ -88598,7 +90063,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -88758,7 +90224,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -89646,7 +91113,8 @@
                             "paddle",
                             "tinkoff",
                             "prodamus",
-                            "tochka"
+                            "tochka",
+                            "getcourse"
                           ]
                         },
                         "configuration_fingerprint": {
@@ -89806,7 +91274,8 @@
                             "paddle",
                             "tinkoff",
                             "prodamus",
-                            "tochka"
+                            "tochka",
+                            "getcourse"
                           ]
                         },
                         "amount": {
@@ -91083,7 +92552,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "retry_onboarding_site",
@@ -91313,7 +92782,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -91473,7 +92943,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -92361,7 +93832,8 @@
                             "paddle",
                             "tinkoff",
                             "prodamus",
-                            "tochka"
+                            "tochka",
+                            "getcourse"
                           ]
                         },
                         "configuration_fingerprint": {
@@ -92521,7 +93993,8 @@
                             "paddle",
                             "tinkoff",
                             "prodamus",
-                            "tochka"
+                            "tochka",
+                            "getcourse"
                           ]
                         },
                         "amount": {
@@ -93706,7 +95179,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "revoke_connection",
@@ -93755,7 +95228,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "revoke_personal_offer",
@@ -93886,7 +95359,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "revoke_team_member",
@@ -93939,7 +95412,7 @@
     ],
     "risk": "destructive",
     "domain": "team",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "sale_preset_apply",
@@ -94333,7 +95806,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "sale_readiness_check",
@@ -94514,7 +95987,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "sample_segment_audience",
@@ -94587,7 +96060,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "scope_change",
@@ -94720,7 +96193,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "search_admin_tools",
@@ -94908,7 +96381,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "search_catalog",
@@ -95265,7 +96738,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "search_docs",
@@ -95371,7 +96844,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "secret_delete",
@@ -95435,7 +96908,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "secret_list",
@@ -95489,7 +96962,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "secret_put",
@@ -95565,7 +97038,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "secret_rotate",
@@ -95641,7 +97114,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "send_tariff_checkout_card",
@@ -95898,7 +97371,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -96058,7 +97532,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -96778,7 +98253,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "send_to_forum_topic",
@@ -96966,7 +98441,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "set_buyer_recommendations",
@@ -97090,7 +98565,7 @@
     ],
     "risk": "write",
     "domain": "pricing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "set_event_capacity",
@@ -97187,7 +98662,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "set_event_phase",
@@ -97717,7 +99192,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "set_form_submission_handled",
@@ -97774,7 +99249,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "set_order_payment_type",
@@ -97848,7 +99323,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "set_public_channel",
@@ -98018,7 +99493,7 @@
     ],
     "risk": "write",
     "domain": "public-channel",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "set_related_items",
@@ -98726,6 +100201,32 @@
             }
           ]
         },
+        "external_refs": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "getcourse": {
+                  "type": "object",
+                  "properties": {
+                    "offer_id": {
+                      "type": "string",
+                      "pattern": "^\\d{1,20}$"
+                    }
+                  },
+                  "required": [
+                    "offer_id"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "public_url": {
           "anyOf": [
             {
@@ -98840,7 +100341,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "set_stock",
@@ -98952,7 +100453,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "set_tax_profile",
@@ -99279,7 +100780,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "configuration_fingerprint": {
@@ -99439,7 +100941,8 @@
                         "paddle",
                         "tinkoff",
                         "prodamus",
-                        "tochka"
+                        "tochka",
+                        "getcourse"
                       ]
                     },
                     "amount": {
@@ -100164,7 +101667,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_checkout_key",
@@ -100224,7 +101727,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_delete_page",
@@ -100294,7 +101797,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_egress_origin_list",
@@ -100337,7 +101840,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_egress_origin_set",
@@ -100401,7 +101904,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_execute_delete",
@@ -100461,7 +101964,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_fetch_file",
@@ -100528,12 +102031,12 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_form_declare",
     "title": "Site Form Declare",
-    "description": "Declare a form BEFORE BUILDING PAGES; returns `client_slug`, `code`, `submit_snippet` (OFFICIAL: `<form data-tgf-form=\"{code}\">` + your fields + `<script src=\"/widget/forms.v1.js\" async>`) and `mini_app_links`. Paste it; NEVER hand-write the POST or use `mode: \"no-cors\"` (opaque: no result shows). It runs `after_submit`, emits `tgf:submitted`/`tgf:failed`/`tgf:refused`. Keep its `tgf_consent_pd` box (unticked, required, absolute `/consent`, `/privacy` links): unticked, it sends nothing. Never build the submit address. `id` UPDATES (same address); omit for a NEW form. It sets the ENVELOPE, not fields. `destinations`: `{\"kind\":\"telegram\",\"topic_id\":<id>}`, `{\"kind\":\"webhook\",\"url\":\"https://…\"}`, `{\"kind\":\"external_api\",\"url\":\"https://…\",\"method\":\"POST\",\"header_name\":\"X-Api-Key\",\"secret_name\":\"<secret name>\"}`; first add its origin via `site_egress_origin_set`. `allowed_origins`: the site's addresses. Stop with `enabled: false`. `after_submit`: `{\"mode\":\"auto\"}` (your `title`/`text`, bot button, opt. `button_label`) or `{\"mode\":\"redirect\",\"redirect_url\":\"https://…\"}` (own hosts or `allowed_origins`). `variants`: step `step_id` + exactly one of `when` (`funnel_mode: \"deterministic\"`, first by `sort`) or `hint` (`\"ai_agent\"`); `when`: non-empty ARRAY (≤20 predicates, all match): `[{\"op\":\"eq\",\"field\":\"band\",\"value\":\"high\"}]` (`op`: eq, neq, gt, gte, lt, lte, contains, in with `values`, exists, absent; OR = another entry); `default_step_id` if none matches. `manager_follow_up: true` adds an AI Manager reply; `call_operator_on_submit`/`calls_operator` call an operator. `funnel_outcome: \"checkout\"` + `catalog_id`: FREE item → order on submit; PAID or anything missing → bot-chat checkout; answers and `hidden` fields → operator-only order comment. NOT a patch: an omitted optional RESETS. `submission_schema` (`[{\"name\":\"phone\",\"type\":\"tel\",\"required\":true,\"label\":\"Phone\"}]`) refuses a submission breaking it; names = your inputs. Give every field a human `label`; metadata → `hidden: true`.",
+    "description": "Declare a form BEFORE BUILDING PAGES; returns `client_slug`, `code`, `submit_snippet` (OFFICIAL: `<form data-tgf-form=\"{code}\">` + your fields + `<script src=\"/widget/forms.v1.js\" async>`) and `mini_app_links`. Paste it; NEVER hand-write the POST or use `no-cors` (opaque: no result shows). It runs `after_submit`, emits `tgf:submitted`/`tgf:failed`/`tgf:refused`. Keep its `tgf_consent_pd` box (unticked, required, absolute `/consent`, `/privacy` links): unticked, it sends nothing. `id` UPDATES (same address); omit for a NEW form. It sets the ENVELOPE, not fields. `destinations`: `{\"kind\":\"telegram\",\"topic_id\":<id>}`, `{\"kind\":\"webhook\",\"url\":\"https://…\"}`, `{\"kind\":\"external_api\",\"url\":\"https://…\",\"method\":\"POST\",\"header_name\":\"X-Api-Key\",\"secret_name\":\"<secret name>\"}`; first add its origin via `site_egress_origin_set`. `allowed_origins`: the site's addresses. Stop with `enabled: false`. `after_submit`: `{\"mode\":\"auto\"}` (your `title`/`text`, bot button, opt. `button_label`) or `{\"mode\":\"redirect\",\"redirect_url\":\"https://…\"}` (own hosts or `allowed_origins`). `variants`: step `step_id` + exactly one of `when` (`funnel_mode: \"deterministic\"`, first by `sort`) or `hint` (`\"ai_agent\"`); `when`: non-empty ARRAY (≤20 predicates, all match): `[{\"op\":\"eq\",\"field\":\"band\",\"value\":\"high\"}]` (`op`: eq, neq, gt, gte, lt, lte, contains, in with `values`, exists, absent; OR = another entry); `default_step_id` if none matches. `manager_follow_up: true` adds an AI Manager reply; `call_operator_on_submit`/`calls_operator` call an operator. `funnel_outcome: \"checkout\"` + `catalog_id`: FREE item → order on submit; PAID or anything missing → bot-chat checkout; answers and `hidden` fields → operator-only order comment. NOT a patch: an omitted optional RESETS, except `order_mode`, `catalog_id` (kept). `submission_schema` (`[{\"name\":\"phone\",\"type\":\"tel\",\"required\":true,\"label\":\"Phone\"}]`) refuses a submission breaking it; names = your inputs. Give every field a human `label`; metadata → `hidden: true`.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -101222,6 +102725,15 @@
           ],
           "description": "Value for catalog id."
         },
+        "order_mode": {
+          "description": "What a submission does to orders: none (nothing), auto (an order for the form product at once, no request card), manual (a request card with a create-order button for the operator). auto and manual need catalog_id and funnel_outcome content. Omitted keeps the stored mode.",
+          "type": "string",
+          "enum": [
+            "none",
+            "auto",
+            "manual"
+          ]
+        },
         "enabled": {
           "type": "boolean",
           "description": "Value for enabled."
@@ -101353,6 +102865,26 @@
         },
         "manager_follow_up": {
           "type": "boolean"
+        },
+        "order_mode": {
+          "type": "string",
+          "enum": [
+            "none",
+            "auto",
+            "manual"
+          ]
+        },
+        "catalog_id": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "created": {
           "type": "boolean"
@@ -101543,6 +103075,8 @@
         "enabled",
         "captcha_required",
         "manager_follow_up",
+        "order_mode",
+        "catalog_id",
         "created",
         "updated_at",
         "submit_snippet",
@@ -101556,7 +103090,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_gate_list",
@@ -102205,7 +103739,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_gate_remove",
@@ -102265,7 +103799,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_gate_set",
@@ -103479,7 +105013,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_gate_tree",
@@ -105419,7 +106953,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_get_analytics",
@@ -105564,7 +107098,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_get_manifest",
@@ -105636,7 +107170,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_list_pages",
@@ -106350,7 +107884,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_page_nudge_get",
@@ -106440,7 +107974,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_page_nudge_set",
@@ -106597,7 +108131,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_page_nudge_stats",
@@ -106783,7 +108317,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_page_preview",
@@ -106829,7 +108363,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_pages_set_visibility",
@@ -106918,7 +108452,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_password_list",
@@ -107005,7 +108539,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_password_remove",
@@ -107059,7 +108593,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_password_reveal",
@@ -107113,7 +108647,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_password_set",
@@ -107252,7 +108786,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_prepare_delete",
@@ -107331,7 +108865,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_publish",
@@ -107549,7 +109083,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_request_upload",
@@ -107772,7 +109306,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "site_widgets_list",
@@ -107837,7 +109371,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "submit_form_submission",
@@ -107905,7 +109439,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "support_ticket_create",
@@ -108157,7 +109691,7 @@
     ],
     "risk": "write",
     "domain": "support",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "support_ticket_list",
@@ -108296,7 +109830,7 @@
     ],
     "risk": "read",
     "domain": "support",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "switch_active_bot",
@@ -108362,7 +109896,7 @@
     ],
     "risk": "write",
     "domain": "identity",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "take_chat",
@@ -108415,7 +109949,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "test_funnel_pipeline",
@@ -108604,7 +110138,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "unmark_paid",
@@ -108693,7 +110227,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_agent_config",
@@ -109544,7 +111078,7 @@
     ],
     "risk": "write",
     "domain": "agents",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_bot_profile",
@@ -109766,7 +111300,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_broadcast",
@@ -111067,7 +112601,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_catalog_group",
@@ -111228,12 +112762,12 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_catalog_item",
     "title": "Update Catalog Item",
-    "description": "Patch a catalog item (sparse — omitted fields are untouched). Requires `etag` for optimistic concurrency and `idempotency_key` for durable receipt replay. A nonempty patch returns its canonical committed receipt identically on first success and exact replay. Use `get_catalog_item` for the current RU or COM price presentation and payment-provider availability. Optional `zone` selects that current presentation for an empty no-op patch; omitted defaults to RU. To configure selectable POS modifiers, patch the canonical nested `variants` object; retained keys are stable addresses, so an illegal key rewrite is rejected by the canonical writer. Reach is two INDEPENDENT booleans you may patch separately: `is_active:false` switches the item off entirely (purchasable by nothing); `is_public:false` takes it out of the showcase and storefront while it stays fully payable through its direct link. `is_create_order_on_click:true` makes a click on the item create the order at once (a deferred-payment item cannot switch it off). To configure a booking service, patch nested `booking`: `enabled`, `mode` (`hourly`/`daily`), `duration_value`, `buffer_minutes`, and `resource_ids` (the resource numbers, seq_num — `id` of booking_list_resources). Duration is in hours for hourly mode (1 = 60 minutes), days for daily mode. Enabling booking atomically moves an ordinary catalog item to booking scope; event items cannot be converted.",
+    "description": "Patch a catalog item (sparse — omitted fields are untouched). Requires `etag` for optimistic concurrency and `idempotency_key` for durable receipt replay. A nonempty patch returns its canonical committed receipt identically on first success and exact replay. Use `get_catalog_item` for the current RU or COM price presentation and payment-provider availability. Optional `zone` selects that current presentation for an empty no-op patch; omitted defaults to RU. To configure selectable POS modifiers, patch the canonical nested `variants` object; retained keys are stable addresses, so an illegal key rewrite is rejected by the canonical writer. Reach is two INDEPENDENT booleans you may patch separately: `is_active:false` switches the item off entirely (purchasable by nothing); `is_public:false` takes it out of the showcase and storefront while it stays fully payable through its direct link. `is_create_order_on_click:true` makes a click on the item create the order at once (a deferred-payment item cannot switch it off). To configure a booking service, patch nested `booking`: `enabled`, `mode` (`hourly`/`daily`), `duration_value`, `buffer_minutes`, and `resource_ids` (the resource numbers, seq_num — `id` of booking_list_resources). Duration is in hours for hourly mode (1 = 60 minutes), days for daily mode. Enabling booking atomically moves an ordinary catalog item to booking scope; event items cannot be converted. `external_refs` holds the item's ids in outside systems and is replaced whole: `{getcourse: {offer_id}}` is the GetCourse offer (digits) that a GetCourse payment link and a GetCourse CRM deal use instead of the title; `null` clears it.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -112077,6 +113611,37 @@
                 "null"
               ],
               "description": "Value for intl price includes tax."
+            },
+            "external_refs": {
+              "description": "Ids of the product in outside systems, replaced whole: {getcourse: {offer_id}} — the GetCourse offer (digits) the GetCourse payment link and CRM deal name instead of the title. null or {} clears.",
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "getcourse": {
+                      "type": "object",
+                      "properties": {
+                        "offer_id": {
+                          "type": "string",
+                          "pattern": "^\\d{1,20}$",
+                          "description": "Value for offer id."
+                        }
+                      },
+                      "required": [
+                        "offer_id"
+                      ],
+                      "additionalProperties": false,
+                      "description": "Value for getcourse."
+                    }
+                  },
+                  "additionalProperties": false,
+                  "description": "Value for external refs option."
+                },
+                {
+                  "type": "null",
+                  "description": "Value for external refs option."
+                }
+              ]
             }
           },
           "additionalProperties": false,
@@ -112758,6 +114323,32 @@
             }
           ]
         },
+        "external_refs": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "getcourse": {
+                  "type": "object",
+                  "properties": {
+                    "offer_id": {
+                      "type": "string",
+                      "pattern": "^\\d{1,20}$"
+                    }
+                  },
+                  "required": [
+                    "offer_id"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "public_url": {
           "anyOf": [
             {
@@ -112872,7 +114463,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_chain_step",
@@ -113678,7 +115269,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_client_config",
@@ -114438,7 +116029,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_event",
@@ -115440,7 +117031,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_knowledge",
@@ -115659,7 +117250,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_legal_profile",
@@ -116135,7 +117726,7 @@
     ],
     "risk": "write",
     "domain": "legal",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_location",
@@ -116656,7 +118247,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_marketing_campaign",
@@ -117402,7 +118993,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_marketing_link",
@@ -117557,7 +119148,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_menu_button",
@@ -117761,7 +119352,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_menu_group",
@@ -117914,7 +119505,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_message_chain",
@@ -118018,7 +119609,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_order_status",
@@ -118412,7 +120003,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_quick_reply",
@@ -118505,7 +120096,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_saved_segment",
@@ -119243,7 +120834,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_storefront",
@@ -119518,7 +121109,7 @@
     ],
     "risk": "write",
     "domain": "storefront",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "update_team_member",
@@ -119730,7 +121321,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   },
   {
     "name": "walk_in_event_registration",
@@ -119872,6 +121463,6 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.164"
+    "platform_version": "1.0.165"
   }
 ]

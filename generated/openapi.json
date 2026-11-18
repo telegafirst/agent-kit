@@ -186,6 +186,8 @@
           "SITE_INVITE_PAGE_BOT_LINK_FALLBACK_MISSING",
           "INVALID_PROVIDER_CURRENCY",
           "PROVIDER_NOT_CONFIGURED",
+          "PAYMENT_PROVIDER_NOT_AVAILABLE",
+          "CRM_CONNECTION_FAILED",
           "PAYMENT_CREDENTIALS_REJECTED",
           "CATALOG_FIELD_READ_ONLY",
           "MEDIA_ABORTED",
@@ -241,6 +243,8 @@
           "INVALID_INPUT",
           "FAILED_PRECONDITION",
           "FORM_REDIRECT_HOST_NOT_ALLOWED",
+          "FORM_ORDER_MODE_NEEDS_CATALOG",
+          "FORM_ORDER_MODE_CONFLICTS_CHECKOUT",
           "SITE_HTML_TAG_TOO_LARGE",
           "SITE_VIDEO_TOO_LARGE",
           "SITE_BUNDLE_TOO_LARGE",
@@ -2524,6 +2528,28 @@
             ],
             "additionalProperties": false
           },
+          "external_refs": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "getcourse": {
+                "type": "object",
+                "properties": {
+                  "offer_id": {
+                    "type": "string",
+                    "pattern": "^\\d{1,20}$"
+                  }
+                },
+                "required": [
+                  "offer_id"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
           "public_url": {
             "type": [
               "string",
@@ -3497,6 +3523,29 @@
               "boolean",
               "null"
             ]
+          },
+          "external_refs": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "getcourse": {
+                "type": "object",
+                "properties": {
+                  "offer_id": {
+                    "type": "string",
+                    "pattern": "^\\d{1,20}$"
+                  }
+                },
+                "required": [
+                  "offer_id"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "description": "Ids of the product in outside systems, replaced whole: {getcourse: {offer_id}} — the GetCourse offer (digits) the GetCourse payment link and CRM deal name instead of the title. null or {} clears."
           }
         },
         "additionalProperties": false
@@ -10792,6 +10841,34 @@
                   "api_key"
                 ],
                 "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "amocrm"
+                    ]
+                  },
+                  "subdomain": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "pattern": "^[a-z0-9-]+$"
+                  },
+                  "access_token": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  }
+                },
+                "required": [
+                  "type",
+                  "subdomain",
+                  "access_token"
+                ],
+                "additionalProperties": false
               }
             ]
           },
@@ -10819,6 +10896,16 @@
                 "maxLength": 64
               },
               "subscription_expired_status_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "gc_funnel_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "gc_funnel_stage_id": {
                 "type": "string",
                 "minLength": 1,
                 "maxLength": 64
@@ -10868,7 +10955,8 @@
             "type": "string",
             "enum": [
               "bitrix24",
-              "getcourse"
+              "getcourse",
+              "amocrm"
             ]
           }
         },
@@ -10924,6 +11012,16 @@
                 "maxLength": 64
               },
               "subscription_expired_status_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "gc_funnel_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "gc_funnel_stage_id": {
                 "type": "string",
                 "minLength": 1,
                 "maxLength": 64
@@ -11008,7 +11106,8 @@
             "type": "string",
             "enum": [
               "bitrix24",
-              "getcourse"
+              "getcourse",
+              "amocrm"
             ]
           },
           "deleted": {
@@ -11018,6 +11117,70 @@
         "required": [
           "crm_type",
           "deleted"
+        ],
+        "additionalProperties": false
+      },
+      "CrmPipelineList": {
+        "type": "object",
+        "properties": {
+          "crm_type": {
+            "type": "string",
+            "enum": [
+              "bitrix24",
+              "getcourse",
+              "amocrm"
+            ]
+          },
+          "pipelines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CrmPipeline"
+            }
+          }
+        },
+        "required": [
+          "crm_type",
+          "pipelines"
+        ],
+        "additionalProperties": false
+      },
+      "CrmPipeline": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "name": {
+            "type": "string"
+          },
+          "stages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "stages"
         ],
         "additionalProperties": false
       },
@@ -11907,6 +12070,36 @@
                   "provider": {
                     "type": "string",
                     "enum": [
+                      "getcourse"
+                    ]
+                  },
+                  "account": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 63,
+                    "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?$"
+                  },
+                  "api_key": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024,
+                    "writeOnly": true
+                  },
+                  "rotate_callback_secret": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "provider"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "enum": [
                       "prodamus"
                     ]
                   },
@@ -12106,7 +12299,8 @@
               "paddle",
               "tinkoff",
               "prodamus",
-              "tochka"
+              "tochka",
+              "getcourse"
             ]
           }
         },
@@ -12130,7 +12324,8 @@
               "paddle",
               "tinkoff",
               "prodamus",
-              "tochka"
+              "tochka",
+              "getcourse"
             ]
           }
         },
@@ -12154,7 +12349,8 @@
               "paddle",
               "tinkoff",
               "prodamus",
-              "tochka"
+              "tochka",
+              "getcourse"
             ]
           },
           "enabled": {
@@ -12177,6 +12373,15 @@
               "string",
               "null"
             ]
+          },
+          "webhook_url": {
+            "type": "string"
+          },
+          "webhook_steps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "required": [
@@ -12233,7 +12438,8 @@
               "paddle",
               "tinkoff",
               "prodamus",
-              "tochka"
+              "tochka",
+              "getcourse"
             ]
           },
           "disabled": {
@@ -12261,7 +12467,8 @@
               "paddle",
               "tinkoff",
               "prodamus",
-              "tochka"
+              "tochka",
+              "getcourse"
             ]
           },
           "enabled": {
@@ -13142,6 +13349,15 @@
             "minimum": 1,
             "maximum": 2147483647
           },
+          "order_mode": {
+            "type": "string",
+            "enum": [
+              "none",
+              "auto",
+              "manual"
+            ],
+            "description": "What a submission does to orders: none (nothing), auto (an order for the form product at once, no request card), manual (a request card with a create-order button for the operator). auto and manual need catalog_id and funnel_outcome content. Omitted keeps the stored mode."
+          },
           "enabled": {
             "type": "boolean"
           }
@@ -13566,6 +13782,22 @@
           "manager_follow_up": {
             "type": "boolean"
           },
+          "order_mode": {
+            "type": "string",
+            "enum": [
+              "none",
+              "auto",
+              "manual"
+            ]
+          },
+          "catalog_id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 2147483647
+          },
           "created": {
             "type": "boolean"
           },
@@ -13586,6 +13818,8 @@
           "enabled",
           "captcha_required",
           "manager_follow_up",
+          "order_mode",
+          "catalog_id",
           "created",
           "updated_at"
         ],
@@ -17566,7 +17800,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -17714,7 +17949,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -18453,7 +18689,8 @@
                           "paddle",
                           "tinkoff",
                           "prodamus",
-                          "tochka"
+                          "tochka",
+                          "getcourse"
                         ]
                       },
                       "configuration_fingerprint": {
@@ -18601,7 +18838,8 @@
                           "paddle",
                           "tinkoff",
                           "prodamus",
-                          "tochka"
+                          "tochka",
+                          "getcourse"
                         ]
                       },
                       "amount": {
@@ -19911,7 +20149,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -20059,7 +20298,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -20798,7 +21038,8 @@
                           "paddle",
                           "tinkoff",
                           "prodamus",
-                          "tochka"
+                          "tochka",
+                          "getcourse"
                         ]
                       },
                       "configuration_fingerprint": {
@@ -20946,7 +21187,8 @@
                           "paddle",
                           "tinkoff",
                           "prodamus",
-                          "tochka"
+                          "tochka",
+                          "getcourse"
                         ]
                       },
                       "amount": {
@@ -22302,7 +22544,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -22450,7 +22693,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -23256,7 +23500,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -23404,7 +23649,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -24330,7 +24576,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -24478,7 +24725,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -25253,7 +25501,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -25401,7 +25650,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -26158,7 +26408,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -26306,7 +26557,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -27096,7 +27348,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -27244,7 +27497,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -28034,7 +28288,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -28182,7 +28437,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -28959,7 +29215,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -29107,7 +29364,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -29680,7 +29938,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -29802,7 +30061,8 @@
                   "paddle",
                   "tinkoff",
                   "prodamus",
-                  "tochka"
+                  "tochka",
+                  "getcourse"
                 ]
               },
               "alive": {
@@ -30016,7 +30276,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -30164,7 +30425,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -30949,7 +31211,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -31097,7 +31360,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -31999,7 +32263,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -32147,7 +32412,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -32907,7 +33173,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -33055,7 +33322,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -33820,7 +34088,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -33968,7 +34237,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -34728,7 +34998,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -34876,7 +35147,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -35633,7 +35905,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -35781,7 +36054,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -36551,7 +36825,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -36699,7 +36974,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -37489,7 +37765,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -37637,7 +37914,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -38402,7 +38680,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -38550,7 +38829,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -39137,7 +39417,8 @@
                 "enum": [
                   "credentials_invalid",
                   "registration_failed",
-                  "reconciliation_required"
+                  "reconciliation_required",
+                  "channel_not_available"
                 ]
               }
             },
@@ -39145,6 +39426,925 @@
               "channel",
               "status",
               "operation_key"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "active_slug",
+          "tenant",
+          "owner_onboardings",
+          "stage",
+          "status",
+          "next_action",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "OnboardingChannelDisconnectionResponse": {
+        "type": "object",
+        "properties": {
+          "journey": {
+            "type": "object",
+            "properties": {
+              "workspace_guide": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "bot": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "open_lines": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "operations": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "settings": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "bot",
+                  "open_lines",
+                  "operations",
+                  "settings"
+                ],
+                "additionalProperties": false
+              },
+              "rewards": {
+                "type": "object",
+                "properties": {
+                  "tokens_granted": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "tokens_remaining": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "trial_days": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "tokens_granted",
+                  "tokens_remaining",
+                  "trial_days"
+                ],
+                "additionalProperties": false
+              },
+              "revision": {
+                "type": "number",
+                "enum": [
+                  1
+                ]
+              },
+              "completed": {
+                "type": "boolean"
+              },
+              "completed_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "infrastructure_ready": {
+                "type": "boolean"
+              },
+              "test_required": {
+                "type": "boolean"
+              },
+              "test_completed": {
+                "type": "boolean"
+              },
+              "bonus_state": {
+                "type": "string",
+                "enum": [
+                  "not_eligible",
+                  "pending",
+                  "settled"
+                ]
+              },
+              "ai_preferences": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "app": {
+                    "type": "string",
+                    "enum": [
+                      "claude",
+                      "chatgpt",
+                      "codex",
+                      "claude-code",
+                      "other"
+                    ]
+                  },
+                  "other_app": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  },
+                  "questions_revision": {
+                    "type": "number",
+                    "enum": [
+                      1
+                    ]
+                  },
+                  "confirmed_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "app",
+                  "questions_revision",
+                  "confirmed_at"
+                ],
+                "additionalProperties": false
+              },
+              "decisions": {
+                "type": "object",
+                "properties": {
+                  "first_payment_deferred_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "first_payment_deferred_at"
+                ],
+                "additionalProperties": false
+              },
+              "provider_readiness": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "enum": [
+                      "robokassa",
+                      "yookassa",
+                      "stars",
+                      "cryptobot",
+                      "stripe",
+                      "paypal",
+                      "paddle",
+                      "tinkoff",
+                      "prodamus",
+                      "tochka",
+                      "getcourse"
+                    ]
+                  },
+                  "configuration_fingerprint": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "checked_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ready": {
+                    "type": "boolean"
+                  },
+                  "authentication": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "production_environment": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "checkout_creation": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "webhook_configuration": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "webhook_configuration_assurance": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "enum": [
+                      "provider_api",
+                      "signed_delivery",
+                      "owner_attested",
+                      null
+                    ]
+                  },
+                  "configuration_confirmation_token": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "webhook_delivery": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "live_payment": {
+                    "type": "string",
+                    "enum": [
+                      "verified",
+                      "failed",
+                      "unknown"
+                    ]
+                  },
+                  "limitations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "next_action": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "provider",
+                  "configuration_fingerprint",
+                  "checked_at",
+                  "ready",
+                  "authentication",
+                  "production_environment",
+                  "checkout_creation",
+                  "webhook_configuration",
+                  "webhook_delivery",
+                  "live_payment",
+                  "limitations",
+                  "next_action"
+                ],
+                "additionalProperties": false
+              },
+              "first_payment": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "phase": {
+                    "type": "string",
+                    "enum": [
+                      "accepted",
+                      "price_committed",
+                      "card_pending",
+                      "sent"
+                    ]
+                  },
+                  "product_id": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "title": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "provider": {
+                    "type": "string",
+                    "enum": [
+                      "robokassa",
+                      "yookassa",
+                      "stars",
+                      "cryptobot",
+                      "stripe",
+                      "paypal",
+                      "paddle",
+                      "tinkoff",
+                      "prodamus",
+                      "tochka",
+                      "getcourse"
+                    ]
+                  },
+                  "amount": {
+                    "type": "string",
+                    "maxLength": 32,
+                    "pattern": "^\\d+(?:\\.\\d{1,8})?$"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 16
+                  },
+                  "purchase_zone": {
+                    "type": "string",
+                    "enum": [
+                      "ru",
+                      "com"
+                    ]
+                  },
+                  "is_active": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "preparation_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "payload_hash": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "phase",
+                  "product_id",
+                  "title",
+                  "provider",
+                  "amount",
+                  "currency",
+                  "purchase_zone",
+                  "is_active",
+                  "preparation_id",
+                  "payload_hash"
+                ],
+                "additionalProperties": false
+              },
+              "advance": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "tokens": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                  },
+                  "days": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                  },
+                  "until": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "timezone": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "tokens",
+                  "days",
+                  "until",
+                  "timezone"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "revision",
+              "completed",
+              "completed_at",
+              "infrastructure_ready",
+              "test_required",
+              "test_completed",
+              "bonus_state",
+              "ai_preferences",
+              "decisions",
+              "provider_readiness"
+            ],
+            "additionalProperties": false
+          },
+          "active_slug": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tenant": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "bot_username": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "slug",
+              "bot_username"
+            ],
+            "additionalProperties": false
+          },
+          "owner_onboardings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "slug": {
+                  "type": "string"
+                },
+                "stage": {
+                  "type": "string",
+                  "enum": [
+                    "address",
+                    "site",
+                    "bot",
+                    "supergroups_create",
+                    "infrastructure",
+                    "infrastructure_ready",
+                    "quest_1",
+                    "quest_2",
+                    "warmup",
+                    "quest_product",
+                    "quest_purchase",
+                    "payments",
+                    "first_payment",
+                    "ai_preferences",
+                    "finish",
+                    "completed",
+                    "paid",
+                    "free"
+                  ]
+                }
+              },
+              "required": [
+                "slug",
+                "stage"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "address",
+              "site",
+              "bot",
+              "supergroups_create",
+              "infrastructure",
+              "infrastructure_ready",
+              "quest_1",
+              "quest_2",
+              "warmup",
+              "quest_product",
+              "quest_purchase",
+              "payments",
+              "first_payment",
+              "ai_preferences",
+              "finish",
+              "completed",
+              "paid",
+              "free"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "todo",
+              "in_progress",
+              "waiting_owner",
+              "blocked",
+              "done"
+            ]
+          },
+          "billing": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "free",
+                  "trial",
+                  "active",
+                  "grace",
+                  "expired",
+                  "cancelled"
+                ]
+              },
+              "trial_started_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "trial_ends_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "plan": {
+                "type": "string"
+              },
+              "period_end": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "auto_renew": {
+                "type": "boolean"
+              },
+              "next_charge_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "grace_until": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "plan",
+              "period_end",
+              "auto_renew",
+              "next_charge_at"
+            ],
+            "additionalProperties": false
+          },
+          "next_action": {
+            "type": "object",
+            "properties": {
+              "execution": {
+                "type": "object",
+                "properties": {
+                  "business_slug": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "step": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "executor": {
+                    "type": "string",
+                    "enum": [
+                      "agent",
+                      "owner",
+                      "server"
+                    ]
+                  },
+                  "tool": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "minLength": 1
+                  },
+                  "arguments": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "requires": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "success": {
+                    "type": "object",
+                    "properties": {
+                      "fact": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "fact"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "wait": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "retry_after_seconds": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0
+                      },
+                      "stop_when": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "retry_after_seconds",
+                      "stop_when"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "recovery": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "tool": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "minLength": 1
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      },
+                      "say_to_user": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "tool",
+                      "arguments",
+                      "say_to_user"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "continue_with": {
+                    "type": "object",
+                    "properties": {
+                      "tool": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "enum": [
+                          "get_onboarding_state"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      },
+                      "say_to_user": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "tool",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "prepared_execute": {
+                    "type": "object",
+                    "properties": {
+                      "tool": {
+                        "type": "string",
+                        "enum": [
+                          "onboarding_execute_first_payment"
+                        ]
+                      },
+                      "requires_human_review": {
+                        "type": "boolean",
+                        "enum": [
+                          true
+                        ]
+                      },
+                      "arguments_fields": {
+                        "type": "array",
+                        "prefixItems": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "preparation_id"
+                            ]
+                          },
+                          {
+                            "type": "string",
+                            "enum": [
+                              "payload_hash"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "tool",
+                      "requires_human_review",
+                      "arguments_fields"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "business_slug",
+                  "step",
+                  "executor",
+                  "tool",
+                  "arguments",
+                  "requires",
+                  "success",
+                  "wait",
+                  "recovery",
+                  "continue_with"
+                ],
+                "additionalProperties": false
+              },
+              "goal": {
+                "type": "string",
+                "enum": [
+                  "address",
+                  "site",
+                  "bot",
+                  "bot_settings",
+                  "supergroups_create",
+                  "infrastructure",
+                  "infrastructure_blocked",
+                  "infrastructure_ready",
+                  "quest_product_pending",
+                  "quest_product_ready",
+                  "quest_product_failed",
+                  "payment_provider_alive",
+                  "payment_provider_failed",
+                  "quest_product",
+                  "quest_purchase",
+                  "payments",
+                  "first_payment",
+                  "ai_preferences",
+                  "finish",
+                  "completed",
+                  "paid",
+                  "free",
+                  "address_new_business",
+                  "entry_choose_business",
+                  "entry_work_or_create",
+                  "infrastructure_ready_nth_bot"
+                ]
+              },
+              "say_to_user": {
+                "type": "string"
+              },
+              "collect": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "field": {
+                      "type": "string"
+                    },
+                    "hint": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "field",
+                    "hint"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "wait_for": {
+                "type": "object",
+                "properties": {
+                  "event": {
+                    "type": "string"
+                  },
+                  "retry_after_seconds": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "reason": {
+                    "type": "string",
+                    "enum": [
+                      "SA_TEMPORARILY_UNAVAILABLE"
+                    ]
+                  },
+                  "until": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "event"
+                ],
+                "additionalProperties": false
+              },
+              "media": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "video",
+                      "image_steps"
+                    ]
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "url"
+                ],
+                "additionalProperties": false
+              },
+              "switch_to": {
+                "type": "string"
+              },
+              "webhook_setup": {
+                "$ref": "#/components/schemas/PaymentWebhookSetup"
+              }
+            },
+            "required": [
+              "goal",
+              "say_to_user",
+              "collect"
+            ],
+            "additionalProperties": false
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "type": "string",
+                "enum": [
+                  "max",
+                  "vk"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "disconnected",
+                  "not_connected"
+                ]
+              }
+            },
+            "required": [
+              "channel",
+              "status"
             ],
             "additionalProperties": false
           }
@@ -39338,7 +40538,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -39486,7 +40687,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -40061,7 +41263,8 @@
                   "paddle",
                   "tinkoff",
                   "prodamus",
-                  "tochka"
+                  "tochka",
+                  "getcourse"
                 ]
               },
               "amount": {
@@ -40308,7 +41511,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -40456,7 +41660,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -41227,7 +42432,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -41375,7 +42581,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -42348,7 +43555,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -42496,7 +43704,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -43264,7 +44473,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_fingerprint": {
@@ -43412,7 +44622,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {
@@ -46663,7 +47874,8 @@
               "paddle",
               "tinkoff",
               "prodamus",
-              "tochka"
+              "tochka",
+              "getcourse"
             ]
           }
         },
@@ -78145,7 +79357,7 @@
         "x-required-scopes": [
           "integrations:read"
         ],
-        "description": "Owner-authorized settings. Tenant selected by authenticated credential. Bare list, no pagination. Bearer accepts tgf_* credentials, not surface JWT. Secrets and internal IDs are omitted; amocrm is read-only.",
+        "description": "Owner-authorized settings. Tenant selected by authenticated credential. Bare list, no pagination. Bearer accepts tgf_* credentials, not surface JWT. Secrets and internal IDs are omitted.",
         "responses": {
           "200": {
             "description": "Non-secret CRM connector list",
@@ -78256,7 +79468,7 @@
         "x-required-scopes": [
           "integrations:write"
         ],
-        "description": "Owner-authorized strict upsert by credentials.type (bitrix24/getcourse). Credentials are encrypted with tenant AAD and never returned. Reconfiguring reactivates a deleted connector. Idempotency-Key required for POST body; actor/tenant/handler replay lasts 86400 seconds and preserves 201. Changed inputs return 422; processing returns 409. Bearer accepts tgf_* credentials, not surface JWT.",
+        "description": "Owner-authorized strict upsert by credentials.type (bitrix24/getcourse/amocrm; amocrm takes subdomain + long-lived token). Credentials are verified against the CRM before anything is saved, encrypted with tenant AAD and never returned. Reconfiguring reactivates a deleted connector and a new token lifts an auto-disable the old one caused. Idempotency-Key required for POST body; actor/tenant/handler replay lasts 86400 seconds and preserves 201. Changed inputs return 422; processing returns 409. Bearer accepts tgf_* credentials, not surface JWT.",
         "parameters": [
           {
             "schema": {
@@ -78371,7 +79583,155 @@
             }
           },
           "422": {
-            "description": "IDEMPOTENCY_KEY_MISMATCH: same key with different request inputs",
+            "description": "IDEMPOTENCY_KEY_MISMATCH: same key with different request inputs; CRM_CONNECTION_FAILED: the CRM refused the credentials or could not be set up",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "RATE_LIMIT_EXCEEDED or RATE_LIMIT_UNAVAILABLE: fail-closed resource limit",
+            "headers": {
+              "Retry-After": {
+                "description": "Retry delay in seconds when supplied by resource policy",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tools/integrations/{crm_type}/pipelines": {
+      "get": {
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "tags": [
+          "integrations"
+        ],
+        "operationId": "listCrmPipelines",
+        "summary": "List pipelines and stages of the connected CRM",
+        "x-required-scopes": [
+          "integrations:read"
+        ],
+        "description": "Owner-authorized live read of the tenant CRM (bitrix24 / amocrm): pipelines with stages by the CRM own ids, the values configure settings take as pipeline_id, default_stage_id and paid_stage_id. getcourse has no list and returns an empty pipelines array; its optional board is set by gc_funnel_id and gc_funnel_stage_id. 404 when that CRM is not connected, 422 CRM_CONNECTION_FAILED when it does not answer. Bearer accepts tgf_* credentials, not surface JWT.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "bitrix24",
+                "getcourse",
+                "amocrm"
+              ]
+            },
+            "required": true,
+            "name": "crm_type",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pipelines and stages of the connected CRM",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "description": "Effective per-minute limit",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Remaining requests, or unknown",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Window reset epoch seconds",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Client-Slug": {
+                "description": "Authenticated active tenant slug when available",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "description": "Authenticated active public bot username when available",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrmPipelineList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "INVALID_API_KEY: missing, conflicting, invalid, expired or revoked credential; surface JWT unsupported",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "INSUFFICIENT_SCOPE, PUBLISHABLE_KEY_NOT_ALLOWED or NO_ACTIVE_BOT",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NOT_FOUND: this CRM is not connected",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "PAYLOAD_TOO_LARGE or ITEM_COUNT_EXCEEDED",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "CRM_CONNECTION_FAILED: the CRM did not answer",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -78534,7 +79894,7 @@
             }
           },
           "422": {
-            "description": "IDEMPOTENCY_KEY_MISMATCH: same key with different request inputs",
+            "description": "IDEMPOTENCY_KEY_MISMATCH: same key with different request inputs; CRM_CONNECTION_FAILED: the CRM refused the credentials or could not be set up",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -80337,7 +81697,7 @@
           "site"
         ],
         "summary": "Declare or redeclare a site form",
-        "description": "Owner-only site:write. Uses the canonical complete declaration, not a patch: omitted optionals resolve in the facade. The form `id` and every `step_id` are tenant ids; the public form address remains client_slug plus opaque code. Redeclaration preserves that address. Both ru and com are supported. enabled:false stops acceptance; there is no form DELETE. No secret approval gate. after_submit decides what the visitor sees after sending: auto shows the declared title/text (zone defaults when omitted) and the continue action, labelled by button_label (at most 32 characters; zone default when omitted), redirect sends the visitor to redirect_url, which must lead to the business's own site address, a connected custom domain or an allowed_origins origin. Each variants entry carries exactly one of when (funnel_mode deterministic, first match by sort wins) or hint (funnel_mode ai_agent). when is a non-empty array of at most 20 predicates that all must match, e.g. [{\"op\":\"eq\",\"field\":\"budget_band\",\"value\":\"high\"}]; op is eq or neq (any text, number or boolean value), gt, gte, lt or lte (number value), contains (text value), in (values list), exists or absent (no value); field is a dotted answer name of at most 5 segments; an OR is another variants entry.",
+        "description": "Owner-only site:write. Uses the canonical complete declaration, not a patch: omitted optionals resolve in the facade. The form `id` and every `step_id` are tenant ids; the public form address remains client_slug plus opaque code. Redeclaration preserves that address. Both ru and com are supported. enabled:false stops acceptance; there is no form DELETE. No secret approval gate. after_submit decides what the visitor sees after sending: auto shows the declared title/text (zone defaults when omitted) and the continue action, labelled by button_label (at most 32 characters; zone default when omitted), redirect sends the visitor to redirect_url, which must lead to the business's own site address, a connected custom domain or an allowed_origins origin. Each variants entry carries exactly one of when (funnel_mode deterministic, first match by sort wins) or hint (funnel_mode ai_agent). when is a non-empty array of at most 20 predicates that all must match, e.g. [{\"op\":\"eq\",\"field\":\"budget_band\",\"value\":\"high\"}]; op is eq or neq (any text, number or boolean value), gt, gte, lt or lte (number value), contains (text value), in (values list), exists or absent (no value); field is a dotted answer name of at most 5 segments; an OR is another variants entry. order_mode (none, auto, manual) is what a submission does to orders: auto creates an order for the catalog_id product at once, manual lets the operator create it from the request card; both need catalog_id and funnel_outcome content. order_mode and catalog_id are kept when omitted, because the CRM edits them too; a funnel_outcome checkout declaration must name catalog_id.",
         "security": [
           {
             "hubApiKey": []
@@ -80502,10 +81862,12 @@
             }
           },
           "422": {
-            "description": "Replay key reused for different input; after_submit.redirect_url leads off the business's own hosts; a webhook or external_api destination has no exact https origin, or its origin is not in the egress origins; or a variants[].when is not a valid predicate array",
+            "description": "Replay key reused for different input; after_submit.redirect_url leads off the business's own hosts; a webhook or external_api destination has no exact https origin, or its origin is not in the egress origins; a variants[].when is not a valid predicate array; or order_mode auto/manual lacks catalog_id or meets funnel_outcome checkout",
             "x-error-codes": [
               "IDEMPOTENCY_KEY_MISMATCH",
               "FORM_REDIRECT_HOST_NOT_ALLOWED",
+              "FORM_ORDER_MODE_NEEDS_CATALOG",
+              "FORM_ORDER_MODE_CONFLICTS_CHECKOUT",
               "INVALID_INPUT",
               "FAILED_PRECONDITION"
             ],
@@ -100358,7 +101720,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   }
                 },
@@ -101880,6 +103243,36 @@
                               "provider": {
                                 "type": "string",
                                 "enum": [
+                                  "getcourse"
+                                ]
+                              },
+                              "account": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 63,
+                                "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?$"
+                              },
+                              "api_key": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 1024,
+                                "writeOnly": true
+                              },
+                              "rotate_callback_secret": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "provider"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "provider": {
+                                "type": "string",
+                                "enum": [
                                   "prodamus"
                                 ]
                               },
@@ -102176,7 +103569,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "configuration_confirmation_token": {
@@ -102286,7 +103680,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   }
                 },
@@ -102885,6 +104280,103 @@
         }
       }
     },
+    "/api/v1/tools/onboarding/channel/disconnect": {
+      "post": {
+        "operationId": "disconnectChannel",
+        "tags": [
+          "onboarding"
+        ],
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "x-required-scopes": [
+          "client-config:write"
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Canonical global response cache requires a key for a nonempty body; journey commands, direct bot connection, retry, tax, provider and billing cancellation also enforce it in the actual controller. Bot connection recovery uses its durable tenant reservation and accepts an empty body without a key."
+          }
+        ],
+        "x-idempotency": "http-cache",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channel": {
+                    "type": "string",
+                    "enum": [
+                      "max",
+                      "vk"
+                    ]
+                  }
+                },
+                "required": [
+                  "channel"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Onboarding result and next action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnboardingChannelDisconnectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input or missing idempotency key.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Operation is not permitted.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/tools/onboarding/first-payment/prepare": {
       "post": {
         "operationId": "prepareFirstPayment",
@@ -102940,7 +104432,8 @@
                       "paddle",
                       "tinkoff",
                       "prodamus",
-                      "tochka"
+                      "tochka",
+                      "getcourse"
                     ]
                   },
                   "amount": {

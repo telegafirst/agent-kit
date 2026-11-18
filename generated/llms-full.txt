@@ -1,4 +1,4 @@
-Generated: 2026-11-17T22:32:15.882Z
+Generated: 2026-11-18T20:18:54.011Z
 
 ## Connect TelegaFirst CRM
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -111,6 +111,7 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/tools/kb/delete` _(scopes: kb:write)_ — Delete tenant knowledge by board and tenant id
 - `GET /api/v1/tools/integrations` _(scopes: integrations:read)_ — List tenant CRM connectors
 - `POST /api/v1/tools/integrations` _(scopes: integrations:write)_ — Configure tenant CRM connector
+- `GET /api/v1/tools/integrations/{crm_type}/pipelines` _(scopes: integrations:read)_ — List pipelines and stages of the connected CRM
 - `POST /api/v1/tools/integrations/delete` _(scopes: integrations:write)_ — Disconnect tenant CRM connector
 - `GET /api/v1/tools/client-config` _(scopes: client-config:read)_ — Read tenant client configuration
 - `PATCH /api/v1/tools/client-config` _(scopes: client-config:write)_ — Update tenant client configuration
@@ -193,6 +194,7 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/tools/onboarding/ai-preferences` _(scopes: onboarding:write)_ — saveAiPreferences
 - `POST /api/v1/tools/onboarding/complete` _(scopes: onboarding:write)_ — completeOnboarding
 - `POST /api/v1/tools/onboarding/channel/connect` _(scopes: client-config:write)_ — connectChannel
+- `POST /api/v1/tools/onboarding/channel/disconnect` _(scopes: client-config:write)_ — disconnectChannel
 - `POST /api/v1/tools/onboarding/first-payment/prepare` _(scopes: catalog:write, payments:config)_ — prepareFirstPayment
 - `POST /api/v1/tools/onboarding/first-payment/execute` _(scopes: catalog:write, payments:config)_ — executeFirstPayment
 - `POST /api/v1/tools/onboarding/slug` _(scopes: onboarding:write)_ — claimSlug

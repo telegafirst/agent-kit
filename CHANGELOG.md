@@ -2,6 +2,13 @@
 
 ## Agent-facing changes
 
+### 1.0.41 — 2026-11-18
+
+- Интеграции v1, CRM: новый инструмент `list_crm_pipelines` читает из подключённой CRM (bitrix24, amocrm) воронки и их стадии по идентификаторам самой CRM — значения для pipeline_id, default_stage_id и paid_stage_id в `configure_integration`. amoCRM подключается долгоживущим токеном: `configure_integration` принимает `{type: amocrm, subdomain, access_token}`; `list_integrations` и `delete_integration` работают и с amocrm. Отказ CRM при подключении — `CRM_CONNECTION_FAILED`, ничего не сохранено.
+- Форма сайта: `site_form_declare` принимает order_mode (none, auto, manual) — заказ по заявке с товаром формы; без catalog_id отказывает `FORM_ORDER_MODE_NEEDS_CATALOG`, с итогом оформления (checkout) — `FORM_ORDER_MODE_CONFLICTS_CHECKOUT`.
+- Платежи: GetCourse — одиннадцатый платёжный провайдер в `get_payment_config` и `configure_payment_credentials`; провайдер, ещё не открытый платформой для бизнеса, отказывает `PAYMENT_PROVIDER_NOT_AVAILABLE`. Каталог: идентификатор предложения GetCourse (`external_refs.getcourse`) читает `get_catalog_item` и меняет `update_catalog_item`.
+- Каналы: `connect_channel` работает и для подключённого бизнеса, неудачный статус несёт одну причину (credentials_invalid, registration_failed, reconciliation_required, channel_not_available); новый `disconnect_channel` (REST `POST /api/v1/tools/onboarding/channel/disconnect`) отключает канал MAX или VK, повтор безопасен.
+
 ### 1.0.40 — 2026-11-17
 
 - Платежи: Точка Банк (tochka) — десятый платёжный провайдер в `get_payment_config` и `configure_payment_credentials` и в рецептах ошибок.
