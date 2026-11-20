@@ -1,4 +1,4 @@
-Generated: 2026-11-20T06:35:42.733Z
+Generated: 2026-11-20T23:51:29.438Z
 
 ## Connect TelegaFirst CRM
 1. URL MCP: https://mcp.telegafirst.com/api/v1/mcp
@@ -69,6 +69,7 @@ Read `https://telegafirst.com/auth.md` and `https://telegafirst.com/docs/authori
 - `POST /api/v1/tools/marketing/links` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
 - `PATCH /api/v1/tools/marketing/links` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
 - `POST /api/v1/tools/marketing/links/delete` _(scopes: marketing:write)_ — Authenticate with X-Api-Key or Authorization: Bearer tgf_* (API-key transport; owner session JWT is refused). Every declared scope is required. Ids resolve under the authenticated tenant; public QR links use an opaque UniversalLink code.
+- `GET /api/v1/tools/marketing/link-report` _(scopes: marketing:read)_ — Read opens, visitors, people and form submitters by link
 - `GET /api/v1/tools/chains` _(scopes: chains:read)_ — List message chain shells
 - `POST /api/v1/tools/chains` _(scopes: chains:write)_ — Create a message chain shell
 - `PATCH /api/v1/tools/chains` _(scopes: chains:write)_ — Update a chain shell by tenant id

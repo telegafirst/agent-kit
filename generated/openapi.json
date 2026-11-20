@@ -6409,7 +6409,8 @@
                                         "chain_step",
                                         "marketing_campaign",
                                         "marketing_link",
-                                        "form"
+                                        "form",
+                                        "site_page"
                                       ]
                                     },
                                     "entity_id": {
@@ -6600,7 +6601,8 @@
                                     "chain_step",
                                     "marketing_campaign",
                                     "marketing_link",
-                                    "form"
+                                    "form",
+                                    "site_page"
                                   ]
                                 },
                                 "entity_id": {
@@ -6760,7 +6762,8 @@
                                     "chain_step",
                                     "marketing_campaign",
                                     "marketing_link",
-                                    "form"
+                                    "form",
+                                    "site_page"
                                   ]
                                 },
                                 "entity_id": {
@@ -7247,7 +7250,8 @@
                                     "chain_step",
                                     "marketing_campaign",
                                     "marketing_link",
-                                    "form"
+                                    "form",
+                                    "site_page"
                                   ]
                                 },
                                 "entity_id": {
@@ -7398,7 +7402,8 @@
                                     "chain_step",
                                     "marketing_campaign",
                                     "marketing_link",
-                                    "form"
+                                    "form",
+                                    "site_page"
                                   ]
                                 },
                                 "entity_id": {
@@ -7524,7 +7529,8 @@
                                     "chain_step",
                                     "marketing_campaign",
                                     "marketing_link",
-                                    "form"
+                                    "form",
+                                    "site_page"
                                   ]
                                 },
                                 "entity_id": {
@@ -8271,7 +8277,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -8484,7 +8491,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -8709,7 +8717,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -11405,7 +11414,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -11425,7 +11435,7 @@
                 "type": "null"
               }
             ],
-            "description": "What the bot opens for a NEW INVITEE once, on the tap that attributed them to their inviter (referral axis: first inviter only, within 7 days of the user appearing). Replaces the welcome on that tap; a chain step target starts the funnel and the AI waits for it. Allowed targets: {kind:\"section_root\",section:\"catalog\"|\"booking\"|\"events\"} or {kind:\"deeplink\",entity_type:\"product\"|\"catalog_group\"|\"menu_group\"|\"event\"|\"resource\"|\"chain_step\"|\"marketing_campaign\"|\"marketing_link\"|\"form\",entity_id:<seq_num>}. url, web_app and delivery_message are refused. The target must exist and be active. A marketing_campaign / marketing_link target delivers that campaign's message or opens its target. null clears it. Partner re-attribution never fires it."
+            "description": "What the bot opens for a NEW INVITEE once, on the tap that attributed them to their inviter (referral axis: first inviter only, within 7 days of the user appearing). Replaces the welcome on that tap; a chain step target starts the funnel and the AI waits for it. Allowed targets: {kind:\"section_root\",section:\"catalog\"|\"booking\"|\"events\"} or {kind:\"deeplink\",entity_type:\"product\"|\"catalog_group\"|\"menu_group\"|\"event\"|\"resource\"|\"chain_step\"|\"marketing_campaign\"|\"marketing_link\"|\"form\"|\"site_page\",entity_id:<seq_num>}. url, web_app and delivery_message are refused. The target must exist and be active. A marketing_campaign / marketing_link target delivers that campaign's message or opens its target. null clears it. Partner re-attribution never fires it."
           },
           "inviter_goal_target": {
             "oneOf": [
@@ -11528,7 +11538,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -11548,7 +11559,7 @@
                 "type": "null"
               }
             ],
-            "description": "What the bot opens for the INVITER once in their life, when their first invitee is attributed to them while this goal is set (e.g. a thank-you funnel or a bonus campaign); a personal notification, sent regardless of the marketing opt-out. Allowed targets: {kind:\"section_root\",section:\"catalog\"|\"booking\"|\"events\"} or {kind:\"deeplink\",entity_type:\"product\"|\"catalog_group\"|\"menu_group\"|\"event\"|\"resource\"|\"chain_step\"|\"marketing_campaign\"|\"marketing_link\"|\"form\",entity_id:<seq_num>}. url, web_app and delivery_message are refused. The target must exist and be active. A marketing_campaign / marketing_link target delivers that campaign's message or opens its target. A chain step does not restart a funnel run the inviter is already in. null clears it."
+            "description": "What the bot opens for the INVITER once in their life, when their first invitee is attributed to them while this goal is set (e.g. a thank-you funnel or a bonus campaign); a personal notification, sent regardless of the marketing opt-out. Allowed targets: {kind:\"section_root\",section:\"catalog\"|\"booking\"|\"events\"} or {kind:\"deeplink\",entity_type:\"product\"|\"catalog_group\"|\"menu_group\"|\"event\"|\"resource\"|\"chain_step\"|\"marketing_campaign\"|\"marketing_link\"|\"form\"|\"site_page\",entity_id:<seq_num>}. url, web_app and delivery_message are refused. The target must exist and be active. A marketing_campaign / marketing_link target delivers that campaign's message or opens its target. A chain step does not restart a funnel run the inviter is already in. null clears it."
           },
           "welcome": {
             "type": [
@@ -11749,7 +11760,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -11871,7 +11883,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -48216,7 +48229,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -48347,7 +48361,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -48508,6 +48523,155 @@
           },
           "funnel_copy_views": {
             "type": "integer"
+          },
+          "mini_app_links": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "telegram": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "reason": {
+                        "type": "null"
+                      }
+                    },
+                    "required": [
+                      "url",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "null"
+                      },
+                      "reason": {
+                        "type": "string",
+                        "enum": [
+                          "channel_not_connected",
+                          "channel_surface_not_native",
+                          "page_not_published",
+                          "page_not_addressed",
+                          "page_on_other_host",
+                          "platform_app_not_configured"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "url",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "max": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "reason": {
+                        "type": "null"
+                      }
+                    },
+                    "required": [
+                      "url",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "null"
+                      },
+                      "reason": {
+                        "type": "string",
+                        "enum": [
+                          "channel_not_connected",
+                          "channel_surface_not_native",
+                          "page_not_published",
+                          "page_not_addressed",
+                          "page_on_other_host",
+                          "platform_app_not_configured"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "url",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "vk": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "reason": {
+                        "type": "null"
+                      }
+                    },
+                    "required": [
+                      "url",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "null"
+                      },
+                      "reason": {
+                        "type": "string",
+                        "enum": [
+                          "channel_not_connected",
+                          "channel_surface_not_native",
+                          "page_not_published",
+                          "page_not_addressed",
+                          "page_on_other_host",
+                          "platform_app_not_configured"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "url",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "telegram",
+              "max",
+              "vk"
+            ],
+            "additionalProperties": false
           }
         },
         "required": [
@@ -48525,7 +48689,8 @@
           "funnel_clicks_max",
           "funnel_clicks_vk",
           "funnel_qr_views",
-          "funnel_copy_views"
+          "funnel_copy_views",
+          "mini_app_links"
         ],
         "additionalProperties": false
       },
@@ -48638,7 +48803,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -48834,7 +49000,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -48978,7 +49145,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -49104,7 +49272,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -49297,6 +49466,121 @@
         ],
         "additionalProperties": false,
         "description": "Patch by tenant-local id. kind and code_word are immutable."
+      },
+      "MarketingLinkReportResponse": {
+        "type": "object",
+        "properties": {
+          "rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketingLinkReportRow"
+            }
+          },
+          "next_cursor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "rows",
+          "next_cursor"
+        ],
+        "additionalProperties": false
+      },
+      "MarketingLinkReportRow": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "marketing_link",
+              "site_page"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "label": {
+            "type": "string"
+          },
+          "campaign": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title"
+            ],
+            "additionalProperties": false
+          },
+          "opens": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "unique_visitors": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "people": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "forms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketingLinkReportForm"
+            }
+          }
+        },
+        "required": [
+          "kind",
+          "id",
+          "label",
+          "campaign",
+          "opens",
+          "unique_visitors",
+          "people",
+          "forms"
+        ],
+        "additionalProperties": false
+      },
+      "MarketingLinkReportForm": {
+        "type": "object",
+        "properties": {
+          "form_id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "title": {
+            "type": "string"
+          },
+          "submitters": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "form_id",
+          "title",
+          "submitters"
+        ],
+        "additionalProperties": false
       },
       "MessageChainList": {
         "type": "object",
@@ -49848,7 +50132,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -51104,7 +51389,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -51603,7 +51889,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -52105,7 +52392,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -52613,7 +52901,8 @@
                       "chain_step",
                       "marketing_campaign",
                       "marketing_link",
-                      "form"
+                      "form",
+                      "site_page"
                     ]
                   },
                   "entity_id": {
@@ -69442,6 +69731,389 @@
         }
       }
     },
+    "/api/v1/tools/marketing/link-report": {
+      "get": {
+        "operationId": "getMarketingLinkReport",
+        "tags": [
+          "marketing"
+        ],
+        "summary": "Read opens, visitors, people and form submitters by link",
+        "security": [
+          {
+            "hubApiKey": []
+          },
+          {
+            "hubBearer": []
+          }
+        ],
+        "description": "marketing:read. One row per link of a marketing source (kind marketing_link, id = the source id) or of a site page (kind site_page, id = the page id): opens of the mini app by the link, unique_visitors among them, people whose first touch is the link (the business own team is not counted) and, per form, submitters who sent the form after opening the link, known to the bot or not yet. With from or to (ISO-8601 instants, half-open [from, to)) every number is counted inside the period; without both, over all time. Follow next_cursor until it is null.",
+        "x-required-scopes": [
+          "marketing:read"
+        ],
+        "x-pagination": {
+          "cursorPattern": "^(marketing_link|site_page):[1-9]\\d{0,9}$",
+          "limitDefault": 50,
+          "limitMinimum": 1,
+          "limitMaximum": 100,
+          "nextCursor": "next_cursor"
+        },
+        "x-idempotency": null,
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "required": false,
+            "name": "from",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "required": false,
+            "name": "to",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "marketing_link",
+                "site_page"
+              ]
+            },
+            "required": false,
+            "name": "kind",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "pattern": "^(marketing_link|site_page):[1-9]\\d{0,9}$"
+            },
+            "required": false,
+            "name": "cursor",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            },
+            "required": false,
+            "name": "limit",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One page of the link report",
+            "headers": {
+              "X-Client-Slug": {
+                "description": "Authenticated active tenant slug",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "description": "Public active bot handle, when configured",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Effective requests-per-minute budget",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Remaining budget or unknown",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Reset as Unix seconds",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketingLinkReportResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "VALIDATION_ERROR: from or to is not an ISO-8601 instant, kind is unknown, cursor is not a next_cursor value, or limit is outside 1..100",
+            "headers": {
+              "X-Client-Slug": {
+                "description": "Authenticated active tenant slug",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "description": "Public active bot handle, when configured",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Effective requests-per-minute budget",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Remaining budget or unknown",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Reset as Unix seconds",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "INVALID_API_KEY: absent, invalid, revoked or conflicting key headers; session JWT refused",
+            "headers": {
+              "X-Client-Slug": {
+                "description": "Authenticated active tenant slug",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "description": "Public active bot handle, when configured",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Effective requests-per-minute budget",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Remaining budget or unknown",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Reset as Unix seconds",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "INSUFFICIENT_SCOPE or resource/plan refusal",
+            "headers": {
+              "X-Client-Slug": {
+                "description": "Authenticated active tenant slug",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "description": "Public active bot handle, when configured",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Effective requests-per-minute budget",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Remaining budget or unknown",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Reset as Unix seconds",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_INPUT: from is not earlier than to",
+            "headers": {
+              "X-Client-Slug": {
+                "description": "Authenticated active tenant slug",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "description": "Public active bot handle, when configured",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Effective requests-per-minute budget",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Remaining budget or unknown",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Reset as Unix seconds",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "RATE_LIMIT_EXCEEDED or RATE_LIMIT_UNAVAILABLE",
+            "headers": {
+              "X-Client-Slug": {
+                "description": "Authenticated active tenant slug",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "description": "Public active bot handle, when configured",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Effective requests-per-minute budget",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Remaining budget or unknown",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Reset as Unix seconds",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Retry delay in seconds, when supplied by limiter",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL_ERROR without private implementation detail",
+            "headers": {
+              "X-Client-Slug": {
+                "description": "Authenticated active tenant slug",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Bot-Username": {
+                "description": "Public active bot handle, when configured",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Effective requests-per-minute budget",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Remaining budget or unknown",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Reset as Unix seconds",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/tools/chains": {
       "get": {
         "operationId": "listMessageChains",
@@ -70839,7 +71511,8 @@
                               "chain_step",
                               "marketing_campaign",
                               "marketing_link",
-                              "form"
+                              "form",
+                              "site_page"
                             ]
                           },
                           "entity_id": {
