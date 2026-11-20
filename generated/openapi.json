@@ -236,6 +236,7 @@
           "INVALID_DELIVERY_ADDRESS",
           "PAYMENT_PROVIDERS_UNAVAILABLE",
           "PAYMENT_LINKS_UNAVAILABLE",
+          "PAYMENT_RECURRING_NOT_ENABLED",
           "FISCAL_PROVIDER_BASIS_UNSUPPORTED",
           "MEETING_PROVIDER_NOT_CONNECTED",
           "MEETING_PROVIDER_UNAVAILABLE",
@@ -2251,6 +2252,70 @@
           "refresh_count": {
             "type": "integer",
             "minimum": 0
+          },
+          "payment_failures": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "provider": {
+                  "type": "string",
+                  "enum": [
+                    "robokassa",
+                    "yookassa",
+                    "stars",
+                    "cryptobot",
+                    "stripe",
+                    "paypal",
+                    "paddle",
+                    "tinkoff",
+                    "prodamus",
+                    "tochka",
+                    "getcourse"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "stripe_trial_must_be_free",
+                    "stripe_subscription_period_missing",
+                    "paddle_trial_must_be_free",
+                    "paddle_trial_price_not_synced",
+                    "paddle_trial_terms_missing",
+                    "paddle_trial_days_invalid",
+                    "paddle_price_not_synced",
+                    "paypal_trial_requires_trial_plan",
+                    "paypal_plan_not_configured",
+                    "paypal_plan_terms_mismatch",
+                    "paypal_plan_unreadable",
+                    "paypal_subscription_tax_exclusive_unsupported",
+                    "paypal_subscription_tax_rate_mixed",
+                    "recurring_not_enabled",
+                    "subscriptions_unsupported",
+                    "credentials_rejected",
+                    "payment_data_invalid",
+                    "provider_unavailable",
+                    "provider_refused_unknown",
+                    "prodamus_subscription_not_configured",
+                    "tochka_buyer_email_missing",
+                    "getcourse_buyer_email_missing",
+                    "getcourse_api_limit",
+                    "frozen_receipt_tax_missing",
+                    "frozen_receipt_charge_mismatch"
+                  ]
+                },
+                "retryable": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "provider",
+                "reason",
+                "retryable"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Present only on a partial success: each provider that refused beside the issued links, by its id and closed reason. A pass without any link answers 422 instead."
           }
         },
         "required": [
@@ -12257,7 +12322,9 @@
             "maxLength": 16
           },
           "recurring_enabled": {
-            "type": "boolean"
+            "type": "boolean",
+            "deprecated": true,
+            "description": "Deprecated and ignored: no recurring switch exists any more. Accepted so a client of the previous release is not rejected."
           }
         },
         "required": [
@@ -12360,7 +12427,9 @@
             "type": [
               "boolean",
               "null"
-            ]
+            ],
+            "deprecated": true,
+            "description": "Deprecated: always null. Whether a subscription can be sold is `recurring_enabled` of the catalog item."
           },
           "has_credentials": {
             "type": "boolean"
@@ -103430,7 +103499,9 @@
                         "maxLength": 16
                       },
                       "recurring_enabled": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "deprecated": true,
+                        "description": "Deprecated and ignored: no recurring switch exists any more. Accepted so a client of the previous release is not rejected."
                       }
                     },
                     "required": [

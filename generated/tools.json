@@ -49,7 +49,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "add_comment",
@@ -181,7 +181,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "analyze_business_performance",
@@ -222,7 +222,7 @@
     ],
     "risk": "read",
     "domain": "analytics",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "approve_event_registration",
@@ -327,7 +327,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "assign_catalog_item_to_group",
@@ -399,7 +399,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_assign_resource",
@@ -582,7 +582,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_cancel",
@@ -763,7 +763,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_connect_resource_calendar",
@@ -824,7 +824,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_copy_resource_schedule_month",
@@ -919,7 +919,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_create",
@@ -1183,7 +1183,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_create_resource",
@@ -1949,7 +1949,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_create_resource_schedule",
@@ -2183,7 +2183,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_create_service",
@@ -2766,7 +2766,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_delete_resource",
@@ -2826,7 +2826,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_delete_resource_schedule",
@@ -2975,7 +2975,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_disconnect_resource_calendar",
@@ -3036,7 +3036,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_execute_attendance",
@@ -3209,7 +3209,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_execute_confirm",
@@ -3382,7 +3382,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_execute_overbooking",
@@ -3568,7 +3568,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_execute_price",
@@ -3771,7 +3771,7 @@
     ],
     "risk": "money",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_get_resource",
@@ -4337,7 +4337,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_get_resource_schedule",
@@ -4467,7 +4467,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_get_user_list",
@@ -4640,7 +4640,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_list",
@@ -4861,7 +4861,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_list_pending",
@@ -5047,7 +5047,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_list_resource_schedules",
@@ -5208,7 +5208,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_list_resources",
@@ -5776,7 +5776,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_list_reviews",
@@ -5952,7 +5952,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_prepare_attendance",
@@ -6039,7 +6039,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_prepare_confirm",
@@ -6117,7 +6117,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_prepare_overbooking",
@@ -6343,7 +6343,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_prepare_price",
@@ -6440,7 +6440,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_reschedule",
@@ -6614,7 +6614,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_search_availability",
@@ -6800,7 +6800,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_set_review_visibility",
@@ -6940,7 +6940,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_share_recording",
@@ -7114,7 +7114,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_update_resource",
@@ -7892,7 +7892,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_update_resource_schedule",
@@ -8135,7 +8135,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "booking_withhold_recording",
@@ -8302,7 +8302,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "cancel_auto_renew",
@@ -9466,7 +9466,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "cancel_event",
@@ -9987,7 +9987,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "cancel_event_registration",
@@ -10143,7 +10143,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "cancel_subscription",
@@ -10253,7 +10253,7 @@
     ],
     "risk": "destructive",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "check_approval",
@@ -10311,7 +10311,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "check_direct_app",
@@ -10387,7 +10387,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "check_free_conditions",
@@ -11482,7 +11482,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "check_in_event_registration",
@@ -11617,7 +11617,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "check_out_event_registration",
@@ -11752,7 +11752,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "check_slug_availability",
@@ -11811,7 +11811,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "claim_slug",
@@ -13167,7 +13167,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "complete_event",
@@ -13701,7 +13701,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "configure_integration",
@@ -14024,12 +14024,12 @@
     ],
     "risk": "write",
     "domain": "integrations",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "configure_payment_credentials",
     "title": "Configure Payment Credentials",
-    "description": "Configure (upsert) ONE payment provider for the tenant. Provide `credentials` — discriminated by `provider` (e.g. yookassa {shop_id, api_key}; stripe {secret_key, webhook_secret, currency?}; tochka {jwt, tochka_client_id, customer_code?, merchant_id?} — the Tochka webhook is registered by the platform, the owner pastes no address; getcourse {account, api_key} — the platform issues the callback secret and the answer carries the full callback address for the GetCourse «Вызвать URL» process; {rotate_callback_secret: true} alone issues a new address and the old one answers 401 at once) — plus optional `enabled` (default true), `default_currency` and `recurring_enabled` — set true only after the provider has switched autopayments on for the shop; while it is false a subscription product is not sold through this provider (one-off payments are unaffected), and the platform sets it back to false when the provider refuses a renewal for that reason. Credentials are stored server-side and NEVER returned by a read. Idempotent upsert on the tenant. The answer includes webhook_setup: relay its steps to the owner. OWNER-ONLY money-config: call it directly, or prepare_admin_action then execute_admin_write (secrets are passed again at execute, never held).",
+    "description": "Configure (upsert) ONE payment provider for the tenant. Provide `credentials` — discriminated by `provider` (e.g. yookassa {shop_id, api_key}; stripe {secret_key, webhook_secret, currency?}; tochka {jwt, tochka_client_id, customer_code?, merchant_id?} — the Tochka webhook is registered by the platform, the owner pastes no address; getcourse {account, api_key} — the platform issues the callback secret and the answer carries the full callback address for the GetCourse «Вызвать URL» process; {rotate_callback_secret: true} alone issues a new address and the old one answers 401 at once) — plus optional `enabled` (default true) and `default_currency`. Credentials are stored server-side and NEVER returned by a read. Idempotent upsert on the tenant. The answer includes webhook_setup: relay its steps to the owner. OWNER-ONLY money-config: call it directly, or prepare_admin_action then execute_admin_write (secrets are passed again at execute, never held).",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -15764,7 +15764,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "confirm_booking",
@@ -15931,7 +15931,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "connect_channel",
@@ -17127,7 +17127,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_broadcast",
@@ -18276,6 +18276,7 @@
                       "INVALID_DELIVERY_ADDRESS",
                       "PAYMENT_PROVIDERS_UNAVAILABLE",
                       "PAYMENT_LINKS_UNAVAILABLE",
+                      "PAYMENT_RECURRING_NOT_ENABLED",
                       "FISCAL_PROVIDER_BASIS_UNSUPPORTED",
                       "MEETING_PROVIDER_NOT_CONNECTED",
                       "MEETING_PROVIDER_UNAVAILABLE",
@@ -18434,7 +18435,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_catalog_group",
@@ -18588,7 +18589,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_chain_step",
@@ -18879,7 +18880,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_event",
@@ -19500,7 +19501,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_event_registration",
@@ -19776,7 +19777,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_export",
@@ -19865,7 +19866,7 @@
     ],
     "risk": "write",
     "domain": "export",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_forum_topic",
@@ -19950,7 +19951,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_knowledge",
@@ -20148,7 +20149,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_location",
@@ -20663,7 +20664,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_marketing_campaign",
@@ -21437,7 +21438,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_marketing_link",
@@ -21609,7 +21610,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_menu_button",
@@ -21759,7 +21760,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_menu_group",
@@ -21885,7 +21886,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_message_chain",
@@ -21983,7 +21984,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_order",
@@ -22374,7 +22375,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_order_status",
@@ -22736,7 +22737,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_quest_product",
@@ -24282,7 +24283,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_quick_reply",
@@ -24370,7 +24371,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_quick_site",
@@ -25539,7 +25540,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_saved_segment",
@@ -26265,7 +26266,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "create_session",
@@ -26391,7 +26392,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "debug_chain_run",
@@ -26644,7 +26645,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_broadcast",
@@ -26697,7 +26698,7 @@
     ],
     "risk": "destructive",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_catalog_group",
@@ -26745,7 +26746,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_catalog_item",
@@ -26799,7 +26800,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_chain_step",
@@ -26860,7 +26861,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_comment",
@@ -26914,7 +26915,7 @@
     ],
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_event",
@@ -26967,7 +26968,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_forum_topic_message",
@@ -27038,7 +27039,7 @@
     ],
     "risk": "destructive",
     "domain": "topics",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_integration",
@@ -27097,7 +27098,7 @@
     ],
     "risk": "destructive",
     "domain": "integrations",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_knowledge",
@@ -27167,7 +27168,7 @@
     ],
     "risk": "destructive",
     "domain": "kb",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_location",
@@ -27221,7 +27222,7 @@
     ],
     "risk": "destructive",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_marketing_campaign",
@@ -27274,7 +27275,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_marketing_link",
@@ -27327,7 +27328,7 @@
     ],
     "risk": "destructive",
     "domain": "marketing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_menu_button",
@@ -27375,7 +27376,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_menu_group",
@@ -27423,7 +27424,7 @@
     ],
     "risk": "destructive",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_message_chain",
@@ -27476,7 +27477,7 @@
     ],
     "risk": "destructive",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_order_status",
@@ -27529,7 +27530,7 @@
     ],
     "risk": "destructive",
     "domain": "statuses",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_quick_reply",
@@ -27582,7 +27583,7 @@
     ],
     "risk": "destructive",
     "domain": "quick-replies",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "delete_saved_segment",
@@ -27643,7 +27644,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "describe_segment_axes",
@@ -27815,7 +27816,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "describe_tool",
@@ -28012,7 +28013,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "disable_payment_provider",
@@ -28087,7 +28088,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "disconnect_bot",
@@ -29181,7 +29182,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "disconnect_channel",
@@ -30298,7 +30299,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "domain_add_request",
@@ -30498,7 +30499,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "domain_execute_unlink",
@@ -30627,7 +30628,7 @@
     ],
     "risk": "destructive",
     "domain": "domain",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "domain_prepare_unlink",
@@ -30707,7 +30708,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "domain_status",
@@ -30835,7 +30836,7 @@
     ],
     "risk": "read",
     "domain": "domain",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "domain_verify",
@@ -31012,7 +31013,7 @@
     ],
     "risk": "write",
     "domain": "domain",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "edit_forum_topic_message",
@@ -31167,7 +31168,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "enable_payment_provider",
@@ -31246,7 +31247,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "exchange_session_approval_code",
@@ -31323,7 +31324,7 @@
     ],
     "risk": "write",
     "domain": "sessions",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_admin_read",
@@ -31362,7 +31363,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_admin_write",
@@ -31401,7 +31402,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_broadcast_launch",
@@ -31461,7 +31462,7 @@
     ],
     "risk": "money",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_chain_batch_entry",
@@ -31528,7 +31529,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_delivery_quote",
@@ -31653,7 +31654,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_manual_sale",
@@ -31712,7 +31713,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_message_changes",
@@ -31892,7 +31893,7 @@
     ],
     "risk": "destructive",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_order_composition_change",
@@ -31964,7 +31965,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_order_status_change",
@@ -32025,7 +32026,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_preselection_card",
@@ -32108,7 +32109,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_refund",
@@ -32182,7 +32183,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_reply_batch",
@@ -32359,7 +32360,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "execute_send_invoice",
@@ -32426,7 +32427,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "export_form_submissions_normalized",
@@ -32505,7 +32506,7 @@
     ],
     "risk": "write",
     "domain": "pull",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "extend_personal_offer",
@@ -32643,7 +32644,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_active_bot",
@@ -32684,7 +32685,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_agent_config",
@@ -33010,7 +33011,7 @@
     ],
     "risk": "read",
     "domain": "agents",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_billing_state",
@@ -34323,7 +34324,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_block",
@@ -34484,7 +34485,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_bot_profile",
@@ -34602,7 +34603,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_broadcast_status",
@@ -34735,7 +34736,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_catalog",
@@ -35260,7 +35261,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_catalog_group",
@@ -35335,7 +35336,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_catalog_item",
@@ -36313,7 +36314,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_catalog_topic_link",
@@ -36351,7 +36352,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_chain_step",
@@ -36792,7 +36793,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_client_config",
@@ -37159,7 +37160,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_content_draft",
@@ -37619,6 +37620,7 @@
                     "INVALID_DELIVERY_ADDRESS",
                     "PAYMENT_PROVIDERS_UNAVAILABLE",
                     "PAYMENT_LINKS_UNAVAILABLE",
+                    "PAYMENT_RECURRING_NOT_ENABLED",
                     "FISCAL_PROVIDER_BASIS_UNSUPPORTED",
                     "MEETING_PROVIDER_NOT_CONNECTED",
                     "MEETING_PROVIDER_UNAVAILABLE",
@@ -37768,7 +37770,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_conversation",
@@ -37848,7 +37850,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_customer",
@@ -38544,7 +38546,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_data_dictionary",
@@ -38637,7 +38639,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_doc",
@@ -38746,7 +38748,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_entitlements",
@@ -38862,7 +38864,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_event",
@@ -39636,7 +39638,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_event_registration",
@@ -39758,7 +39760,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_form_submission",
@@ -39963,7 +39965,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_hall_layout",
@@ -40232,7 +40234,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_knowledge",
@@ -40395,7 +40397,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_legal_profile",
@@ -40593,7 +40595,7 @@
     ],
     "risk": "read",
     "domain": "legal",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_location",
@@ -40848,7 +40850,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_menu_button",
@@ -40947,7 +40949,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_menu_group",
@@ -41038,7 +41040,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_message_stats",
@@ -41093,7 +41095,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_mini_app_links",
@@ -41274,7 +41276,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_onboarding_state",
@@ -43913,7 +43915,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_operator_report",
@@ -44185,7 +44187,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_order",
@@ -44485,12 +44487,12 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_payment_config",
     "title": "Get Payment Config",
-    "description": "Read the tenant payment-provider config: each of the 11 providers (yookassa / stripe / robokassa / tinkoff / tochka / getcourse / prodamus / paypal / paddle / cryptobot / stars) with `enabled`, `has_credentials` (whether a secret is on file — the secret itself is NEVER returned), `recurring_enabled` (whether autopayments are confirmed for subscriptions; null where nothing is switched on) and `currency`, plus the tenant `default_currency`. OWNER-ONLY. 0-cost read.",
+    "description": "Read the tenant payment-provider config: each of the 11 providers (yookassa / stripe / robokassa / tinkoff / tochka / getcourse / prodamus / paypal / paddle / cryptobot / stars) with `enabled`, `has_credentials` (whether a secret is on file — the secret itself is NEVER returned), and `currency`, plus the tenant `default_currency`. OWNER-ONLY. 0-cost read.",
     "inputSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -44595,7 +44597,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_personal_offer",
@@ -44720,7 +44722,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_plan_checkout_link",
@@ -44751,7 +44753,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_playbook",
@@ -45054,7 +45056,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_public_channels",
@@ -45154,7 +45156,7 @@
     ],
     "risk": "read",
     "domain": "public-channel",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_saved_segment",
@@ -45520,7 +45522,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_session_status",
@@ -45605,7 +45607,7 @@
     ],
     "risk": "read",
     "domain": "sessions",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_share_links",
@@ -46032,7 +46034,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_skill",
@@ -46095,7 +46097,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_storefront",
@@ -46232,7 +46234,7 @@
     ],
     "risk": "read",
     "domain": "storefront",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_subscription_status",
@@ -46318,7 +46320,7 @@
     ],
     "risk": "read",
     "domain": "entitlements",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_token_billing",
@@ -46402,7 +46404,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_token_topup_link",
@@ -46433,7 +46435,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "get_user_timeline",
@@ -46690,7 +46692,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "hold_event_seats",
@@ -46759,7 +46761,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "init_managed_bot",
@@ -47861,7 +47863,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "invite_team_member",
@@ -48068,7 +48070,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "issue_api_key",
@@ -48194,7 +48196,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "issue_provider_credential_link",
@@ -48331,7 +48333,7 @@
     ],
     "risk": "write",
     "domain": "payments",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "issue_supergroup_bind_links",
@@ -49582,7 +49584,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "link_anonymous_order",
@@ -49737,7 +49739,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_accessible_bots",
@@ -49806,7 +49808,7 @@
     ],
     "risk": "read",
     "domain": "identity",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_blocks",
@@ -49885,7 +49887,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_broadcasts",
@@ -50589,7 +50591,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_catalog_groups",
@@ -50666,7 +50668,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_chain_runs",
@@ -50757,7 +50759,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_chain_steps",
@@ -51214,7 +51216,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_comments",
@@ -51366,7 +51368,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_connections",
@@ -51442,7 +51444,7 @@
     ],
     "risk": "read",
     "domain": "credentials",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_crm_pipelines",
@@ -51535,7 +51537,7 @@
     ],
     "risk": "read",
     "domain": "integrations",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_customers",
@@ -51860,7 +51862,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_delivery_method_versions",
@@ -52068,7 +52070,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_delivery_quote_requests",
@@ -52209,7 +52211,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_dialogs",
@@ -52522,7 +52524,7 @@
     ],
     "risk": "read",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_event_registrations",
@@ -52677,7 +52679,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_events",
@@ -53341,7 +53343,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_forum_topics",
@@ -53403,7 +53405,7 @@
     ],
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_integrations",
@@ -53559,7 +53561,7 @@
     ],
     "risk": "read",
     "domain": "integrations",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_knowledge",
@@ -53715,7 +53717,7 @@
     ],
     "risk": "read",
     "domain": "kb",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_locations",
@@ -54002,7 +54004,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_marketing_campaigns",
@@ -54461,7 +54463,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_marketing_links",
@@ -54588,7 +54590,7 @@
     ],
     "risk": "read",
     "domain": "marketing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_menu_buttons",
@@ -54706,7 +54708,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_menu_groups",
@@ -54816,7 +54818,7 @@
     ],
     "risk": "read",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_message_chains",
@@ -54910,7 +54912,7 @@
     ],
     "risk": "read",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_order_statuses",
@@ -55113,7 +55115,7 @@
     ],
     "risk": "read",
     "domain": "statuses",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_orders",
@@ -55284,7 +55286,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_payment_rows",
@@ -55469,7 +55471,7 @@
     ],
     "risk": "read",
     "domain": "payments",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_personal_offers",
@@ -55642,7 +55644,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_playbooks",
@@ -55721,7 +55723,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_promo_code_versions",
@@ -55925,7 +55927,7 @@
     ],
     "risk": "read",
     "domain": "pricing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_quick_replies",
@@ -55992,7 +55994,7 @@
     ],
     "risk": "read",
     "domain": "quick-replies",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_saved_segments",
@@ -56390,7 +56392,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_segment_targets",
@@ -56485,7 +56487,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_team_members",
@@ -56625,7 +56627,7 @@
     ],
     "risk": "read",
     "domain": "team",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "list_variant_combinations",
@@ -56771,7 +56773,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "load_domain",
@@ -56984,7 +56986,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "manage_delivery_methods",
@@ -57601,7 +57603,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "manage_pricing_rules",
@@ -60843,7 +60845,7 @@
     ],
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "manage_promo_codes",
@@ -61627,7 +61629,7 @@
     ],
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "manage_variant_combinations",
@@ -61828,7 +61830,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "mark_paid",
@@ -61923,7 +61925,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "media_finalize",
@@ -62144,7 +62146,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "media_get_download_link",
@@ -62192,7 +62194,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "media_get_status",
@@ -62605,6 +62607,7 @@
                 "INVALID_DELIVERY_ADDRESS",
                 "PAYMENT_PROVIDERS_UNAVAILABLE",
                 "PAYMENT_LINKS_UNAVAILABLE",
+                "PAYMENT_RECURRING_NOT_ENABLED",
                 "FISCAL_PROVIDER_BASIS_UNSUPPORTED",
                 "MEETING_PROVIDER_NOT_CONNECTED",
                 "MEETING_PROVIDER_UNAVAILABLE",
@@ -62756,7 +62759,7 @@
     ],
     "risk": "read",
     "domain": "content",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "media_import_files",
@@ -63080,7 +63083,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "media_request_upload",
@@ -63222,7 +63225,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "meeting_provider_connect",
@@ -63286,7 +63289,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "meeting_provider_status",
@@ -63370,7 +63373,7 @@
     ],
     "risk": "read",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "move_user_in_chain",
@@ -63454,7 +63457,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_check_payment_provider",
@@ -64792,7 +64795,7 @@
     ],
     "risk": "write",
     "domain": "payments",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_check_test_product",
@@ -65919,7 +65922,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_check_test_purchase",
@@ -67040,7 +67043,7 @@
     ],
     "risk": "read",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_complete",
@@ -68155,7 +68158,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_confirm_payment_webhook",
@@ -69499,7 +69502,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_connect_channel",
@@ -70695,7 +70698,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_connect_payment_provider",
@@ -72480,7 +72483,7 @@
     ],
     "risk": "money",
     "domain": "payments",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_defer_first_payment",
@@ -73592,7 +73595,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_execute_first_payment",
@@ -74716,7 +74719,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_prepare_first_payment",
@@ -75925,7 +75928,7 @@
     ],
     "risk": "money",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "onboarding_save_ai_preferences",
@@ -77077,7 +77080,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "partner_get_balance",
@@ -77117,7 +77120,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "partner_get_invite_links",
@@ -77188,7 +77191,7 @@
     ],
     "risk": "read",
     "domain": "partner",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "partner_request_payout",
@@ -77233,7 +77236,7 @@
     ],
     "risk": "money",
     "domain": "partner",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_admin_action",
@@ -77375,7 +77378,7 @@
     ],
     "risk": "write",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_broadcast_launch",
@@ -77527,7 +77530,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_chain_batch_entry",
@@ -77653,7 +77656,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_delivery_quote",
@@ -77808,7 +77811,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_manual_sale",
@@ -78454,7 +78457,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_message_changes",
@@ -79235,7 +79238,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_order_composition_change",
@@ -79846,7 +79849,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_order_status_change",
@@ -79931,7 +79934,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_preselection_card",
@@ -80276,7 +80279,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_refund",
@@ -80403,7 +80406,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_reply_batch",
@@ -81065,7 +81068,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "prepare_send_invoice",
@@ -81150,7 +81153,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "preview_segment_reach",
@@ -81306,7 +81309,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "publish_entity",
@@ -83752,6 +83755,7 @@
                       "INVALID_DELIVERY_ADDRESS",
                       "PAYMENT_PROVIDERS_UNAVAILABLE",
                       "PAYMENT_LINKS_UNAVAILABLE",
+                      "PAYMENT_RECURRING_NOT_ENABLED",
                       "FISCAL_PROVIDER_BASIS_UNSUPPORTED",
                       "MEETING_PROVIDER_NOT_CONNECTED",
                       "MEETING_PROVIDER_UNAVAILABLE",
@@ -83886,7 +83890,7 @@
     ],
     "risk": "write",
     "domain": "content",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "pull_form_submissions",
@@ -84166,7 +84170,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "put_hall_layout",
@@ -84587,7 +84591,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "query_form_submission_segment",
@@ -84713,7 +84717,7 @@
     ],
     "risk": "read",
     "domain": "pull",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "quote_order",
@@ -85005,7 +85009,7 @@
     ],
     "risk": "read",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "read_forum_topic_messages",
@@ -85105,7 +85109,7 @@
     ],
     "risk": "read",
     "domain": "topics",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "refresh_payment_urls",
@@ -85170,6 +85174,69 @@
           "type": "integer",
           "minimum": 0,
           "maximum": 9007199254740991
+        },
+        "payment_failures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "provider": {
+                "type": "string",
+                "enum": [
+                  "robokassa",
+                  "yookassa",
+                  "stars",
+                  "cryptobot",
+                  "stripe",
+                  "paypal",
+                  "paddle",
+                  "tinkoff",
+                  "prodamus",
+                  "tochka",
+                  "getcourse"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "enum": [
+                  "stripe_trial_must_be_free",
+                  "stripe_subscription_period_missing",
+                  "paddle_trial_must_be_free",
+                  "paddle_trial_price_not_synced",
+                  "paddle_trial_terms_missing",
+                  "paddle_trial_days_invalid",
+                  "paddle_price_not_synced",
+                  "paypal_trial_requires_trial_plan",
+                  "paypal_plan_not_configured",
+                  "paypal_plan_terms_mismatch",
+                  "paypal_plan_unreadable",
+                  "paypal_subscription_tax_exclusive_unsupported",
+                  "paypal_subscription_tax_rate_mixed",
+                  "recurring_not_enabled",
+                  "subscriptions_unsupported",
+                  "credentials_rejected",
+                  "payment_data_invalid",
+                  "provider_unavailable",
+                  "provider_refused_unknown",
+                  "prodamus_subscription_not_configured",
+                  "tochka_buyer_email_missing",
+                  "getcourse_buyer_email_missing",
+                  "getcourse_api_limit",
+                  "frozen_receipt_tax_missing",
+                  "frozen_receipt_charge_mismatch"
+                ]
+              },
+              "retryable": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "provider",
+              "reason",
+              "retryable"
+            ],
+            "additionalProperties": false
+          }
         }
       },
       "required": [
@@ -85185,7 +85252,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "register_existing_bot",
@@ -86290,7 +86357,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "register_mini_app_origin",
@@ -86413,7 +86480,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "reject_event_registration",
@@ -86495,7 +86562,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "release_chat",
@@ -86548,7 +86615,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "release_event_seats",
@@ -86617,7 +86684,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "remove_catalog_item_from_group",
@@ -86683,7 +86750,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "remove_public_channel",
@@ -86746,7 +86813,7 @@
     ],
     "risk": "destructive",
     "domain": "public-channel",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "request_access_link",
@@ -86879,7 +86946,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "request_manual_supergroups",
@@ -88014,7 +88081,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "resource_set_meeting_provider",
@@ -88082,7 +88149,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "restore_delivery_method_version",
@@ -88360,7 +88427,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "restore_promo_code_version",
@@ -88738,7 +88805,7 @@
     ],
     "risk": "money",
     "domain": "pricing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "resume_bot_connection",
@@ -89833,7 +89900,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "resume_infrastructure",
@@ -92552,7 +92619,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "retry_onboarding_site",
@@ -95179,7 +95246,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "revoke_connection",
@@ -95228,7 +95295,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "revoke_personal_offer",
@@ -95359,7 +95426,7 @@
     ],
     "risk": "write",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "revoke_team_member",
@@ -95412,7 +95479,7 @@
     ],
     "risk": "destructive",
     "domain": "team",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "sale_preset_apply",
@@ -95806,7 +95873,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "sale_readiness_check",
@@ -95987,7 +96054,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "sample_segment_audience",
@@ -96060,7 +96127,7 @@
     ],
     "risk": "read",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "scope_change",
@@ -96193,7 +96260,7 @@
     ],
     "risk": "write",
     "domain": "credentials",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "search_admin_tools",
@@ -96381,7 +96448,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "search_catalog",
@@ -96738,7 +96805,7 @@
     ],
     "risk": "read",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "search_docs",
@@ -96844,7 +96911,7 @@
     ],
     "risk": "read",
     "domain": "platform",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "secret_delete",
@@ -96908,7 +96975,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "secret_list",
@@ -96962,7 +97029,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "secret_put",
@@ -97038,7 +97105,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "secret_rotate",
@@ -97114,7 +97181,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "send_tariff_checkout_card",
@@ -98253,7 +98320,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "send_to_forum_topic",
@@ -98441,7 +98508,7 @@
     ],
     "risk": "write",
     "domain": "topics",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "set_buyer_recommendations",
@@ -98565,7 +98632,7 @@
     ],
     "risk": "write",
     "domain": "pricing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "set_event_capacity",
@@ -98662,7 +98729,7 @@
     ],
     "risk": "destructive",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "set_event_phase",
@@ -99192,7 +99259,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "set_form_submission_handled",
@@ -99249,7 +99316,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "set_order_payment_type",
@@ -99323,7 +99390,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "set_public_channel",
@@ -99493,7 +99560,7 @@
     ],
     "risk": "write",
     "domain": "public-channel",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "set_related_items",
@@ -100341,7 +100408,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "set_stock",
@@ -100453,7 +100520,7 @@
     ],
     "risk": "destructive",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "set_tax_profile",
@@ -101667,7 +101734,7 @@
     ],
     "risk": "write",
     "domain": "onboarding",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_checkout_key",
@@ -101727,7 +101794,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_delete_page",
@@ -101797,7 +101864,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_egress_origin_list",
@@ -101840,7 +101907,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_egress_origin_set",
@@ -101904,7 +101971,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_execute_delete",
@@ -101964,7 +102031,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_fetch_file",
@@ -102031,7 +102098,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_form_declare",
@@ -103090,7 +103157,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_gate_list",
@@ -103739,7 +103806,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_gate_remove",
@@ -103799,7 +103866,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_gate_set",
@@ -105013,7 +105080,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_gate_tree",
@@ -106953,7 +107020,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_get_analytics",
@@ -107098,7 +107165,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_get_manifest",
@@ -107170,7 +107237,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_list_pages",
@@ -107884,7 +107951,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_page_nudge_get",
@@ -107974,7 +108041,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_page_nudge_set",
@@ -108131,7 +108198,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_page_nudge_stats",
@@ -108317,7 +108384,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_page_preview",
@@ -108363,7 +108430,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_pages_set_visibility",
@@ -108452,7 +108519,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_password_list",
@@ -108539,7 +108606,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_password_remove",
@@ -108593,7 +108660,7 @@
     ],
     "risk": "destructive",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_password_reveal",
@@ -108647,7 +108714,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_password_set",
@@ -108786,7 +108853,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_prepare_delete",
@@ -108865,7 +108932,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_publish",
@@ -109083,7 +109150,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_request_upload",
@@ -109306,7 +109373,7 @@
     ],
     "risk": "write",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "site_widgets_list",
@@ -109371,7 +109438,7 @@
     ],
     "risk": "read",
     "domain": "site",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "submit_form_submission",
@@ -109439,7 +109506,7 @@
     ],
     "risk": "write",
     "domain": "push",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "support_ticket_create",
@@ -109691,7 +109758,7 @@
     ],
     "risk": "write",
     "domain": "support",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "support_ticket_list",
@@ -109830,7 +109897,7 @@
     ],
     "risk": "read",
     "domain": "support",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "switch_active_bot",
@@ -109896,7 +109963,7 @@
     ],
     "risk": "write",
     "domain": "identity",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "take_chat",
@@ -109949,7 +110016,7 @@
     ],
     "risk": "write",
     "domain": "dialogs",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "test_funnel_pipeline",
@@ -110138,7 +110205,7 @@
     ],
     "risk": "read",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "unmark_paid",
@@ -110227,7 +110294,7 @@
     ],
     "risk": "money",
     "domain": "orders",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_agent_config",
@@ -111078,7 +111145,7 @@
     ],
     "risk": "write",
     "domain": "agents",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_bot_profile",
@@ -111300,7 +111367,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_broadcast",
@@ -112601,7 +112668,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_catalog_group",
@@ -112762,7 +112829,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_catalog_item",
@@ -114463,7 +114530,7 @@
     ],
     "risk": "write",
     "domain": "catalog",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_chain_step",
@@ -115269,7 +115336,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_client_config",
@@ -116029,7 +116096,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_event",
@@ -117031,7 +117098,7 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_knowledge",
@@ -117250,7 +117317,7 @@
     ],
     "risk": "write",
     "domain": "kb",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_legal_profile",
@@ -117726,7 +117793,7 @@
     ],
     "risk": "write",
     "domain": "legal",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_location",
@@ -118247,7 +118314,7 @@
     ],
     "risk": "write",
     "domain": "booking",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_marketing_campaign",
@@ -118993,7 +119060,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_marketing_link",
@@ -119148,7 +119215,7 @@
     ],
     "risk": "write",
     "domain": "marketing",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_menu_button",
@@ -119352,7 +119419,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_menu_group",
@@ -119505,7 +119572,7 @@
     ],
     "risk": "write",
     "domain": "client-config",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_message_chain",
@@ -119609,7 +119676,7 @@
     ],
     "risk": "write",
     "domain": "chains",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_order_status",
@@ -120003,7 +120070,7 @@
     ],
     "risk": "write",
     "domain": "statuses",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_quick_reply",
@@ -120096,7 +120163,7 @@
     ],
     "risk": "write",
     "domain": "quick-replies",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_saved_segment",
@@ -120834,7 +120901,7 @@
     ],
     "risk": "write",
     "domain": "broadcasts",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_storefront",
@@ -121109,7 +121176,7 @@
     ],
     "risk": "write",
     "domain": "storefront",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "update_team_member",
@@ -121321,7 +121388,7 @@
     ],
     "risk": "write",
     "domain": "team",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   },
   {
     "name": "walk_in_event_registration",
@@ -121463,6 +121530,6 @@
     ],
     "risk": "write",
     "domain": "events",
-    "platform_version": "1.0.165"
+    "platform_version": "1.0.166"
   }
 ]
